@@ -2,7 +2,7 @@
 
 namespace StyyxUtil {
 
-    struct Randomiser
+    struct RandomiserUtil
     {
         static std::mt19937& GetRNG()
         {

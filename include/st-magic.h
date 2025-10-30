@@ -2,7 +2,7 @@
 
 namespace StyyxUtil {
 
-    struct Magic {
+    struct MagicUtil {
         static bool IsPermanent(RE::MagicItem* item)
         {
             switch (item->GetSpellType()){

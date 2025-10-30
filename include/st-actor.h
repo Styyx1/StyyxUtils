@@ -2,7 +2,7 @@
 
 namespace StyyxUtil {
 
-	struct Actor {
+	struct ActorUtil {
 
         inline static RE::TESObjectCELL* GetPlayerCell(RE::PlayerCharacter* player)
         {
@@ -30,9 +30,9 @@ namespace StyyxUtil {
         }
 
         inline static void FullyHealActor(RE::Actor* a) {
-            a->RestoreActorValue(RE::ActorValue::kHealth, Util::Actor::GetMaxHealth(a));
-            a->RestoreActorValue(RE::ActorValue::kStamina, Util::Actor::GetMaxStamina(a));
-            a->RestoreActorValue(RE::ActorValue::kMagicka, Util::Actor::GetMaxMagicka(a));
+            a->RestoreActorValue(RE::ActorValue::kHealth, GetMaxHealth(a));
+            a->RestoreActorValue(RE::ActorValue::kStamina, GetMaxStamina(a));
+            a->RestoreActorValue(RE::ActorValue::kMagicka, GetMaxMagicka(a));
         }
 
         static bool IsEffectActive(RE::Actor* a_actor, RE::EffectSetting* a_effect)
