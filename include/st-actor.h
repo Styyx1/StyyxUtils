@@ -16,6 +16,11 @@ namespace StyyxUtil {
 			return cell;
         }
 
+        inline static bool StartsDead(const RE::Actor* actor)
+        {
+            return actor && (actor->formFlags & RE::Actor::RecordFlags::kStartsDead);
+        }
+
         inline static float GetMaxHealth(RE::Actor* a_actor){
             return a_actor->GetActorValueModifier(RE::ACTOR_VALUE_MODIFIER::kTemporary, RE::ActorValue::kHealth) + a_actor->GetPermanentActorValue(RE::ActorValue::kHealth);
         }
