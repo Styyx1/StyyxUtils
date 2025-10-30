@@ -2,34 +2,6 @@
 
 namespace StyyxUtil {
 
-    struct Randomiser
-    {
-        static std::mt19937& GetRNG()
-        {
-            static std::mt19937 gen(std::random_device{}());
-            return gen;
-        }
-
-        static int GetRandomInt(int a_min, int a_max)
-        {
-            std::uniform_int_distribution<int> distrib(a_min, a_max);
-            return distrib(GetRNG());
-        }
-
-        static float GetRandomFloat(float a_min, float a_max)
-        {
-            std::uniform_real_distribution<float> distrib(a_min, a_max);
-            return distrib(GetRNG());
-        }
-
-        static float GetRoundedFloat(float a_min, float a_max, int decimals = 2)
-        {
-            auto value = GetRandomFloat(a_min, a_max);
-            float factor = std::pow(10.0f, static_cast<float>(decimals));
-            return std::round(value * factor) / factor;
-        }
-    };
-
 	struct Actor {
 
         inline static RE::TESObjectCELL* GetPlayerCell(RE::PlayerCharacter* player)
@@ -85,34 +57,5 @@ namespace StyyxUtil {
             return false;
         }
 
-
 	};
-
-    struct Cells {
-
-    };
-
-    struct Magic {
-        static bool IsPermanent(RE::MagicItem* item)
-        {
-            switch (item->GetSpellType()){
-            case RE::MagicSystem::SpellType::kDisease:
-            case RE::MagicSystem::SpellType::kAbility:
-            case RE::MagicSystem::SpellType::kAddiction:
-                return true;            
-            default: 
-                return false;
-            }
-        }
-
-        inline static void ApplySpell(RE::Actor* caster, RE::Actor* target, RE::SpellItem* spell)
-        {
-            if (IsPermanent(spell)) {
-                target->AddSpell(spell);
-            }
-            else {
-                caster->GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)->CastSpellImmediate(spell, false, target, 1.0F, false, 0.0F, nullptr);
-            }
-        }
-    };
 }
