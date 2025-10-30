@@ -16,11 +16,12 @@ namespace StyyxUtil {
 			return cell;
         }
 
+        // check if actor starts dead. https://github.com/powerof3/Spell-Perk-Item-Distributor/blob/4972b74819b935b1e443cb4022691ac572785da5/SPID/src/LookupNPC.cpp#L254
         inline static bool StartsDead(const RE::Actor* actor)
         {
             return actor && (actor->formFlags & RE::Actor::RecordFlags::kStartsDead);
         }
-
+		//Get the maximum health of an actor. https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L92
         inline static float GetMaxHealth(RE::Actor* a_actor){
             return a_actor->GetActorValueModifier(RE::ACTOR_VALUE_MODIFIER::kTemporary, RE::ActorValue::kHealth) + a_actor->GetPermanentActorValue(RE::ActorValue::kHealth);
         }

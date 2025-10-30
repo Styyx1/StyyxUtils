@@ -3,6 +3,7 @@
 namespace StyyxUtil {
 
     struct MagicUtil {
+        //Credit: KernalsEgg for ApplySpell and IsPermanent https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L102
         static bool IsPermanent(RE::MagicItem* item)
         {
             switch (item->GetSpellType()){
