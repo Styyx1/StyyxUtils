@@ -5,6 +5,8 @@ namespace StyyxUtil {
 	struct CellUtil {
 		inline static std::vector<std::string> is_a_dungeon{
 		"LocTypeDungeon",
+		"LocSetCave",
+		"LocSetCaveIce",
 		"LocTypeDwarvenAutomatons",
 		"LocTypeAnimalDen",
 		"LocTypeBanditCamp",
