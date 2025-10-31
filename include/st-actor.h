@@ -41,6 +41,28 @@ namespace StyyxUtil {
             a->RestoreActorValue(RE::ActorValue::kMagicka, GetMaxMagicka(a));
         }
 
+        static bool ActorHasEffectOfTypeActive(RE::Actor* a_actor, RE::EffectArchetypes::ArchetypeID a_type)
+        {
+            if (!a_actor) {
+                return false;
+            }
+            auto activeEffects = a_actor->GetActiveEffectList();
+            RE::EffectSetting* setting = nullptr;
+            if (!activeEffects->empty()) {
+                for (RE::ActiveEffect* effect : *activeEffects) {
+                    if (effect; !effect->flags.any(RE::ActiveEffect::Flag::kInactive)) {
+                        setting = effect ? effect->GetBaseObject() : nullptr;
+                        if (setting) {
+                            if (setting->HasArchetype(a_type)) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+		}
+
         static bool IsEffectActive(RE::Actor* a_actor, RE::EffectSetting* a_effect)
         {
             if (!a_actor || !a_effect) {
