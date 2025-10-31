@@ -5,7 +5,7 @@ inspired by po3's [ClibUtil](https://github.com/powerof3/CLibUtil)
 
 to use it in your project, add it as submodule 
 ```
-git submodule add extern/styyx-utils
+git submodule add https://github.com/Styyx1/StyyxUtils extern/styyx-utils
 ```
 
 and in your xmake.lua
