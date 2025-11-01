@@ -125,5 +125,83 @@ namespace StyyxUtil {
             return false;
         }
 
+        static void AddItem(RE::Actor* a, RE::TESBoundObject* item, RE::ExtraDataList* extraList, int count, RE::TESObjectREFR* fromRefr)
+        {
+            using func_t = decltype(AddItem);
+            REL::Relocation<func_t> func{ REL::ID(37525) };
+            return func(a, item, extraList, count, fromRefr);
+        }
+
+        static void AddItemPlayer(RE::TESBoundObject* item, int count)
+        {
+            return AddItem(RE::PlayerCharacter::GetSingleton(), item, nullptr, count, nullptr);
+        }
+
+        static int RemoveItemPlayer(RE::TESBoundObject* item, int count)
+        {
+            using func_t = decltype(RemoveItemPlayer);
+            REL::Relocation<func_t> func{ REL::ID(16919) };
+            return func(item, count);
+        }
+
+        static int get_item_count(RE::Actor* a, RE::TESBoundObject* item)
+        {
+            if (auto changes = a->GetInventoryChanges())
+            {
+                using func_t = int(RE::InventoryChanges*, RE::TESBoundObject*);
+                REL::Relocation<func_t> func{ REL::ID(16047) };
+                return func(changes, item);
+            }
+            return 0;
+        }
+
+        // Credit: D7ry for getWieldingWeapon in ValhallaCombat
+    // https://github.com/D7ry/valhallaCombat/blob/48fb4c3b9bb6bbaa691ce41dbd33f096b74c07e3/src/include/Utils.cpp#L10
+        inline static RE::TESObjectWEAP* getWieldingWeapon(RE::Actor* a_actor)
+        {
+            auto weapon = a_actor->GetAttackingWeapon();
+            if (weapon)
+            {
+                return weapon->object->As<RE::TESObjectWEAP>();
+            }
+            auto rhs = a_actor->GetEquippedObject(false);
+            if (rhs && rhs->IsWeapon())
+            {
+                return rhs->As<RE::TESObjectWEAP>();
+            }
+            auto lhs = a_actor->GetEquippedObject(true);
+            if (lhs && lhs->IsWeapon())
+            {
+                return lhs->As<RE::TESObjectWEAP>();
+            }
+
+            return nullptr;
+        }
+
+        static bool GetMount(RE::Actor* a_actor, RE::ActorPtr* a_mountOut)
+        {
+            using func_t = decltype(&GetMount);
+            REL::Relocation<func_t> func{ REL::ID(38702) };
+            return func(a_actor, a_mountOut);
+        }
+
+        static inline bool IsPowerAttacking(RE::Actor* actor)
+        {
+            if (auto high = actor->GetHighProcess())
+            {
+                if (const auto& attackData = high->attackData)
+                {
+                    auto flags = attackData->data.flags;
+
+                    if (flags && flags.any(RE::AttackData::AttackFlag::kPowerAttack))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+
 	};
 }
