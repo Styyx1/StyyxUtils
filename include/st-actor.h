@@ -16,6 +16,25 @@ namespace StyyxUtil {
 			return cell;
         }
 
+        inline static float GetCurrentLightLevel(RE::Actor* actor)
+        {
+            auto process = actor->GetHighProcess();
+            if (!process) {
+                return 0.0f;
+            }
+            return process->lightLevel;
+        }
+
+        inline static float GetCurrentLightLevelPlayer()
+        {
+			auto player = RE::PlayerCharacter::GetSingleton();
+            auto process = player->GetHighProcess();
+            if (!process) {
+                return 0.0f;
+            }
+            return process->lightLevel;
+		}
+
         // check if actor starts dead. https://github.com/powerof3/Spell-Perk-Item-Distributor/blob/4972b74819b935b1e443cb4022691ac572785da5/SPID/src/LookupNPC.cpp#L254
         inline static bool StartsDead(const RE::Actor* actor)
         {
