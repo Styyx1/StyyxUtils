@@ -22,6 +22,8 @@ namespace StyyxUtil {
 
 		inline static bool IsDungeon(RE::TESObjectCELL* a_cell)
 		{
+			if (!a_cell)
+				return false;
 			auto loc = a_cell->GetLocation();
 			if (loc && loc->HasAnyKeywordByEditorID(is_a_dungeon) && a_cell->IsInteriorCell())
 			{

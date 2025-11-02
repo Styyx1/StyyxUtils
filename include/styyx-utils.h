@@ -2,3 +2,6 @@
 #include "st-magic.h"
 #include "st-actor.h"
 #include "st-cells.h"
+#include "st-menu.h"
+#include "st-forms.h"
+#include "st-misc.h"

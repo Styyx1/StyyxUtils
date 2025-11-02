@@ -28,5 +28,18 @@ namespace StyyxUtil {
             float factor = std::pow(10.0f, static_cast<float>(decimals));
             return std::round(value * factor) / factor;
         }
+
+        static double GetRandomDouble(double a_min, double a_max) {
+            std::uniform_real_distribution<double> distrib(a_min, a_max);
+            return distrib(GetRNG());
+        }
+
+        static bool IsPercentageChanceFloat(float a_chancePercent) {
+            auto rng = GetRandomFloat(0.0, 100.0);
+            if (rng <= a_chancePercent)
+                return true;
+            return false;
+        }
+
     };
 }
