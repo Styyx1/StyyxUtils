@@ -6,13 +6,8 @@ namespace StyyxUtil {
 
         inline static bool IsVampire(RE::Actor* a_ref) {
             if (a_ref->HasKeywordWithType(RE::DEFAULT_OBJECT::kKeywordVampire)) {
-                REX::INFO("actor has keyword, race lookup not needed");
                 return true;
             }
-                
-            auto vamp_key = RE::BGSDefaultObjectManager::GetSingleton()->GetObject(RE::DEFAULT_OBJECT::kKeywordVampire)->As<RE::BGSKeyword>();
-            if (const auto race = a_ref->GetRace(); race && race->HasKeyword(vamp_key))
-                return true;
             return false;
         }
 
