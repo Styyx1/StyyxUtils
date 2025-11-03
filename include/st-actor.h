@@ -11,6 +11,12 @@ namespace StyyxUtil {
             return false;
         }
 
+        inline static bool IsUndead(RE::Actor* a_ref) {
+            if (a_ref->HasKeywordWithType(RE::DEFAULT_OBJECT::kKeywordUndead))
+                return true;
+            return false;
+        }
+
         inline static RE::TESObjectCELL* GetPlayerCell(RE::PlayerCharacter* player)
         {
             auto cell = player->GetParentCell();
