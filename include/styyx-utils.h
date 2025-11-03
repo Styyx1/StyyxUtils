@@ -5,3 +5,4 @@
 #include "st-menu.h"
 #include "st-forms.h"
 #include "st-misc.h"
+#include "st-timer.h"
