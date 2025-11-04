@@ -29,7 +29,9 @@ struct ActorUtil
 			return true;
 		}
 		auto key = RE::TESForm::LookupByEditorID<RE::BGSKeyword>( "ActorTypeDragon" );
-		if ( const auto race = a_ref->GetRace(); race && key && race->HasKeyword( key ) )
+		if ( !key )
+			return false;
+		if ( a_ref->HasKeyword( key ) )
 		{
 			return true;
 		}
