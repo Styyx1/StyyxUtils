@@ -5,6 +5,30 @@ namespace StyyxUtil
 
 struct ActorUtil
 {
+    inline static bool ActorHasQuestObjectInHand(RE::Actor *actor)
+    {
+        if (actor)
+        {
+            auto *rightHandItem = actor->GetEquippedEntryData(false);
+            if (rightHandItem)
+            {
+                if (rightHandItem->IsQuestObject())
+                {
+                    return true;
+                }
+            }
+
+            auto *leftHandItem = actor->GetEquippedEntryData(true);
+            if (leftHandItem)
+            {
+                if (leftHandItem->IsQuestObject())
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
 
     inline static bool IsVampire(RE::Actor *a_ref)
     {
