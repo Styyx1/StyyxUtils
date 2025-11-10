@@ -292,5 +292,33 @@ struct ActorUtil
         }
         return false;
     }
+
+    // tried it with ActorSetLevel from below but that does not calculate the stats
+    static inline void SetNPCLevel(RE::Actor *actor, uint16_t level) {
+      const auto scriptFactory =
+          RE::IFormFactory::GetConcreteFormFactoryByType<RE::Script>();
+      const auto script = scriptFactory ? scriptFactory->Create() : nullptr;
+      script->SetCommand(std::format("SetLevel {}", level));
+      script->CompileAndRun(actor);
+    }
+
+   
+    template <auto FuncID, typename Ret, typename... Args>
+    static inline Ret FuncCall(Args... args) {
+      using func_t = Ret (*)(Args...);
+      REL::Relocation<func_t> target{REL::ID(FuncID)};
+      return target(std::forward<Args>(args)...);
+    }
+
+
+
+    // can set the level but doesn't calculate stats other than the consolde command
+    static inline void ActorSetLevel(RE::TESActorBaseData *a_actor, int a_level)
+    {
+      return FuncCall<14385, void>(a_actor, a_level);
+    }        
 };
+
+//14387
+
 } // namespace StyyxUtil
