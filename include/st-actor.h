@@ -310,15 +310,11 @@ struct ActorUtil
       return target(std::forward<Args>(args)...);
     }
 
-
-
     // can set the level but doesn't calculate stats other than the consolde command
     static inline void ActorSetLevel(RE::TESActorBaseData *a_actor, int a_level)
     {
       return FuncCall<14385, void>(a_actor, a_level);
-    }        
+    }      
 };
-
-//14387
 
 } // namespace StyyxUtil
