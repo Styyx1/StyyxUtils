@@ -17,14 +17,10 @@ struct ActorUtil
             return 1.0f;
 
         float invWeight = actor->GetEquippedWeight() ? actor->GetEquippedWeight() : 1.0f;
-
-        //REX::INFO("Equipped item weight of {} is {}", actor->GetName(), invWeight);
         const float maxInvWeight = 800.0f;
-
         float weightRatio = std::min(invWeight / maxInvWeight, 1.0f);
-
         float mass = 1.0f + weightRatio * (80.0f - 1.0f);
-        //REX::INFO("returned mass is: {}", mass);
+
         return mass;
     }
 
