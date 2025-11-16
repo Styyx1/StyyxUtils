@@ -5,6 +5,29 @@ namespace StyyxUtil
 
 struct ActorUtil
 {
+
+    inline static float GetInventoryWeight(RE::Actor *actor)
+    {
+        return actor->GetActorValue(RE::ActorValue::kInventoryWeight);
+    }
+
+    inline static float GetMassFromInventory(RE::Actor *actor)
+    {
+        if (!actor)
+            return 1.0f;
+
+        float invWeight = actor->GetEquippedWeight() ? actor->GetEquippedWeight() : 1.0f;
+
+        //REX::INFO("Equipped item weight of {} is {}", actor->GetName(), invWeight);
+        const float maxInvWeight = 800.0f;
+
+        float weightRatio = std::min(invWeight / maxInvWeight, 1.0f);
+
+        float mass = 1.0f + weightRatio * (80.0f - 1.0f);
+        //REX::INFO("returned mass is: {}", mass);
+        return mass;
+    }
+
     inline static bool ActorHasQuestObjectInHand(RE::Actor *actor)
     {
         if (actor)
@@ -294,27 +317,26 @@ struct ActorUtil
     }
 
     // tried it with ActorSetLevel from below but that does not calculate the stats
-    static inline void SetNPCLevel(RE::Actor *actor, uint16_t level) {
-      const auto scriptFactory =
-          RE::IFormFactory::GetConcreteFormFactoryByType<RE::Script>();
-      const auto script = scriptFactory ? scriptFactory->Create() : nullptr;
-      script->SetCommand(std::format("SetLevel {}", level));
-      script->CompileAndRun(actor);
+    static inline void SetNPCLevel(RE::Actor *actor, uint16_t level)
+    {
+        const auto scriptFactory = RE::IFormFactory::GetConcreteFormFactoryByType<RE::Script>();
+        const auto script = scriptFactory ? scriptFactory->Create() : nullptr;
+        script->SetCommand(std::format("SetLevel {}", level));
+        script->CompileAndRun(actor);
     }
 
-   
-    template <auto FuncID, typename Ret, typename... Args>
-    static inline Ret FuncCall(Args... args) {
-      using func_t = Ret (*)(Args...);
-      REL::Relocation<func_t> target{REL::ID(FuncID)};
-      return target(std::forward<Args>(args)...);
+    template <auto FuncID, typename Ret, typename... Args> static inline Ret FuncCall(Args... args)
+    {
+        using func_t = Ret (*)(Args...);
+        REL::Relocation<func_t> target{REL::ID(FuncID)};
+        return target(std::forward<Args>(args)...);
     }
 
     // can set the level but doesn't calculate stats other than the consolde command
     static inline void ActorSetLevel(RE::TESActorBaseData *a_actor, int a_level)
     {
-      return FuncCall<14385, void>(a_actor, a_level);
-    }      
+        return FuncCall<14385, void>(a_actor, a_level);
+    }
 };
 
 } // namespace StyyxUtil

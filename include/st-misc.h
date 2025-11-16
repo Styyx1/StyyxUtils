@@ -40,5 +40,17 @@ struct MiscUtil
         REL::Relocation<func_t> target{REL::ID(12052)};
         return target(a_list);
     }
+
+    [[nodiscard]] static inline bool IsAnyOfMenuOpen(RE::UI *a_ui, const std::vector<std::string> &a_menuNames)
+    {
+        if (!a_ui)
+            return true;
+        for (auto& menuName : a_menuNames)            
+        {
+          if (auto menu = a_ui->GetMenu(menuName); menu && menu.get()->OnStack())
+            return true;
+        }
+        return false;
+    }
 };
 } // namespace StyyxUtil
