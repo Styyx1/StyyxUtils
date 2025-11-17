@@ -5,6 +5,16 @@ namespace StyyxUtil
 
 struct ActorUtil
 {
+    inline static bool IsInOpportunityState(RE::Actor *victim, RE::Actor *attacker)
+    {
+        return IsPowerAttacking(victim) || victim->IsStaggering() ||
+               victim->actorState1.sitSleepState == RE::SIT_SLEEP_STATE::kIsSitting ||
+               victim->actorState1.sitSleepState == RE::SIT_SLEEP_STATE::kIsSleeping ||
+               (victim->GetHeadingAngle(attacker->GetPosition(), false) <= -135 ||
+                victim->GetHeadingAngle(attacker->GetPosition(), false) >= 135) ||
+               ActorHasEffectOfTypeActive(victim, RE::EffectArchetypes::ArchetypeID::kParalysis) ||
+               ActorHasEffectOfTypeActive(victim, RE::EffectArchetypes::ArchetypeID::kCalm);
+    }    
 
     inline static float GetInventoryWeight(RE::Actor *actor)
     {

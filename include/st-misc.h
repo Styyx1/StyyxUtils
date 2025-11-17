@@ -45,12 +45,73 @@ struct MiscUtil
     {
         if (!a_ui)
             return true;
-        for (auto& menuName : a_menuNames)            
+        for (auto &menuName : a_menuNames)
         {
-          if (auto menu = a_ui->GetMenu(menuName); menu && menu.get()->OnStack())
-            return true;
+            if (auto menu = a_ui->GetMenu(menuName); menu && menu.get()->OnStack())
+                return true;
         }
         return false;
     }
+
+    static inline RE::Setting *GetGameSetting(const char *a_setting)
+    {
+        return RE::GameSettingCollection::GetSingleton()
+                   ? RE::GameSettingCollection::GetSingleton()->GetSetting(a_setting)
+                   : nullptr;
+    }
+
+    template <class T> static inline void ChangeGameSetting(RE::Setting *setting, const T &value)
+    {
+        if (!setting)
+        {
+            return;
+        }
+
+        switch (setting->GetType())
+        {
+
+        case RE::Setting::Type::kBool:
+            if constexpr (std::is_same_v<T, bool> || std::is_same_v<T, int> || std::is_same_v<T, uint32_t>)
+            {
+                setting->data.b = static_cast<bool>(value);
+            }
+            break;
+
+        case RE::Setting::Type::kFloat:
+            if constexpr (std::is_floating_point_v<T> || std::is_integral_v<T>)
+            {
+                setting->data.f = static_cast<float>(value);
+            }
+            break;
+
+        case RE::Setting::Type::kSignedInteger:
+            if constexpr (std::is_integral_v<T>)
+            {
+                setting->data.i = static_cast<std::int32_t>(value);
+            }
+            break;
+
+        case RE::Setting::Type::kUnsignedInteger:
+            if constexpr (std::is_integral_v<T>)
+            {
+                setting->data.u = static_cast<std::uint32_t>(value);
+            }
+            break;
+
+        case RE::Setting::Type::kString:
+            if constexpr (std::is_same_v<T, const char *> || std::is_same_v<T, std::string>)
+            {
+                setting->data.s(value);
+            }
+            break;
+
+        default:
+            break;
+        }
+    };
+    template <class T> static inline void SetGMST(const char *gmst, const T &value)
+    {
+      ChangeGameSetting(GetGameSetting(gmst), value);
+    };
 };
 } // namespace StyyxUtil
