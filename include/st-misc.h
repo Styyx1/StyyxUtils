@@ -113,5 +113,108 @@ struct MiscUtil
     {
       ChangeGameSetting(GetGameSetting(gmst), value);
     };
+
+    // this is AI generated cause I'm not gonna write that all by hand xD
+    static inline const char* EntryPointToString(RE::BGSEntryPoint::ENTRY_POINT entryPoint)
+    {
+        using namespace RE;
+        switch (entryPoint) {
+        case BGSEntryPoint::ENTRY_POINTS::kCalculateWeaponDamage: return "kCalculateWeaponDamage";
+        case BGSEntryPoint::ENTRY_POINTS::kCalculateMyCriticalHitChance: return "kCalculateMyCriticalHitChance";
+        case BGSEntryPoint::ENTRY_POINTS::kCalculateMyCriticalHitDamage: return "kCalculateMyCriticalHitDamage";
+        case BGSEntryPoint::ENTRY_POINTS::kCalculateMineExplodeChance: return "kCalculateMineExplodeChance";
+        case BGSEntryPoint::ENTRY_POINTS::kAdjustLimbDamage: return "kAdjustLimbDamage";
+        case BGSEntryPoint::ENTRY_POINTS::kAdjustBookSkillPoints: return "kAdjustBookSkillPoints";
+        case BGSEntryPoint::ENTRY_POINTS::kModRecoveredHealth: return "kModRecoveredHealth";
+        case BGSEntryPoint::ENTRY_POINTS::kGetShouldAttack: return "kGetShouldAttack";
+        case BGSEntryPoint::ENTRY_POINTS::kModBuyPrices: return "kModBuyPrices";
+        case BGSEntryPoint::ENTRY_POINTS::kAddLeveledListOnDeath: return "kAddLeveledListOnDeath";
+        case BGSEntryPoint::ENTRY_POINTS::kGetMaxCarryWeight: return "kGetMaxCarryWeight";
+        case BGSEntryPoint::ENTRY_POINTS::kModAddictionChance: return "kModAddictionChance";
+        case BGSEntryPoint::ENTRY_POINTS::kModAddictionDuration: return "kModAddictionDuration";
+        case BGSEntryPoint::ENTRY_POINTS::kModPositiveChemDuration: return "kModPositiveChemDuration";
+        case BGSEntryPoint::ENTRY_POINTS::kActivate: return "kActivate";
+        case BGSEntryPoint::ENTRY_POINTS::kIgnoreRunningDuringDetection: return "kIgnoreRunningDuringDetection";
+        case BGSEntryPoint::ENTRY_POINTS::kIgnoreBrokenLock: return "kIgnoreBrokenLock";
+        case BGSEntryPoint::ENTRY_POINTS::kModEnemyCriticalHitChance: return "kModEnemyCriticalHitChance";
+        case BGSEntryPoint::ENTRY_POINTS::kModSneakAttackMult: return "kModSneakAttackMult";
+        case BGSEntryPoint::ENTRY_POINTS::kModMaxPlaceableMines: return "kModMaxPlaceableMines";
+        case BGSEntryPoint::ENTRY_POINTS::kModBowZoom: return "kModBowZoom";
+        case BGSEntryPoint::ENTRY_POINTS::kModRecoverArrowChance: return "kModRecoverArrowChance";
+        case BGSEntryPoint::ENTRY_POINTS::kModSkillUse: return "kModSkillUse";
+        case BGSEntryPoint::ENTRY_POINTS::kModTelekinesisDistance: return "kModTelekinesisDistance";
+        case BGSEntryPoint::ENTRY_POINTS::kModTelekinesisDamageMult: return "kModTelekinesisDamageMult";
+        case BGSEntryPoint::ENTRY_POINTS::kModTelekinesisDamage: return "kModTelekinesisDamage";
+        case BGSEntryPoint::ENTRY_POINTS::kModBashingDamage: return "kModBashingDamage";
+        case BGSEntryPoint::ENTRY_POINTS::kModPowerAttackStamina: return "kModPowerAttackStamina";
+        case BGSEntryPoint::ENTRY_POINTS::kModPowerAttackDamage: return "kModPowerAttackDamage";
+        case BGSEntryPoint::ENTRY_POINTS::kModSpellMagnitude: return "kModSpellMagnitude";
+        case BGSEntryPoint::ENTRY_POINTS::kModSpellDuration: return "kModSpellDuration";
+        case BGSEntryPoint::ENTRY_POINTS::kModSecondaryValueWeight: return "kModSecondaryValueWeight";
+        case BGSEntryPoint::ENTRY_POINTS::kModArmorWeight: return "kModArmorWeight";
+        case BGSEntryPoint::ENTRY_POINTS::kModIncomingStagger: return "kModIncomingStagger";
+        case BGSEntryPoint::ENTRY_POINTS::kModTargetStagger: return "kModTargetStagger";
+        case BGSEntryPoint::ENTRY_POINTS::kModAttackDamage: return "kModAttackDamage";
+        case BGSEntryPoint::ENTRY_POINTS::kModIncomingDamage: return "kModIncomingDamage";
+        case BGSEntryPoint::ENTRY_POINTS::kModTargetDamageResistance: return "kModTargetDamageResistance";
+        case BGSEntryPoint::ENTRY_POINTS::kModSpellCost: return "kModSpellCost";
+        case BGSEntryPoint::ENTRY_POINTS::kModPercentBlocked: return "kModPercentBlocked";
+        case BGSEntryPoint::ENTRY_POINTS::kModShieldDeflectArrowChance: return "kModShieldDeflectArrowChance";
+        case BGSEntryPoint::ENTRY_POINTS::kModIncomingSpellMagnitude: return "kModIncomingSpellMagnitude";
+        case BGSEntryPoint::ENTRY_POINTS::kModIncomingSpellDuration: return "kModIncomingSpellDuration";
+        case BGSEntryPoint::ENTRY_POINTS::kModPlayerIntimidation: return "kModPlayerIntimidation";
+        case BGSEntryPoint::ENTRY_POINTS::kModPlayerReputation: return "kModPlayerReputation";
+        case BGSEntryPoint::ENTRY_POINTS::kModFavorPoints: return "kModFavorPoints";
+        case BGSEntryPoint::ENTRY_POINTS::kModBribeAmount: return "kModBribeAmount";
+        case BGSEntryPoint::ENTRY_POINTS::kModDetectionLight: return "kModDetectionLight";
+        case BGSEntryPoint::ENTRY_POINTS::kModDetectionMovement: return "kModDetectionMovement";
+        case BGSEntryPoint::ENTRY_POINTS::kModSoulGemRecharge: return "kModSoulGemRecharge";
+        case BGSEntryPoint::ENTRY_POINTS::kSetSweepAttack: return "kSetSweepAttack";
+        case BGSEntryPoint::ENTRY_POINTS::kApplyCombatHitSpell: return "kApplyCombatHitSpell";
+        case BGSEntryPoint::ENTRY_POINTS::kApplyBashingSpell: return "kApplyBashingSpell";
+        case BGSEntryPoint::ENTRY_POINTS::kApplyReanimateSpell: return "kApplyReanimateSpell";
+        case BGSEntryPoint::ENTRY_POINTS::kSetBooleanGraphVariable: return "kSetBooleanGraphVariable";
+        case BGSEntryPoint::ENTRY_POINTS::kModSpellCastingSoundEvent: return "kModSpellCastingSoundEvent";
+        case BGSEntryPoint::ENTRY_POINTS::kModPickpocketChance: return "kModPickpocketChance";
+        case BGSEntryPoint::ENTRY_POINTS::kModDetectionSneakSkill: return "kModDetectionSneakSkill";
+        case BGSEntryPoint::ENTRY_POINTS::kModFallingDamage: return "kModFallingDamage";
+        case BGSEntryPoint::ENTRY_POINTS::kModLockpickSweetSpot: return "kModLockpickSweetSpot";
+        case BGSEntryPoint::ENTRY_POINTS::kModSellPrices: return "kModSellPrices";
+        case BGSEntryPoint::ENTRY_POINTS::kCanPickpocketEquippedItem: return "kCanPickpocketEquippedItem";
+        case BGSEntryPoint::ENTRY_POINTS::kModLockpickLevelAllowed: return "kModLockpickLevelAllowed";
+        case BGSEntryPoint::ENTRY_POINTS::kSetLockpickStartingArc: return "kSetLockpickStartingArc";
+        case BGSEntryPoint::ENTRY_POINTS::kSetProgressionPicking: return "kSetProgressionPicking";
+        case BGSEntryPoint::ENTRY_POINTS::kMakeLockpicksUnbreakable: return "kMakeLockpicksUnbreakable";
+        case BGSEntryPoint::ENTRY_POINTS::kModAlchemyEffectiveness: return "kModAlchemyEffectiveness";
+        case BGSEntryPoint::ENTRY_POINTS::kApplyWeaponSwingSpell: return "kApplyWeaponSwingSpell";
+        case BGSEntryPoint::ENTRY_POINTS::kModCommandedActorLimit: return "kModCommandedActorLimit";
+        case BGSEntryPoint::ENTRY_POINTS::kApplySneakingSpell: return "kApplySneakingSpell";
+        case BGSEntryPoint::ENTRY_POINTS::kModPlayerMagicSlowdown: return "kModPlayerMagicSlowdown";
+        case BGSEntryPoint::ENTRY_POINTS::kModWardMagickaAbsorptionPct: return "kModWardMagickaAbsorptionPct";
+        case BGSEntryPoint::ENTRY_POINTS::kModInitialIngredientEffectsLearned: return "kModInitialIngredientEffectsLearned";
+        case BGSEntryPoint::ENTRY_POINTS::kPurifyAlchemyIngredients: return "kPurifyAlchemyIngredients";
+        case BGSEntryPoint::ENTRY_POINTS::kFilterActivation: return "kFilterActivation";
+        case BGSEntryPoint::ENTRY_POINTS::kCanDualCastSpell: return "kCanDualCastSpell";
+        case BGSEntryPoint::ENTRY_POINTS::kModTemperingHealth: return "kModTemperingHealth";
+        case BGSEntryPoint::ENTRY_POINTS::kModEnchantmentPower: return "kModEnchantmentPower";
+        case BGSEntryPoint::ENTRY_POINTS::kModSoulPctCapturedToWeapon: return "kModSoulPctCapturedToWeapon";
+        case BGSEntryPoint::ENTRY_POINTS::kModSoulGemEnchanting: return "kModSoulGemEnchanting";
+        case BGSEntryPoint::ENTRY_POINTS::kModNumberAppliedEnchantmentsAllowed: return "kModNumberAppliedEnchantmentsAllowed";
+        case BGSEntryPoint::ENTRY_POINTS::kSetActivateLabel: return "kSetActivateLabel";
+        case BGSEntryPoint::ENTRY_POINTS::kModShoutOK: return "kModShoutOK";
+        case BGSEntryPoint::ENTRY_POINTS::kModPoisonDoseCount: return "kModPoisonDoseCount";
+        case BGSEntryPoint::ENTRY_POINTS::kShouldApplyPlacedItem: return "kShouldApplyPlacedItem";
+        case BGSEntryPoint::ENTRY_POINTS::kModArmorRating: return "kModArmorRating";
+        case BGSEntryPoint::ENTRY_POINTS::kModLockpickingCrimeChance: return "kModLockpickingCrimeChance";
+        case BGSEntryPoint::ENTRY_POINTS::kModIngredientsHarvested: return "kModIngredientsHarvested";
+        case BGSEntryPoint::ENTRY_POINTS::kModSpellRange_TargetLoc: return "kModSpellRange_TargetLoc";
+        case BGSEntryPoint::ENTRY_POINTS::kModPotionsCreated: return "kModPotionsCreated";
+        case BGSEntryPoint::ENTRY_POINTS::kModLockpickingKeyRewardChance: return "kModLockpickingKeyRewardChance";
+        case BGSEntryPoint::ENTRY_POINTS::kAllowMountActor: return "kAllowMountActor";
+        default: return "UnknownEntryPoint";
+        }
+    }
+
+
 };
 } // namespace StyyxUtil

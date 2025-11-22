@@ -6,8 +6,6 @@
 namespace StyyxUtil {
     struct UIUtil {
 
-
-
         static inline void HelpMarker(const char* desc)
         {
             ImGui::TextDisabled("(?)");
@@ -19,6 +17,7 @@ namespace StyyxUtil {
                 ImGui::EndTooltip();
             }
         }
+
     };
 	
 
