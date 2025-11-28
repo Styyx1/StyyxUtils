@@ -343,6 +343,12 @@ struct ActorUtil
     {
         return FuncCall<14385, void>(a_actor, a_level);
     }
+
+    // returns from 0 - 1.0 1 == 100%
+    static float GetActorValuePercentage(RE::Actor* a_actor, RE::ActorValue a_av)
+    { return FuncCall<37337, float>(a_actor, a_av);
+    }
+
 };
 
 } // namespace StyyxUtil
