@@ -3,8 +3,10 @@
 #undef ERROR
 #include "API/SKSEMenuFramework.h"
 
+using namespace ImGuiMCP;
+
 namespace StyyxUtil {
-    struct UIUtil {
+    struct UIUtil {       
 
         static inline void HelpMarker(const char* desc)
         {
@@ -17,6 +19,8 @@ namespace StyyxUtil {
                 ImGui::EndTooltip();
             }
         }
+
+        
 
     };
 	
