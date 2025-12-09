@@ -1422,7 +1422,7 @@ namespace ImGuiMCP
         ImGuiTextRange* Data;
     } ImVector_ImGuiTextRange;
 
-    class ImGuiTextFilter
+    struct ImGuiTextFilter
     {
     private:
         struct Data

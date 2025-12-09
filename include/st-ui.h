@@ -10,13 +10,13 @@ namespace StyyxUtil {
 
         static inline void HelpMarker(const char* desc)
         {
-            ImGui::TextDisabled("(?)");
-            if (ImGui::BeginItemTooltip())
+            ImGuiMCP::ImGui::TextDisabled("(?)");
+            if (ImGuiMCP::ImGui::BeginItemTooltip())
             {
-                ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
-                ImGui::TextUnformatted(desc);
-                ImGui::PopTextWrapPos();
-                ImGui::EndTooltip();
+                ImGuiMCP::ImGui::PushTextWrapPos(ImGuiMCP::ImGui::GetFontSize() * 35.0f);
+                ImGuiMCP::ImGui::TextUnformatted(desc);
+                ImGuiMCP::ImGui::PopTextWrapPos();
+                ImGuiMCP::ImGui::EndTooltip();
             }
         }
 
