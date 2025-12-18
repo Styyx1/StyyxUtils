@@ -225,5 +225,49 @@ struct MiscUtil
             return false;
         return true;
     }
+    inline static const char* AttackStateToString(RE::ATTACK_STATE_ENUM state) {
+
+        switch (state) {
+        case RE::ATTACK_STATE_ENUM::kNone:
+            return "kNone";
+        case RE::ATTACK_STATE_ENUM::kDraw:
+            return "kDraw";
+        case RE::ATTACK_STATE_ENUM::kSwing:
+            return "kSwing";
+        case RE::ATTACK_STATE_ENUM::kHit:
+            return "kHit";
+        case RE::ATTACK_STATE_ENUM::kNextAttack:
+            return "kNextAttack";
+        case RE::ATTACK_STATE_ENUM::kFollowThrough:
+            return "kFollowThrough";
+        case RE::ATTACK_STATE_ENUM::kBash:
+            return "kBash";
+        case RE::ATTACK_STATE_ENUM::kBowDraw:
+            return "kBowDraw";
+        case RE::ATTACK_STATE_ENUM::kBowAttached:
+            return "kBowAttached";
+        case RE::ATTACK_STATE_ENUM::kBowDrawn:                
+            return "kBowDrawn";
+        case RE::ATTACK_STATE_ENUM::kBowReleasing:
+            return "kBowReleasing";
+        case RE::ATTACK_STATE_ENUM::kBowReleased:
+            return "kBowReleased";
+        case RE::ATTACK_STATE_ENUM::kBowNextAttack:
+            return "kBowNextAttack";
+        case RE::ATTACK_STATE_ENUM::kBowFollowThrough:
+            return "kBowFollowThrough";
+        case RE::ATTACK_STATE_ENUM::kFire:
+            return "kFire";
+        case RE::ATTACK_STATE_ENUM::kFiring:
+            return "kFiring";
+        case RE::ATTACK_STATE_ENUM::kFired:
+            return "kFired";
+        default:
+            return "Unknown Attack State";
+
+        }
+
+        
+    };
 };
 } // namespace StyyxUtil
