@@ -60,7 +60,8 @@ struct MiscUtil
                    : nullptr;
     }
 
-    template <class T> static inline void ChangeGameSetting(RE::Setting *setting, const T &value)
+    template <class T> 
+    static inline void ChangeGameSetting(RE::Setting *setting, const T &value)
     {
         if (!setting)
         {
@@ -87,7 +88,7 @@ struct MiscUtil
         case RE::Setting::Type::kSignedInteger:
             if constexpr (std::is_integral_v<T>)
             {
-                setting->data.i = static_cast<std::int32_t>(value);
+                setting->data.i = static_cast<int32_t>(value);
             }
             break;
 
@@ -215,6 +216,14 @@ struct MiscUtil
         }
     }
 
-
+    //checks if an esp is active
+    static inline bool IsModLoaded(std::string_view mod_name) {
+        const auto data_handler = RE::TESDataHandler::GetSingleton();
+        auto main_file = data_handler->LookupModByName(mod_name);
+        
+        if (!main_file || main_file->compileIndex == 0xFF)
+            return false;
+        return true;
+    }
 };
 } // namespace StyyxUtil

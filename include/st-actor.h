@@ -322,6 +322,22 @@ struct ActorUtil
         return false;
     }
 
+    static inline bool IsBashing(RE::Actor* actor) {
+        if (auto high = actor->GetHighProcess(); high) {
+            if (actor->GetAttackState() == RE::ATTACK_STATE_ENUM::kNone)
+                return false;
+
+            if (const auto& attackData = high->attackData; attackData) {
+                auto flags = attackData->data.flags;
+                if (flags && flags.any(RE::AttackData::AttackFlag::kBashAttack)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
     // tried it with ActorSetLevel from below but that does not calculate the stats
     static inline void SetNPCLevel(RE::Actor *actor, uint16_t level)
     {
@@ -329,12 +345,12 @@ struct ActorUtil
         const auto script = scriptFactory ? scriptFactory->Create() : nullptr;
         script->SetCommand(std::format("SetLevel {}", level));
         script->CompileAndRun(actor);
-    }
+    }    
 
     template <auto FuncID, typename Ret, typename... Args> static inline Ret FuncCall(Args... args)
     {
-        using func_t = Ret (*)(Args...);
-        REL::Relocation<func_t> target{REL::ID(FuncID)};
+        using func_t = Ret(*)(Args...);
+        REL::Relocation<func_t> target{ REL::ID(FuncID) };
         return target(std::forward<Args>(args)...);
     }
 
