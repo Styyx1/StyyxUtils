@@ -1,7 +1,7 @@
 <map id="StyyxUtil::RandomiserUtil::GetRandomFloat" name="StyyxUtil::RandomiserUtil::GetRandomFloat">
-<area shape="rect" id="Node000001" title=" " alt="" coords="234,39,407,81"/>
-<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_randomiser_util.html#a1b1ed66c0e36f665c4cac3726ef86f25" title=" " alt="" coords="9,5,182,48"/>
+<area shape="rect" id="Node000001" title="Get random float." alt="" coords="234,39,407,81"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_randomiser_util.html#a1b1ed66c0e36f665c4cac3726ef86f25" title="Get random float but rounded." alt="" coords="9,5,182,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,45,183,42,182,37,221,44"/>
-<area shape="rect" id="Node000003" href="$struct_styyx_util_1_1_randomiser_util.html#ad194cc0c5d7395b19986a3a9319c87aa" title=" " alt="" coords="5,72,186,115"/>
+<area shape="rect" id="Node000003" href="$struct_styyx_util_1_1_randomiser_util.html#ad194cc0c5d7395b19986a3a9319c87aa" title="Helper function to check if a random float is within a specific percentage range." alt="" coords="5,72,186,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,76,187,83,186,77,221,75"/>
 </map>

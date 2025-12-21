@@ -4,6 +4,6 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,68,163,51,163,46,220,66"/>
 <area shape="rect" id="Node000003" href="$struct_styyx_util_1_1_actor_util.html#acd1a9a185f5be6c2e48079934cc01c43" title="Same as the condition function in the CK. &#160;&#160;returns from 0 &#45; 1.0. &#160;&#160;1 == 100%." alt="" coords="5,72,185,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,94,186,96,185,91,220,93"/>
-<area shape="rect" id="Node000004" href="$struct_styyx_util_1_1_actor_util.html#a39ee17aaa4a5e651a87bed14f49dd315" title="Try to stagger actor. a_aggressor can be nullptr Credits: https://github.com/doodlum/skyrim&#45;poise/blo..." alt="" coords="28,139,162,181"/>
+<area shape="rect" id="Node000004" href="$struct_styyx_util_1_1_actor_util.html#a39ee17aaa4a5e651a87bed14f49dd315" title="Try to stagger actor. a_aggressor can be nullptr Credits: &#160;&#160;Chocolate Poise by doodlez." alt="" coords="28,139,162,181"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="220,119,163,141,162,136,215,121"/>
 </map>

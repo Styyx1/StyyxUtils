@@ -98,8 +98,11 @@ $(function(){initNavTree('struct_styyx_util_1_1_magic_util.html','','struct_styy
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a607be236f3a53e0c1f60ea3011520aa2" id="r_a607be236f3a53e0c1f60ea3011520aa2"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a607be236f3a53e0c1f60ea3011520aa2">IsSpellPlayable</a> (RE::SpellItem *spell)</td></tr>
+<tr class="memdesc:a607be236f3a53e0c1f60ea3011520aa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if spell is a playable spell.  <br /></td></tr>
 <tr class="memitem:a6e2f2ebf42af51722656648562d749c3" id="r_a6e2f2ebf42af51722656648562d749c3"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e2f2ebf42af51722656648562d749c3">IsPermanent</a> (RE::MagicItem *item)</td></tr>
+<tr class="memdesc:a6e2f2ebf42af51722656648562d749c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a MagicItem is permanent Credits: KernalsEgg for ApplySpell and IsPermanent <a href="https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L102">Blade and Blunt by colinswrath</a>.  <br /></td></tr>
 <tr class="memitem:af2988f01d5cb5334b89e8259ca95c30e" id="r_af2988f01d5cb5334b89e8259ca95c30e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2988f01d5cb5334b89e8259ca95c30e">ApplySpell</a> (RE::Actor *caster, RE::Actor *target, RE::SpellItem *spell)</td></tr>
+<tr class="memdesc:af2988f01d5cb5334b89e8259ca95c30e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply spell from caster to target. Either adds it if the spell is permanent or casts it Credits: KernalsEgg for ApplySpell and IsPermanent <a href="https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L102">Blade and Blunt by colinswrath</a>.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="af2988f01d5cb5334b89e8259ca95c30e" name="af2988f01d5cb5334b89e8259ca95c30e"></a>
@@ -133,13 +136,23 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Apply spell from caster to target. Either adds it if the spell is permanent or casts it Credits: KernalsEgg for ApplySpell and IsPermanent <a href="https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L102">Blade and Blunt by colinswrath</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caster</td><td></td></tr>
+    <tr><td class="paramname">target</td><td></td></tr>
+    <tr><td class="paramname">spell</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_styyx_util_1_1_magic_util_af2988f01d5cb5334b89e8259ca95c30e_cgraph.png" border="0" usemap="#astruct_styyx_util_1_1_magic_util_af2988f01d5cb5334b89e8259ca95c30e_cgraph" loading="lazy" alt=""/></div>
 <map name="astruct_styyx_util_1_1_magic_util_af2988f01d5cb5334b89e8259ca95c30e_cgraph" id="astruct_styyx_util_1_1_magic_util_af2988f01d5cb5334b89e8259ca95c30e_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,144,48"/>
-<area shape="rect" href="struct_styyx_util_1_1_magic_util.html#a6e2f2ebf42af51722656648562d749c3" title=" " alt="" coords="192,5,330,48"/>
+<area shape="rect" title="Apply spell from caster to target. Either adds it if the spell is permanent or casts it Credits: Kern..." alt="" coords="5,5,144,48"/>
+<area shape="rect" href="struct_styyx_util_1_1_magic_util.html#a6e2f2ebf42af51722656648562d749c3" title="Check if a MagicItem is permanent Credits: KernalsEgg for ApplySpell and IsPermanent Blade and Blunt ..." alt="" coords="192,5,330,48"/>
 <area shape="poly" title=" " alt="" coords="144,24,178,26,173,27,144,29"/>
 </map>
 </div>
@@ -168,13 +181,22 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Check if a MagicItem is permanent Credits: KernalsEgg for ApplySpell and IsPermanent <a href="https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L102">Blade and Blunt by colinswrath</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_styyx_util_1_1_magic_util_a6e2f2ebf42af51722656648562d749c3_icgraph.png" border="0" usemap="#astruct_styyx_util_1_1_magic_util_a6e2f2ebf42af51722656648562d749c3_icgraph" loading="lazy" alt=""/></div>
 <map name="astruct_styyx_util_1_1_magic_util_a6e2f2ebf42af51722656648562d749c3_icgraph" id="astruct_styyx_util_1_1_magic_util_a6e2f2ebf42af51722656648562d749c3_icgraph">
-<area shape="rect" title=" " alt="" coords="192,5,330,48"/>
-<area shape="rect" href="struct_styyx_util_1_1_magic_util.html#af2988f01d5cb5334b89e8259ca95c30e" title=" " alt="" coords="5,5,144,48"/>
+<area shape="rect" title="Check if a MagicItem is permanent Credits: KernalsEgg for ApplySpell and IsPermanent Blade and Blunt ..." alt="" coords="192,5,330,48"/>
+<area shape="rect" href="struct_styyx_util_1_1_magic_util.html#af2988f01d5cb5334b89e8259ca95c30e" title="Apply spell from caster to target. Either adds it if the spell is permanent or casts it Credits: Kern..." alt="" coords="5,5,144,48"/>
 <area shape="poly" title=" " alt="" coords="173,27,144,29,144,24,178,26"/>
 </map>
 </div>
@@ -203,6 +225,15 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Check to see if spell is a playable spell. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spell</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
