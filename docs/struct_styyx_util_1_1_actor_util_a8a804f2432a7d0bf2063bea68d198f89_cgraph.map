@@ -1,6 +1,6 @@
 <map id="StyyxUtil::ActorUtil::FullyHealActor" name="StyyxUtil::ActorUtil::FullyHealActor">
 <area shape="rect" id="Node000001" title="fully heal all 3 attributes of an actor" alt="" coords="5,72,140,115"/>
-<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_actor_util.html#a068c5c6a9327b7de6d5769fab36f983d" title="Gets Maximum Health of an actor, including current modifiers." alt="" coords="188,5,322,48"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_actor_util.html#a068c5c6a9327b7de6d5769fab36f983d" title="Gets Maximum Health of an actor, including current modifiers Credits: https://github...." alt="" coords="188,5,322,48"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,69,182,52,178,55,134,74"/>
 <area shape="rect" id="Node000003" href="$struct_styyx_util_1_1_actor_util.html#a7ee3de415e089aadeee3820f7b0d3eb2" title="Gets Maximum Magicka of an actor, including current modifiers." alt="" coords="188,72,322,115"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="140,91,175,92,170,94,141,96"/>
