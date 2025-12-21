@@ -4,6 +4,12 @@ namespace StyyxUtil {
 
 
 	struct FormUtil {
+        /// <summary>
+        /// Used in some of my json loading mods. 
+        /// needs 0x800|Skyrim.esm for example
+        /// </summary>
+        /// <param name="formIDstring"></param>
+        /// <returns></returns>
         static inline RE::TESForm* GetFormFromString(const std::string& formIDstring)
         {
             if (formIDstring.empty()) {

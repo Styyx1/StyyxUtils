@@ -17,19 +17,16 @@ struct SoundUtil
 };
 struct AVUtil
 {
+    /// <summary>
+    /// Very useful for use with Actor Value Generator
+    /// </summary>
+    /// <param name="av_name"></param>
+    /// <returns></returns>
     static inline RE::ActorValue LookupActorValueByName(const char *av_name)
     {
         using func_t = decltype(&LookupActorValueByName);
         REL::Relocation<func_t> func{REL::ID(27203)};
         return func(av_name);
-    }
-
-    // returns from 0 - 1.0 1 == 100%
-    static inline float GetActorValuePercentage(RE::Actor *a_actor, RE::ActorValue a_av)
-    {
-        using func_t = decltype(&GetActorValuePercentage);
-        REL::Relocation<func_t> target{REL::ID(37337)};
-        return target(a_actor, a_av);
     }
 };
 struct MiscUtil
@@ -41,6 +38,12 @@ struct MiscUtil
         return target(a_list);
     }
 
+    /// <summary>
+    /// Is any menu open from a specified vector
+    /// </summary>
+    /// <param name="a_ui"></param>
+    /// <param name="a_menuNames"></param>
+    /// <returns></returns>
     [[nodiscard]] static inline bool IsAnyOfMenuOpen(RE::UI *a_ui, const std::vector<std::string> &a_menuNames)
     {
         if (!a_ui)
@@ -53,6 +56,12 @@ struct MiscUtil
         return false;
     }
 
+
+    /// <summary>
+    /// Helper to get the game setting off a const char*
+    /// </summary>
+    /// <param name="a_setting"></param>
+    /// <returns></returns>
     static inline RE::Setting *GetGameSetting(const char *a_setting)
     {
         return RE::GameSettingCollection::GetSingleton()
@@ -110,12 +119,26 @@ struct MiscUtil
             break;
         }
     };
-    template <class T> static inline void SetGMST(const char *gmst, const T &value)
+
+    /// <summary>
+    /// Set Gamesetting based on the setting name. Uses another templated function to safely get the tpye
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="gmst"></param>
+    /// <param name="value"></param>
+    template <class T> 
+    static inline void SetGMST(const char *gmst, const T &value)
     {
       ChangeGameSetting(GetGameSetting(gmst), value);
     };
 
-    // this is AI generated cause I'm not gonna write that all by hand xD
+    /// <summary>
+    /// This is the only AI Generated Function. 
+    /// It returns the entry point as string
+    /// Only useful for logging
+    /// </summary>
+    /// <param name="entryPoint"></param>
+    /// <returns></returns>
     static inline const char* EntryPointToString(RE::BGSEntryPoint::ENTRY_POINT entryPoint)
     {
         using namespace RE;
@@ -216,7 +239,12 @@ struct MiscUtil
         }
     }
 
-    //checks if an esp is active
+    /// <summary>
+    /// Checks if an esp/esl/esm is active
+    /// useful if the dll requires Forms from an esp
+    /// </summary>
+    /// <param name="mod_name"></param>
+    /// <returns></returns>
     static inline bool IsModLoaded(std::string_view mod_name) {
         const auto data_handler = RE::TESDataHandler::GetSingleton();
         auto main_file = data_handler->LookupModByName(mod_name);
@@ -225,6 +253,12 @@ struct MiscUtil
             return false;
         return true;
     }
+
+    /// <summary>
+    /// Helper function to log AttackStates
+    /// </summary>
+    /// <param name="state"></param>
+    /// <returns></returns>
     inline static const char* AttackStateToString(RE::ATTACK_STATE_ENUM state) {
 
         switch (state) {
@@ -269,5 +303,66 @@ struct MiscUtil
 
         
     };
+};
+struct MathUtil {
+
+    /// <summary>
+    /// Template function to add to a value without ever risking to overflow the maximum value that type can have.
+    /// Probably not needed for most things but i learned about std::conditional_t
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="base"></param>
+    /// <param name="increment"></param>
+    /// <returns></returns>
+    template <typename T>
+    static inline T SafelyAdd(T base, T increment) {
+        static_assert(std::is_arithmetic_v<T>, "T must be a number");
+        
+        if (increment < 0)
+            return base;
+
+        // so uint8_t and int8_t are covered
+        using ForMath = std::conditional_t < std::is_integral_v<T> && sizeof(T) < sizeof(int), int, T > ;
+        ForMath safe_base = static_cast<ForMath>(base);
+        ForMath safeI_increment = static_cast<ForMath>(increment);
+        ForMath max_value = static_cast<ForMath>(std::numeric_limits<T>::max());
+
+        ForMath sum = safe_base + safeI_increment;
+        if (sum > max_value)
+            sum = max_value;
+
+        return static_cast<T>(sum);
+    }
+
+    /// <summary>
+    /// Template function to add to a value up to a set cap. Quite useful for global variables for example
+    /// use it like this: AddWithCap<float>(GlobalVariable*->value, 1.0, 100) 
+    /// this will add 1 to the global up to 100;
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="base"></param>
+    /// <param name="increment"></param>
+    /// <param name="cap"></param>
+    /// <returns></returns>
+    template <typename T>
+    static inline T AddWithCap(T base, T increment, T cap = std::numeric_limits<T>::max()) {
+        static_assert(std::is_arithmetic_v<T>, "T must be a number");
+
+        if (increment < 0)
+            return base;
+
+        // so uint8_t and int8_t are covered
+        using ForMath = std::conditional_t < std::is_integral_v<T> && sizeof(T) < sizeof(int), int, T > ;
+        ForMath safe_base = static_cast<ForMath>(base);
+        ForMath safeI_increment = static_cast<ForMath>(increment);
+        ForMath safe_cap = std::min(static_cast<ForMath>(cap), static_cast<ForMath>(std::numeric_limits<T>::max()));
+
+        ForMath sum = safe_base + safeI_increment;
+        if (sum > safe_cap) 
+            sum = safe_cap;
+
+        return static_cast<T>(sum);
+
+    }
 };
 } // namespace StyyxUtil
