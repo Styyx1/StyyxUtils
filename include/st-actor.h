@@ -183,8 +183,8 @@ struct ActorUtil
     /// <summary>
     /// Try to stagger actor.
     ///  a_aggressor can be nullptr
-    /// Credits: 
-    /// https://github.com/doodlum/skyrim-poise/blob/daf1344ebe667d34154213ab9fb61d0d27452b0d/src/Hooks/PoiseAV.h#L110    
+    /// Credits:     
+    ///  [Chocolate Poise by doodlez ](https://github.com/doodlum/skyrim-poise/blob/daf1344ebe667d34154213ab9fb61d0d27452b0d/src/Hooks/PoiseAV.h#L110)
     /// </summary>
     /// <param name="a_actor"></param>
     /// <param name="mult"></param>
@@ -198,7 +198,7 @@ struct ActorUtil
     /// <summary>
     /// Check if actor has the Starts Dead flag
     /// Credits:
-    /// https://github.com/powerof3/Spell-Perk-Item-Distributor/blob/4972b74819b935b1e443cb4022691ac572785da5/SPID/src/LookupNPC.cpp#L254
+    /// [SPID by PO3](https://github.com/powerof3/Spell-Perk-Item-Distributor/blob/4972b74819b935b1e443cb4022691ac572785da5/SPID/src/LookupNPC.cpp#L254)
     /// </summary>
     /// <param name="actor"></param>
     /// <returns></returns>
@@ -211,7 +211,7 @@ struct ActorUtil
     /// <summary>
     /// Gets Maximum Health of an actor, including current modifiers
     /// Credits:
-    /// https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L92    
+    /// [Blade and Blunt by colinswrath](https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L92 )
     /// </summary>
     /// <param name="a_actor"></param>
     /// <returns></returns>
@@ -407,7 +407,7 @@ struct ActorUtil
     /// <summary>
     /// Gets the weapon the actor is wielding
     /// Credits:
-    /// https://github.com/D7ry/valhallaCombat/blob/48fb4c3b9bb6bbaa691ce41dbd33f096b74c07e3/src/include/Utils.cpp#L10
+    /// [Valhalla Combat by D7ry](https://github.com/D7ry/valhallaCombat/blob/48fb4c3b9bb6bbaa691ce41dbd33f096b74c07e3/src/include/Utils.cpp#L10)
     /// </summary>
     /// <param name="a_actor"></param>
     /// <returns></returns>
@@ -505,7 +505,7 @@ struct ActorUtil
     /// <summary>
     /// Get a vector of nearby actors
     /// Credits: 
-    /// https://github.com/powerof3/PapyrusExtenderSSE/
+    /// [Papyrus Extender by PO3](https://github.com/powerof3/PapyrusExtenderSSE/) 
     /// </summary>
     /// <param name="a_ref"></param>
     /// <param name="a_radius"></param>

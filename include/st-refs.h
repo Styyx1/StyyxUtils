@@ -4,7 +4,12 @@ namespace StyyxUtil
 {
 struct RefUtil
 {	
-	//this will require a specific _KID.ini file to work as Ore Veins do not have a keyword by default. 
+	/// <summary>
+	/// Is a reference a Ore Vein
+	/// this will require a specific _KID.ini file, found in this library's distr folder, to work, as Ore Veins do not have a keyword by default. 
+	/// </summary>
+	/// <param name="a_ref"></param>
+	/// <returns></returns>
 	static inline bool IsRefOreVein( RE::TESObjectREFR *a_ref )
 	{
 		if ( !a_ref )
