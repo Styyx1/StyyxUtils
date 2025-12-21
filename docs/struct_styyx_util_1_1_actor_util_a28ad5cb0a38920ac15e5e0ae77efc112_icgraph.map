@@ -1,0 +1,6 @@
+<map id="StyyxUtil::ActorUtil::AddItem" name="StyyxUtil::ActorUtil::AddItem">
+<area shape="rect" id="Node000001" title="Add Item function. Adds item to the actor." alt="" coords="188,29,322,72"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="283,13,273,10,255,8,238,10,228,14,224,21,225,30,220,27,218,19,224,10,236,5,255,3,275,5,288,14"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_actor_util.html#a8e14b93480fada27ff3fa88a1dcea4e6" title="Helper function to add item to the player. AddItem with fille actor parameter." alt="" coords="5,29,140,72"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="169,51,140,53,140,48,175,50"/>
+</map>

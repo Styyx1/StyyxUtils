@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['isanyofmenuopen_0',['IsAnyOfMenuOpen',['../struct_styyx_util_1_1_misc_util.html#a8e661900db6cdea071606c783a14063a',1,'StyyxUtil::MiscUtil']]],
+  ['isbashing_1',['IsBashing',['../struct_styyx_util_1_1_actor_util.html#acfa55a132f846eebe88ce842100f02f2',1,'StyyxUtil::ActorUtil']]],
+  ['isdragon_2',['IsDragon',['../struct_styyx_util_1_1_actor_util.html#a08fca8ca69b47613053c340c2cdc0efb',1,'StyyxUtil::ActorUtil']]],
+  ['isdungeon_3',['IsDungeon',['../struct_styyx_util_1_1_cell_util.html#a4b614a6d188a23f5a0fbc6bae0650633',1,'StyyxUtil::CellUtil']]],
+  ['iseffectactive_4',['IsEffectActive',['../struct_styyx_util_1_1_actor_util.html#a63fc88bbfd820d69ac0be4a03b48383a',1,'StyyxUtil::ActorUtil']]],
+  ['isinopportunitystate_5',['IsInOpportunityState',['../struct_styyx_util_1_1_actor_util.html#ae950ccecd7d040ce03faadb1213c3471',1,'StyyxUtil::ActorUtil']]],
+  ['isjail_6',['IsJail',['../struct_styyx_util_1_1_cell_util.html#a2cc826ea9631d40fae21ebe45eb5ccb0',1,'StyyxUtil::CellUtil']]],
+  ['ismodloaded_7',['IsModLoaded',['../struct_styyx_util_1_1_misc_util.html#acfe4253e7c68b115c1c2de8bc62030a7',1,'StyyxUtil::MiscUtil']]],
+  ['ispercentagechancefloat_8',['IsPercentageChanceFloat',['../struct_styyx_util_1_1_randomiser_util.html#ad194cc0c5d7395b19986a3a9319c87aa',1,'StyyxUtil::RandomiserUtil']]],
+  ['ispermanent_9',['IsPermanent',['../struct_styyx_util_1_1_magic_util.html#a6e2f2ebf42af51722656648562d749c3',1,'StyyxUtil::MagicUtil']]],
+  ['ispowerattacking_10',['IsPowerAttacking',['../struct_styyx_util_1_1_actor_util.html#aa4ab80d9633381d8a1b37c3c9ba5ea7a',1,'StyyxUtil::ActorUtil']]],
+  ['isquestobject_11',['IsQuestObject',['../struct_styyx_util_1_1_misc_util.html#a7c66e063d2562fdf6e3ff34dc9ebdec2',1,'StyyxUtil::MiscUtil']]],
+  ['isreforevein_12',['IsRefOreVein',['../struct_styyx_util_1_1_ref_util.html#a29cba008a2a1656aa48c931a942477d6',1,'StyyxUtil::RefUtil']]],
+  ['isrunning_13',['IsRunning',['../class_styyx_util_1_1_timer_util_1_1_timer.html#a4bf02768d5757da7d6404fed83609ba5',1,'StyyxUtil::TimerUtil::Timer']]],
+  ['isspellplayable_14',['IsSpellPlayable',['../struct_styyx_util_1_1_magic_util.html#a607be236f3a53e0c1f60ea3011520aa2',1,'StyyxUtil::MagicUtil']]],
+  ['isundead_15',['IsUndead',['../struct_styyx_util_1_1_actor_util.html#ace84ca2e37282a64c3035a4533362e99',1,'StyyxUtil::ActorUtil']]],
+  ['isvampire_16',['IsVampire',['../struct_styyx_util_1_1_actor_util.html#a47d585b03d0d5e60665c64caf0203f7e',1,'StyyxUtil::ActorUtil']]]
+];

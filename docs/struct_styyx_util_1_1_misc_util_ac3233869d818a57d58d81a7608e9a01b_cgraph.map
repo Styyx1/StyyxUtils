@@ -1,0 +1,7 @@
+<map id="StyyxUtil::MiscUtil::SetGMST" name="StyyxUtil::MiscUtil::SetGMST">
+<area shape="rect" id="Node000001" title="Set Gamesetting based on the setting name. Uses another templated function to safely get the tpye." alt="" coords="5,39,137,81"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_misc_util.html#a60545867eb66a70e972fa05554bd156f" title=" " alt="" coords="185,5,335,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,46,172,42,167,44,138,51"/>
+<area shape="rect" id="Node000003" href="$struct_styyx_util_1_1_misc_util.html#aed4bd0dc4258d88920a4704ae2884139" title="Helper to get the game setting off a const char*." alt="" coords="194,72,326,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,69,182,79,176,80,137,74"/>
+</map>

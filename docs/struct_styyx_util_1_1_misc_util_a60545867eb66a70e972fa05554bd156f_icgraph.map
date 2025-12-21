@@ -1,0 +1,5 @@
+<map id="StyyxUtil::MiscUtil::ChangeGameSetting" name="StyyxUtil::MiscUtil::ChangeGameSetting">
+<area shape="rect" id="Node000001" title=" " alt="" coords="185,5,335,48"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_misc_util.html#ac3233869d818a57d58d81a7608e9a01b" title="Set Gamesetting based on the setting name. Uses another templated function to safely get the tpye." alt="" coords="5,5,137,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,27,137,29,137,24,172,26"/>
+</map>

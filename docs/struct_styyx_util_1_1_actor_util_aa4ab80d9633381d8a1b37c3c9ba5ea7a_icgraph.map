@@ -1,0 +1,5 @@
+<map id="StyyxUtil::ActorUtil::IsPowerAttacking" name="StyyxUtil::ActorUtil::IsPowerAttacking">
+<area shape="rect" id="Node000001" title="Check if actor is power attacking." alt="" coords="203,5,337,48"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_actor_util.html#ae950ccecd7d040ce03faadb1213c3471" title="Gets the state in which an attack of opportunity is possible." alt="" coords="5,5,155,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,27,155,29,155,24,190,26"/>
+</map>
