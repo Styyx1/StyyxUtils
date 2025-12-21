@@ -4,10 +4,7 @@ namespace StyyxUtil
 {
 
 struct ActorUtil
-{
-    /// barely useful here but used in one of my mods
-    /// this is true for the next 3 functions actuallly
-    
+{    
     /// <summary>
     /// Gets the state in which an attack of opportunity is possible
     /// </summary>
@@ -183,10 +180,11 @@ struct ActorUtil
         return process->lightLevel;
     }
 
-    //Credits: https://github.com/doodlum/skyrim-poise/blob/daf1344ebe667d34154213ab9fb61d0d27452b0d/src/Hooks/PoiseAV.h#L110    
     /// <summary>
     /// Try to stagger actor.
     ///  a_aggressor can be nullptr
+    /// Credits: 
+    /// https://github.com/doodlum/skyrim-poise/blob/daf1344ebe667d34154213ab9fb61d0d27452b0d/src/Hooks/PoiseAV.h#L110    
     /// </summary>
     /// <param name="a_actor"></param>
     /// <param name="mult"></param>
@@ -196,9 +194,11 @@ struct ActorUtil
     }
 
 
-    // https://github.com/powerof3/Spell-Perk-Item-Distributor/blob/4972b74819b935b1e443cb4022691ac572785da5/SPID/src/LookupNPC.cpp#L254
+
     /// <summary>
     /// Check if actor has the Starts Dead flag
+    /// Credits:
+    /// https://github.com/powerof3/Spell-Perk-Item-Distributor/blob/4972b74819b935b1e443cb4022691ac572785da5/SPID/src/LookupNPC.cpp#L254
     /// </summary>
     /// <param name="actor"></param>
     /// <returns></returns>
@@ -207,9 +207,11 @@ struct ActorUtil
         return actor && (actor->formFlags & RE::Actor::RecordFlags::kStartsDead);
     }
 
-    // https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L92    
+    
     /// <summary>
     /// Gets Maximum Health of an actor, including current modifiers
+    /// Credits:
+    /// https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L92    
     /// </summary>
     /// <param name="a_actor"></param>
     /// <returns></returns>
@@ -402,11 +404,10 @@ struct ActorUtil
         return false;
     }
 
-    // Credit: D7ry for getWieldingWeapon in ValhallaCombat
-    // https://github.com/D7ry/valhallaCombat/blob/48fb4c3b9bb6bbaa691ce41dbd33f096b74c07e3/src/include/Utils.cpp#L10
-
     /// <summary>
     /// Gets the weapon the actor is wielding
+    /// Credits:
+    /// https://github.com/D7ry/valhallaCombat/blob/48fb4c3b9bb6bbaa691ce41dbd33f096b74c07e3/src/include/Utils.cpp#L10
     /// </summary>
     /// <param name="a_actor"></param>
     /// <returns></returns>
@@ -499,10 +500,12 @@ struct ActorUtil
         return false;
     }
 
-    //Credits: https://github.com/powerof3/PapyrusExtenderSSE/
+    
 
     /// <summary>
     /// Get a vector of nearby actors
+    /// Credits: 
+    /// https://github.com/powerof3/PapyrusExtenderSSE/
     /// </summary>
     /// <param name="a_ref"></param>
     /// <param name="a_radius"></param>
