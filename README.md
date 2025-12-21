@@ -2,6 +2,7 @@
 
 Some headers with functions i reuse in various mods of mine. 
 inspired by po3's [ClibUtil](https://github.com/powerof3/CLibUtil) 
+documentation generated with doxygen [here](https://styyx1.github.io/StyyxUtils/)
 
 to use it in your project, add it as submodule 
 ```
