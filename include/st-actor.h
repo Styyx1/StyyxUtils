@@ -291,7 +291,7 @@ struct ActorUtil
     /// <returns></returns>
     static bool HasEffectWithKeywordActive(RE::Actor *a_actor, std::string_view a_keyword)
     {
-        if (!a_actor || a_keyword.empty())
+        if (!a_actor || a_keyword.empty() || !a_actor->Is3DLoaded())
         {
             return false;
         }
