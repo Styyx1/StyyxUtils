@@ -6,7 +6,7 @@ namespace StyyxUtil {
 	struct FormUtil {
         /// <summary>
         /// Used in some of my json loading mods. 
-        /// needs 0x800|Skyrim.esm for example
+        /// needs Skyrim.esm|0x800 for example
         /// </summary>
         /// <param name="formIDstring"></param>
         /// <returns></returns>
