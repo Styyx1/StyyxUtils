@@ -25,7 +25,7 @@ struct AVUtil
     static inline RE::ActorValue LookupActorValueByName(const char *av_name)
     {
         using func_t = decltype(&LookupActorValueByName);
-        REL::Relocation<func_t> func{REL::ID(27203)};
+        REL::Relocation<func_t> func{RELOCATION_ID(26570,27203)};
         return func(av_name);
     }
 };
@@ -34,7 +34,7 @@ struct MiscUtil
     static inline bool IsQuestObject(RE::ExtraDataList *a_list)
     {
         using func_t = decltype(&IsQuestObject);
-        REL::Relocation<func_t> target{REL::ID(12052)};
+        REL::Relocation<func_t> target{ RELOCATION_ID(11913,12052)};
         return target(a_list);
     }
 
@@ -365,4 +365,5 @@ struct MathUtil {
 
     }
 };
+
 } // namespace StyyxUtil

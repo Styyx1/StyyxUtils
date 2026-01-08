@@ -190,7 +190,10 @@ struct ActorUtil
     /// <param name="mult"></param>
     /// <param name="a_aggressor"></param>
     inline static void TryStagger(RE::Actor* a_actor, float mult, RE::Actor* a_aggressor) {
-        return FuncCall<37710, void>(a_actor, mult, a_aggressor);
+
+        using func_t = decltype(&TryStagger);
+        REL::Relocation<func_t> func{ RELOCATION_ID(36700, 37710) };
+        return func(a_actor, mult, a_aggressor);
     }
 
 
@@ -350,6 +353,17 @@ struct ActorUtil
         return false;
     }
     /// <summary>
+    /// Convenience function to check is a specific effect is active on the player
+    /// </summary>
+    /// <param name="a_effect"></param>
+    /// <returns></returns>
+    inline static bool PlayerHasActiveMagicEffect(RE::EffectSetting* a_effect)
+    {
+        auto player = RE::PlayerCharacter::GetSingleton();
+        return ActorUtil::IsEffectActive(player, a_effect);
+    }
+
+    /// <summary>
     /// Add Item function. Adds item to the actor
     /// </summary>
     /// <param name="a"></param>
@@ -361,11 +375,11 @@ struct ActorUtil
                         RE::TESObjectREFR *fromRefr)
     {
         using func_t = decltype(AddItem);
-        REL::Relocation<func_t> func{REL::ID(37525)};
+        REL::Relocation<func_t> func{RELOCATION_ID(36525,37525)};
         return func(a, item, extraList, count, fromRefr);
     }
     /// <summary>
-    /// Helper function to add item to the player. AddItem with fille actor parameter
+    /// Helper function to add item to the player. AddItem with filled actor parameter
     /// </summary>
     /// <param name="item"></param>
     /// <param name="count"></param>
@@ -382,7 +396,7 @@ struct ActorUtil
     static int RemoveItemPlayer(RE::TESBoundObject *item, int count)
     {
         using func_t = decltype(RemoveItemPlayer);
-        REL::Relocation<func_t> func{REL::ID(16919)};
+        REL::Relocation<func_t> func{RELOCATION_ID(16564,16919)};
         return func(item, count);
     }
 
@@ -442,7 +456,7 @@ struct ActorUtil
     static bool GetMount(RE::Actor *a_actor, RE::ActorPtr *a_mountOut)
     {
         using func_t = decltype(&GetMount);
-        REL::Relocation<func_t> func{REL::ID(38702)};
+        REL::Relocation<func_t> func{RELOCATION_ID(37757,38702)};
         return func(a_actor, a_mountOut);
     }
 
@@ -561,17 +575,12 @@ struct ActorUtil
         script->CompileAndRun(actor);
     }    
 
-    template <auto FuncID, typename Ret, typename... Args> static inline Ret FuncCall(Args... args)
-    {
-        using func_t = Ret(*)(Args...);
-        REL::Relocation<func_t> target{ REL::ID(FuncID) };
-        return target(std::forward<Args>(args)...);
-    }
-
     // can set the level but doesn't calculate stats other than the consolde command
     static inline void ActorSetLevel(RE::TESActorBaseData *a_actor, int a_level)
     {
-        return FuncCall<14385, void>(a_actor, a_level);
+        using func_t = decltype(ActorSetLevel);
+        REL::Relocation<func_t> target{ RELOCATION_ID(14263, 14385) };
+        return target(a_actor, a_level);
     }
 
     /// <summary>
@@ -584,10 +593,17 @@ struct ActorUtil
     /// <returns></returns>
     static float GetActorValuePercentage(RE::Actor* a_actor, RE::ActorValue a_av)
     { 
-        return FuncCall<37337, float>(a_actor, a_av);
-    }
-    
 
+        using func_t = decltype(GetActorValuePercentage);
+        REL::Relocation<func_t> target{ RELOCATION_ID(36347, 37337) };
+        return target(a_actor, a_av);
+    }
+
+    static inline bool SetSneaking(RE::Actor* actor, bool a_sneaking) {
+        using func_t = decltype(SetSneaking);
+        REL::Relocation<func_t> targ{ RELOCATION_ID(36926,37951) };
+        return targ(actor, a_sneaking);
+    }
 };
 
 } // namespace StyyxUtil
