@@ -33,24 +33,6 @@ struct ActorUtil
     }
 
     /// <summary>
-    /// used for a mass affects inventory weight calculation
-    /// </summary>
-    /// <param name="actor"></param>
-    /// <returns></returns>
-    inline static float GetMassFromInventory(RE::Actor *actor)
-    {
-        if (!actor)
-            return 1.0f;
-
-        float invWeight = actor->GetEquippedWeight() ? actor->GetEquippedWeight() : 1.0f;
-        const float maxInvWeight = 800.0f;
-        float weightRatio = std::min(invWeight / maxInvWeight, 1.0f);
-        float mass = 1.0f + weightRatio * (80.0f - 1.0f);
-
-        return mass;
-    }
-
-    /// <summary>
     /// Checks if the equipped weapon of the actor is a quest item
     /// </summary>
     /// <param name="actor"></param>
