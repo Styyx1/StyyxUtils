@@ -1,6 +1,6 @@
 #pragma once
 
-
+#define NOMINMAX
 #include <windows.h>
 #include <codecvt>
 #include <locale>
