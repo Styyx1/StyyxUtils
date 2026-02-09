@@ -1,6 +1,7 @@
 #pragma once
 
-namespace StyyxUtil {
+namespace StyyxUtil
+{
 	struct TimerUtil {
 		/// <summary>
 		/// Timer Class 
@@ -50,14 +51,42 @@ namespace StyyxUtil {
 			/// checks if timer is running
 			/// </summary>
 			/// <returns></returns>
-			bool IsRunning() const
-			{
+			bool IsRunning() const {
 				return running;
+			}
+			void StartLimited(double a_seconds) {
+				limitSeconds = a_seconds;
+				limited = true;
+				startTime = std::chrono::steady_clock::now();
+				running = true;
+			}
+			bool IsExpired()
+			{
+				if (!running || !limited) {
+					return false;
+				}
+
+				if (ElapsedSeconds() >= limitSeconds) {
+					Stop();
+					return true;
+				}
+				return false;
+			}
+
+			double RemainingSeconds() const
+			{
+				if (!running || !limited) {
+					return 0.0;
+				}
+
+				return std::max(0.0, limitSeconds - ElapsedSeconds());
 			}
 
 		private:
+			bool limited{ false };
+			double limitSeconds{0.0};
 			std::chrono::steady_clock::time_point startTime{};
-			bool running{ false };
+			bool running{false};
 		};
 	};
 }
