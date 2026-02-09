@@ -1,12 +1,11 @@
 #pragma once
 
-
 #include <windows.h>
 #include <codecvt>
 #include <locale>
 #include <string>
 
-static auto menuFramework = REX::W32::GetModuleHandleW(L"SKSEMenuFramework");
+static auto menuFramework = GetModuleHandleW(L"SKSEMenuFramework");
 #define MENU_WINDOW SKSEMenuFramework::Model::WindowInterface*
 
 namespace ImGuiMCP {
@@ -28,7 +27,9 @@ namespace SKSEMenuFramework {
         enum EventType {
 		    kNone = 0,
 		    kOpenMenu = 1,
-		    kCloseMenu = 2
+		    kCloseMenu = 2,
+		    kBeforeRender = 3,
+		    kAfterRender = 4
 	    };
 
         namespace Internal {
@@ -50,8 +51,8 @@ namespace SKSEMenuFramework {
         typedef void(__stdcall* HudElementCallback)();
 
         typedef void(__stdcall* EventCallback)(EventType eventType);
-        
-        using RegisterEventFuction = int64_t (*)(EventCallback callback);
+
+        using RegisterEventFuction = int64_t (*)(EventCallback callback, float priority);
         using UnregisterEventFuction = void (*)(int64_t id);
 
         using ActionFunction = void (*)();
@@ -67,6 +68,7 @@ namespace SKSEMenuFramework {
         using SetWindowsPauseGameFuction = void (*)(bool pause);
         using LoadTextureFuction = ImGuiMCP::ImTextureID (*)(const char* texturePath, ImGuiMCP::ImVec2* size);
         using DisposeTextureFuction = void (*)(const char* texturePath);
+        using GetMenuFrameworkVersionFunction = float(*)();
 
         class InputEvent {
             uint64_t id;
@@ -90,10 +92,10 @@ namespace SKSEMenuFramework {
             int64_t id;
 
         public:
-            Event(EventCallback callback) {
-                static auto func = Internal::GetFunction<RegisterEventFuction>("RegisterEvent");
+            Event(EventCallback callback, float priority) {
+                static auto func = Internal::GetFunction<RegisterEventFuction>("RegisterEventPriority");
                 if (func) {
-                    id = func(callback);
+                    id = func(callback, priority);
                 }
             }
             ~Event() {
@@ -147,6 +149,25 @@ namespace SKSEMenuFramework {
 
     inline Model::HudElement* AddHudElement(Model::HudElementCallback callback) {
         return new Model::HudElement(callback);
+    }
+
+    inline Model::Event* AddEvent(Model::EventCallback callback, float priority) {
+        return new Model::Event(callback, priority);
+    }
+
+    inline float GetMenuFrameworkVersion() {
+
+        if (!SKSEMenuFramework::IsInstalled()) {
+            return 0.0;
+        }
+
+        static auto func = Model::Internal::GetFunction<Model::GetMenuFrameworkVersionFunction>("GetMenuFrameworkVersion");
+
+        if (func) {
+            return func();
+        }
+
+        return 0.0;
     }
 
     inline bool IsAnyBlockingWindowOpened() {
@@ -3957,15 +3978,19 @@ namespace ImGuiMCP {
         func_t func = reinterpret_cast<func_t>(GetProcAddress(menuFramework, "igGetWindowDpiScale"));
         return func();
     }
-    inline void GetWindowPos(ImVec2* pOut) {
+    inline ImVec2 GetWindowPos() {
+        ImVec2 pOut;
         using func_t = void (*)(ImVec2*);
         func_t func = reinterpret_cast<func_t>(GetProcAddress(menuFramework, "igGetWindowPos"));
-        return func(pOut);
+        func(&pOut);
+        return pOut;
     }
-    inline void GetWindowSize(ImVec2* pOut) {
+    inline ImVec2 GetWindowSize() {
+        ImVec2 pOut;
         using func_t = void (*)(ImVec2*);
         func_t func = reinterpret_cast<func_t>(GetProcAddress(menuFramework, "igGetWindowSize"));
-        return func(pOut);
+        func(&pOut);
+        return pOut;
     }
     inline float GetWindowWidth() {
         using func_t = float (*)();
@@ -4084,15 +4109,19 @@ namespace ImGuiMCP {
         func_t func = reinterpret_cast<func_t>(GetProcAddress(menuFramework, "igGetContentRegionMax"));
         return func(pOut);
     }
-    inline void GetWindowContentRegionMin(ImVec2* pOut) {
+    inline ImVec2 GetWindowContentRegionMin() {
         using func_t = void (*)(ImVec2*);
         func_t func = reinterpret_cast<func_t>(GetProcAddress(menuFramework, "igGetWindowContentRegionMin"));
-        return func(pOut);
+        ImVec2 pOut;
+        func(&pOut);
+        return pOut;
     }
-    inline void GetWindowContentRegionMax(ImVec2* pOut) {
+    inline ImVec2 GetWindowContentRegionMax() {
         using func_t = void (*)(ImVec2*);
         func_t func = reinterpret_cast<func_t>(GetProcAddress(menuFramework, "igGetWindowContentRegionMax"));
-        return func(pOut);
+        ImVec2 pOut;
+        func(&pOut);
+        return pOut;
     }
     inline float GetScrollX() {
         using func_t = float (*)();
@@ -11320,10 +11349,8 @@ namespace ImGuiMCPComponents {
         float width = height * 1.8f;
         float radius = height * 0.5f;
 
-        // Use a unique ID for the button
         ImGuiMCP::PushID(label);
 
-        // Use Selectable instead of InvisibleButton for gamepad navigation
         ImGuiMCP::PushStyleColor(ImGuiMCP::ImGuiCol_Header, ImGuiMCP::ImVec4(0, 0, 0, 0));
         ImGuiMCP::PushStyleColor(ImGuiMCP::ImGuiCol_HeaderHovered, ImGuiMCP::ImVec4(0, 0, 0, 0));
         ImGuiMCP::PushStyleColor(ImGuiMCP::ImGuiCol_HeaderActive, ImGuiMCP::ImVec4(0, 0, 0, 0));
@@ -11337,12 +11364,12 @@ namespace ImGuiMCPComponents {
             *v = !*v;
         }
 
-        // Draw the toggle on top of the selectable
         ImGuiMCP::ImVec2 p_min = ImGuiMCP::ImVec2(p.x, p.y);
         ImGuiMCP::ImVec2 p_max = ImGuiMCP::ImVec2(p.x + width, p.y + height);
 
         float t = *v ? 1.0f : 0.0f;
-        ImGuiMCP::ImU32 col_bg = ImGuiMCP::GetColorU32(*v ? ImGuiMCP::ImGuiCol_ButtonActive : ImGuiMCP::ImGuiCol_ButtonActive);
+
+        ImGuiMCP::ImU32 col_bg = *v ? IM_COL32(0, 160, 0, 255) : IM_COL32(160, 0, 0, 255);
 
         ImGuiMCP::ImDrawListManager::AddRectFilled(draw_list, p_min, p_max, col_bg, height * 0.5f, 0);
         ImGuiMCP::ImDrawListManager::AddCircleFilled(draw_list, ImGuiMCP::ImVec2(p.x + radius + t * (width - radius * 2.0f), p.y + radius), radius - 1.5f, IM_COL32(255, 255, 255, 255), 32);
