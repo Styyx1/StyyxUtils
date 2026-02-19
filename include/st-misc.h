@@ -1,4 +1,7 @@
 #pragma once
+#include "PCH.h"
+#include "PCH.h"
+#include "PCH.h"
 
 namespace StyyxUtil
 {
@@ -303,6 +306,18 @@ struct MiscUtil
 
         
     };
+
+    static inline bool ShowWarningForCrashGuard(const std::string& mod_name)
+    {
+        const auto garbage = REX::W32::GetModuleHandleA("SkyrimCrashGuard.dll");
+        if (bool isLoaded = garbage != nullptr)
+        {
+            const std::string text = std::format("You are using Skyrim Crash Guard, if you have any issues with {}, report them to Skyrim Crash Guard cause i do not take responsibility for issues it creates!", mod_name);
+            RE::DebugMessageBox(text.c_str());
+        }
+        return garbage != nullptr;
+    }
+
 };
 struct MathUtil {
 
