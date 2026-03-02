@@ -12,7 +12,7 @@ struct SoundUtil
         RE::BSSoundHandle handle;
         auto am = RE::BSAudioManager::GetSingleton();
 
-        am->BuildSoundDataFromDescriptor(handle, a_sound->soundDescriptor);
+        am->GetSoundHandle(handle, a_sound->soundDescriptor);
         handle.SetVolume(a_volume);
         handle.SetObjectToFollow(a_actor->Get3D());
         handle.Play();
@@ -142,7 +142,7 @@ struct MiscUtil
     /// </summary>
     /// <param name="entryPoint"></param>
     /// <returns></returns>
-    static inline const char* EntryPointToString(RE::BGSEntryPoint::ENTRY_POINT entryPoint)
+    static const char* EntryPointToString(RE::BGSEntryPoint::ENTRY_POINT entryPoint)
     {
         using namespace RE;
         switch (entryPoint) {
@@ -242,6 +242,35 @@ struct MiscUtil
         }
     }
 
+    static const char* WeaponTypeToString(const RE::WEAPON_TYPE a_type)
+    {
+        switch (a_type)
+        {
+        case RE::WEAPON_TYPE::kBow:
+            return "kBow";
+        case RE::WEAPON_TYPE::kHandToHandMelee:
+            return "kHandToHandMelee";
+        case RE::WEAPON_TYPE::kOneHandAxe:
+            return "kOneHandAxe";
+        case RE::WEAPON_TYPE::kOneHandDagger:
+            return "kOneHandDagger";
+        case RE::WEAPON_TYPE::kOneHandMace:
+            return "kOneHandMace";
+        case RE::WEAPON_TYPE::kOneHandSword:
+            return "kOneHandSword";
+        case RE::WEAPON_TYPE::kTwoHandAxe:
+            return "kTwoHandAxe";
+        case RE::WEAPON_TYPE::kTwoHandSword:
+            return "kTwoHandSword";
+        case RE::WEAPON_TYPE::kCrossbow:
+            return "kCrossbow";
+        case RE::WEAPON_TYPE::kStaff:
+            return "kStaff";
+        default:
+            return "Unknown";
+        }
+    }
+
     /// <summary>
     /// Checks if an esp/esl/esm is active
     /// useful if the dll requires Forms from an esp
@@ -316,6 +345,12 @@ struct MiscUtil
             RE::DebugMessageBox(text.c_str());
         }
         return garbage != nullptr;
+    }
+
+    static RE::TESObjectWEAP* GetUnarmedWeapon()
+    {
+        auto** singleton{ reinterpret_cast<RE::TESObjectWEAP**>(REL::ID(401061).address()) };
+        return *singleton;
     }
 
 };
