@@ -4,14 +4,63 @@ namespace StyyxUtil
 {
 
 struct ActorUtil
-{    
+{
+
+    static bool ActorHasEquippedHeavyArmor(RE::Actor *actor)
+    {
+        if (!actor)
+            return false;
+        const auto proc = actor->currentProcess;
+        if (!proc)
+            return false;
+
+        for (auto& equipped : proc->equippedForms)
+        {
+            if (equipped.object)
+            {
+                if (auto armor = equipped.object->As<RE::TESObjectARMO>())
+                {
+                    if (armor->IsHeavyArmor())
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    static bool ActorHasEquippedLightArmor(RE::Actor *actor)
+    {
+        if (!actor)
+            return false;
+        const auto proc = actor->currentProcess;
+        if (!proc)
+            return false;
+
+        for (auto& equipped : proc->equippedForms)
+        {
+            if (equipped.object)
+            {
+                if (auto armor = equipped.object->As<RE::TESObjectARMO>())
+                {
+                    if (!armor->IsHeavyArmor())
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     /// <summary>
     /// Gets the state in which an attack of opportunity is possible
     /// </summary>
     /// <param name="victim"></param>
     /// <param name="attacker"></param>
     /// <returns></returns>
-    inline static bool IsInOpportunityState(RE::Actor *victim, RE::Actor *attacker)
+    static bool IsInOpportunityState(RE::Actor *victim, RE::Actor *attacker)
     {
         return IsPowerAttacking(victim) || victim->IsStaggering() ||
                victim->actorState1.sitSleepState == RE::SIT_SLEEP_STATE::kIsSitting ||
