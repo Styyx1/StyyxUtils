@@ -7,6 +7,7 @@
 #include "st-misc.h"
 #include "st-timer.h"
 #include "st-refs.h"
+#include "st-perks.h"
 
 namespace StyyxUtil {
     /// <summary>
