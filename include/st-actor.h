@@ -1,10 +1,30 @@
 #pragma once
+#include <vector>
 
 namespace StyyxUtil
 {
 
 struct ActorUtil
 {
+
+    static void GetPerksFromBaseActor(RE::Actor* a_actor, std::vector<RE::BGSPerk*>& perks)
+    {
+        if (!a_actor)
+            return;
+
+        const auto base = a_actor->GetActorBase();
+        if (!base)
+            return;
+
+        const uint32_t perk_count = base->perkCount;
+        for (uint32_t i = 0; i < perk_count; i++)
+        {
+            RE::BGSPerk* perk = base->perks[i].perk;
+            if (!perk)
+                continue;
+            perks.push_back(perk);
+        }
+    }
 
     static bool ActorHasEquippedHeavyArmor(RE::Actor *actor)
     {
