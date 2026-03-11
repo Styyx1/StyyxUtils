@@ -11,65 +11,52 @@ namespace StyyxUtil
     {
         static inline std::unordered_set<RE::BGSPerk*> playable_perks;
 
+        static constexpr RE::ActorValue kPlayableSkills[] = {
+            RE::ActorValue::kOneHanded, RE::ActorValue::kTwoHanded,
+            RE::ActorValue::kArchery, RE::ActorValue::kBlock,
+            RE::ActorValue::kSmithing, RE::ActorValue::kHeavyArmor,
+            RE::ActorValue::kLightArmor, RE::ActorValue::kPickpocket,
+            RE::ActorValue::kLockpicking, RE::ActorValue::kSneak,
+            RE::ActorValue::kAlchemy, RE::ActorValue::kSpeech,
+            RE::ActorValue::kAlteration, RE::ActorValue::kConjuration,
+            RE::ActorValue::kDestruction, RE::ActorValue::kIllusion,
+            RE::ActorValue::kRestoration, RE::ActorValue::kEnchanting
+        };
+
         static void TraversePerkNode(RE::BGSSkillPerkTreeNode* node,
-                                     std::unordered_set<RE::BGSPerk*>& them_perks,
+                                     std::unordered_set<RE::BGSPerk*>& set_out,
                                      std::unordered_set<RE::BGSSkillPerkTreeNode*>& visited)
         {
-            if (!node || visited.contains(node))
+            if (!node || !visited.insert(node).second)
                 return;
 
-            visited.insert(node);
-
             if (node->perk) {
-                playable_perks.insert(node->perk);
+                set_out.insert(node->perk);
             }
 
             for (auto* child : node->children) {
-                TraversePerkNode(child, them_perks, visited);
+                TraversePerkNode(child, set_out, visited);
             }
         };
 
-
-        static void BuildPlayablePerks()
+        static std::unordered_set<RE::BGSPerk*> GetPerksForSkill(RE::ActorValue av)
         {
-            {
-                std::unordered_set<RE::BGSSkillPerkTreeNode*> visited;
+            std::unordered_set<RE::BGSPerk*> out;
+            std::unordered_set<RE::BGSSkillPerkTreeNode*> visited;
+            if (const auto avif = RE::ActorValueList::GetActorValueInfo(av); avif && avif->perkTree)
+                TraversePerkNode(avif->perkTree, out, visited);
+            return out;
+        }
 
-                const auto avif_destruction = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kDestruction);
-                const auto avif_restoration = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kRestoration);
-                const auto avif_conjuration = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kConjuration);
-                const auto avif_illusion = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kIllusion);
-                const auto avif_enchanting = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kEnchanting);
-                const auto avif_alteration = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kAlteration);
-                const auto avif_onehanded = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kOneHanded);
-                const auto avif_twohanded = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kTwoHanded);
-                const auto avif_smithing = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kSmithing);
-                const auto avif_heavyarmor = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kHeavyArmor);
-                const auto avif_archery = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kArchery);
-                const auto avif_block = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kBlock);
-                const auto avif_pickpocket = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kPickpocket);
-                const auto avif_lockpicking = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kLockpicking);
-                const auto avif_sneaking = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kSneak);
-                const auto avif_lightarmor = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kLightArmor);
-                const auto avif_speech = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kSpeech);
-                const auto avif_alchemy = RE::ActorValueList::GetActorValueInfo(RE::ActorValue::kAlchemy);
-
-                std::vector avifs = {
-                    avif_destruction, avif_restoration, avif_conjuration, avif_illusion,
-                    avif_enchanting, avif_alteration, avif_onehanded, avif_twohanded,
-                    avif_smithing, avif_heavyarmor, avif_archery, avif_block,
-                    avif_pickpocket, avif_lockpicking, avif_sneaking, avif_lightarmor,
-                    avif_speech, avif_alchemy
-                };
-
-                for (const auto& avif : avifs)
-                {
-                    if (avif && avif->perkTree)
-                    {
-                        TraversePerkNode(avif->perkTree, playable_perks, visited);
-                    }
-                }
+        static std::unordered_set<RE::BGSPerk*> GetAllPlayablePerks()
+        {
+            std::unordered_set<RE::BGSPerk*> out;
+            std::unordered_set<RE::BGSSkillPerkTreeNode*> visited;
+            for (const auto av : kPlayableSkills) {
+                if (const auto avif = RE::ActorValueList::GetActorValueInfo(av); avif && avif->perkTree)
+                    TraversePerkNode(avif->perkTree, out, visited);
             }
+            return out;
         }
     };
 }
