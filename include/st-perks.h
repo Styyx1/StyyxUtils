@@ -11,7 +11,7 @@ namespace StyyxUtil
     {
         static inline std::unordered_set<RE::BGSPerk*> playable_perks;
 
-        static constexpr RE::ActorValue kPlayableSkills[] = {
+        static constexpr std::array<RE::ActorValue, 18> kPlayableSkills = {
             RE::ActorValue::kOneHanded, RE::ActorValue::kTwoHanded,
             RE::ActorValue::kArchery, RE::ActorValue::kBlock,
             RE::ActorValue::kSmithing, RE::ActorValue::kHeavyArmor,
@@ -63,7 +63,7 @@ namespace StyyxUtil
         {
             std::unordered_set<RE::BGSPerk*> out;
             std::unordered_set<RE::BGSSkillPerkTreeNode*> visited;
-            constexpr RE::ActorValue kMageSkills[] = {
+            constexpr std::array<RE::ActorValue, 6> kMageSkills = {
                 RE::ActorValue::kAlteration, RE::ActorValue::kConjuration,
                 RE::ActorValue::kDestruction, RE::ActorValue::kIllusion,
                 RE::ActorValue::kEnchanting, RE::ActorValue::kRestoration
@@ -82,7 +82,7 @@ namespace StyyxUtil
         {
             std::unordered_set<RE::BGSPerk*> out;
             std::unordered_set<RE::BGSSkillPerkTreeNode*> visited;
-            constexpr RE::ActorValue kThiefSkills[] = {
+            constexpr std::array<RE::ActorValue, 6> kThiefSkills = {
                 RE::ActorValue::kSpeech, RE::ActorValue::kAlchemy,
                 RE::ActorValue::kLockpicking, RE::ActorValue::kSneak,
                 RE::ActorValue::kPickpocket, RE::ActorValue::kLightArmor
@@ -100,7 +100,7 @@ namespace StyyxUtil
         {
             std::unordered_set<RE::BGSPerk*> out;
             std::unordered_set<RE::BGSSkillPerkTreeNode*> visited;
-            constexpr RE::ActorValue kWarriorSkills[] = {
+            constexpr std::array<RE::ActorValue, 6> kWarriorSkills = {
                 RE::ActorValue::kOneHanded, RE::ActorValue::kTwoHanded,
                 RE::ActorValue::kHeavyArmor, RE::ActorValue::kArchery,
                 RE::ActorValue::kSmithing, RE::ActorValue::kBlock

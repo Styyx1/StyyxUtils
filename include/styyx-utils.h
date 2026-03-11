@@ -8,6 +8,10 @@
 #include "st-timer.h"
 #include "st-refs.h"
 #include "st-perks.h"
+#ifdef STYYX_DEBUG_UTILS
+#include "st-debug.h"
+#endif
+
 #ifdef STYYX_HOOK_UTILS
 #include "st-hooks.h"
 #endif
