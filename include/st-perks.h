@@ -58,5 +58,61 @@ namespace StyyxUtil
             }
             return out;
         }
+
+        static std::unordered_set<RE::BGSPerk*> GetAllMagicPerks()
+        {
+            std::unordered_set<RE::BGSPerk*> out;
+            std::unordered_set<RE::BGSSkillPerkTreeNode*> visited;
+            constexpr RE::ActorValue kMageSkills[] = {
+                RE::ActorValue::kAlteration, RE::ActorValue::kConjuration,
+                RE::ActorValue::kDestruction, RE::ActorValue::kIllusion,
+                RE::ActorValue::kEnchanting, RE::ActorValue::kRestoration
+            };
+
+            for (const auto av : kMageSkills)
+            {
+                if (const auto avif = RE::ActorValueList::GetActorValueInfo(av); avif && avif->perkTree)
+                    TraversePerkNode(avif->perkTree, out, visited);
+            }
+            return out;
+
+        }
+
+        static std::unordered_set<RE::BGSPerk*> GetAllThiefPerks()
+        {
+            std::unordered_set<RE::BGSPerk*> out;
+            std::unordered_set<RE::BGSSkillPerkTreeNode*> visited;
+            constexpr RE::ActorValue kThiefSkills[] = {
+                RE::ActorValue::kSpeech, RE::ActorValue::kAlchemy,
+                RE::ActorValue::kLockpicking, RE::ActorValue::kSneak,
+                RE::ActorValue::kPickpocket, RE::ActorValue::kLightArmor
+            };
+
+            for (const auto av : kThiefSkills)
+            {
+                if (const auto avif = RE::ActorValueList::GetActorValueInfo(av); avif && avif->perkTree)
+                    TraversePerkNode(avif->perkTree, out, visited);
+            }
+            return out;
+        }
+
+        static std::unordered_set<RE::BGSPerk*> GetAllWarriorPerks()
+        {
+            std::unordered_set<RE::BGSPerk*> out;
+            std::unordered_set<RE::BGSSkillPerkTreeNode*> visited;
+            constexpr RE::ActorValue kWarriorSkills[] = {
+                RE::ActorValue::kOneHanded, RE::ActorValue::kTwoHanded,
+                RE::ActorValue::kHeavyArmor, RE::ActorValue::kArchery,
+                RE::ActorValue::kSmithing, RE::ActorValue::kBlock
+            };
+
+            for (const auto av : kWarriorSkills)
+            {
+                if (const auto avif = RE::ActorValueList::GetActorValueInfo(av); avif && avif->perkTree)
+                    TraversePerkNode(avif->perkTree, out, visited);
+            }
+            return out;
+        }
+
     };
 }
