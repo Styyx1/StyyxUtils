@@ -8,7 +8,10 @@
 
 namespace StyyxUtil::DBGUtil
 {
+
+
 #ifdef NDEBUG
+
     struct ScopedSharedLock {
         explicit ScopedSharedLock(std::shared_mutex& mtx) : lock(mtx) {}
         void unlock() { lock.unlock(); }

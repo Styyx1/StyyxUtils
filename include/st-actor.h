@@ -6,7 +6,9 @@ namespace StyyxUtil
 
 struct ActorUtil
 {
-
+    /// @brief Fills a vector<RE::BGSPerk*> reference with all the perks an actor inherits from the actor base
+    /// @param a_actor Actor which the perks are gotten from
+    /// @param perks vector reference all the perks are added to
     static void GetPerksFromBaseActor(RE::Actor* a_actor, std::vector<RE::BGSPerk*>& perks)
     {
         if (!a_actor)
@@ -26,6 +28,9 @@ struct ActorUtil
         }
     }
 
+    /// @brief Check if an actor has any heavy armor equipped. It returning false does not mean the actor has light armor equipped
+    /// @param actor Actor to check
+    /// @return returns true if the actor has any heavy armor equipped
     static bool ActorHasEquippedHeavyArmor(RE::Actor *actor)
     {
         if (!actor)
@@ -49,7 +54,9 @@ struct ActorUtil
         }
         return false;
     }
-
+    /// @brief Check if an actor has any light armor equipped. It returning false does not mean the actor has heavy armor equipped
+    /// @param actor Actor to check
+    /// @return returns true if the actor has any light armor equipped
     static bool ActorHasEquippedLightArmor(RE::Actor *actor)
     {
         if (!actor)
@@ -94,7 +101,7 @@ struct ActorUtil
     /// <summary>
     /// Helper Function to Get the current inventory weight of an actor
     /// </summary>
-    /// <param name="actor"></param>
+    /// <param name="actor">Actor to get the inventory weight from</param>
     /// <returns></returns>
     inline static float GetInventoryWeight(RE::Actor *actor)
     {

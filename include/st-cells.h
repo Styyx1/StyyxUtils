@@ -49,5 +49,27 @@ struct CellUtil
         }
         return false;
     }
+
+    /// @brief Get a vector of all actors in the specified cell
+    /// @param a_cell the cell to check
+    /// @return vector with all actors in the cell
+    static std::vector<RE::Actor*> GetAllActorsInCell(RE::TESObjectCELL *a_cell)
+    {
+        std::vector<RE::Actor*> result;
+        if (!a_cell)
+            return result;
+
+        for (const auto& ref : a_cell->references)
+        {
+            if (!ref)
+                continue;
+            auto actor = ref->As<RE::Actor>();
+            if (!actor)
+                continue;
+            result.push_back(actor);
+        }
+        return result;
+    }
+
 };
 } // namespace StyyxUtil
