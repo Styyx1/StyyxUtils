@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['remainingseconds_0',['RemainingSeconds',['../class_styyx_util_1_1_timer_util_1_1_timer.html#acf0be1dcc548c2e2da2b9270c9b5e110',1,'StyyxUtil::TimerUtil::Timer']]],
+  ['remainingseconds_0',['RemainingSeconds',['../struct_styyx_util_1_1_timer_util.html#a20d73dbe1b1f3ddfb043aa05c590467e',1,'StyyxUtil::TimerUtil']]],
   ['removeitemplayer_1',['RemoveItemPlayer',['../struct_styyx_util_1_1_actor_util.html#a845dbd73736436e1ec21ced0d3c711d4',1,'StyyxUtil::ActorUtil']]],
-  ['reset_2',['Reset',['../class_styyx_util_1_1_timer_util_1_1_timer.html#a1f1d48377e181eaf95210a91cc6ea8e0',1,'StyyxUtil::TimerUtil::Timer']]]
+  ['reset_2',['Reset',['../struct_styyx_util_1_1_timer_util.html#ac8c50e38b26fe7277f722340fd867b3c',1,'StyyxUtil::TimerUtil']]]
 ];

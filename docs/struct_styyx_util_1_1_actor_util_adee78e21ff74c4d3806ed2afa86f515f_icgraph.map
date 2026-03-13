@@ -1,0 +1,5 @@
+<map id="StyyxUtil::ActorUtil::GetCurrentLightLevel" name="StyyxUtil::ActorUtil::GetCurrentLightLevel">
+<area shape="rect" id="Node000001" title="Get the current light level the actor is standing in." alt="" coords="243,5,395,48"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_actor_util.html#a7785e37c2f7306d83f9449bd61f29281" title="Get the light level the player is standing in." alt="" coords="5,5,195,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,27,195,29,195,24,230,26"/>
+</map>

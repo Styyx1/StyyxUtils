@@ -1,0 +1,13 @@
+<map id="StyyxUtil::RandomiserUtil::GetRNG" name="StyyxUtil::RandomiserUtil::GetRNG">
+<area shape="rect" id="Node000001" title=" " alt="" coords="455,72,628,115"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_randomiser_util.html#a4b1df3000125872ebdd3a23c66bbced3" title="Get random double between 2 values." alt="" coords="234,5,407,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="452,67,394,51,394,46,457,67"/>
+<area shape="rect" id="Node000003" href="$struct_styyx_util_1_1_randomiser_util.html#ac39fb41068a85cb96d3d7ad46210185a" title="Get random float between 2 values." alt="" coords="234,72,407,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="437,94,408,96,407,91,442,93"/>
+<area shape="rect" id="Node000006" href="$struct_styyx_util_1_1_randomiser_util.html#a1a62939214133ae7eb33d6b15cc54273" title="Get random integer between 2 values." alt="" coords="234,139,407,181"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="457,119,394,141,393,135,452,120"/>
+<area shape="rect" id="Node000004" href="$struct_styyx_util_1_1_randomiser_util.html#ab1c8ba0055565d25d70e697d16720c9f" title="Get random float rounded to a set amount of decimals." alt="" coords="5,39,186,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="216,79,186,76,186,71,221,78"/>
+<area shape="rect" id="Node000005" href="$struct_styyx_util_1_1_randomiser_util.html#a8df13d1c563754bc5009ffcf4307844b" title="Rolls a random chance check against a given percentage." alt="" coords="5,105,186,148"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="216,109,187,116,186,111,221,108"/>
+</map>

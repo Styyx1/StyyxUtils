@@ -18,7 +18,7 @@ var namespace_styyx_util =
     [ "RandomiserUtil", "struct_styyx_util_1_1_randomiser_util.html", "struct_styyx_util_1_1_randomiser_util" ],
     [ "RefUtil", "struct_styyx_util_1_1_ref_util.html", "struct_styyx_util_1_1_ref_util" ],
     [ "SoundUtil", "struct_styyx_util_1_1_sound_util.html", "struct_styyx_util_1_1_sound_util" ],
-    [ "TimerUtil", "namespace_styyx_util.html#struct_styyx_util_1_1_timer_util", "namespace_styyx_util_struct_styyx_util_1_1_timer_util_dup" ],
+    [ "TimerUtil", "struct_styyx_util_1_1_timer_util.html", "struct_styyx_util_1_1_timer_util" ],
     [ "UIUtil", "struct_styyx_util_1_1_u_i_util.html", "struct_styyx_util_1_1_u_i_util" ],
     [ "FuncCall", "namespace_styyx_util.html#a6d4abac0c2057e29acb089186749ac71", null ]
 ];

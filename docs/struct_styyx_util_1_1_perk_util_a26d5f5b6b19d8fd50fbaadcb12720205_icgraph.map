@@ -1,0 +1,11 @@
+<map id="StyyxUtil::PerkUtil::GetPerksForSkills" name="StyyxUtil::PerkUtil::GetPerksForSkills">
+<area shape="rect" id="Node000001" title=" " alt="" coords="203,105,338,148"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_perk_util.html#af0be69a708de31a53b5f872cc480bc3f" title="Gets all perks belonging to magic skills (Alteration, Conjuration, Destruction, Illusion,..." alt="" coords="13,5,147,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,98,153,62,132,51,131,46,156,58,223,96"/>
+<area shape="rect" id="Node000003" href="$struct_styyx_util_1_1_perk_util.html#a65d065b54a5c37d7a8318b6ed7bade25" title=" " alt="" coords="5,72,155,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,113,155,109,154,104,190,111"/>
+<area shape="rect" id="Node000004" href="$struct_styyx_util_1_1_perk_util.html#ad3fb781f5d1387143bb75be61db59b83" title="Gets all perks belonging to thief skills (Pickpocket, Lockpicking, Light Armor, Alchemy,..." alt="" coords="15,139,145,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="185,142,146,151,144,146,190,140"/>
+<area shape="rect" id="Node000005" href="$struct_styyx_util_1_1_perk_util.html#a27fc2252a36310d8217445fe5df3abac" title="Gets all perks belonging to warrior skills (One&#45;Handed, Two&#45;Handed, Archery, Block,..." alt="" coords="10,205,150,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="223,155,156,196,132,207,130,202,153,191,218,157"/>
+</map>
