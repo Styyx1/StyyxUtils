@@ -155,10 +155,23 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4e1f65a7c7c5cf87e2dd1e53379f607f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if an actor is shield bashing.  <br /></td></tr>
 <tr class="memitem:aa3689863ac0b0928933ad84007b644b8" id="r_aa3689863ac0b0928933ad84007b644b8"><td class="memItemLeft">static std::vector&lt; RE::Actor * &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa3689863ac0b0928933ad84007b644b8">GetNearbyActors</a> (const RE::TESObjectREFR *a_ref, const float a_radius, const bool a_ignorePlayer)</td></tr>
 <tr class="memdesc:aa3689863ac0b0928933ad84007b644b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all nearby actors.  <br /></td></tr>
+<tr class="memitem:a3b38cfb0ae3303f7dc9b2eea434b58fa" id="r_a3b38cfb0ae3303f7dc9b2eea434b58fa"><td class="memItemLeft">static std::vector&lt; RE::Actor * &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a3b38cfb0ae3303f7dc9b2eea434b58fa">GetNearbyNonPlayerTeammates</a> (const RE::TESObjectREFR *a_ref, const float a_radius)</td></tr>
+<tr class="memdesc:a3b38cfb0ae3303f7dc9b2eea434b58fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search all non-teammates within a certain radius.  <br /></td></tr>
+<tr class="memitem:a400ed55492494677828561be79b6f1dc" id="r_a400ed55492494677828561be79b6f1dc"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a400ed55492494677828561be79b6f1dc">IsGuardNearby</a> (const RE::TESObjectREFR *a_ref, const float a_radius)</td></tr>
+<tr class="memdesc:a400ed55492494677828561be79b6f1dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if any actor within a certain radius is a guard.  <br /></td></tr>
+<tr class="memitem:a1c173303a742f62cd28ce2246b4510fc" id="r_a1c173303a742f62cd28ce2246b4510fc"><td class="memItemLeft">static RE::Actor *&#160;</td><td class="memItemRight"><a class="el" href="#a1c173303a742f62cd28ce2246b4510fc">GetClosestActor</a> (const RE::TESObjectREFR *a_ref, const float a_radius)</td></tr>
+<tr class="memdesc:a1c173303a742f62cd28ce2246b4510fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the closest actor within a radius.  <br /></td></tr>
+<tr class="memitem:a5ea6a65169a576cb072e453579e5e2b0" id="r_a5ea6a65169a576cb072e453579e5e2b0"><td class="memItemLeft">static RE::Actor *&#160;</td><td class="memItemRight"><a class="el" href="#a5ea6a65169a576cb072e453579e5e2b0">GetClosestNonPlayerTeammate</a> (const RE::TESObjectREFR *a_ref, const float a_radius)</td></tr>
+<tr class="memdesc:a5ea6a65169a576cb072e453579e5e2b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the closest non-player teammate within a radius of a reference.  <br /></td></tr>
 <tr class="memitem:a940764c0ce6101e4012569452ba2ba1c" id="r_a940764c0ce6101e4012569452ba2ba1c"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a940764c0ce6101e4012569452ba2ba1c">SetNPCLevel</a> (RE::Actor *actor, uint16_t level)</td></tr>
 <tr class="memdesc:a940764c0ce6101e4012569452ba2ba1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the console command SetLevel to set an actor's level to the amount.  <br /></td></tr>
 <tr class="memitem:acd1a9a185f5be6c2e48079934cc01c43" id="r_acd1a9a185f5be6c2e48079934cc01c43"><td class="memItemLeft">static float&#160;</td><td class="memItemRight"><a class="el" href="#acd1a9a185f5be6c2e48079934cc01c43">GetActorValuePercentage</a> (RE::Actor *a_actor, RE::ActorValue a_av)</td></tr>
 <tr class="memdesc:acd1a9a185f5be6c2e48079934cc01c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the actor value percentage of an actor.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a1d461eca0ffab895134cedfb4be92138" id="r_a1d461eca0ffab895134cedfb4be92138"><td class="memItemLeft">static RE::Actor *&#160;</td><td class="memItemRight"><a class="el" href="#a1d461eca0ffab895134cedfb4be92138">GetClosestFromVector</a> (const RE::TESObjectREFR *a_ref, const std::vector&lt; RE::Actor * &gt; &amp;actors)</td></tr>
+<tr class="memdesc:a1d461eca0ffab895134cedfb4be92138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to get the closest actor from a vector.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="aceeefb586e8e188ac5c2b56c6eb09359" name="aceeefb586e8e188ac5c2b56c6eb09359"></a>
@@ -581,6 +594,161 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a1c173303a742f62cd28ce2246b4510fc" name="a1c173303a742f62cd28ce2246b4510fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c173303a742f62cd28ce2246b4510fc">&#9670;&#160;</a></span>GetClosestActor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RE::Actor * StyyxUtil::ActorUtil::GetClosestActor </td>
+          <td>(</td>
+          <td class="paramtype">const RE::TESObjectREFR *</td>          <td class="paramname"><span class="paramname"><em>a_ref</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>a_radius</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the closest actor within a radius. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a_ref</td><td>The reference to get the closest actor to </td></tr>
+    <tr><td class="paramname">a_radius</td><td>The radius in which the closest actor gets searched </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The closest actor if any are there. nullptr if none are found </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_styyx_util_1_1_actor_util_a1c173303a742f62cd28ce2246b4510fc_cgraph.png" border="0" usemap="#astruct_styyx_util_1_1_actor_util_a1c173303a742f62cd28ce2246b4510fc_cgraph" loading="lazy" alt=""/></div>
+<map name="astruct_styyx_util_1_1_actor_util_a1c173303a742f62cd28ce2246b4510fc_cgraph" id="astruct_styyx_util_1_1_actor_util_a1c173303a742f62cd28ce2246b4510fc_cgraph">
+<area shape="rect" title="Get the closest actor within a radius." alt="" coords="5,39,140,81"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#a1d461eca0ffab895134cedfb4be92138" title="Helper function to get the closest actor from a vector." alt="" coords="188,5,350,48"/>
+<area shape="poly" title=" " alt="" coords="139,46,175,42,170,44,141,51"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#aa3689863ac0b0928933ad84007b644b8" title="Get all nearby actors." alt="" coords="202,72,336,115"/>
+<area shape="poly" title=" " alt="" coords="140,69,189,79,183,80,140,74"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1d461eca0ffab895134cedfb4be92138" name="a1d461eca0ffab895134cedfb4be92138"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d461eca0ffab895134cedfb4be92138">&#9670;&#160;</a></span>GetClosestFromVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RE::Actor * StyyxUtil::ActorUtil::GetClosestFromVector </td>
+          <td>(</td>
+          <td class="paramtype">const RE::TESObjectREFR *</td>          <td class="paramname"><span class="paramname"><em>a_ref</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; RE::Actor * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>actors</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function to get the closest actor from a vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a_ref</td><td>The reference to check </td></tr>
+    <tr><td class="paramname">actors</td><td>A vector with Actors </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The closest actor to a ref in a vector </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_styyx_util_1_1_actor_util_a1d461eca0ffab895134cedfb4be92138_icgraph.png" border="0" usemap="#astruct_styyx_util_1_1_actor_util_a1d461eca0ffab895134cedfb4be92138_icgraph" loading="lazy" alt=""/></div>
+<map name="astruct_styyx_util_1_1_actor_util_a1d461eca0ffab895134cedfb4be92138_icgraph" id="astruct_styyx_util_1_1_actor_util_a1d461eca0ffab895134cedfb4be92138_icgraph">
+<area shape="rect" title="Helper function to get the closest actor from a vector." alt="" coords="271,39,433,81"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#a1c173303a742f62cd28ce2246b4510fc" title="Get the closest actor within a radius." alt="" coords="47,5,181,48"/>
+<area shape="poly" title=" " alt="" coords="253,47,182,39,182,33,258,46"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#a5ea6a65169a576cb072e453579e5e2b0" title="Get the closest non&#45;player teammate within a radius of a reference." alt="" coords="5,72,223,115"/>
+<area shape="poly" title=" " alt="" coords="252,74,224,81,223,75,258,73"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5ea6a65169a576cb072e453579e5e2b0" name="a5ea6a65169a576cb072e453579e5e2b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ea6a65169a576cb072e453579e5e2b0">&#9670;&#160;</a></span>GetClosestNonPlayerTeammate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RE::Actor * StyyxUtil::ActorUtil::GetClosestNonPlayerTeammate </td>
+          <td>(</td>
+          <td class="paramtype">const RE::TESObjectREFR *</td>          <td class="paramname"><span class="paramname"><em>a_ref</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>a_radius</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the closest non-player teammate within a radius of a reference. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a_ref</td><td>The ref to check the closest non-teammate of </td></tr>
+    <tr><td class="paramname">a_radius</td><td>The radius to check within </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The closest non-teammate actor. Or nullptr if there are none </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_styyx_util_1_1_actor_util_a5ea6a65169a576cb072e453579e5e2b0_cgraph.png" border="0" usemap="#astruct_styyx_util_1_1_actor_util_a5ea6a65169a576cb072e453579e5e2b0_cgraph" loading="lazy" alt=""/></div>
+<map name="astruct_styyx_util_1_1_actor_util_a5ea6a65169a576cb072e453579e5e2b0_cgraph" id="astruct_styyx_util_1_1_actor_util_a5ea6a65169a576cb072e453579e5e2b0_cgraph">
+<area shape="rect" title="Get the closest non&#45;player teammate within a radius of a reference." alt="" coords="5,39,223,81"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#a1d461eca0ffab895134cedfb4be92138" title="Helper function to get the closest actor from a vector." alt="" coords="300,5,462,48"/>
+<area shape="poly" title=" " alt="" coords="222,44,287,38,282,39,223,49"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#a3b38cfb0ae3303f7dc9b2eea434b58fa" title="Search all non&#45;teammates within a certain radius." alt="" coords="271,72,492,115"/>
+<area shape="poly" title=" " alt="" coords="223,71,258,77,253,78,223,76"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#aa3689863ac0b0928933ad84007b644b8" title="Get all nearby actors." alt="" coords="540,72,674,115"/>
+<area shape="poly" title=" " alt="" coords="492,91,527,93,522,93,492,96"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="adee78e21ff74c4d3806ed2afa86f515f" name="adee78e21ff74c4d3806ed2afa86f515f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adee78e21ff74c4d3806ed2afa86f515f">&#9670;&#160;</a></span>GetCurrentLightLevel()</h2>
 
@@ -839,6 +1007,81 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>vector of all actors in a set radius around a reference </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Credits: <a href="https://github.com/powerof3/PapyrusExtenderSSE/">Papyrus Extender by PO3</a> </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_styyx_util_1_1_actor_util_aa3689863ac0b0928933ad84007b644b8_icgraph.png" border="0" usemap="#astruct_styyx_util_1_1_actor_util_aa3689863ac0b0928933ad84007b644b8_icgraph" loading="lazy" alt=""/></div>
+<map name="astruct_styyx_util_1_1_actor_util_aa3689863ac0b0928933ad84007b644b8_icgraph" id="astruct_styyx_util_1_1_actor_util_aa3689863ac0b0928933ad84007b644b8_icgraph">
+<area shape="rect" title="Get all nearby actors." alt="" coords="540,72,674,115"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#a1c173303a742f62cd28ce2246b4510fc" title="Get the closest actor within a radius." alt="" coords="314,5,448,48"/>
+<area shape="poly" title=" " alt="" coords="522,69,449,49,449,44,528,69"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#a3b38cfb0ae3303f7dc9b2eea434b58fa" title="Search all non&#45;teammates within a certain radius." alt="" coords="271,72,492,115"/>
+<area shape="poly" title=" " alt="" coords="522,94,493,96,492,91,527,93"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#a400ed55492494677828561be79b6f1dc" title="Check if any actor within a certain radius is a guard." alt="" coords="314,139,448,181"/>
+<area shape="poly" title=" " alt="" coords="528,117,450,143,449,138,522,118"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#a5ea6a65169a576cb072e453579e5e2b0" title="Get the closest non&#45;player teammate within a radius of a reference." alt="" coords="5,72,223,115"/>
+<area shape="poly" title=" " alt="" coords="252,94,224,96,223,91,257,93"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3b38cfb0ae3303f7dc9b2eea434b58fa" name="a3b38cfb0ae3303f7dc9b2eea434b58fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b38cfb0ae3303f7dc9b2eea434b58fa">&#9670;&#160;</a></span>GetNearbyNonPlayerTeammates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; RE::Actor * &gt; StyyxUtil::ActorUtil::GetNearbyNonPlayerTeammates </td>
+          <td>(</td>
+          <td class="paramtype">const RE::TESObjectREFR *</td>          <td class="paramname"><span class="paramname"><em>a_ref</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>a_radius</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Search all non-teammates within a certain radius. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a_ref</td><td>The reference to search nearby actors for </td></tr>
+    <tr><td class="paramname">a_radius</td><td>The radius within actors are searched for </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of all actors that are not PlayerTeammates within a certain radius </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_styyx_util_1_1_actor_util_a3b38cfb0ae3303f7dc9b2eea434b58fa_cgraph.png" border="0" usemap="#astruct_styyx_util_1_1_actor_util_a3b38cfb0ae3303f7dc9b2eea434b58fa_cgraph" loading="lazy" alt=""/></div>
+<map name="astruct_styyx_util_1_1_actor_util_a3b38cfb0ae3303f7dc9b2eea434b58fa_cgraph" id="astruct_styyx_util_1_1_actor_util_a3b38cfb0ae3303f7dc9b2eea434b58fa_cgraph">
+<area shape="rect" title="Search all non&#45;teammates within a certain radius." alt="" coords="5,5,227,48"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#aa3689863ac0b0928933ad84007b644b8" title="Get all nearby actors." alt="" coords="275,5,409,48"/>
+<area shape="poly" title=" " alt="" coords="227,24,262,27,256,27,227,29"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_styyx_util_1_1_actor_util_a3b38cfb0ae3303f7dc9b2eea434b58fa_icgraph.png" border="0" usemap="#astruct_styyx_util_1_1_actor_util_a3b38cfb0ae3303f7dc9b2eea434b58fa_icgraph" loading="lazy" alt=""/></div>
+<map name="astruct_styyx_util_1_1_actor_util_a3b38cfb0ae3303f7dc9b2eea434b58fa_icgraph" id="astruct_styyx_util_1_1_actor_util_a3b38cfb0ae3303f7dc9b2eea434b58fa_icgraph">
+<area shape="rect" title="Search all non&#45;teammates within a certain radius." alt="" coords="271,5,492,48"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#a5ea6a65169a576cb072e453579e5e2b0" title="Get the closest non&#45;player teammate within a radius of a reference." alt="" coords="5,5,223,48"/>
+<area shape="poly" title=" " alt="" coords="252,27,223,29,223,24,257,27"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -1120,6 +1363,55 @@ Here we do a manual lookup in case the default object is null </dd></dl>
 
 </div>
 </div>
+<a id="a400ed55492494677828561be79b6f1dc" name="a400ed55492494677828561be79b6f1dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a400ed55492494677828561be79b6f1dc">&#9670;&#160;</a></span>IsGuardNearby()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StyyxUtil::ActorUtil::IsGuardNearby </td>
+          <td>(</td>
+          <td class="paramtype">const RE::TESObjectREFR *</td>          <td class="paramname"><span class="paramname"><em>a_ref</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>a_radius</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if any actor within a certain radius is a guard. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a_ref</td><td>The reference to check </td></tr>
+    <tr><td class="paramname">a_radius</td><td>The radius to search a guard in </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if any actor within the radius is a guard </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_styyx_util_1_1_actor_util_a400ed55492494677828561be79b6f1dc_cgraph.png" border="0" usemap="#astruct_styyx_util_1_1_actor_util_a400ed55492494677828561be79b6f1dc_cgraph" loading="lazy" alt=""/></div>
+<map name="astruct_styyx_util_1_1_actor_util_a400ed55492494677828561be79b6f1dc_cgraph" id="astruct_styyx_util_1_1_actor_util_a400ed55492494677828561be79b6f1dc_cgraph">
+<area shape="rect" title="Check if any actor within a certain radius is a guard." alt="" coords="5,5,140,48"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#aa3689863ac0b0928933ad84007b644b8" title="Get all nearby actors." alt="" coords="188,5,322,48"/>
+<area shape="poly" title=" " alt="" coords="140,24,175,26,170,27,140,29"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a5ef07e43292e9987107b766af58169f8" name="a5ef07e43292e9987107b766af58169f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ef07e43292e9987107b766af58169f8">&#9670;&#160;</a></span>IsInOpportunityState()</h2>
 
@@ -1376,6 +1668,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The console command also updates the actor's stats which the standalone function does not do automatically </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_styyx_util_1_1_actor_util_a940764c0ce6101e4012569452ba2ba1c_cgraph.png" border="0" usemap="#astruct_styyx_util_1_1_actor_util_a940764c0ce6101e4012569452ba2ba1c_cgraph" loading="lazy" alt=""/></div>
+<map name="astruct_styyx_util_1_1_actor_util_a940764c0ce6101e4012569452ba2ba1c_cgraph" id="astruct_styyx_util_1_1_actor_util_a940764c0ce6101e4012569452ba2ba1c_cgraph">
+<area shape="rect" title="Runs the console command SetLevel to set an actor&#39;s level to the amount." alt="" coords="5,5,140,48"/>
+<area shape="rect" href="struct_styyx_util_1_1_misc_util.html#ab09c449bc600d05e8759e2504db3ffd6" title="Run console command on reference." alt="" coords="188,5,387,48"/>
+<area shape="poly" title=" " alt="" coords="140,24,175,26,170,27,140,29"/>
+</map>
+</div>
 
 </div>
 </div>

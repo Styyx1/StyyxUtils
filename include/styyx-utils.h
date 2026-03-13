@@ -11,6 +11,7 @@
 #include "st-refs.h"
 #include "st-perks.h"
 #include "st-sounds.h"
+#include "st-crimes.h"
 #include "st-math.h"
 #ifdef STYYX_DEBUG_UTILS
 #include "st-debug.h"

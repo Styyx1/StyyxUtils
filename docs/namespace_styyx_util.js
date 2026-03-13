@@ -9,6 +9,7 @@ var namespace_styyx_util =
     ] ],
     [ "ActorUtil", "struct_styyx_util_1_1_actor_util.html", "struct_styyx_util_1_1_actor_util" ],
     [ "CellUtil", "struct_styyx_util_1_1_cell_util.html", "struct_styyx_util_1_1_cell_util" ],
+    [ "CrimeUtil", "struct_styyx_util_1_1_crime_util.html", "struct_styyx_util_1_1_crime_util" ],
     [ "FormUtil", "struct_styyx_util_1_1_form_util.html", "struct_styyx_util_1_1_form_util" ],
     [ "MagicUtil", "struct_styyx_util_1_1_magic_util.html", "struct_styyx_util_1_1_magic_util" ],
     [ "MathUtil", "struct_styyx_util_1_1_math_util.html", "struct_styyx_util_1_1_math_util" ],

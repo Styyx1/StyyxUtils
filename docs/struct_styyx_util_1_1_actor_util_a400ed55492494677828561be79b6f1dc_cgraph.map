@@ -1,0 +1,5 @@
+<map id="StyyxUtil::ActorUtil::IsGuardNearby" name="StyyxUtil::ActorUtil::IsGuardNearby">
+<area shape="rect" id="Node000001" title="Check if any actor within a certain radius is a guard." alt="" coords="5,5,140,48"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_actor_util.html#aa3689863ac0b0928933ad84007b644b8" title="Get all nearby actors." alt="" coords="188,5,322,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,24,175,26,170,27,140,29"/>
+</map>

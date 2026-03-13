@@ -1,0 +1,11 @@
+<map id="StyyxUtil::ActorUtil::GetNearbyActors" name="StyyxUtil::ActorUtil::GetNearbyActors">
+<area shape="rect" id="Node000001" title="Get all nearby actors." alt="" coords="540,72,674,115"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_actor_util.html#a1c173303a742f62cd28ce2246b4510fc" title="Get the closest actor within a radius." alt="" coords="314,5,448,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="522,69,449,49,449,44,528,69"/>
+<area shape="rect" id="Node000003" href="$struct_styyx_util_1_1_actor_util.html#a3b38cfb0ae3303f7dc9b2eea434b58fa" title="Search all non&#45;teammates within a certain radius." alt="" coords="271,72,492,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="522,94,493,96,492,91,527,93"/>
+<area shape="rect" id="Node000005" href="$struct_styyx_util_1_1_actor_util.html#a400ed55492494677828561be79b6f1dc" title="Check if any actor within a certain radius is a guard." alt="" coords="314,139,448,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="528,117,450,143,449,138,522,118"/>
+<area shape="rect" id="Node000004" href="$struct_styyx_util_1_1_actor_util.html#a5ea6a65169a576cb072e453579e5e2b0" title="Get the closest non&#45;player teammate within a radius of a reference." alt="" coords="5,72,223,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="252,94,224,96,223,91,257,93"/>
+</map>

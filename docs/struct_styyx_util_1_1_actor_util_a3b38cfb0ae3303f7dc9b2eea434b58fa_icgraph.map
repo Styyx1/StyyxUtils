@@ -1,0 +1,5 @@
+<map id="StyyxUtil::ActorUtil::GetNearbyNonPlayerTeammates" name="StyyxUtil::ActorUtil::GetNearbyNonPlayerTeammates">
+<area shape="rect" id="Node000001" title="Search all non&#45;teammates within a certain radius." alt="" coords="271,5,492,48"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_actor_util.html#a5ea6a65169a576cb072e453579e5e2b0" title="Get the closest non&#45;player teammate within a radius of a reference." alt="" coords="5,5,223,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="252,27,223,29,223,24,257,27"/>
+</map>

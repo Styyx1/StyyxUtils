@@ -2,6 +2,7 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
 [
     [ "st-actor.h", "st-actor_8h.html", "st-actor_8h" ],
     [ "st-cells.h", "st-cells_8h.html", "st-cells_8h" ],
+    [ "st-crimes.h", "st-crimes_8h.html", "st-crimes_8h" ],
     [ "st-debug.h", "st-debug_8h.html", "st-debug_8h" ],
     [ "st-forms.h", "st-forms_8h.html", "st-forms_8h" ],
     [ "st-hooks.h", "st-hooks_8h.html", "st-hooks_8h" ],

@@ -107,6 +107,19 @@ namespace StyyxUtil
             auto** singleton{ reinterpret_cast<RE::TESObjectWEAP**>(REL::ID(401061).address()) };
             return *singleton;
         }
+
+        /// @brief Run console command on reference
+        /// @param a_target The reference to run the command on
+        /// @param a_command The command string
+        static void RunConsoleCommandOnRef(RE::TESObjectREFR* a_target, const std::string_view a_command)
+        {
+            const auto scriptFactory = RE::IFormFactory::GetConcreteFormFactoryByType<RE::Script>();
+            const auto script = scriptFactory ? scriptFactory->Create() : nullptr;
+            if (!script) return;
+            script->SetCommand(a_command);
+            script->CompileAndRun(a_target);
+        }
+
 #pragma region EnumToString
 
         /// @defgroup EnumToString Enum to String helpers

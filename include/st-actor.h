@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 
+#include "st-misc.h"
+
 namespace StyyxUtil
 {
 
@@ -483,12 +485,51 @@ struct ActorUtil
             get_actor_within_radius(RE::PlayerCharacter::GetSingleton());
         }
 
-        if (!result.empty()) {
-            return result;
-        }
         return result;
     }
 
+    /// @brief Search all non-teammates within a certain radius
+    /// @param a_ref The reference to search nearby actors for
+    /// @param a_radius The radius within actors are searched for
+    /// @return A vector of all actors that are not PlayerTeammates within a certain radius
+    static std::vector<RE::Actor*> GetNearbyNonPlayerTeammates(const RE::TESObjectREFR* a_ref, const float a_radius)
+    {
+        auto actors = GetNearbyActors(a_ref, a_radius, true);
+        std::erase_if(actors, [](const RE::Actor* a) { return a->IsPlayerTeammate(); });
+        return actors;
+    }
+
+
+    /// @brief Check if any actor within a certain radius is a guard
+    /// @param a_ref The reference to check
+    /// @param a_radius The radius to search a guard in
+    /// @return True if any actor within the radius is a guard
+    static bool IsGuardNearby(const RE::TESObjectREFR* a_ref, const float a_radius)
+    {
+        return std::ranges::any_of(GetNearbyActors(a_ref, a_radius, false), [](const RE::Actor* a) {
+        return a && a->IsGuard();
+    });
+    }
+
+    /// @brief Get the closest actor within a radius
+    /// @param a_ref The reference to get the closest actor to
+    /// @param a_radius The radius in which the closest actor gets searched
+    /// @return The closest actor if any are there. nullptr if none are found
+    static RE::Actor* GetClosestActor(const RE::TESObjectREFR* a_ref, const float a_radius)
+    {
+        const auto nearby_actors = GetNearbyActors(a_ref, a_radius, false);
+        return GetClosestFromVector(a_ref, nearby_actors);
+    }
+
+    /// @brief Get the closest non-player teammate within a radius of a reference
+    /// @param a_ref The ref to check the closest non-teammate of
+    /// @param a_radius The radius to check within
+    /// @return The closest non-teammate actor. Or nullptr if there are none
+    static RE::Actor* GetClosestNonPlayerTeammate(const RE::TESObjectREFR* a_ref, const float a_radius)
+    {
+        const auto nearby_actors = GetNearbyNonPlayerTeammates(a_ref, a_radius);
+        return GetClosestFromVector(a_ref, nearby_actors);
+    }
 
     /// @brief Runs the console command SetLevel to set an actor's level to the amount
     /// @param actor The actor to set the level of
@@ -496,12 +537,7 @@ struct ActorUtil
     /// @note The console command also updates the actor's stats which the standalone function does not do automatically
     static void SetNPCLevel(RE::Actor *actor, uint16_t level)
     {
-        const auto scriptFactory = RE::IFormFactory::GetConcreteFormFactoryByType<RE::Script>();
-        const auto script = scriptFactory ? scriptFactory->Create() : nullptr;
-        if (!script)
-            return;
-        script->SetCommand(std::format("SetLevel {}", level));
-        script->CompileAndRun(actor);
+       MiscUtil::RunConsoleCommandOnRef(actor, std::format("SetLevel {}", level));
     }
 
     /// @brief Get the actor value percentage of an actor
@@ -515,8 +551,21 @@ struct ActorUtil
         static REL::Relocation<func_t> func{ RELOCATION_ID(0, 37337) };
         return func(a_actor, a_av);
     }
-    
 
+private:
+    /// @brief Helper function to get the closest actor from a vector
+    /// @param a_ref The reference to check
+    /// @param actors A vector with Actors
+    /// @return The closest actor to a ref in a vector
+    static RE::Actor* GetClosestFromVector(const RE::TESObjectREFR* a_ref, const std::vector<RE::Actor*>& actors)
+    {
+        if (actors.empty()) return nullptr;
+        const auto originPos = a_ref->GetPosition();
+        const auto it = std::ranges::min_element(actors, [&](RE::Actor* a, RE::Actor* b) {
+            return originPos.GetSquaredDistance(a->GetPosition()) < originPos.GetSquaredDistance(b->GetPosition());
+        });
+        return it != actors.end() ? *it : nullptr;
+    }
 };
 
 } // namespace StyyxUtil

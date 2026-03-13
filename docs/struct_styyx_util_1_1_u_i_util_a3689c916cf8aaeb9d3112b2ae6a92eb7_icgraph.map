@@ -1,0 +1,7 @@
+<map id="StyyxUtil::UIUtil::HelpMarker" name="StyyxUtil::UIUtil::HelpMarker">
+<area shape="rect" id="Node000001" title="Draw a ? that pops up some help text in SKSE Menu Framework." alt="" coords="179,39,304,81"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_u_i_util.html#aa560061575774c29ba7028e89be6ebad" title=" " alt="" coords="5,5,131,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,46,131,41,131,36,166,44"/>
+<area shape="rect" id="Node000003" href="$struct_styyx_util_1_1_u_i_util.html#a980b2ef68f7f5c5cb85b802580e3403d" title="Template to easily set up a slider with help text and have it optionally run a function if the slider..." alt="" coords="5,72,131,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,76,131,84,130,79,166,74"/>
+</map>

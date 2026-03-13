@@ -1,0 +1,7 @@
+<map id="StyyxUtil::ActorUtil::GetClosestFromVector" name="StyyxUtil::ActorUtil::GetClosestFromVector">
+<area shape="rect" id="Node000001" title="Helper function to get the closest actor from a vector." alt="" coords="271,39,433,81"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_actor_util.html#a1c173303a742f62cd28ce2246b4510fc" title="Get the closest actor within a radius." alt="" coords="47,5,181,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,47,182,39,182,33,258,46"/>
+<area shape="rect" id="Node000003" href="$struct_styyx_util_1_1_actor_util.html#a5ea6a65169a576cb072e453579e5e2b0" title="Get the closest non&#45;player teammate within a radius of a reference." alt="" coords="5,72,223,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="252,74,224,81,223,75,258,73"/>
+</map>

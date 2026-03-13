@@ -99,6 +99,10 @@ $(function(){initNavTree('struct_styyx_util_1_1_u_i_util.html','','struct_styyx_
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3689c916cf8aaeb9d3112b2ae6a92eb7" id="r_a3689c916cf8aaeb9d3112b2ae6a92eb7"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a3689c916cf8aaeb9d3112b2ae6a92eb7">HelpMarker</a> (const char *desc)</td></tr>
 <tr class="memdesc:a3689c916cf8aaeb9d3112b2ae6a92eb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a ? that pops up some help text in SKSE Menu Framework.  <br /></td></tr>
+<tr class="memitem:a980b2ef68f7f5c5cb85b802580e3403d" id="r_a980b2ef68f7f5c5cb85b802580e3403d"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:a980b2ef68f7f5c5cb85b802580e3403d template"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a980b2ef68f7f5c5cb85b802580e3403d">SettingSlider</a> (const char *a_label, T &amp;a_sliderVariable, const T &amp;a_sliderMin, const T &amp;a_sliderMax, const char *a_sliderFormat, const char *a_helpText, const float a_sliderWidth=200.0f, const std::function&lt; void(T)&gt; &amp;a_onSliderChanged=nullptr)</td></tr>
+<tr class="memdesc:a980b2ef68f7f5c5cb85b802580e3403d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template to easily set up a slider with help text and have it optionally run a function if the slider changed.  <br /></td></tr>
+<tr class="memitem:aa560061575774c29ba7028e89be6ebad" id="r_aa560061575774c29ba7028e89be6ebad"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#aa560061575774c29ba7028e89be6ebad">SetCheckbox</a> (const char *a_label, bool &amp;a_settingVariable, const char *a_helpText, const std::function&lt; void(bool)&gt; &amp;a_onCheckbox=nullptr)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a3689c916cf8aaeb9d3112b2ae6a92eb7" name="a3689c916cf8aaeb9d3112b2ae6a92eb7"></a>
@@ -132,6 +136,163 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Credits to: <a href="https://github.com/QTR-Modding/SaveManagerSKSE/blob/af53d32f57a3fc4a0c0e22828b66e4592338826e/src/UI.cpp#L3">QTR-Modding</a> </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_styyx_util_1_1_u_i_util_a3689c916cf8aaeb9d3112b2ae6a92eb7_icgraph.png" border="0" usemap="#astruct_styyx_util_1_1_u_i_util_a3689c916cf8aaeb9d3112b2ae6a92eb7_icgraph" loading="lazy" alt=""/></div>
+<map name="astruct_styyx_util_1_1_u_i_util_a3689c916cf8aaeb9d3112b2ae6a92eb7_icgraph" id="astruct_styyx_util_1_1_u_i_util_a3689c916cf8aaeb9d3112b2ae6a92eb7_icgraph">
+<area shape="rect" title="Draw a ? that pops up some help text in SKSE Menu Framework." alt="" coords="179,39,304,81"/>
+<area shape="rect" href="struct_styyx_util_1_1_u_i_util.html#aa560061575774c29ba7028e89be6ebad" title=" " alt="" coords="5,5,131,48"/>
+<area shape="poly" title=" " alt="" coords="161,46,131,41,131,36,166,44"/>
+<area shape="rect" href="struct_styyx_util_1_1_u_i_util.html#a980b2ef68f7f5c5cb85b802580e3403d" title="Template to easily set up a slider with help text and have it optionally run a function if the slider..." alt="" coords="5,72,131,115"/>
+<area shape="poly" title=" " alt="" coords="161,76,131,84,130,79,166,74"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa560061575774c29ba7028e89be6ebad" name="aa560061575774c29ba7028e89be6ebad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa560061575774c29ba7028e89be6ebad">&#9670;&#160;</a></span>SetCheckbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StyyxUtil::UIUtil::SetCheckbox </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>a_label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>a_settingVariable</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>a_helpText</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; void(bool)&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a_onCheckbox</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_styyx_util_1_1_u_i_util_aa560061575774c29ba7028e89be6ebad_cgraph.png" border="0" usemap="#astruct_styyx_util_1_1_u_i_util_aa560061575774c29ba7028e89be6ebad_cgraph" loading="lazy" alt=""/></div>
+<map name="astruct_styyx_util_1_1_u_i_util_aa560061575774c29ba7028e89be6ebad_cgraph" id="astruct_styyx_util_1_1_u_i_util_aa560061575774c29ba7028e89be6ebad_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,131,48"/>
+<area shape="rect" href="struct_styyx_util_1_1_u_i_util.html#a3689c916cf8aaeb9d3112b2ae6a92eb7" title="Draw a ? that pops up some help text in SKSE Menu Framework." alt="" coords="179,5,304,48"/>
+<area shape="poly" title=" " alt="" coords="131,24,166,26,161,27,131,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a980b2ef68f7f5c5cb85b802580e3403d" name="a980b2ef68f7f5c5cb85b802580e3403d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a980b2ef68f7f5c5cb85b802580e3403d">&#9670;&#160;</a></span>SettingSlider()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool StyyxUtil::UIUtil::SettingSlider </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>a_label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>a_sliderVariable</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>a_sliderMin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>a_sliderMax</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>a_sliderFormat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>a_helpText</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float</td>          <td class="paramname"><span class="paramname"><em>a_sliderWidth</em></span><span class="paramdefsep"> = </span><span class="paramdefval">200.0f</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; void(T)&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a_onSliderChanged</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Template to easily set up a slider with help text and have it optionally run a function if the slider changed. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Any numeric type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a_label</td><td>Name of the slider (visible) </td></tr>
+    <tr><td class="paramname">a_sliderVariable</td><td>Variable of the slider to change </td></tr>
+    <tr><td class="paramname">a_sliderMin</td><td>Minimum value of the slider </td></tr>
+    <tr><td class="paramname">a_sliderMax</td><td>Maximum value of the slider </td></tr>
+    <tr><td class="paramname">a_sliderFormat</td><td>Formatting for the slider </td></tr>
+    <tr><td class="paramname">a_helpText</td><td>Help text that's shown </td></tr>
+    <tr><td class="paramname">a_sliderWidth</td><td>Slider width. Default = 200.0 </td></tr>
+    <tr><td class="paramname">a_onSliderChanged</td><td>Function to run when the slider changed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if slider changed </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Example. This Gives you a float slider with 2 decimals and changes a REX::TOML::F32 setting if the slider changes <div class="fragment"><div class="line"><a class="code hl_function" href="#a980b2ef68f7f5c5cb85b802580e3403d">SettingSlider</a>(<span class="stringliteral">&quot;ManipToml&quot;</span>, m_TempFloat, 0.0f, 100.0f, <span class="stringliteral">&quot;%.2f&quot;</span>, <span class="stringliteral">&quot;This slider will change a toml setting&quot;</span>, 300.0f, [&amp;](<span class="keywordtype">float</span> var){mySetting.SetValue(var);});</div>
+<div class="ttc" id="astruct_styyx_util_1_1_u_i_util_html_a980b2ef68f7f5c5cb85b802580e3403d"><div class="ttname"><a href="#a980b2ef68f7f5c5cb85b802580e3403d">StyyxUtil::UIUtil::SettingSlider</a></div><div class="ttdeci">static bool SettingSlider(const char *a_label, T &amp;a_sliderVariable, const T &amp;a_sliderMin, const T &amp;a_sliderMax, const char *a_sliderFormat, const char *a_helpText, const float a_sliderWidth=200.0f, const std::function&lt; void(T)&gt; &amp;a_onSliderChanged=nullptr)</div><div class="ttdoc">Template to easily set up a slider with help text and have it optionally run a function if the slider...</div><div class="ttdef"><b>Definition</b> st-ui.h:42</div></div>
+</div><!-- fragment --> </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_styyx_util_1_1_u_i_util_a980b2ef68f7f5c5cb85b802580e3403d_cgraph.png" border="0" usemap="#astruct_styyx_util_1_1_u_i_util_a980b2ef68f7f5c5cb85b802580e3403d_cgraph" loading="lazy" alt=""/></div>
+<map name="astruct_styyx_util_1_1_u_i_util_a980b2ef68f7f5c5cb85b802580e3403d_cgraph" id="astruct_styyx_util_1_1_u_i_util_a980b2ef68f7f5c5cb85b802580e3403d_cgraph">
+<area shape="rect" title="Template to easily set up a slider with help text and have it optionally run a function if the slider..." alt="" coords="5,5,131,48"/>
+<area shape="rect" href="struct_styyx_util_1_1_u_i_util.html#a3689c916cf8aaeb9d3112b2ae6a92eb7" title="Draw a ? that pops up some help text in SKSE Menu Framework." alt="" coords="179,5,304,48"/>
+<area shape="poly" title=" " alt="" coords="131,24,166,26,161,27,131,29"/>
+</map>
+</div>
 
 </div>
 </div>

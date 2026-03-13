@@ -109,6 +109,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2b70a3498e40a31c5d962c7c3a8acdaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a mod is loaded by its full file name.  <br /></td></tr>
 <tr class="memitem:ac073fd5f0ef152c32afac73c6ef63030" id="r_ac073fd5f0ef152c32afac73c6ef63030"><td class="memItemLeft">static RE::TESObjectWEAP *&#160;</td><td class="memItemRight"><a class="el" href="#ac073fd5f0ef152c32afac73c6ef63030">GetUnarmedWeapon</a> ()</td></tr>
 <tr class="memdesc:ac073fd5f0ef152c32afac73c6ef63030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the unarmed weapon pointer.  <br /></td></tr>
+<tr class="memitem:ab09c449bc600d05e8759e2504db3ffd6" id="r_ab09c449bc600d05e8759e2504db3ffd6"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ab09c449bc600d05e8759e2504db3ffd6">RunConsoleCommandOnRef</a> (RE::TESObjectREFR *a_target, const std::string_view a_command)</td></tr>
+<tr class="memdesc:ab09c449bc600d05e8759e2504db3ffd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run console command on reference.  <br /></td></tr>
 <tr class="memitem:ga5f2b1b56547120859ce063fa18b77904" id="r_ga5f2b1b56547120859ce063fa18b77904"><td class="memItemLeft">static const char *&#160;</td><td class="memItemRight"><a class="el" href="group___enum_to_string.html#ga5f2b1b56547120859ce063fa18b77904">EntryPointToString</a> (RE::BGSEntryPoint::ENTRY_POINT entryPoint)</td></tr>
 <tr class="memdesc:ga5f2b1b56547120859ce063fa18b77904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the entry point name.  <br /></td></tr>
 <tr class="memitem:ga099adc24de28ba8dbf00ba68966313a6" id="r_ga099adc24de28ba8dbf00ba68966313a6"><td class="memItemLeft">static const char *&#160;</td><td class="memItemRight"><a class="el" href="group___enum_to_string.html#ga099adc24de28ba8dbf00ba68966313a6">WeaponTypeToString</a> (const RE::WEAPON_TYPE a_type)</td></tr>
@@ -281,6 +283,54 @@ Here is the caller graph for this function:</div>
 <dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"><span class="keywordflow">if</span> (<a class="code hl_function" href="#a2b70a3498e40a31c5d962c7c3a8acdaa">MiscUtil::IsModLoaded</a>(<span class="stringliteral">&quot;Skyrim.esm&quot;</span>)) { ... }</div>
 <div class="ttc" id="astruct_styyx_util_1_1_misc_util_html_a2b70a3498e40a31c5d962c7c3a8acdaa"><div class="ttname"><a href="#a2b70a3498e40a31c5d962c7c3a8acdaa">StyyxUtil::MiscUtil::IsModLoaded</a></div><div class="ttdeci">static bool IsModLoaded(const std::string_view &amp;mod_name)</div><div class="ttdoc">Check if a mod is loaded by its full file name.</div><div class="ttdef"><b>Definition</b> st-misc.h:94</div></div>
 </div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="ab09c449bc600d05e8759e2504db3ffd6" name="ab09c449bc600d05e8759e2504db3ffd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab09c449bc600d05e8759e2504db3ffd6">&#9670;&#160;</a></span>RunConsoleCommandOnRef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StyyxUtil::MiscUtil::RunConsoleCommandOnRef </td>
+          <td>(</td>
+          <td class="paramtype">RE::TESObjectREFR *</td>          <td class="paramname"><span class="paramname"><em>a_target</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>a_command</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Run console command on reference. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a_target</td><td>The reference to run the command on </td></tr>
+    <tr><td class="paramname">a_command</td><td>The command string </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_styyx_util_1_1_misc_util_ab09c449bc600d05e8759e2504db3ffd6_icgraph.png" border="0" usemap="#astruct_styyx_util_1_1_misc_util_ab09c449bc600d05e8759e2504db3ffd6_icgraph" loading="lazy" alt=""/></div>
+<map name="astruct_styyx_util_1_1_misc_util_ab09c449bc600d05e8759e2504db3ffd6_icgraph" id="astruct_styyx_util_1_1_misc_util_ab09c449bc600d05e8759e2504db3ffd6_icgraph">
+<area shape="rect" title="Run console command on reference." alt="" coords="188,5,387,48"/>
+<area shape="rect" href="struct_styyx_util_1_1_actor_util.html#a940764c0ce6101e4012569452ba2ba1c" title="Runs the console command SetLevel to set an actor&#39;s level to the amount." alt="" coords="5,5,140,48"/>
+<area shape="poly" title=" " alt="" coords="170,27,140,29,140,24,175,26"/>
+</map>
+</div>
 
 </div>
 </div>

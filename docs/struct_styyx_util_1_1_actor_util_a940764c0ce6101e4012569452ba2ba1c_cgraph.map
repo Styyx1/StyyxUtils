@@ -1,0 +1,5 @@
+<map id="StyyxUtil::ActorUtil::SetNPCLevel" name="StyyxUtil::ActorUtil::SetNPCLevel">
+<area shape="rect" id="Node000001" title="Runs the console command SetLevel to set an actor&#39;s level to the amount." alt="" coords="5,5,140,48"/>
+<area shape="rect" id="Node000002" href="$struct_styyx_util_1_1_misc_util.html#ab09c449bc600d05e8759e2504db3ffd6" title="Run console command on reference." alt="" coords="188,5,387,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,24,175,26,170,27,140,29"/>
+</map>
