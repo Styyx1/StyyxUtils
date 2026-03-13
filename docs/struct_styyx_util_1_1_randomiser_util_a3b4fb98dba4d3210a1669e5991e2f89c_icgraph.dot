@@ -1,0 +1,19 @@
+digraph "StyyxUtil::RandomiserUtil::GetRNG"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="StyyxUtil::RandomiserUtil\l::GetRNG",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="StyyxUtil::RandomiserUtil\l::GetRandomDouble",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$struct_styyx_util_1_1_randomiser_util.html#a4b1df3000125872ebdd3a23c66bbced3",tooltip="Get random double between 2 values."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="StyyxUtil::RandomiserUtil\l::GetRandomFloat",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$struct_styyx_util_1_1_randomiser_util.html#ac39fb41068a85cb96d3d7ad46210185a",tooltip="Get random float between 2 values."];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="StyyxUtil::RandomiserUtil\l::GetRandomRoundedFloat",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$struct_styyx_util_1_1_randomiser_util.html#ab1c8ba0055565d25d70e697d16720c9f",tooltip="Get random float rounded to a set amount of decimals."];
+  Node3 -> Node5 [id="edge4_Node000003_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="StyyxUtil::RandomiserUtil\l::IsPercentageChanceFloat",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$struct_styyx_util_1_1_randomiser_util.html#a8df13d1c563754bc5009ffcf4307844b",tooltip="Rolls a random chance check against a given percentage."];
+  Node1 -> Node6 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="StyyxUtil::RandomiserUtil\l::GetRandomInt",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$struct_styyx_util_1_1_randomiser_util.html#a1a62939214133ae7eb33d6b15cc54273",tooltip="Get random integer between 2 values."];
+}

@@ -45,7 +45,7 @@ namespace StyyxUtil
             }
         };
 
-        /// @brief Gets a unordered_set of all the perks from a given skill \n early return if skill is not part of @ref kPlayableSkills
+        /// @brief Gets an unordered_set of all the perks from a given skill \n early return if skill is not part of @ref StyyxUtil::PerkUtil::kPlayableSkills
         /// @param av the skill to get perks to.
         /// @return unordered set with all perks of a specific skill
         static std::unordered_set<RE::BGSPerk*> GetPerksForSkill(RE::ActorValue av)
@@ -60,22 +60,30 @@ namespace StyyxUtil
             return out;
         }
 
+        ///
+        /// @return std::unordered_set of all playable Perks
         static std::unordered_set<RE::BGSPerk*> GetAllPlayablePerks()
         {
             return GetPerksForSkills(kPlayableSkills);
         }
 
+        /// @brief Gets all perks belonging to magic skills (Alteration, Conjuration, Destruction, Illusion, Enchanting, Restoration)
+        /// @return unordered_set of all magic skill perks
         static std::unordered_set<RE::BGSPerk*> GetAllMagicPerks()
         {
             return GetPerksForSkills(kMageSkills);
 
         }
 
+        /// @brief Gets all perks belonging to thief skills (Pickpocket, Lockpicking, Light Armor, Alchemy, Speech, Sneak)
+        /// @return unordered_set of all thief skill perks
         static std::unordered_set<RE::BGSPerk*> GetAllThiefPerks()
         {
             return GetPerksForSkills(kThiefSkills);
         }
 
+        /// @brief Gets all perks belonging to warrior skills (One-Handed, Two-Handed, Archery, Block, Smithing, Heavy Armor)
+        /// @return unordered set of all warrior skill perks
         static std::unordered_set<RE::BGSPerk*> GetAllWarriorPerks()
         {
             return GetPerksForSkills(kWarriorSkills);

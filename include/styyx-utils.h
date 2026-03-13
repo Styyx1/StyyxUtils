@@ -1,3 +1,5 @@
+#pragma once
+
 #include "st-random.h"
 #include "st-magic.h"
 #include "st-actor.h"
@@ -8,6 +10,8 @@
 #include "st-timer.h"
 #include "st-refs.h"
 #include "st-perks.h"
+#include "st-sounds.h"
+#include "st-math.h"
 #ifdef STYYX_DEBUG_UTILS
 #include "st-debug.h"
 #endif

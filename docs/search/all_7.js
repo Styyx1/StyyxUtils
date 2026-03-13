@@ -1,4 +1,21 @@
 var searchData=
 [
-  ['lookupactorvaluebyname_0',['LookupActorValueByName',['../struct_styyx_util_1_1_a_v_util.html#a41624ca6d2a9fda97204ee91fd58cac4',1,'StyyxUtil::AVUtil']]]
+  ['is_5fa_5fdungeon_0',['is_a_dungeon',['../struct_styyx_util_1_1_cell_util.html#a10a74805f6c3b6715d11bd72229b0824',1,'StyyxUtil::CellUtil']]],
+  ['isanyofmenuopen_1',['IsAnyOfMenuOpen',['../struct_styyx_util_1_1_menu_util.html#ab3e008c70c9d5a514810eb959f83af49',1,'StyyxUtil::MenuUtil']]],
+  ['isbashing_2',['IsBashing',['../struct_styyx_util_1_1_actor_util.html#a4e1f65a7c7c5cf87e2dd1e53379f607f',1,'StyyxUtil::ActorUtil']]],
+  ['isdragon_3',['IsDragon',['../struct_styyx_util_1_1_actor_util.html#ab750b2c506ad10c169ee60cf92530753',1,'StyyxUtil::ActorUtil']]],
+  ['isdungeon_4',['IsDungeon',['../struct_styyx_util_1_1_cell_util.html#ab315fc528b02a1120a458713f79f9e7b',1,'StyyxUtil::CellUtil']]],
+  ['iseffectactive_5',['IsEffectActive',['../struct_styyx_util_1_1_actor_util.html#ae5f79befdbfc2d65385e73b2201d265b',1,'StyyxUtil::ActorUtil']]],
+  ['isexpired_6',['IsExpired',['../class_styyx_util_1_1_timer_util_1_1_timer.html#a8c1f31ff5a7be88308ffbc71e2276240',1,'StyyxUtil::TimerUtil::Timer']]],
+  ['isinopportunitystate_7',['IsInOpportunityState',['../struct_styyx_util_1_1_actor_util.html#a5ef07e43292e9987107b766af58169f8',1,'StyyxUtil::ActorUtil']]],
+  ['isjail_8',['IsJail',['../struct_styyx_util_1_1_cell_util.html#a2cc826ea9631d40fae21ebe45eb5ccb0',1,'StyyxUtil::CellUtil']]],
+  ['ismodloaded_9',['IsModLoaded',['../struct_styyx_util_1_1_misc_util.html#a2b70a3498e40a31c5d962c7c3a8acdaa',1,'StyyxUtil::MiscUtil']]],
+  ['ispercentagechancefloat_10',['IsPercentageChanceFloat',['../struct_styyx_util_1_1_randomiser_util.html#a8df13d1c563754bc5009ffcf4307844b',1,'StyyxUtil::RandomiserUtil']]],
+  ['ispermanent_11',['IsPermanent',['../struct_styyx_util_1_1_magic_util.html#a6e2f2ebf42af51722656648562d749c3',1,'StyyxUtil::MagicUtil']]],
+  ['ispowerattacking_12',['IsPowerAttacking',['../struct_styyx_util_1_1_actor_util.html#af665d068d31052c8f8e9de37e512b7d3',1,'StyyxUtil::ActorUtil']]],
+  ['isreforevein_13',['IsRefOreVein',['../struct_styyx_util_1_1_ref_util.html#a29cba008a2a1656aa48c931a942477d6',1,'StyyxUtil::RefUtil']]],
+  ['isrunning_14',['IsRunning',['../class_styyx_util_1_1_timer_util_1_1_timer.html#a4bf02768d5757da7d6404fed83609ba5',1,'StyyxUtil::TimerUtil::Timer']]],
+  ['isspellplayable_15',['IsSpellPlayable',['../struct_styyx_util_1_1_magic_util.html#a0224b700cf4301df20e03fb60b63c8a4',1,'StyyxUtil::MagicUtil']]],
+  ['isundead_16',['IsUndead',['../struct_styyx_util_1_1_actor_util.html#ace84ca2e37282a64c3035a4533362e99',1,'StyyxUtil::ActorUtil']]],
+  ['isvampire_17',['IsVampire',['../struct_styyx_util_1_1_actor_util.html#a47d585b03d0d5e60665c64caf0203f7e',1,'StyyxUtil::ActorUtil']]]
 ];

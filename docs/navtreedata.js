@@ -25,6 +25,8 @@
 var NAVTREE =
 [
   [ "styyx-util", "index.html", [
+    [ "Deprecated List", "deprecated.html", null ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -53,7 +55,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"struct_styyx_util_1_1_sound_util.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

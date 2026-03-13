@@ -39,11 +39,11 @@ struct ActorUtil
         if (!proc)
             return false;
 
-        for (auto& equipped : proc->equippedForms)
+        for (auto& [object, slot] : proc->equippedForms)
         {
-            if (equipped.object)
+            if (object)
             {
-                if (auto armor = equipped.object->As<RE::TESObjectARMO>())
+                if (const auto armor = object->As<RE::TESObjectARMO>())
                 {
                     if (armor->IsHeavyArmor())
                     {
@@ -57,7 +57,7 @@ struct ActorUtil
     /// @brief Check if an actor has any light armor equipped. It returning false does not mean the actor has heavy armor equipped
     /// @param actor Actor to check
     /// @return returns true if the actor has any light armor equipped
-    static bool ActorHasEquippedLightArmor(RE::Actor *actor)
+    static bool ActorHasEquippedLightArmor(const RE::Actor *actor)
     {
         if (!actor)
             return false;
@@ -65,11 +65,11 @@ struct ActorUtil
         if (!proc)
             return false;
 
-        for (auto& equipped : proc->equippedForms)
+        for (auto& [object, slot] : proc->equippedForms)
         {
-            if (equipped.object)
+            if (object)
             {
-                if (auto armor = equipped.object->As<RE::TESObjectARMO>())
+                if (const auto armor = object->As<RE::TESObjectARMO>())
                 {
                     if (!armor->IsHeavyArmor())
                     {
@@ -81,13 +81,11 @@ struct ActorUtil
         return false;
     }
 
-    /// <summary>
-    /// Gets the state in which an attack of opportunity is possible
-    /// </summary>
-    /// <param name="victim"></param>
-    /// <param name="attacker"></param>
-    /// <returns></returns>
-    static bool IsInOpportunityState(RE::Actor *victim, RE::Actor *attacker)
+    /// @brief Very specific function used to see if an Actor is in a state an attack of opportunity should be possible
+    /// @param victim The actor being attacked
+    /// @param attacker The attacking Actor
+    /// @return True if Actor is in a state an attack of opportunity should be possible
+    static bool IsInOpportunityState(RE::Actor *victim, const RE::Actor *attacker)
     {
         return IsPowerAttacking(victim) || victim->IsStaggering() ||
                victim->actorState1.sitSleepState == RE::SIT_SLEEP_STATE::kIsSitting ||
@@ -96,29 +94,16 @@ struct ActorUtil
                 victim->GetHeadingAngle(attacker->GetPosition(), false) >= 135) ||
                ActorHasEffectOfTypeActive(victim, RE::EffectArchetypes::ArchetypeID::kParalysis) ||
                ActorHasEffectOfTypeActive(victim, RE::EffectArchetypes::ArchetypeID::kCalm);
-    }    
-
-    /// <summary>
-    /// Helper Function to Get the current inventory weight of an actor
-    /// </summary>
-    /// <param name="actor">Actor to get the inventory weight from</param>
-    /// <returns></returns>
-    inline static float GetInventoryWeight(RE::Actor *actor)
-    {
-        return actor->GetActorValue(RE::ActorValue::kInventoryWeight);
     }
 
-    /// <summary>
-    /// Checks if the equipped weapon of the actor is a quest item
-    /// </summary>
-    /// <param name="actor"></param>
-    /// <returns></returns>
-    inline static bool ActorHasQuestObjectInHand(RE::Actor *actor)
+    /// @brief Check if actor has Quest item as weapon
+    /// @param actor The actor to check the equipped item of
+    /// @return True if the actor has a quest item equipped
+    static bool ActorHasQuestObjectInHand(RE::Actor *actor)
     {
         if (actor)
         {
-            auto *rightHandItem = actor->GetEquippedEntryData(false);
-            if (rightHandItem)
+            if (const auto *rightHandItem = actor->GetEquippedEntryData(false))
             {
                 if (rightHandItem->IsQuestObject())
                 {
@@ -126,8 +111,7 @@ struct ActorUtil
                 }
             }
 
-            auto *leftHandItem = actor->GetEquippedEntryData(true);
-            if (leftHandItem)
+            if (const auto *leftHandItem = actor->GetEquippedEntryData(true))
             {
                 if (leftHandItem->IsQuestObject())
                 {
@@ -137,12 +121,11 @@ struct ActorUtil
         }
         return false;
     };
-    /// <summary>
-    /// Check if actor is a vampire
-    /// </summary>
-    /// <param name="a_ref"></param>
-    /// <returns></returns>
-    inline static bool IsVampire(RE::Actor *a_ref)
+
+    /// @brief Check if actor is vampire
+    /// @param a_ref Actor to check
+    /// @return True if actor has the default object keyword for vampires
+    static bool IsVampire(RE::Actor *a_ref)
     {
         if (a_ref->HasKeywordWithType(RE::DEFAULT_OBJECT::kKeywordVampire))
         {
@@ -151,339 +134,265 @@ struct ActorUtil
         return false;
     }
 
-    /// <summary>
-    /// check if actor is Undead
-    /// </summary>
-    /// <param name="a_ref"></param>
-    /// <returns></returns>
-    inline static bool IsUndead(RE::Actor *a_ref)
+    /// @brief Check if actor is undead
+    /// @param a_ref Actor to check
+    /// @return True if actor has the default object keyword for undead
+    static bool IsUndead(RE::Actor *a_ref)
     {
         if (a_ref->HasKeywordWithType(RE::DEFAULT_OBJECT::kKeywordUndead))
             return true;
         return false;
     }
 
-    /// <summary>
-    /// Check if actor is a dragon
-    /// Note, the Default Object in skyrim.esm is empty for that
-    /// https://www.nexusmods.com/skyrimspecialedition/mods/163540 is a mod that fixes this
-    /// Here we do a manual lookup in case the default object is null
-    /// </summary>
-    /// <param name="a_ref"></param>
-    /// <returns></returns>
-    inline static bool IsDragon(RE::Actor *a_ref)
+    /// @brief Check if actor is a dragon
+    /// @param a_actor The actor to check
+    /// @return True if actor has the Dragon keyword
+    /// @note the Default Object in skyrim.esm is empty for that \n
+    /// [This](https://www.nexusmods.com/skyrimspecialedition/mods/163540) is a mod that fixes this \n
+    ///Here we do a manual lookup in case the default object is null
+    static bool IsDragon(const RE::Actor *a_actor)
     {
-        if (a_ref->HasKeywordWithType(RE::DEFAULT_OBJECT::kKeywordDragon))
+        if (a_actor->HasKeywordWithType(RE::DEFAULT_OBJECT::kKeywordDragon))
         {
             return true;
         }
-        auto key = RE::TESForm::LookupByEditorID<RE::BGSKeyword>("ActorTypeDragon");
+        const auto key = RE::TESForm::LookupByEditorID<RE::BGSKeyword>("ActorTypeDragon");
         if (!key)
             return false;
-        if (a_ref->HasKeyword(key))
-        {
-            return true;
-        }
-
-        return false;
+        return a_actor->HasKeyword(key);
     }
 
-    /// <summary>
-    /// Get player cell and if parent cell is null, GetSaveParentCell
-    /// </summary>
-    /// <param name="player"></param>
-    /// <returns></returns>
-    inline static RE::TESObjectCELL *GetPlayerCell(RE::PlayerCharacter *player)
+
+    /// @brief Get the current cell the player is in
+    /// @return The current cell the player is in or nullptr if it can't be found
+    static RE::TESObjectCELL *GetPlayerCell()
     {
+        const auto player = RE::PlayerCharacter::GetSingleton();
+
         auto cell = player->GetParentCell();
         if (!cell)
         {
             cell = player->GetSaveParentCell();
         }
-        if (!cell)
-        {
-            return nullptr;
-        }
         return cell;
     }
 
-    /// <summary>
-    /// Get light level of actor
-    /// </summary>
-    /// <param name="actor"></param>
-    /// <returns></returns>
-    inline static float GetCurrentLightLevel(RE::Actor *actor)
+    /// @brief Get the current light level the actor is standing in
+    /// @param a_actor The actor to check
+    /// @return The current light level or 0.0 if the actor process can't be found
+    static float GetCurrentLightLevel(const RE::Actor *a_actor)
     {
-        auto process = actor->GetHighProcess();
-        if (!process)
-        {
+        if (!a_actor)
             return 0.0f;
-        }
-        return process->lightLevel;
+
+        const auto process = a_actor->GetHighProcess();
+        return process ? process->lightLevel : 0.0f;
     }
 
-    /// <summary>
-    /// Get light level of player
-    /// convenience function
-    /// </summary>
-    /// <returns></returns>
-    inline static float GetCurrentLightLevelPlayer()
+    /// @brief Get the light level the player is standing in
+    /// @return @ref GetCurrentLightLevel() for the player
+    static float GetCurrentLightLevelPlayer()
     {
-        auto player = RE::PlayerCharacter::GetSingleton();
-        auto process = player->GetHighProcess();
-        if (!process)
-        {
-            return 0.0f;
-        }
-        return process->lightLevel;
+        const auto player = RE::PlayerCharacter::GetSingleton();
+        return GetCurrentLightLevel(player);
     }
 
-    /// <summary>
-    /// Try to stagger actor.
-    ///  a_aggressor can be nullptr
-    /// Credits:     
-    ///  [Chocolate Poise by doodlez ](https://github.com/doodlum/skyrim-poise/blob/daf1344ebe667d34154213ab9fb61d0d27452b0d/src/Hooks/PoiseAV.h#L110)
-    /// </summary>
-    /// <param name="a_actor"></param>
-    /// <param name="mult"></param>
-    /// <param name="a_aggressor"></param>
-    inline static void TryStagger(RE::Actor* a_actor, float mult, RE::Actor* a_aggressor) {
-        return FuncCall<37710, void>(a_actor, mult, a_aggressor);
+    /// @brief Try to stagger a target
+    /// @param a_target The target to stagger
+    /// @param a_staggerMult The stagger multiplier
+    /// @param a_aggressor The attacker
+    /// @note Credits: [Chocolate Poise by doodlez ](https://github.com/doodlum/skyrim-poise/blob/daf1344ebe667d34154213ab9fb61d0d27452b0d/src/Hooks/PoiseAV.h#L110)
+
+    static void TryStagger(RE::Actor* a_target, float a_staggerMult, RE::Actor* a_aggressor) {
+        using func_t = decltype(&TryStagger);
+        static REL::Relocation<func_t> func{ RELOCATION_ID(36700, 37710) };
+        func(a_target, a_staggerMult, a_aggressor);
     }
 
+    /// @brief Check if actor is supposed to spawn dead
+    /// @param actor The Actor to check
+    /// @return True if actor has the Start Dead flag set
+    /// @note  Credits: [SPID by PO3](https://github.com/powerof3/Spell-Perk-Item-Distributor/blob/4972b74819b935b1e443cb4022691ac572785da5/SPID/src/LookupNPC.cpp#L254)
 
-
-    /// <summary>
-    /// Check if actor has the Starts Dead flag
-    /// Credits:
-    /// [SPID by PO3](https://github.com/powerof3/Spell-Perk-Item-Distributor/blob/4972b74819b935b1e443cb4022691ac572785da5/SPID/src/LookupNPC.cpp#L254)
-    /// </summary>
-    /// <param name="actor"></param>
-    /// <returns></returns>
-    inline static bool StartsDead(const RE::Actor *actor)
+    static bool StartsDead(const RE::Actor *actor)
     {
         return actor && (actor->formFlags & RE::Actor::RecordFlags::kStartsDead);
     }
 
-    
-    /// <summary>
-    /// Gets Maximum Health of an actor, including current modifiers
-    /// Credits:
-    /// [Blade and Blunt by colinswrath](https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L92 )
-    /// </summary>
-    /// <param name="a_actor"></param>
-    /// <returns></returns>
-    inline static float GetMaxHealth(RE::Actor *a_actor)
+
+    /// @brief Get maximum Health of an actor
+    /// @param a_actor The actor to check
+    /// @return The maximum health including temporary modifiers
+    /// @note Credits: [Blade and Blunt by colinswrath](https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L92 )
+
+    static float GetMaxHealth(RE::Actor *a_actor)
     {
         return a_actor->GetActorValueModifier(RE::ACTOR_VALUE_MODIFIER::kTemporary, RE::ActorValue::kHealth) +
                a_actor->GetPermanentActorValue(RE::ActorValue::kHealth);
     }
-    /// <summary>
-    /// Gets Maximum Stamina of an actor, including current modifiers
-    /// </summary>
-    /// <param name="actor"></param>
-    /// <returns></returns>
-    inline static float GetMaxStamina(RE::Actor *actor)
+
+    /// @brief Get maximum Stamina of an actor
+    /// @param actor The actor to check
+    /// @return The maximum Stamina including temporary modifiers
+    static float GetMaxStamina(RE::Actor *actor)
     {
         return actor->GetActorValueModifier(RE::ACTOR_VALUE_MODIFIER::kTemporary, RE::ActorValue::kStamina) +
                actor->GetPermanentActorValue(RE::ActorValue::kStamina);
     }
-    /// <summary>
-    /// Gets Maximum Magicka of an actor, including current modifiers
-    /// </summary>
-    /// <param name="actor"></param>
-    /// <returns></returns>
-    inline static float GetMaxMagicka(RE::Actor *actor)
+
+    /// @brief Get maximum Magicka of an actor
+    /// @param actor The actor to check
+    /// @return The maximum Magicka including temporary modifiers
+    static float GetMaxMagicka(RE::Actor *actor)
     {
         return actor->GetActorValueModifier(RE::ACTOR_VALUE_MODIFIER::kTemporary, RE::ActorValue::kMagicka) +
                actor->GetPermanentActorValue(RE::ActorValue::kMagicka);
     }
-    /// <summary>
-    /// fully heal all 3 attributes of an actor
-    /// </summary>
-    /// <param name="a"></param>
-    inline static void FullyHealActor(RE::Actor *a)
+
+    /// @brief Fully heals all 3 attributes of an actor
+    /// @param a_actor The actor to heal
+    static void FullyHealActor(RE::Actor *a_actor)
     {
-        a->RestoreActorValue(RE::ActorValue::kHealth, GetMaxHealth(a));
-        a->RestoreActorValue(RE::ActorValue::kStamina, GetMaxStamina(a));
-        a->RestoreActorValue(RE::ActorValue::kMagicka, GetMaxMagicka(a));
+        a_actor->RestoreActorValue(RE::ActorValue::kHealth, GetMaxHealth(a_actor));
+        a_actor->RestoreActorValue(RE::ActorValue::kStamina, GetMaxStamina(a_actor));
+        a_actor->RestoreActorValue(RE::ActorValue::kMagicka, GetMaxMagicka(a_actor));
     }
-    /// <summary>
-    /// Check if actor has any spell of a specific archetype active
-    /// </summary>
-    /// <param name="a_actor"></param>
-    /// <param name="a_type"></param>
-    /// <returns></returns>
+
+    /// @brief Check if actor has an effect of a specific type active
+    /// @param a_actor The actor to check
+    /// @param a_type The Effect archetype needed
+    /// @return True if actor has an active effect with the set type
     static bool ActorHasEffectOfTypeActive(RE::Actor *a_actor, RE::EffectArchetypes::ArchetypeID a_type)
     {
         if (!a_actor)
-        {
             return false;
-        }
-        auto activeEffects = a_actor->GetActiveEffectList();
-        RE::EffectSetting *setting = nullptr;
-        if (!activeEffects->empty())
+
+        const auto& activeEffects = a_actor->GetActiveEffectList();
+        if (!activeEffects)
+            return false;
+
+        return std::ranges::any_of(*activeEffects, [a_type](const RE::ActiveEffect* effect) -> bool
         {
-            for (RE::ActiveEffect *effect : *activeEffects)
-            {
-                if (effect; !effect->flags.any(RE::ActiveEffect::Flag::kInactive))
-                {
-                    setting = effect ? effect->GetBaseObject() : nullptr;
-                    if (setting)
-                    {
-                        if (setting->HasArchetype(a_type))
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
+            if (!effect || effect->flags.any(RE::ActiveEffect::Flag::kInactive)) return false;
+            const auto base = effect->GetBaseObject();
+            return base && base->HasArchetype(a_type);
+        });
     }
-    /// <summary>
-    /// Check if actor has any effect with keyword active
-    /// </summary>
-    /// <param name="a_actor"></param>
-    /// <param name="a_keyword"></param>
-    /// <returns></returns>
-    static bool HasEffectWithKeywordActive(RE::Actor *a_actor, std::string_view a_keyword)
+
+    /// @brief Check if an actor has an effect active with a specific keyword
+    /// @param a_actor The actor to check
+    /// @param a_keyword The keyword an effect should have
+    /// @return True if the actor has an active effect with the keyword
+    static bool HasEffectWithKeywordActive(RE::Actor *a_actor, const std::string_view a_keyword)
     {
         if (!a_actor || a_keyword.empty() || !a_actor->Is3DLoaded())
         {
             return false;
         }
-        auto activeEffects = a_actor->GetActiveEffectList();
-        RE::EffectSetting *setting = nullptr;
-        if (!activeEffects->empty())
-        {
-            for (RE::ActiveEffect *effect : *activeEffects)
-            {
-                if (effect; !effect->flags.any(RE::ActiveEffect::Flag::kInactive))
-                {
-                    setting = effect ? effect->GetBaseObject() : nullptr;
-                    if (setting)
-                    {
-                        if (setting->HasKeywordString(a_keyword))
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
+        const auto& activeEffects = a_actor->GetActiveEffectList();
+        if (!activeEffects)
+            return false;
+
+        if (const auto key = RE::TESForm::LookupByEditorID<RE::BGSKeyword>(a_keyword)) {
+            return std::ranges::any_of(*activeEffects, [key](const RE::ActiveEffect* effect) -> bool {
+                if (!effect || effect->flags.any(RE::ActiveEffect::Flag::kInactive)) return false;
+                const auto base = effect->GetBaseObject();
+                return base && base->HasKeyword(key);
+            });
         }
-        return false;
+        return std::ranges::any_of(*activeEffects, [a_keyword](const RE::ActiveEffect* effect) -> bool {
+            if (!effect || effect->flags.any(RE::ActiveEffect::Flag::kInactive)) return false;
+            const auto base = effect->GetBaseObject();
+            return base && base->HasKeywordString(a_keyword);
+        });
     }
-    /// <summary>
-    /// Check if actor has a specific effect active
-    /// </summary>
-    /// <param name="a_actor"></param>
-    /// <param name="a_effect"></param>
-    /// <returns></returns>
-    static bool IsEffectActive(RE::Actor *a_actor, RE::EffectSetting *a_effect)
+
+
+    /// @brief Check if an actor has a specific effect active
+    /// @param a_actor The actor to check
+    /// @param a_effect The effect to check for
+    /// @return true if the specified effect is active
+    static bool IsEffectActive(RE::Actor *a_actor, const RE::EffectSetting *a_effect)
     {
         if (!a_actor || !a_effect)
         {
             return false;
         }
-        auto activeEffects = a_actor->GetActiveEffectList();
-        RE::EffectSetting *setting = nullptr;
-        if (!activeEffects->empty())
+        const auto& activeEffects = a_actor->GetActiveEffectList();
+        if (!activeEffects)
+            return false;
+
+        return std::ranges::any_of(*activeEffects, [a_effect](const RE::ActiveEffect* effect) -> bool
         {
-            for (RE::ActiveEffect *effect : *activeEffects)
-            {
-                if (effect; !effect->flags.any(RE::ActiveEffect::Flag::kInactive))
-                {
-                    setting = effect ? effect->GetBaseObject() : nullptr;
-                    if (setting)
-                    {
-                        if (setting == a_effect)
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
+            if (!effect || effect->flags.any(RE::ActiveEffect::Flag::kInactive))
+                return false;
+            const auto base = effect->GetBaseObject();
+            return base == a_effect;
+        });
     }
-    /// <summary>
-    /// Add Item function. Adds item to the actor
-    /// </summary>
-    /// <param name="a"></param>
-    /// <param name="item"></param>
-    /// <param name="extraList"></param>
-    /// <param name="count"></param>
-    /// <param name="fromRefr"></param>
-    static void AddItem(RE::Actor *a, RE::TESBoundObject *item, RE::ExtraDataList *extraList, int count,
-                        RE::TESObjectREFR *fromRefr)
+
+    /// @brief Add item to actor
+    /// @param a_actor The actor to add the item to
+    /// @param a_item The item to add
+    /// @param a_extraList The extra data to add
+    /// @param a_count The amount to add
+    /// @param a_fromRefr The reference the item is coming from
+    static void AddItem(RE::Actor *a_actor, RE::TESBoundObject *a_item, RE::ExtraDataList *a_extraList, int a_count,
+                        RE::TESObjectREFR *a_fromRefr)
     {
         using func_t = decltype(AddItem);
-        REL::Relocation<func_t> func{REL::ID(37525)};
-        return func(a, item, extraList, count, fromRefr);
+        static REL::Relocation<func_t> func{RELOCATION_ID(36525,37525)};
+        return func(a_actor, a_item, a_extraList, a_count, a_fromRefr);
     }
-    /// <summary>
-    /// Helper function to add item to the player. AddItem with fille actor parameter
-    /// </summary>
-    /// <param name="item"></param>
-    /// <param name="count"></param>
-    static void AddItemPlayer(RE::TESBoundObject *item, int count)
+
+    /// @brief Helper function to add an item to the player
+    /// @param a_item The item to add to the player
+    /// @param a_count The amount to add
+    static void AddItemPlayer(RE::TESBoundObject *a_item, const int a_count)
     {
-        return AddItem(RE::PlayerCharacter::GetSingleton(), item, nullptr, count, nullptr);
+        return AddItem(RE::PlayerCharacter::GetSingleton(), a_item, nullptr, a_count, nullptr);
     }
-    /// <summary>
-    /// remove item from the player
-    /// </summary>
-    /// <param name="item"></param>
-    /// <param name="count"></param>
-    /// <returns></returns>
+
+    /// @brief Remove item from the player
+    /// @param item The item to remove
+    /// @param count The amount ot remove
+    /// @return
     static int RemoveItemPlayer(RE::TESBoundObject *item, int count)
     {
         using func_t = decltype(RemoveItemPlayer);
-        REL::Relocation<func_t> func{REL::ID(16919)};
+        static REL::Relocation<func_t> func{RELOCATION_ID(16564, 16919)};
         return func(item, count);
     }
 
-    /// <summary>
-    /// Check if any actor has a specific item in their inventory
-    /// </summary>
-    /// <param name="actor"></param>
-    /// <param name="item"></param>
-    /// <returns></returns>
+    /// @brief Check if actor has the specified item in the inventory
+    /// @param actor The actor to check
+    /// @param item The item to look for
+    /// @return True if actor has at least one of the item
     static bool ActorHasItem(RE::Actor* actor, RE::TESBoundObject* item) {
         if (!actor || !item)
             return false;
 
-        for (auto& object : actor->GetInventory()) {
-            if (object.first == item && object.second.first > 0) {
-                return true;
-            }
-        }
-        return false;
+        const auto& inv = actor->GetInventory();
+        const auto it = inv.find(item);
+        return it != inv.end() && it->second.first > 0;
     }
 
-    /// <summary>
-    /// Gets the weapon the actor is wielding
-    /// Credits:
-    /// [Valhalla Combat by D7ry](https://github.com/D7ry/valhallaCombat/blob/48fb4c3b9bb6bbaa691ce41dbd33f096b74c07e3/src/include/Utils.cpp#L10)
-    /// </summary>
-    /// <param name="a_actor"></param>
-    /// <returns></returns>
-
-    inline static RE::TESObjectWEAP *getWieldingWeapon(RE::Actor *a_actor)
+    /// @brief Get the weapon a character is currently wielding
+    /// @param a_actor The actor to check
+    /// @return The weapon the actor is currently wielding. If none, returns nullptr
+    /// @note Credits: [Valhalla Combat by D7ry](https://github.com/D7ry/valhallaCombat/blob/48fb4c3b9bb6bbaa691ce41dbd33f096b74c07e3/src/include/Utils.cpp#L10)
+    static RE::TESObjectWEAP* GetWieldingWeapon(RE::Actor *a_actor)
     {
-        auto weapon = a_actor->GetAttackingWeapon();
-        if (weapon)
+        if (const auto weapon = a_actor->GetAttackingWeapon())
         {
-            return weapon->object->As<RE::TESObjectWEAP>();
+            const auto obj = weapon->object;
+            return obj ? obj->As<RE::TESObjectWEAP>() : nullptr;
         }
-        auto rhs = a_actor->GetEquippedObject(false);
-        if (rhs && rhs->IsWeapon())
+        if (const auto rhs = a_actor->GetEquippedObject(false); rhs && rhs->IsWeapon())
         {
             return rhs->As<RE::TESObjectWEAP>();
         }
-        auto lhs = a_actor->GetEquippedObject(true);
-        if (lhs && lhs->IsWeapon())
+        if (const auto lhs = a_actor->GetEquippedObject(true); lhs && lhs->IsWeapon())
         {
             return lhs->As<RE::TESObjectWEAP>();
         }
@@ -491,158 +400,120 @@ struct ActorUtil
         return nullptr;
     }
 
-    /// <summary>
-    /// Gets the mount of an actor
-    /// </summary>
-    /// <param name="a_actor"></param>
-    /// <param name="a_mountOut"></param>
-    /// <returns></returns>
-    static bool GetMount(RE::Actor *a_actor, RE::ActorPtr *a_mountOut)
-    {
-        using func_t = decltype(&GetMount);
-        REL::Relocation<func_t> func{REL::ID(38702)};
-        return func(a_actor, a_mountOut);
-    }
-
-    /// <summary>
-    /// Gets the player mount
-    /// </summary>
-    /// <param name="player"></param>
-    /// <returns></returns>
-    static inline RE::Actor* GetPlayerMount(RE::PlayerCharacter* player)
+    /// @brief Get the player mount
+    /// @return The mount as actor
+    static RE::Actor* GetPlayerMount()
     {
         RE::NiPointer<RE::Actor> currentMount;
-        if (player->GetMount(currentMount)) {
+        if ( RE::PlayerCharacter::GetSingleton()->GetMount(currentMount)) {
             return currentMount.get();
         }
         return nullptr;
     }
-    /// <summary>
-    /// Check if actor is power attacking
-    /// </summary>
-    /// <param name="actor"></param>
-    /// <returns></returns>
-    static inline bool IsPowerAttacking(RE::Actor *actor)
+
+    /// @brief Check if an actor is power attacking
+    /// @param actor The actor to check
+    /// @return True if actor is power attacking
+    static bool IsPowerAttacking(const RE::Actor *actor)
     {
-        if (auto high = actor->GetHighProcess())
-        {
-            if (const auto &attackData = high->attackData)
-            {
-                auto flags = attackData->data.flags;
+        const auto high = actor->GetHighProcess();
+        if (!high)
+            return false;
 
-                if (flags && flags.any(RE::AttackData::AttackFlag::kPowerAttack))
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    /// <summary>
-    /// check if actor is bash attacking
-    /// </summary>
-    /// <param name="actor"></param>
-    /// <returns></returns>
-    static inline bool IsBashing(RE::Actor* actor) {
-        if (auto high = actor->GetHighProcess(); high) {
-            if (actor->GetAttackState() == RE::ATTACK_STATE_ENUM::kNone)
-                return false;
+        const auto &attackData = high->attackData;
+        if (!attackData)
+            return false;
 
-            if (const auto& attackData = high->attackData; attackData) {
-                auto flags = attackData->data.flags;
-                if (flags && flags.any(RE::AttackData::AttackFlag::kBashAttack)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return attackData->data.flags.any(RE::AttackData::AttackFlag::kPowerAttack);
     }
 
-    
+    /// @brief Check if an actor is shield bashing
+    /// @param actor The actor to check
+    /// @return True if actor is attacking with a bash
+    static bool IsBashing(const RE::Actor* actor) {
 
-    /// <summary>
-    /// Get a vector of nearby actors
-    /// Credits: 
-    /// [Papyrus Extender by PO3](https://github.com/powerof3/PapyrusExtenderSSE/) 
-    /// </summary>
-    /// <param name="a_ref"></param>
-    /// <param name="a_radius"></param>
-    /// <param name="a_ignorePlayer"></param>
-    /// <returns></returns>
-    inline static std::vector<RE::Actor*> GetNearbyActors(RE::TESObjectREFR* a_ref, float a_radius, bool a_ignorePlayer)
+        const auto high = actor->GetHighProcess();
+
+        if (!high)
+            return false;
+
+        if (actor->GetAttackState() == RE::ATTACK_STATE_ENUM::kNone)
+            return false;
+
+        const auto& attackData = high->attackData;
+        if (!attackData)
+            return false;
+
+        return attackData->data.flags.any(RE::AttackData::AttackFlag::kBashAttack);
+    }
+
+
+    /// @brief Get all nearby actors
+    /// @param a_ref The reference to check nearby
+    /// @param a_radius The radius to search for actors
+    /// @param a_ignorePlayer Ignore the player as actor
+    /// @return vector of all actors in a set radius around a reference
+    /// @note Credits: [Papyrus Extender by PO3](https://github.com/powerof3/PapyrusExtenderSSE/)
+    static std::vector<RE::Actor*> GetNearbyActors(const RE::TESObjectREFR* a_ref, const float a_radius, const bool a_ignorePlayer)
     {
-        {
-            std::vector<RE::Actor*> result;
-            if (const auto processLists = RE::ProcessLists::GetSingleton(); processLists) {
-                if (a_ignorePlayer && processLists->numberHighActors == 0) {
-                    return result;
-                }
+        std::vector<RE::Actor*> result;
+        const auto processLists = RE::ProcessLists::GetSingleton();
+        if (!processLists)
+            return result;
 
-                const auto squaredRadius = a_radius * a_radius;
-                const auto originPos = a_ref->GetPosition();
+        if (a_ignorePlayer && processLists->numberHighActors == 0)
+            return result;
 
-                result.reserve(processLists->numberHighActors);
+        const auto squaredRadius = a_radius * a_radius;
+        const auto originPos = a_ref->GetPosition();
 
-                const auto get_actor_within_radius = [&](RE::Actor* a_actor) {
-                    if (a_actor && a_actor != a_ref && originPos.GetSquaredDistance(a_actor->GetPosition()) <= squaredRadius) {
-                        result.emplace_back(a_actor);
-                    }
-                    };
-                for (auto& actorHandle : processLists->highActorHandles) {
-                    const auto actor = actorHandle.get();
-                    get_actor_within_radius(actor.get());
-                }
+        result.reserve(processLists->numberHighActors);
 
-                if (!a_ignorePlayer) {
-                    get_actor_within_radius(RE::PlayerCharacter::GetSingleton());
-                }
-
-                if (!result.empty()) {
-                    return result;
-                }
+        const auto get_actor_within_radius = [&](RE::Actor* a_actor) {
+            if (a_actor && a_actor != a_ref && originPos.GetSquaredDistance(a_actor->GetPosition()) <= squaredRadius) {
+                result.emplace_back(a_actor);
             }
+        };
+        for (auto& actorHandle : processLists->highActorHandles) {
+            const auto actor = actorHandle.get();
+            get_actor_within_radius(actor.get());
+        }
+
+        if (!a_ignorePlayer) {
+            get_actor_within_radius(RE::PlayerCharacter::GetSingleton());
+        }
+
+        if (!result.empty()) {
             return result;
         }
+        return result;
     }
 
-    /// <summary>
-    /// runs the console command SetLevel
-    /// We use the console command cause that one also levels up the stats of the npc
-    /// </summary>
-    /// <param name="actor"></param>
-    /// <param name="level"></param>
-    static inline void SetNPCLevel(RE::Actor *actor, uint16_t level)
+
+    /// @brief Runs the console command SetLevel to set an actor's level to the amount
+    /// @param actor The actor to set the level of
+    /// @param level The level the actor gets set to
+    /// @note The console command also updates the actor's stats which the standalone function does not do automatically
+    static void SetNPCLevel(RE::Actor *actor, uint16_t level)
     {
         const auto scriptFactory = RE::IFormFactory::GetConcreteFormFactoryByType<RE::Script>();
         const auto script = scriptFactory ? scriptFactory->Create() : nullptr;
+        if (!script)
+            return;
         script->SetCommand(std::format("SetLevel {}", level));
         script->CompileAndRun(actor);
-    }    
-
-    template <auto FuncID, typename Ret, typename... Args> static inline Ret FuncCall(Args... args)
-    {
-        using func_t = Ret(*)(Args...);
-        REL::Relocation<func_t> target{ REL::ID(FuncID) };
-        return target(std::forward<Args>(args)...);
     }
 
-    // can set the level but doesn't calculate stats other than the consolde command
-    static inline void ActorSetLevel(RE::TESActorBaseData *a_actor, int a_level)
-    {
-        return FuncCall<14385, void>(a_actor, a_level);
-    }
-
-    /// <summary>
-    /// Same as the condition function in the CK.    
-    /// returns from 0 - 1.0.     
-    /// 1 == 100%.    
-    /// </summary>
-    /// <param name="a_actor"></param>
-    /// <param name="a_av"></param>
-    /// <returns></returns>
+    /// @brief Get the actor value percentage of an actor
+    /// @param a_actor The actor to get the value from
+    /// @param a_av The Actor Value to get
+    /// @return float between 0.0 and 1.0
+    /// @note 0.0 means 0% and 1.0 means 100%
     static float GetActorValuePercentage(RE::Actor* a_actor, RE::ActorValue a_av)
-    { 
-        return FuncCall<37337, float>(a_actor, a_av);
+    {
+        using func_t = decltype(&GetActorValuePercentage);
+        static REL::Relocation<func_t> func{ RELOCATION_ID(0, 37337) };
+        return func(a_actor, a_av);
     }
     
 

@@ -3,14 +3,12 @@
 namespace StyyxUtil
 {
 struct RefUtil
-{	
-	/// <summary>
-	/// Is a reference a Ore Vein
-	/// this will require a specific _KID.ini file, found in this library's distr folder, to work, as Ore Veins do not have a keyword by default. 
-	/// </summary>
-	/// <param name="a_ref"></param>
-	/// <returns></returns>
-	static inline bool IsRefOreVein( RE::TESObjectREFR *a_ref )
+{
+	/// @brief Check if a reference is a Ore Vein
+	/// @note Requires [OreKeywords_KID.ini](https://github.com/Styyx1/StyyxUtils/blob/main/distr/OreKeywords_KID.ini) to be present in the user's game
+	/// @param a_ref The reference to to check
+	/// @return bool is true if the reference or its base object have the keyword
+	static bool IsRefOreVein( RE::TESObjectREFR *a_ref )
 	{
 		if ( !a_ref )
 			return false;

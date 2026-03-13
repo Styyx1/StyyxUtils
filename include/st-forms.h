@@ -4,20 +4,22 @@ namespace StyyxUtil {
 
 
 	struct FormUtil {
-        /// <summary>
-        /// Used in some of my json loading mods. 
-        /// needs Skyrim.esm|0x800 for example
-        /// </summary>
-        /// <param name="formIDstring"></param>
-        /// <returns></returns>
-        static inline RE::TESForm* GetFormFromString(const std::string& formIDstring)
+        /// @brief Get Form from a string
+        /// @param a_form_id_string The string to get the Form from
+        /// @return A TESForm* or nullptr if it can't find a form
+        /// @par Usage
+        /// @code
+        /// "Skyrim.esm|0x800" or "MyAwesomeFormEditorID"
+        /// @endcode
+        /// @note To make use of EditorID `powerofthree tweaks` needs to be installed
+        static RE::TESForm* GetFormFromString(const std::string& a_form_id_string)
         {
-            if (formIDstring.empty()) {
+            if (a_form_id_string.empty()) {
                 return nullptr;
             }
 
-            if (formIDstring.find('|') != std::string::npos) {
-                std::istringstream ss{ formIDstring };
+            if (a_form_id_string.find('|') != std::string::npos) {
+                std::istringstream ss{ a_form_id_string };
                 std::string plugin, id;
                 std::getline(ss, plugin, '|');
                 std::getline(ss, id);
@@ -40,10 +42,35 @@ namespace StyyxUtil {
                 return nullptr;
             }
 
-            if (auto* form = RE::TESForm::LookupByEditorID(formIDstring)) {
+            if (auto* form = RE::TESForm::LookupByEditorID(a_form_id_string)) {
                 return form;
             }
             return nullptr;
         }
+
+	    /// @copybrief GetFormFromString
+	    /// @ref GetFormFromString for usage details
+	    static RE::SpellItem* GetSpellFromString(const std::string& a_form_id_string)
+        {
+            const auto form = GetFormFromString(a_form_id_string);
+            return  form ? form->As<RE::SpellItem>() : nullptr;
+        }
+
+	    /// @copybrief GetFormFromString
+	    /// @ref GetFormFromString for usage details
+	    static RE::EffectSetting* GetEffectSettingFromString(const std::string& a_form_id_string)
+        {
+            const auto form = GetFormFromString(a_form_id_string);
+            return  form ? form->As<RE::EffectSetting>() : nullptr;
+        }
+
+	    /// @copybrief GetFormFromString
+	    /// @ref GetFormFromString for usage details
+	    static RE::TESObjectWEAP* GetWeaponFromString(const std::string& a_form_id_string)
+        {
+            const auto form = GetFormFromString(a_form_id_string);
+            return  form ? form->As<RE::TESObjectWEAP>() : nullptr;
+        }
+
 	};
 }

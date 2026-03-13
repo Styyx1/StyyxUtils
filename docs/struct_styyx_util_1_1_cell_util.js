@@ -1,6 +1,7 @@
 var struct_styyx_util_1_1_cell_util =
 [
-    [ "IsDungeon", "struct_styyx_util_1_1_cell_util.html#a4b614a6d188a23f5a0fbc6bae0650633", null ],
+    [ "GetAllActorsInCell", "struct_styyx_util_1_1_cell_util.html#afaf69046cb0def801c90fdbcb940ab48", null ],
+    [ "IsDungeon", "struct_styyx_util_1_1_cell_util.html#ab315fc528b02a1120a458713f79f9e7b", null ],
     [ "IsJail", "struct_styyx_util_1_1_cell_util.html#a2cc826ea9631d40fae21ebe45eb5ccb0", null ],
-    [ "is_a_dungeon", "struct_styyx_util_1_1_cell_util.html#a68d533667dcdad95a0061c60704ab148", null ]
+    [ "is_a_dungeon", "struct_styyx_util_1_1_cell_util.html#a10a74805f6c3b6715d11bd72229b0824", null ]
 ];
