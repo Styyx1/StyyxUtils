@@ -10,10 +10,20 @@ option ("use-debug-utils", function()
     add_defines("STYYX_DEBUG_UTILS=1")
 end)
 
+option("use-fuck", function()
+    set_default(false)
+    set_description("enable FUCK as menu framework")
+end)
+
 
 if has_config("use-hook-utils") then
     add_requires("xbyak")
 end
+
+if has_config("use-fuck") then
+    add_requires("imgui")
+end
+
 
 target("styyx-util")
     set_kind("headeronly")
@@ -23,4 +33,7 @@ target("styyx-util")
     add_options("use-debug-utils", {public = true})
     if has_config("use-hook-utils") then
         add_packages("xbyak", {public = true})
+    end
+    if has_config("use-fuck") then
+        add_packages("imgui", {public = true})
     end
