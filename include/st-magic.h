@@ -4,6 +4,16 @@ namespace StyyxUtil
 {
     struct MagicUtil
     {
+        /// @brief Check if spell is self targeting
+        /// @param a_spell The spell to check
+        /// @return true if the spell is self targeting
+        static bool IsSelfTargetSpell(RE::MagicItem* a_spell)
+        {
+            if (!a_spell)
+                return false;
+            return a_spell->GetDelivery() == RE::MagicSystem::Delivery::kSelf;
+        }
+
         /// @brief Check if a spell is playable, as in, able to be cast
         /// @param spell The spell to check
         /// @return True if spell is a castable spell
