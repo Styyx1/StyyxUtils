@@ -44,7 +44,9 @@ namespace StyyxUtil {
         {
             SetNextItemWidth(a_sliderWidth);
 
-            constexpr auto data_type = std::is_integral_v<T>  ? ImGuiDataType_S32 : ImGuiDataType_Float;
+            constexpr auto data_type = std::is_same_v<T, uint32_t> ? ImGuiDataType_U32 :
+                           std::is_integral_v<T>        ? ImGuiDataType_S32 :
+                                                          ImGuiDataType_Float;
 
             const bool changed = SliderScalar(a_label, data_type, &a_sliderVariable, &a_sliderMin, &a_sliderMax, a_sliderFormat);
             if (changed && a_onSliderChanged)
@@ -63,6 +65,43 @@ namespace StyyxUtil {
             HelpMarker(a_helpText);
             return changed;
         }
+
+        static constexpr ImVec4 GREEN{0.2f, 0.6f, 0.3f, 1.0f};
+        static constexpr ImVec4 RED{0.78f, 0.0f, 0.0f, 1.0f};
+
+        static void IndentTextColored(const ImVec4& color, const std::string& text, float indent = 120.f)
+        {
+            SetCursorPosX(GetCursorPosX() + indent);
+            TextColored(color, text.c_str());
+        }
+
+        static void GreenTitleText(const std::string& text, float indent = 75.f)
+        {
+            SetCursorPosX(GetCursorPosX() + indent);
+            TextColored(GREEN, text.c_str());
+        }
+
+        static void RedTitleText(const std::string& text, float indent = 75.f)
+        {
+            SetCursorPosX(GetCursorPosX() + indent);
+            TextColored(RED, text.c_str());
+        }
+
+        static bool InputText(const char* label, char* buffer, size_t size, std::string& value, auto& configEntry, const char* help = nullptr)
+        {
+            if (ImGuiMCP::InputText(label, buffer, size)) {
+                value = buffer;
+                configEntry.SetValue(value);
+                return true;
+            }
+            if (help) {
+                SameLine();
+                HelpMarker(help);
+            }
+            return false;
+        }
+
+
 
     };
 	
