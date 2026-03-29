@@ -62,6 +62,23 @@ namespace StyyxUtil
 
             return false;
         }
+
+        template <class T>
+        static bool SliderFloat(const char* label, T& value, auto& configEntry, float min, float max, const char* help = nullptr)
+        {
+            if (FUCK::SliderFloat(label, reinterpret_cast<float*>(&value), min, max))
+            {
+                configEntry.SetValue(value);
+                return true;
+            }
+            if (help)
+            {
+                FUCK::SameLine();
+                FUCK::HelpMarker(help);
+            }
+            return false;
+        }
+
         static bool InputText(const char* label, char* buffer, size_t size, std::string& value, auto& configEntry, const char* help = nullptr)
         {
             if (FUCK::InputText(label, buffer, size)) {
