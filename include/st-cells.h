@@ -40,6 +40,18 @@ namespace StyyxUtil
             return false;
         }
 
+        static bool IsPlayerHome(RE::BGSLocation* a_location)
+        {
+            if (!a_location)
+                return false;
+            static auto PlayerCellKeyword = RE::TESForm::LookupByEditorID<RE::BGSKeyword>("LocTypePlayerHouse");
+            if (PlayerCellKeyword && a_location->HasKeyword(PlayerCellKeyword))
+            {
+                return true;
+            }
+            return false;
+        }
+
         /// @brief Get a vector of all actors in the specified cell
         /// @param a_cell the cell to check
         /// @return vector with all actors in the cell
