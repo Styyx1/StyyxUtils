@@ -1,5 +1,7 @@
 #pragma once
 
+
+
 namespace StyyxUtil
 {
 	/// @brief Timer class used to do x after y time

@@ -61,7 +61,7 @@ namespace StyyxUtil
             if (!a_cell)
                 return result;
 
-            for (const auto& ref : a_cell->references)
+            for (const auto& ref : a_cell->GetRuntimeData().references)
             {
                 if (!ref)
                     continue;

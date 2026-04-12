@@ -37,7 +37,7 @@ struct ActorUtil
     {
         if (!actor)
             return false;
-        const auto proc = actor->currentProcess;
+        const auto proc = actor->GetActorRuntimeData().currentProcess;
         if (!proc)
             return false;
 
@@ -63,7 +63,7 @@ struct ActorUtil
     {
         if (!actor)
             return false;
-        const auto proc = actor->currentProcess;
+        const auto proc = actor->GetActorRuntimeData().currentProcess;
         if (!proc)
             return false;
 
@@ -124,17 +124,6 @@ struct ActorUtil
         return false;
     };
 
-    /// @brief Check if actor is vampire
-    /// @param a_ref Actor to check
-    /// @return True if actor has the default object keyword for vampires
-    static bool IsVampire(RE::Actor *a_ref)
-    {
-        if (a_ref->HasKeywordWithType(RE::DEFAULT_OBJECT::kKeywordVampire))
-        {
-            return true;
-        }
-        return false;
-    }
 
     /// @brief Check if actor is undead
     /// @param a_ref Actor to check
@@ -144,24 +133,6 @@ struct ActorUtil
         if (a_ref->HasKeywordWithType(RE::DEFAULT_OBJECT::kKeywordUndead))
             return true;
         return false;
-    }
-
-    /// @brief Check if actor is a dragon
-    /// @param a_actor The actor to check
-    /// @return True if actor has the Dragon keyword
-    /// @note the Default Object in skyrim.esm is empty for that \n
-    /// [This](https://www.nexusmods.com/skyrimspecialedition/mods/163540) is a mod that fixes this \n
-    ///Here we do a manual lookup in case the default object is null
-    static bool IsDragon(const RE::Actor *a_actor)
-    {
-        if (a_actor->HasKeywordWithType(RE::DEFAULT_OBJECT::kKeywordDragon))
-        {
-            return true;
-        }
-        const auto key = RE::TESForm::LookupByEditorID<RE::BGSKeyword>("ActorTypeDragon");
-        if (!key)
-            return false;
-        return a_actor->HasKeyword(key);
     }
 
 
