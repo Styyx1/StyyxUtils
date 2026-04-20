@@ -56,14 +56,49 @@ namespace StyyxUtil {
             return changed;
         }
 
-        static bool SetCheckbox(const char* a_label, bool& a_settingVariable, const char* a_helpText, const std::function<void(bool)>& a_onCheckbox = nullptr)
+        template <class T>
+        static bool SetSliderInt(const char* label, T& value, auto& configEntry, T min, T max, const char* help = nullptr)
         {
-            const bool changed = Checkbox(a_label, &a_settingVariable);
-            if (changed && a_onCheckbox)
-                a_onCheckbox(a_settingVariable);
-            SameLine();
-            HelpMarker(a_helpText);
-            return changed;
+            if (ImGuiMCP::SliderInt(label, reinterpret_cast<int*>(&value), min, max)) {
+                configEntry.SetValue(value);
+                return true;
+            }
+            if (help) {
+                SameLine();
+                HelpMarker(help);
+            }
+
+            return false;
+        }
+
+        template <class T>
+        static bool SetSliderFloat(const char* label, T& value, auto& configEntry, float min, float max, const char* help = nullptr)
+        {
+            if (SliderFloat(label, reinterpret_cast<float*>(&value), min, max))
+            {
+                configEntry.SetValue(value);
+                return true;
+            }
+            if (help)
+            {
+                SameLine();
+                HelpMarker(help);
+            }
+            return false;
+        }
+
+        template <class T>
+        static bool SetCheckbox(const char* label, T& value, auto& configEntry, const char* help = nullptr)
+        {
+            if (ImGuiMCP::Checkbox(label, &value)) {
+                configEntry.SetValue(value);
+                return true;
+            }
+            if (help) {
+                SameLine();
+                HelpMarker(help);
+            }
+            return false;
         }
 
         static constexpr ImVec4 GREEN{0.2f, 0.6f, 0.3f, 1.0f};
@@ -100,12 +135,7 @@ namespace StyyxUtil {
             }
             return false;
         }
-
-
-
     };
-	
-
 }
 
 
