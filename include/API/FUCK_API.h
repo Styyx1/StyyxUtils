@@ -2,7 +2,6 @@
 #include <imgui.h>
 
 #define FUCK_API_VERSION 1
-class CSimpleIniA;
 
 // ============================================================================
 // [ SECTION 1 ] TYPES & INTERFACES
@@ -399,7 +398,7 @@ namespace FUCK
 			return false;
 		auto* iface = static_cast<FUCK_Interface*>(fetcher());
 		if (!iface || iface->version < a_minVersion) {
-			REX::ERROR("FUCK API Version Mismatch: Expected {}, found {}", a_minVersion, iface ? iface->version : 0);
+			REX::CRITICAL("FUCK API Version Mismatch: Expected {}, found {}", a_minVersion, iface ? iface->version : 0);
 			return false;
 		}
 

@@ -42,39 +42,55 @@ namespace StyyxUtil
                 return true;
             }
             if (help) {
-                FUCK::SameLine();
-                FUCK::HelpMarker(help);
+                FUCK::SetTooltip(help);
             }
             return false;
         }
 
         template <class T>
-        static bool SliderInt(const char* label, T& value, auto& configEntry, T min, T max, const char* help = nullptr)
+        static bool SetSliderInt(const char* label, T& value, auto& configEntry, T min, T max, const char* help = nullptr)
         {
             if (FUCK::SliderInt(label, reinterpret_cast<int*>(&value), min, max)) {
                 configEntry.SetValue(value);
                 return true;
             }
             if (help) {
-                FUCK::SameLine();
-                FUCK::HelpMarker(help);
+                FUCK::SetTooltip(help);
             }
 
             return false;
         }
 
         template <class T>
-        static bool SliderFloat(const char* label, T& value, auto& configEntry, float min, float max, const char* help = nullptr)
+        static bool SetSliderFloat(const char* label, T& value, auto& configEntry, float min, float max, const char* help = nullptr, const char* a_fmt = "%.2f")
         {
-            if (FUCK::SliderFloat(label, reinterpret_cast<float*>(&value), min, max))
+            if (FUCK::SliderFloat(label, &value, min, max, a_fmt))
             {
                 configEntry.SetValue(value);
                 return true;
             }
             if (help)
             {
-                FUCK::SameLine();
-                FUCK::HelpMarker(help);
+                FUCK::SetTooltip(help);
+            }
+            return false;
+        }
+
+        template <class T>
+       static bool SetSliderDouble(const char* label, T& value, auto& configEntry, double min, double max, const char* help = nullptr, const char* a_fmt = "%.2f")
+        {
+
+            float temp = static_cast<float>(value);
+
+            if (FUCK::SliderFloat(label, &temp, static_cast<float>(min), static_cast<float>(max), a_fmt))
+            {
+                value = static_cast<double>(temp);
+                configEntry.SetValue(value);
+                return true;
+            }
+            if (help)
+            {
+                FUCK::SetTooltip(help);
             }
             return false;
         }
@@ -87,8 +103,7 @@ namespace StyyxUtil
                 return true;
             }
             if (help) {
-                FUCK::SameLine();
-                FUCK::HelpMarker(help);
+                FUCK::SetTooltip(help);
             }
             return false;
         }
