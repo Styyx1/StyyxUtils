@@ -45,10 +45,34 @@ namespace StyyxUtil {
 			return distrib(GetRNG());
 		}
 
+		/// @brief Get random bool
+		/// @return somewhat random bool
+		static bool GetRandomBool()
+		{
+			std::bernoulli_distribution distrib(0.5);
+			return distrib(GetRNG());
+		}
+
+		///@brief Get weighted random bool
+		///@note p = value between 0 and 1 and the higher the value, the higher the chance for true
+		///@return the somewhat random bool
+		static bool GetWeightedRandomBool(const float p = 0.5)
+		{
+			std::bernoulli_distribution distrib(p);
+			return distrib(GetRNG());
+		}
+
+
 		/// @brief Rolls a random chance check against a given percentage
 		/// @param a_chancePercent The success threshold (0-100). A value of 30.0 means a 30% chance of returning true
 		/// @return true if the random roll succeeds, false otherwise
 		static bool IsPercentageChanceFloat(const float a_chancePercent) {
+			const auto chance = std::clamp(a_chancePercent, 0.0f, 100.0f);
+
+			if (chance <= 0.0f)
+				return false;
+			if (chance >= 100.0f)
+				return true;
 			return GetRandomFloat(0.0, 100.0) <= a_chancePercent;
 		}
 	private:
