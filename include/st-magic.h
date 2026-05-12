@@ -17,7 +17,7 @@ namespace StyyxUtil
         /// @brief Check if a spell is playable, as in, able to be cast
         /// @param spell The spell to check
         /// @return True if spell is a castable spell
-        static bool IsSpellPlayable(const RE::SpellItem *spell)
+        static bool IsSpellPlayable(const RE::MagicItem *spell)
         {
             using st = RE::MagicSystem::SpellType;
             using av = RE::ActorValue;
