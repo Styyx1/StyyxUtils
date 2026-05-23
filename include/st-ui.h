@@ -72,9 +72,27 @@ namespace StyyxUtil {
         }
 
         template <class T>
-        static bool SetSliderFloat(const char* label, T& value, auto& configEntry, float min, float max, const char* help = nullptr)
+        static bool SetSliderFloat(const char* label, T& value, auto& configEntry, float min, float max, const char* help = nullptr, const char* a_fmt = "%.2f", float a_sliderWidth = 200.f)
         {
-            if (SliderFloat(label, reinterpret_cast<float*>(&value), min, max))
+            SetNextItemWidth(a_sliderWidth);
+            if (ImGuiMCP::SliderScalar(label, ImGuiDataType_Float, &value, &min, &max, a_fmt))
+            {
+                configEntry.SetValue(value);
+                return true;
+            }
+            if (help)
+            {
+                SameLine();
+                HelpMarker(help);
+            }
+            return false;
+        }
+
+        template <class T>
+        static bool SetSliderDouble(const char* label, T& value, auto& configEntry, double min, double max, const char* help = nullptr, const char* a_fmt = "%.2f", float a_sliderWidth = 200.f)
+        {
+            SetNextItemWidth(a_sliderWidth);
+            if (ImGuiMCP::SliderScalar(label, ImGuiDataType_Double, &value, &min, &max, a_fmt))
             {
                 configEntry.SetValue(value);
                 return true;

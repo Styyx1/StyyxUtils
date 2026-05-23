@@ -8,6 +8,38 @@ namespace StyyxUtil
 
 struct ActorUtil
 {
+
+    static bool IsMoving(const RE::Actor* a_actor)
+    {
+        if (!a_actor)
+        {
+            return false;
+        }
+
+        return (static_cast<bool>(a_actor->actorState1.movingForward) || static_cast<bool>(a_actor->actorState1.movingBack) || static_cast<bool>(a_actor->actorState1.movingLeft) || static_cast<bool>(a_actor->actorState1.movingRight));
+    }
+
+    [[nodiscard]] static bool IsGod(RE::Actor* a_actor)
+    {
+        if (!a_actor)
+            return false;
+        return a_actor->IsPlayerRef() && RE::PlayerCharacter::IsGodMode();
+    }
+
+    static bool CasterIsCastingObject(RE::ActorMagicCaster* a_caster)
+    {
+        if (!a_caster)
+            return false;
+        using ct = RE::MagicSystem::CastingType;
+        switch (const auto type = a_caster->currentSpell->GetCastingType())
+        {
+        case ct::kScroll:
+            return true;
+        default:
+            return false;
+        }
+    }
+
     /// @brief Fills a vector<RE::BGSPerk*> reference with all the perks an actor inherits from the actor base
     /// @param a_actor Actor which the perks are gotten from
     /// @param perks vector reference all the perks are added to
