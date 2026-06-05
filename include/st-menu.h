@@ -33,7 +33,9 @@ struct MenuUtil
     static void VisitMenuMembersRec(const char* a_path, RE::GFxValue& a_obj, int depth = 0, int max_depth = 4)
     {
         if (depth > max_depth)
+        {
             return;
+        }
 
         struct MemberVisitor : RE::GFxValue::ObjectVisitor
         {

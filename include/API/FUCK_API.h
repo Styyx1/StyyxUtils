@@ -2217,6 +2217,7 @@ bool EnumStepper(const char* label, T* current_val, const std::vector<std::strin
 // [ SECTION 5 ] GLOBAL LITERALS
 // ==================================================
 
+
 /// @brief String literal to automatically run FUCK::Translate
 inline const char* operator""_T(const char* str, std::size_t)
 {
