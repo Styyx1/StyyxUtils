@@ -92,33 +92,30 @@ $(function(){initNavTree('st-sounds_8h_source.html','',''); });
   <div class="headertitle"><div class="title">st-sounds.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="st-sounds_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by styyx on 12/03/2026.</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<a href="st-sounds_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceStyyxUtil.html">StyyxUtil</a></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span>{</div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_styyx_util.html">StyyxUtil</a></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
-<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="struct_styyx_util_1_1_sound_util.html">    8</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_styyx_util_1_1_sound_util.html">SoundUtil</a></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    {</div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="struct_styyx_util_1_1_sound_util.html#a343d086b5fab85bcdcdbd45365133122">   14</a></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="struct_styyx_util_1_1_sound_util.html#a343d086b5fab85bcdcdbd45365133122">PlaySound</a>(<span class="keyword">const</span> RE::Actor *a_actor, <span class="keyword">const</span> RE::BGSSoundDescriptorForm *a_sound, <span class="keyword">const</span> <span class="keywordtype">float</span> a_volume)</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>            RE::BSSoundHandle handle;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            <span class="keyword">const</span> <span class="keyword">auto</span> am = RE::BSAudioManager::GetSingleton();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            am-&gt;GetSoundHandle(handle, a_sound-&gt;soundDescriptor);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            handle.SetVolume(a_volume);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            handle.SetObjectToFollow(a_actor-&gt;Get3D());</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            handle.Play();</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        }</div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="structStyyxUtil_1_1SoundUtil.html">    5</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structStyyxUtil_1_1SoundUtil.html">SoundUtil</a></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="structStyyxUtil_1_1SoundUtil.html#aca87caf371119a673c778f715cdd9b00">   11</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structStyyxUtil_1_1SoundUtil.html#aca87caf371119a673c778f715cdd9b00">PlayGameSound</a>(<span class="keyword">const</span> RE::Actor* a_actor, <span class="keyword">const</span> RE::BGSSoundDescriptorForm* a_sound, <span class="keyword">const</span> <span class="keywordtype">float</span> a_volume)</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        RE::BSSoundHandle handle;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keyword">const</span> <span class="keyword">auto</span> am = RE::BSAudioManager::GetSingleton();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        am-&gt;GetSoundHandle(handle, a_sound-&gt;soundDescriptor);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        handle.SetVolume(a_volume);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        handle.SetObjectToFollow(a_actor-&gt;Get3D());</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        handle.Play();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
 </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    };</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
-<div class="ttc" id="anamespace_styyx_util_html"><div class="ttname"><a href="namespace_styyx_util.html">StyyxUtil</a></div><div class="ttdef"><b>Definition</b> st-actor.h:7</div></div>
-<div class="ttc" id="astruct_styyx_util_1_1_sound_util_html"><div class="ttname"><a href="struct_styyx_util_1_1_sound_util.html">StyyxUtil::SoundUtil</a></div><div class="ttdef"><b>Definition</b> st-sounds.h:9</div></div>
-<div class="ttc" id="astruct_styyx_util_1_1_sound_util_html_a343d086b5fab85bcdcdbd45365133122"><div class="ttname"><a href="struct_styyx_util_1_1_sound_util.html#a343d086b5fab85bcdcdbd45365133122">StyyxUtil::SoundUtil::PlaySound</a></div><div class="ttdeci">static void PlaySound(const RE::Actor *a_actor, const RE::BGSSoundDescriptorForm *a_sound, const float a_volume)</div><div class="ttdoc">Play a specific sound form.</div><div class="ttdef"><b>Definition</b> st-sounds.h:14</div></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>} <span class="comment">// namespace StyyxUtil</span></div>
+<div class="ttc" id="anamespaceStyyxUtil_html"><div class="ttname"><a href="namespaceStyyxUtil.html">StyyxUtil</a></div><div class="ttdef"><b>Definition</b> st-actor.h:7</div></div>
+<div class="ttc" id="astructStyyxUtil_1_1SoundUtil_html"><div class="ttname"><a href="structStyyxUtil_1_1SoundUtil.html">StyyxUtil::SoundUtil</a></div><div class="ttdef"><b>Definition</b> st-sounds.h:6</div></div>
+<div class="ttc" id="astructStyyxUtil_1_1SoundUtil_html_aca87caf371119a673c778f715cdd9b00"><div class="ttname"><a href="structStyyxUtil_1_1SoundUtil.html#aca87caf371119a673c778f715cdd9b00">StyyxUtil::SoundUtil::PlayGameSound</a></div><div class="ttdeci">static void PlayGameSound(const RE::Actor *a_actor, const RE::BGSSoundDescriptorForm *a_sound, const float a_volume)</div><div class="ttdoc">Play a specific sound form.</div><div class="ttdef"><b>Definition</b> st-sounds.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

@@ -1,0 +1,7 @@
+<map id="StyyxUtil::RandomiserUtil::GetRandomRoundedFloat" name="StyyxUtil::RandomiserUtil::GetRandomRoundedFloat">
+<area shape="rect" id="Node000001" title="Get random float rounded to a set amount of decimals." alt="" coords="5,5,202,50"/>
+<area shape="rect" id="Node000002" href="$structStyyxUtil_1_1RandomiserUtil.html#ac39fb41068a85cb96d3d7ad46210185a" title="Get random float between 2 values." alt="" coords="250,5,440,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,25,236,27,231,28,202,30"/>
+<area shape="rect" id="Node000003" href="$structStyyxUtil_1_1RandomiserUtil.html#a3b4fb98dba4d3210a1669e5991e2f89c" title=" " alt="" coords="488,5,678,50"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="441,25,475,28,470,28,441,30"/>
+</map>

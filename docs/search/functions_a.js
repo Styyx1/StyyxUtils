@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['traverseperknode_0',['TraversePerkNode',['../struct_styyx_util_1_1_perk_util.html#aba198456ab1dfb49b55d2d8409049ca3',1,'StyyxUtil::PerkUtil']]],
-  ['trystagger_1',['TryStagger',['../struct_styyx_util_1_1_actor_util.html#acb145d4da8a23851699797786bd17a3f',1,'StyyxUtil::ActorUtil']]]
+  ['menueventlistener_0',['MenuEventListener',['../classFUCK_1_1MenuEventListener.html#ad2431172096d1bca888e87c515adca6c',1,'FUCK::MenuEventListener::MenuEventListener()=default'],['../classFUCK_1_1MenuEventListener.html#ae8e433629459cc2f906198727729a783',1,'FUCK::MenuEventListener::MenuEventListener(Callback a_cb)'],['../classFUCK_1_1MenuEventListener.html#a893314bba2f6a52e8548898cf679c5a0',1,'FUCK::MenuEventListener::MenuEventListener(const MenuEventListener &amp;)=delete']]]
 ];

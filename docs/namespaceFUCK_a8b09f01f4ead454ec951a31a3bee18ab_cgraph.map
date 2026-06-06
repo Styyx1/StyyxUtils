@@ -1,0 +1,7 @@
+<map id="FUCK::UIScale" name="FUCK::UIScale">
+<area shape="rect" id="Node000001" title="Scales by both Resolution and the User&#39;s UI Size slider." alt="" coords="5,5,120,33"/>
+<area shape="rect" id="Node000002" href="$namespaceFUCK.html#abcc1427765c3ee5e4f73935af3b3376a" title="Gets the overall screen resolution combined with the user&#39;s selected UI Size Slider multiplier." alt="" coords="168,5,333,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,17,155,19,149,19,120,22"/>
+<area shape="rect" id="Node000003" href="$namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="381,5,527,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="333,17,368,19,363,19,334,22"/>
+</map>

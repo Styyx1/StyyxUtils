@@ -1,0 +1,5 @@
+<map id="StyyxUtil::MagicUtil::IsPermanent" name="StyyxUtil::MagicUtil::IsPermanent">
+<area shape="rect" id="Node000001" title="Check if a magic item is permanent." alt="" coords="205,5,356,50"/>
+<area shape="rect" id="Node000002" href="$structStyyxUtil_1_1MagicUtil.html#af2988f01d5cb5334b89e8259ca95c30e" title="Casts Spell from caster to actor. If the spell is permanent (MagicUtil::IsPermanent) it adds the spel..." alt="" coords="5,5,157,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,28,157,30,157,25,192,27"/>
+</map>

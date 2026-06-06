@@ -1,0 +1,9 @@
+<map id="FUCK::Scale" name="FUCK::Scale">
+<area shape="rect" id="Node000001" title="Scales by the Monitor Resolution." alt="" coords="239,57,339,85"/>
+<area shape="rect" id="Node000002" href="$namespaceFUCK.html#af307af39c3cff5636384ee3a167922a1" title="Begins an inset child panel using an inside&#45;out group margin. This prevents native ImGui window paddi..." alt="" coords="8,5,188,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,55,152,36,152,31,226,53"/>
+<area shape="rect" id="Node000003" href="$namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Standardized visual for UI widget editing. Handles both Screen&#45;Space and Window&#45;Space rendering." alt="" coords="5,57,191,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,72,191,74,191,69,226,71"/>
+<area shape="rect" id="Node000004" href="$namespaceFUCK.html#a073afb1f1cdcdbef3c244ea3bbd82292" title="Closes the panel opened by BeginPanelFrame." alt="" coords="15,109,181,137"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="226,88,152,111,151,106,221,89"/>
+</map>

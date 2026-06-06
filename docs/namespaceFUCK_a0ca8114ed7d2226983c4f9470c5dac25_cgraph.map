@@ -1,0 +1,16 @@
+<map id="FUCK::WASDNudge" name="FUCK::WASDNudge">
+<area shape="rect" id="Node000001" title="Helper for handling WASD Key widget nudging. Returns true if movement occurred, outputting the delta." alt="" coords="5,84,153,112"/>
+<area shape="rect" id="Node000002" href="$namespaceFUCK.html#a3310fb15e008cdfe514d00206011863c" title="Gets the physical screen resolution scale multiplier (Base 1080p)." alt="" coords="201,5,393,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,81,200,43,227,37,222,39,202,48,112,86"/>
+<area shape="rect" id="Node000004" href="$namespaceFUCK.html#a9cd667f77120c630b34b87983c994f38" title=" " alt="" coords="228,57,366,85"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="152,86,215,80,211,83,154,91"/>
+<area shape="rect" id="Node000005" href="$namespaceFUCK.html#a0909d847b7909940b4b2070bcaca59ec" title=" " alt="" coords="221,109,372,137"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="153,104,208,112,203,113,153,109"/>
+<area shape="rect" id="Node000006" href="$namespaceFUCK.html#aedfde54ff6928bd049e805ea36ebba87" title=" " alt="" coords="219,161,375,189"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="112,110,202,146,228,157,223,157,200,151,111,115"/>
+<area shape="rect" id="Node000003" href="$namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="441,84,587,112"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="354,31,394,43,472,77,466,77,392,48,354,36"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="366,77,428,87,423,87,366,82"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="372,112,428,108,423,109,373,117"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="354,158,392,146,465,119,471,118,394,151,355,163"/>
+</map>
