@@ -1,111 +1,117 @@
-//
-// Created by styyx on 24/03/2026.
-//
-
 #pragma once
 
 #include <functional>
 
 #include "API/FUCK_API.h"
 
+
 namespace StyyxUtil
 {
-    struct FUCKUtil
+struct FUCKUtil
+{
+    static constexpr ImVec4 GREEN{0.2f, 0.6f, 0.3f, 1.0f};
+    static constexpr ImVec4 RED{0.78f, 0.0f, 0.0f, 1.0f};
+
+    static void IndentTextColored(const ImVec4& color, const std::string& text, float indent = 120.f)
     {
-        static constexpr ImVec4 GREEN{0.2f, 0.6f, 0.3f, 1.0f};
-        static constexpr ImVec4 RED{0.78f, 0.0f, 0.0f, 1.0f};
+        FUCK::SetCursorPosX(FUCK::GetCursorPos().x + indent);
+        FUCK::TextColored(color, text.c_str());
+    }
 
-        static void IndentTextColored(const ImVec4& color, const std::string& text, float indent = 120.f)
+    static void GreenTitleText(const std::string& text, float indent = 75.f)
+    {
+        FUCK::SetCursorPosX(FUCK::GetCursorPos().x + indent);
+        FUCK::TextColored(GREEN, text.c_str());
+    }
+
+    static void RedTitleText(const std::string& text, float indent = 75.f)
+    {
+        FUCK::SetCursorPosX(FUCK::GetCursorPos().x + indent);
+        FUCK::TextColored(RED, text.c_str());
+    }
+
+
+    template <class T>
+    static bool Checkbox(const char* label, T& value, auto& configEntry, const char* help = nullptr)
+    {
+        if (FUCK::Checkbox(label, &value))
         {
-            FUCK::SetCursorPosX(FUCK::GetCursorPos().x + indent);
-            FUCK::TextColored(color, text.c_str());
+            configEntry.SetValue(value);
+            return true;
+        }
+        if (help)
+        {
+            FUCK::SetTooltip(help);
+        }
+        return false;
+    }
+
+    template <class T>
+    static bool SetSliderInt(const char* label, T& value, auto& configEntry, T min, T max, const char* help = nullptr)
+    {
+        if (FUCK::SliderInt(label, reinterpret_cast<int*>(&value), min, max))
+        {
+            configEntry.SetValue(value);
+            return true;
+        }
+        if (help)
+        {
+            FUCK::SetTooltip(help);
         }
 
-        static void GreenTitleText(const std::string& text, float indent = 75.f)
+        return false;
+    }
+
+    template <class T>
+    static bool SetSliderFloat(const char* label, T& value, auto& configEntry, float min, float max,
+                               const char* help = nullptr, const char* a_fmt = "%.2f")
+    {
+        if (FUCK::SliderFloat(label, &value, min, max, a_fmt))
         {
-            FUCK::SetCursorPosX(FUCK::GetCursorPos().x + indent);
-            FUCK::TextColored(GREEN, text.c_str());
+            configEntry.SetValue(value);
+            return true;
         }
-
-        static void RedTitleText(const std::string& text, float indent = 75.f)
+        if (help)
         {
-            FUCK::SetCursorPosX(FUCK::GetCursorPos().x + indent);
-            FUCK::TextColored(RED, text.c_str());
+            FUCK::SetTooltip(help);
         }
+        return false;
+    }
 
+    template <class T>
+    static bool SetSliderDouble(const char* label, T& value, auto& configEntry, double min, double max,
+                                const char* help = nullptr, const char* a_fmt = "%.2f")
+    {
 
-        template <class T>
-        static bool Checkbox(const char* label, T& value, auto& configEntry, const char* help = nullptr)
+        float temp = static_cast<float>(value);
+
+        if (FUCK::SliderFloat(label, &temp, static_cast<float>(min), static_cast<float>(max), a_fmt))
         {
-            if (FUCK::Checkbox(label, &value)) {
-                configEntry.SetValue(value);
-                return true;
-            }
-            if (help) {
-                FUCK::SetTooltip(help);
-            }
-            return false;
+            value = static_cast<double>(temp);
+            configEntry.SetValue(value);
+            return true;
         }
-
-        template <class T>
-        static bool SetSliderInt(const char* label, T& value, auto& configEntry, T min, T max, const char* help = nullptr)
+        if (help)
         {
-            if (FUCK::SliderInt(label, reinterpret_cast<int*>(&value), min, max)) {
-                configEntry.SetValue(value);
-                return true;
-            }
-            if (help) {
-                FUCK::SetTooltip(help);
-            }
-
-            return false;
+            FUCK::SetTooltip(help);
         }
+        return false;
+    }
 
-        template <class T>
-        static bool SetSliderFloat(const char* label, T& value, auto& configEntry, float min, float max, const char* help = nullptr, const char* a_fmt = "%.2f")
+    static bool InputText(const char* label, char* buffer, size_t size, std::string& value, auto& configEntry,
+                          const char* help = nullptr)
+    {
+        if (FUCK::InputText(label, buffer, size))
         {
-            if (FUCK::SliderFloat(label, &value, min, max, a_fmt))
-            {
-                configEntry.SetValue(value);
-                return true;
-            }
-            if (help)
-            {
-                FUCK::SetTooltip(help);
-            }
-            return false;
+            value = buffer;
+            configEntry.SetValue(value);
+            return true;
         }
-
-        template <class T>
-       static bool SetSliderDouble(const char* label, T& value, auto& configEntry, double min, double max, const char* help = nullptr, const char* a_fmt = "%.2f")
+        if (help)
         {
-
-            float temp = static_cast<float>(value);
-
-            if (FUCK::SliderFloat(label, &temp, static_cast<float>(min), static_cast<float>(max), a_fmt))
-            {
-                value = static_cast<double>(temp);
-                configEntry.SetValue(value);
-                return true;
-            }
-            if (help)
-            {
-                FUCK::SetTooltip(help);
-            }
-            return false;
+            FUCK::SetTooltip(help);
         }
-
-        static bool InputText(const char* label, char* buffer, size_t size, std::string& value, auto& configEntry, const char* help = nullptr)
-        {
-            if (FUCK::InputText(label, buffer, size)) {
-                value = buffer;
-                configEntry.SetValue(value);
-                return true;
-            }
-            if (help) {
-                FUCK::SetTooltip(help);
-            }
-            return false;
-        }
-    };
-}
+        return false;
+    }
+};
+} // namespace StyyxUtil

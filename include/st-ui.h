@@ -5,155 +5,170 @@
 
 using namespace ImGuiMCP;
 
-namespace StyyxUtil {
-    struct UIUtil {       
+namespace StyyxUtil
+{
+struct UIUtil
+{
 
-        /// @brief Draw a ? that pops up some help text in SKSE Menu Framework
-        /// @param desc Help text that should be shown
-        /// @note Credits to: [QTR-Modding](https://github.com/QTR-Modding/SaveManagerSKSE/blob/af53d32f57a3fc4a0c0e22828b66e4592338826e/src/UI.cpp#L3)
-        static void HelpMarker(const char* desc)
+    /// @brief Draw a ? that pops up some help text in SKSE Menu Framework
+    /// @param desc Help text that should be shown
+    /// @note Credits to:
+    /// [QTR-Modding](https://github.com/QTR-Modding/SaveManagerSKSE/blob/af53d32f57a3fc4a0c0e22828b66e4592338826e/src/UI.cpp#L3)
+    static void HelpMarker(const char* desc)
+    {
+        TextDisabled("(?)");
+        if (BeginItemTooltip())
         {
-            TextDisabled("(?)");
-            if (BeginItemTooltip())
-            {
-                PushTextWrapPos(GetFontSize() * 35.0f);
-                TextUnformatted(desc);
-                PopTextWrapPos();
-                EndTooltip();
-            }
+            PushTextWrapPos(GetFontSize() * 35.0f);
+            TextUnformatted(desc);
+            PopTextWrapPos();
+            EndTooltip();
         }
+    }
 
-        /// @brief Template to easily set up a slider with help text and have it optionally run a function if the slider changed
-        /// @tparam T Any numeric type
-        /// @param a_label Name of the slider (visible)
-        /// @param a_sliderVariable Variable of the slider to change
-        /// @param a_sliderMin Minimum value of the slider
-        /// @param a_sliderMax Maximum value of the slider
-        /// @param a_sliderFormat Formatting for the slider
-        /// @param a_helpText Help text that's shown
-        /// @param a_sliderWidth Slider width. Default = 200.0
-        /// @param a_onSliderChanged Function to run when the slider changed
-        /// @return True if slider changed
-        /// @note Example. This Gives you a float slider with 2 decimals and changes a REX::TOML::F32 setting if the slider changes
-        /// @code
-        /// SettingSlider("ManipToml", m_TempFloat, 0.0f, 100.0f, "%.2f", "This slider will change a toml setting", 300.0f, [&](float var){mySetting.SetValue(var);});
-        /// @endcode
-        template <class T>
-        static bool SettingSlider(const char* a_label, T& a_sliderVariable, const T &a_sliderMin, const T &a_sliderMax, const char* a_sliderFormat,
-            const char* a_helpText, const float a_sliderWidth = 200.0f, const std::function<void(T)> &a_onSliderChanged = nullptr)
+    /// @brief Template to easily set up a slider with help text and have it optionally run a function if the slider
+    /// changed
+    /// @tparam T Any numeric type
+    /// @param a_label Name of the slider (visible)
+    /// @param a_sliderVariable Variable of the slider to change
+    /// @param a_sliderMin Minimum value of the slider
+    /// @param a_sliderMax Maximum value of the slider
+    /// @param a_sliderFormat Formatting for the slider
+    /// @param a_helpText Help text that's shown
+    /// @param a_sliderWidth Slider width. Default = 200.0
+    /// @param a_onSliderChanged Function to run when the slider changed
+    /// @return True if slider changed
+    /// @note Example. This Gives you a float slider with 2 decimals and changes a REX::TOML::F32 setting if the slider
+    /// changes
+    /// @code
+    /// SettingSlider("ManipToml", m_TempFloat, 0.0f, 100.0f, "%.2f", "This slider will change a toml setting", 300.0f,
+    /// [&](float var){mySetting.SetValue(var);});
+    /// @endcode
+    template <class T>
+    static bool SettingSlider(const char* a_label, T& a_sliderVariable, const T& a_sliderMin, const T& a_sliderMax,
+                              const char* a_sliderFormat, const char* a_helpText, const float a_sliderWidth = 200.0f,
+                              const std::function<void(T)>& a_onSliderChanged = nullptr)
+    {
+        SetNextItemWidth(a_sliderWidth);
+
+        constexpr auto data_type = std::is_same_v<T, uint32_t> ? ImGuiDataType_U32
+                                   : std::is_integral_v<T>     ? ImGuiDataType_S32
+                                                               : ImGuiDataType_Float;
+
+        const bool changed =
+            SliderScalar(a_label, data_type, &a_sliderVariable, &a_sliderMin, &a_sliderMax, a_sliderFormat);
+        if (changed && a_onSliderChanged)
+            a_onSliderChanged(a_sliderVariable);
+        SameLine();
+        HelpMarker(a_helpText);
+        return changed;
+    }
+
+    template <class T>
+    static bool SetSliderInt(const char* label, T& value, auto& configEntry, T min, T max, const char* help = nullptr)
+    {
+        if (ImGuiMCP::SliderInt(label, reinterpret_cast<int*>(&value), min, max))
         {
-            SetNextItemWidth(a_sliderWidth);
-
-            constexpr auto data_type = std::is_same_v<T, uint32_t> ? ImGuiDataType_U32 :
-                           std::is_integral_v<T>        ? ImGuiDataType_S32 :
-                                                          ImGuiDataType_Float;
-
-            const bool changed = SliderScalar(a_label, data_type, &a_sliderVariable, &a_sliderMin, &a_sliderMax, a_sliderFormat);
-            if (changed && a_onSliderChanged)
-                a_onSliderChanged(a_sliderVariable);
+            configEntry.SetValue(value);
+            return true;
+        }
+        if (help)
+        {
             SameLine();
-            HelpMarker(a_helpText);
-            return changed;
+            HelpMarker(help);
         }
 
-        template <class T>
-        static bool SetSliderInt(const char* label, T& value, auto& configEntry, T min, T max, const char* help = nullptr)
+        return false;
+    }
+
+    template <class T>
+    static bool SetSliderFloat(const char* label, T& value, auto& configEntry, float min, float max,
+                               const char* help = nullptr, const char* a_fmt = "%.2f", float a_sliderWidth = 200.f)
+    {
+        SetNextItemWidth(a_sliderWidth);
+        if (ImGuiMCP::SliderScalar(label, ImGuiDataType_Float, &value, &min, &max, a_fmt))
         {
-            if (ImGuiMCP::SliderInt(label, reinterpret_cast<int*>(&value), min, max)) {
-                configEntry.SetValue(value);
-                return true;
-            }
-            if (help) {
-                SameLine();
-                HelpMarker(help);
-            }
-
-            return false;
+            configEntry.SetValue(value);
+            return true;
         }
-
-        template <class T>
-        static bool SetSliderFloat(const char* label, T& value, auto& configEntry, float min, float max, const char* help = nullptr, const char* a_fmt = "%.2f", float a_sliderWidth = 200.f)
+        if (help)
         {
-            SetNextItemWidth(a_sliderWidth);
-            if (ImGuiMCP::SliderScalar(label, ImGuiDataType_Float, &value, &min, &max, a_fmt))
-            {
-                configEntry.SetValue(value);
-                return true;
-            }
-            if (help)
-            {
-                SameLine();
-                HelpMarker(help);
-            }
-            return false;
+            SameLine();
+            HelpMarker(help);
         }
+        return false;
+    }
 
-        template <class T>
-        static bool SetSliderDouble(const char* label, T& value, auto& configEntry, double min, double max, const char* help = nullptr, const char* a_fmt = "%.2f", float a_sliderWidth = 200.f)
+    template <class T>
+    static bool SetSliderDouble(const char* label, T& value, auto& configEntry, double min, double max,
+                                const char* help = nullptr, const char* a_fmt = "%.2f", float a_sliderWidth = 200.f)
+    {
+        SetNextItemWidth(a_sliderWidth);
+        if (ImGuiMCP::SliderScalar(label, ImGuiDataType_Double, &value, &min, &max, a_fmt))
         {
-            SetNextItemWidth(a_sliderWidth);
-            if (ImGuiMCP::SliderScalar(label, ImGuiDataType_Double, &value, &min, &max, a_fmt))
-            {
-                configEntry.SetValue(value);
-                return true;
-            }
-            if (help)
-            {
-                SameLine();
-                HelpMarker(help);
-            }
-            return false;
+            configEntry.SetValue(value);
+            return true;
         }
-
-        template <class T>
-        static bool SetCheckbox(const char* label, T& value, auto& configEntry, const char* help = nullptr)
+        if (help)
         {
-            if (ImGuiMCP::Checkbox(label, &value)) {
-                configEntry.SetValue(value);
-                return true;
-            }
-            if (help) {
-                SameLine();
-                HelpMarker(help);
-            }
-            return false;
+            SameLine();
+            HelpMarker(help);
         }
+        return false;
+    }
 
-        static constexpr ImVec4 GREEN{0.2f, 0.6f, 0.3f, 1.0f};
-        static constexpr ImVec4 RED{0.78f, 0.0f, 0.0f, 1.0f};
-
-        static void IndentTextColored(const ImVec4& color, const std::string& text, float indent = 120.f)
+    template <class T>
+    static bool SetCheckbox(const char* label, T& value, auto& configEntry, const char* help = nullptr)
+    {
+        if (ImGuiMCP::Checkbox(label, &value))
         {
-            SetCursorPosX(GetCursorPosX() + indent);
-            TextColored(color, text.c_str());
+            configEntry.SetValue(value);
+            return true;
         }
-
-        static void GreenTitleText(const std::string& text, float indent = 75.f)
+        if (help)
         {
-            SetCursorPosX(GetCursorPosX() + indent);
-            TextColored(GREEN, text.c_str());
+            SameLine();
+            HelpMarker(help);
         }
+        return false;
+    }
 
-        static void RedTitleText(const std::string& text, float indent = 75.f)
+    static constexpr ImVec4 GREEN{0.2f, 0.6f, 0.3f, 1.0f};
+    static constexpr ImVec4 RED{0.78f, 0.0f, 0.0f, 1.0f};
+
+    static void IndentTextColored(const ImVec4& color, const std::string& text, float indent = 120.f)
+    {
+        SetCursorPosX(GetCursorPosX() + indent);
+        TextColored(color, text.c_str());
+    }
+
+    static void GreenTitleText(const std::string& text, float indent = 75.f)
+    {
+        SetCursorPosX(GetCursorPosX() + indent);
+        TextColored(GREEN, text.c_str());
+    }
+
+    static void RedTitleText(const std::string& text, float indent = 75.f)
+    {
+        SetCursorPosX(GetCursorPosX() + indent);
+        TextColored(RED, text.c_str());
+    }
+
+    static bool InputText(const char* label, char* buffer, size_t size, std::string& value, auto& configEntry,
+                          const char* help = nullptr)
+    {
+        if (ImGuiMCP::InputText(label, buffer, size))
         {
-            SetCursorPosX(GetCursorPosX() + indent);
-            TextColored(RED, text.c_str());
+            value = buffer;
+            configEntry.SetValue(value);
+            return true;
         }
-
-        static bool InputText(const char* label, char* buffer, size_t size, std::string& value, auto& configEntry, const char* help = nullptr)
+        if (help)
         {
-            if (ImGuiMCP::InputText(label, buffer, size)) {
-                value = buffer;
-                configEntry.SetValue(value);
-                return true;
-            }
-            if (help) {
-                SameLine();
-                HelpMarker(help);
-            }
-            return false;
+            SameLine();
+            HelpMarker(help);
         }
-    };
-}
-
-
+        return false;
+    }
+};
+} // namespace StyyxUtil

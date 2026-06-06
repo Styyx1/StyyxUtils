@@ -30,6 +30,12 @@ struct MenuUtil
         return false;
     }
 
+    /// @brief print all members of a gfx path
+    /// @note don't leave this code in release plugins
+    /// @param a_path the path of the swf value to check
+    /// @param a_obj the gfx object to check
+    /// @param depth how deep the recursion should start
+    /// @param max_dept how deep the recursion should go max
     static void VisitMenuMembersRec(const char* a_path, RE::GFxValue& a_obj, int depth = 0, int max_depth = 4)
     {
         if (depth > max_depth)
