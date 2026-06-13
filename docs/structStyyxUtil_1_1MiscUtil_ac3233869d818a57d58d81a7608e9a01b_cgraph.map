@@ -1,0 +1,7 @@
+<map id="StyyxUtil::MiscUtil::SetGMST" name="StyyxUtil::MiscUtil::SetGMST">
+<area shape="rect" id="Node000001" title="Set a game setting (by name) to a specific value." alt="" coords="5,40,148,85"/>
+<area shape="rect" id="Node000002" href="$structStyyxUtil_1_1MiscUtil.html#a60545867eb66a70e972fa05554bd156f" title="Helper template to easily set a game setting to a value." alt="" coords="196,5,359,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,47,183,43,178,45,149,53"/>
+<area shape="rect" id="Node000003" href="$structStyyxUtil_1_1MiscUtil.html#aed4bd0dc4258d88920a4704ae2884139" title="Helper function to get Game settings by name." alt="" coords="206,75,348,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,72,194,82,188,83,148,77"/>
+</map>

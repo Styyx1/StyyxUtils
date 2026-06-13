@@ -1,0 +1,24 @@
+<map id="FUCK::BeginPanelFrame" name="FUCK::BeginPanelFrame">
+<area shape="rect" id="Node000001" title="Begins an inset child panel using an inside&#45;out group margin. This prevents native ImGui window paddi..." alt="" coords="5,133,185,161"/>
+<area shape="rect" id="Node000002" href="$namespaceFUCK.html#a69a615a5f76cba3541fc818cd81965e1" title=" " alt="" coords="460,5,596,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,131,173,107,232,83,342,52,448,32,443,34,344,57,234,88,175,112,125,135"/>
+<area shape="rect" id="Node000004" href="$namespaceFUCK.html#a0b03026a0ab1f22c2764a66acd691ccd" title=" " alt="" coords="458,57,599,85"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="156,130,232,114,444,81,440,85,233,119,158,135"/>
+<area shape="rect" id="Node000005" href="$namespaceFUCK.html#a832253078cba50b6d4e96548d578af87" title=" " alt="" coords="470,109,587,137"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="185,140,455,125,453,130,185,145"/>
+<area shape="rect" id="Node000006" href="$namespaceFUCK.html#a1e440b3d309659493cef6199e8a4cbe0" title=" " alt="" coords="255,159,362,186"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="185,155,243,164,238,165,185,160"/>
+<area shape="rect" id="Node000007" href="$namespaceFUCK.html#a06aafadc7b34d7be7c3bf3702845abfa" title=" " alt="" coords="233,211,384,238"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="135,159,234,195,255,205,250,205,232,200,134,164"/>
+<area shape="rect" id="Node000008" href="$namespaceFUCK.html#ab9ae1980799a7b7a5476f0f690bb7df6" title="Scales by the Monitor Resolution." alt="" coords="258,263,358,290"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="113,159,165,202,234,248,249,257,243,256,231,252,162,206,111,164"/>
+<area shape="rect" id="Node000003" href="$namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="672,135,819,162"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="595,31,626,43,680,81,724,124,719,123,677,85,623,48,595,36"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="586,83,625,95,702,128,697,128,623,100,585,88"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="587,127,659,138,654,138,587,133"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="362,167,659,152,655,155,362,172"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="384,210,624,169,660,165,654,166,625,174,385,215"/>
+<area shape="rect" id="Node000009" href="$namespaceFUCK.html#a3310fb15e008cdfe514d00206011863c" title="Gets the physical screen resolution scale multiplier (Base 1080p)." alt="" coords="432,261,624,289"/>
+<area shape="poly" id="edge12_Node000008_Node000009" title=" " alt="" coords="359,274,419,276,414,276,359,279"/>
+<area shape="poly" id="edge13_Node000009_Node000003" title=" " alt="" coords="582,258,623,241,675,207,716,174,721,172,678,211,626,246,583,263"/>
+</map>

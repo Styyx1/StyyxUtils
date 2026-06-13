@@ -22,6 +22,7 @@ end
 
 if has_config("use-fuck") then
     add_requires("imgui")
+    add_requires("simpleini")
 end
 
 
@@ -36,4 +37,5 @@ target("styyx-util")
     end
     if has_config("use-fuck") then
         add_packages("imgui", {public = true})
+        add_packages("simpleini", {public = true})
     end

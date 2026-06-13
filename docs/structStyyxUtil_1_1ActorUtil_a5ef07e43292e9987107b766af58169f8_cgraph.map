@@ -1,0 +1,7 @@
+<map id="StyyxUtil::ActorUtil::IsInOpportunityState" name="StyyxUtil::ActorUtil::IsInOpportunityState">
+<area shape="rect" id="Node000001" title="Very specific function used to see if an Actor is in a state an attack of opportunity should be possi..." alt="" coords="5,40,169,85"/>
+<area shape="rect" id="Node000002" href="$structStyyxUtil_1_1ActorUtil.html#aceeefb586e8e188ac5c2b56c6eb09359" title="Check if actor has an effect of a specific type active." alt="" coords="217,5,429,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,48,203,45,198,46,170,53"/>
+<area shape="rect" id="Node000003" href="$structStyyxUtil_1_1ActorUtil.html#af665d068d31052c8f8e9de37e512b7d3" title="Check if an actor is power attacking." alt="" coords="250,75,396,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,72,237,84,232,85,169,77"/>
+</map>

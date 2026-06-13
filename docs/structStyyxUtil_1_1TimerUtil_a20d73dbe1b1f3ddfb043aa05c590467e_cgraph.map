@@ -1,0 +1,5 @@
+<map id="StyyxUtil::TimerUtil::RemainingSeconds" name="StyyxUtil::TimerUtil::RemainingSeconds">
+<area shape="rect" id="Node000001" title="Get the remaining seconds a limited timer runs for." alt="" coords="5,5,159,50"/>
+<area shape="rect" id="Node000002" href="$structStyyxUtil_1_1TimerUtil.html#a046151ed672756aa76b3a7640fd98775" title="Get the time the timer runs for." alt="" coords="207,5,356,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,25,194,27,189,28,159,30"/>
+</map>

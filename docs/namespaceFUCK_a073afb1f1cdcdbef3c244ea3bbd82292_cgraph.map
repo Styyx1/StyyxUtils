@@ -1,0 +1,24 @@
+<map id="FUCK::EndPanelFrame" name="FUCK::EndPanelFrame">
+<area shape="rect" id="Node000001" title="Closes the panel opened by BeginPanelFrame." alt="" coords="5,133,172,161"/>
+<area shape="rect" id="Node000002" href="$namespaceFUCK.html#a832253078cba50b6d4e96548d578af87" title=" " alt="" coords="450,5,567,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,131,162,107,219,83,331,51,437,30,432,33,332,56,221,88,165,111,118,135"/>
+<area shape="rect" id="Node000004" href="$namespaceFUCK.html#ade06bf8093bb65577e27f2bd2501f214" title=" " alt="" coords="447,57,569,85"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="145,130,219,114,433,79,430,83,220,119,148,135"/>
+<area shape="rect" id="Node000005" href="$namespaceFUCK.html#aba4d524a485dc72d778860bc90d12f31" title=" " alt="" coords="444,109,572,137"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="172,140,430,125,427,130,173,145"/>
+<area shape="rect" id="Node000006" href="$namespaceFUCK.html#ac94a0cda3b34099823f484261f21bd46" title=" " alt="" coords="220,159,364,186"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="172,155,207,161,202,162,173,160"/>
+<area shape="rect" id="Node000007" href="$namespaceFUCK.html#ab9ae1980799a7b7a5476f0f690bb7df6" title="Scales by the Monitor Resolution." alt="" coords="242,211,342,238"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="126,159,221,195,240,205,235,205,219,200,126,164"/>
+<area shape="rect" id="Node000009" href="$namespaceFUCK.html#a2384c59bbc41534fe0b36bbd1a3232a3" title=" " alt="" coords="230,263,354,290"/>
+<area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="105,159,155,202,221,248,235,256,229,256,218,252,152,206,104,164"/>
+<area shape="rect" id="Node000003" href="$namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="652,135,799,162"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="567,28,606,43,660,81,704,124,699,123,657,85,603,48,567,34"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="566,83,605,95,682,128,677,128,603,100,565,88"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="573,128,640,138,635,139,573,133"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="364,166,639,152,634,155,365,171"/>
+<area shape="rect" id="Node000008" href="$namespaceFUCK.html#a3310fb15e008cdfe514d00206011863c" title="Gets the physical screen resolution scale multiplier (Base 1080p)." alt="" coords="412,211,604,238"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="342,222,399,224,394,225,342,227"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="552,208,603,190,669,169,675,167,605,195,554,213"/>
+<area shape="poly" id="edge13_Node000009_Node000003" title=" " alt="" coords="354,279,409,280,473,277,539,267,603,247,632,232,658,213,700,175,705,173,662,217,635,237,605,252,541,272,473,283,409,286,354,285"/>
+</map>

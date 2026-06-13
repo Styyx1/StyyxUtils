@@ -1,0 +1,9 @@
+<map id="FUCK::GetGlobalScale" name="FUCK::GetGlobalScale">
+<area shape="rect" id="Node000001" title="Gets the overall screen resolution combined with the user&#39;s selected UI Size Slider multiplier." alt="" coords="168,57,333,85"/>
+<area shape="rect" id="Node000002" href="$namespaceFUCK.html#a44780e6594057dab067941a670ad8fc1" title=" " alt="" coords="5,5,120,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,54,115,36,115,31,185,51"/>
+<area shape="rect" id="Node000003" href="$namespaceFUCK.html#a8b09f01f4ead454ec951a31a3bee18ab" title="Scales by both Resolution and the User&#39;s UI Size slider." alt="" coords="5,57,120,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,72,121,74,120,69,154,70"/>
+<area shape="rect" id="Node000004" href="$namespaceFUCK.html#ac4e28e9df5ccbc72c38377033cc73826" title=" " alt="" coords="5,109,120,137"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="186,89,116,111,114,106,181,90"/>
+</map>

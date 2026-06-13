@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['timerutil_0',['TimerUtil',['../struct_styyx_util_1_1_timer_util.html',1,'StyyxUtil']]]
+  ['scopedsharedlock_0',['ScopedSharedLock',['../structStyyxUtil_1_1DBGUtil_1_1ScopedSharedLock.html',1,'StyyxUtil::DBGUtil']]],
+  ['scopeduniquelock_1',['ScopedUniqueLock',['../structStyyxUtil_1_1DBGUtil_1_1ScopedUniqueLock.html',1,'StyyxUtil::DBGUtil']]],
+  ['soundutil_2',['SoundUtil',['../structStyyxUtil_1_1SoundUtil.html',1,'StyyxUtil']]]
 ];

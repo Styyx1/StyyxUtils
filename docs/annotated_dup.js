@@ -1,23 +1,33 @@
 var annotated_dup =
 [
-    [ "StyyxUtil", "namespace_styyx_util.html", [
-      [ "DBGUtil", "namespace_styyx_util_1_1_d_b_g_util.html", [
-        [ "ScopedSharedLock", "struct_styyx_util_1_1_d_b_g_util_1_1_scoped_shared_lock.html", "struct_styyx_util_1_1_d_b_g_util_1_1_scoped_shared_lock" ],
-        [ "ScopedUniqueLock", "struct_styyx_util_1_1_d_b_g_util_1_1_scoped_unique_lock.html", "struct_styyx_util_1_1_d_b_g_util_1_1_scoped_unique_lock" ]
+    [ "FUCK", "namespaceFUCK.html", [
+      [ "ManagedHotkey", "structFUCK_1_1ManagedHotkey.html", "structFUCK_1_1ManagedHotkey" ],
+      [ "ITool", "classFUCK_1_1ITool.html", "classFUCK_1_1ITool" ],
+      [ "IWindow", "classFUCK_1_1IWindow.html", "classFUCK_1_1IWindow" ],
+      [ "Image", "classFUCK_1_1Image.html", "classFUCK_1_1Image" ],
+      [ "PluginSettings", "classFUCK_1_1PluginSettings.html", "classFUCK_1_1PluginSettings" ],
+      [ "MenuEventListener", "classFUCK_1_1MenuEventListener.html", "classFUCK_1_1MenuEventListener" ]
+    ] ],
+    [ "StyyxUtil", "namespaceStyyxUtil.html", [
+      [ "DBGUtil", "namespaceStyyxUtil_1_1DBGUtil.html", [
+        [ "ScopedSharedLock", "structStyyxUtil_1_1DBGUtil_1_1ScopedSharedLock.html", "structStyyxUtil_1_1DBGUtil_1_1ScopedSharedLock" ],
+        [ "ScopedUniqueLock", "structStyyxUtil_1_1DBGUtil_1_1ScopedUniqueLock.html", "structStyyxUtil_1_1DBGUtil_1_1ScopedUniqueLock" ]
       ] ],
-      [ "ActorUtil", "struct_styyx_util_1_1_actor_util.html", "struct_styyx_util_1_1_actor_util" ],
-      [ "CellUtil", "struct_styyx_util_1_1_cell_util.html", "struct_styyx_util_1_1_cell_util" ],
-      [ "CrimeUtil", "struct_styyx_util_1_1_crime_util.html", "struct_styyx_util_1_1_crime_util" ],
-      [ "FormUtil", "struct_styyx_util_1_1_form_util.html", "struct_styyx_util_1_1_form_util" ],
-      [ "MagicUtil", "struct_styyx_util_1_1_magic_util.html", "struct_styyx_util_1_1_magic_util" ],
-      [ "MathUtil", "struct_styyx_util_1_1_math_util.html", "struct_styyx_util_1_1_math_util" ],
-      [ "MenuUtil", "struct_styyx_util_1_1_menu_util.html", "struct_styyx_util_1_1_menu_util" ],
-      [ "MiscUtil", "struct_styyx_util_1_1_misc_util.html", "struct_styyx_util_1_1_misc_util" ],
-      [ "PerkUtil", "struct_styyx_util_1_1_perk_util.html", "struct_styyx_util_1_1_perk_util" ],
-      [ "RandomiserUtil", "struct_styyx_util_1_1_randomiser_util.html", "struct_styyx_util_1_1_randomiser_util" ],
-      [ "RefUtil", "struct_styyx_util_1_1_ref_util.html", "struct_styyx_util_1_1_ref_util" ],
-      [ "SoundUtil", "struct_styyx_util_1_1_sound_util.html", "struct_styyx_util_1_1_sound_util" ],
-      [ "TimerUtil", "struct_styyx_util_1_1_timer_util.html", "struct_styyx_util_1_1_timer_util" ],
-      [ "UIUtil", "struct_styyx_util_1_1_u_i_util.html", "struct_styyx_util_1_1_u_i_util" ]
-    ] ]
+      [ "ActorUtil", "structStyyxUtil_1_1ActorUtil.html", "structStyyxUtil_1_1ActorUtil" ],
+      [ "CellUtil", "structStyyxUtil_1_1CellUtil.html", "structStyyxUtil_1_1CellUtil" ],
+      [ "CrimeUtil", "structStyyxUtil_1_1CrimeUtil.html", "structStyyxUtil_1_1CrimeUtil" ],
+      [ "FormUtil", "structStyyxUtil_1_1FormUtil.html", "structStyyxUtil_1_1FormUtil" ],
+      [ "FUCKUtil", "structStyyxUtil_1_1FUCKUtil.html", "structStyyxUtil_1_1FUCKUtil" ],
+      [ "MagicUtil", "structStyyxUtil_1_1MagicUtil.html", "structStyyxUtil_1_1MagicUtil" ],
+      [ "MathUtil", "structStyyxUtil_1_1MathUtil.html", "structStyyxUtil_1_1MathUtil" ],
+      [ "MenuUtil", "structStyyxUtil_1_1MenuUtil.html", "structStyyxUtil_1_1MenuUtil" ],
+      [ "MiscUtil", "structStyyxUtil_1_1MiscUtil.html", "structStyyxUtil_1_1MiscUtil" ],
+      [ "PerkUtil", "structStyyxUtil_1_1PerkUtil.html", "structStyyxUtil_1_1PerkUtil" ],
+      [ "RandomiserUtil", "structStyyxUtil_1_1RandomiserUtil.html", "structStyyxUtil_1_1RandomiserUtil" ],
+      [ "RefUtil", "structStyyxUtil_1_1RefUtil.html", "structStyyxUtil_1_1RefUtil" ],
+      [ "SoundUtil", "structStyyxUtil_1_1SoundUtil.html", "structStyyxUtil_1_1SoundUtil" ],
+      [ "TimerUtil", "structStyyxUtil_1_1TimerUtil.html", "structStyyxUtil_1_1TimerUtil" ],
+      [ "UIUtil", "structStyyxUtil_1_1UIUtil.html", "structStyyxUtil_1_1UIUtil" ]
+    ] ],
+    [ "FUCK_Interface", "structFUCK__Interface.html", "structFUCK__Interface" ]
 ];

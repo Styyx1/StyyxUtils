@@ -1,0 +1,16 @@
+<map id="StyyxUtil::PerkUtil::TraversePerkNode" name="StyyxUtil::PerkUtil::TraversePerkNode">
+<area shape="rect" id="Node000001" title="recursively look through the perk tree nodes in an AVIF" alt="" coords="406,75,554,119"/>
+<area shape="poly" id="edge7_Node000001_Node000001" title=" " alt="" coords="510,59,499,56,480,53,462,55,451,60,447,66,448,75,443,73,442,65,448,56,461,50,480,48,501,50,515,59"/>
+<area shape="rect" id="Node000002" href="$structStyyxUtil_1_1PerkUtil.html#a157151b65b928d676f16e108fa2ecc2b" title="Gets an unordered_set of all the perks from a given skill &#160;&#160;early return if skill is not part of Styy..." alt="" coords="216,40,357,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="388,81,358,78,357,72,393,81"/>
+<area shape="rect" id="Node000003" href="$structStyyxUtil_1_1PerkUtil.html#a26d5f5b6b19d8fd50fbaadcb12720205" title=" " alt="" coords="215,109,358,154"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="388,114,359,121,358,116,393,112"/>
+<area shape="rect" id="Node000004" href="$structStyyxUtil_1_1PerkUtil.html#af0be69a708de31a53b5f872cc480bc3f" title="Gets all perks belonging to magic skills (Alteration, Conjuration, Destruction, Illusion,..." alt="" coords="14,5,158,50"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="220,102,213,99,189,82,165,65,144,53,144,48,168,60,192,77,216,95,225,102"/>
+<area shape="rect" id="Node000005" href="$structStyyxUtil_1_1PerkUtil.html#a65d065b54a5c37d7a8318b6ed7bade25" title=" " alt="" coords="5,75,167,119"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="197,118,168,114,167,108,202,116"/>
+<area shape="rect" id="Node000006" href="$structStyyxUtil_1_1PerkUtil.html#ad3fb781f5d1387143bb75be61db59b83" title="Gets all perks belonging to thief skills (Pickpocket, Lockpicking, Light Armor, Alchemy,..." alt="" coords="15,144,157,189"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="197,148,158,157,156,152,202,146"/>
+<area shape="rect" id="Node000007" href="$structStyyxUtil_1_1PerkUtil.html#a27fc2252a36310d8217445fe5df3abac" title="Gets all perks belonging to warrior skills (One&#45;Handed, Two&#45;Handed, Archery, Block,..." alt="" coords="9,213,163,258"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="239,161,168,203,143,215,141,210,165,199,234,163"/>
+</map>

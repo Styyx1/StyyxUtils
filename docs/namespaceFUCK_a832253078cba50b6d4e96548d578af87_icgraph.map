@@ -1,0 +1,7 @@
+<map id="FUCK::Dummy" name="FUCK::Dummy">
+<area shape="rect" id="Node000001" title=" " alt="" coords="233,32,350,60"/>
+<area shape="rect" id="Node000002" href="$namespaceFUCK.html#af307af39c3cff5636384ee3a167922a1" title="Begins an inset child panel using an inside&#45;out group margin. This prevents native ImGui window paddi..." alt="" coords="5,5,185,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,36,185,34,185,29,220,36"/>
+<area shape="rect" id="Node000003" href="$namespaceFUCK.html#a073afb1f1cdcdbef3c244ea3bbd82292" title="Closes the panel opened by BeginPanelFrame." alt="" coords="12,57,178,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,56,179,63,178,58,220,55"/>
+</map>

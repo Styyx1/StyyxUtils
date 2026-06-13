@@ -1,4 +1,5 @@
 var namespaces_dup =
 [
-    [ "StyyxUtil", "namespace_styyx_util.html", "namespace_styyx_util" ]
+    [ "FUCK", "namespaceFUCK.html", "namespaceFUCK" ],
+    [ "StyyxUtil", "namespaceStyyxUtil.html", "namespaceStyyxUtil" ]
 ];
