@@ -1,5 +1,4 @@
 #pragma once
-#include <SimpleIni.h>
 #include <imgui.h>
 
 #define FUCK_API_VERSION 1
@@ -68,21 +67,21 @@ enum class TableBgTarget
 enum class WindowFlags
 {
     kNone            = 0,
-    kBlurBackground  = 1 << 0,
-    kHideHUD         = 1 << 1,
-    kPauseHard       = 1 << 2,
-    kCloseOnEsc      = 1 << 3,
-    kCloseOnGameMenu = 1 << 4,
-    kPassInputToGame = 1 << 5,
-    kPauseSoft       = 1 << 6,
-    kBlockVanity     = 1 << 7,
-    kNoBackground    = 1 << 8,
-    kNoDecoration    = 1 << 9,
-    kCustomRender    = 1 << 10,
-    kExtendBorder    = 1 << 11,
-    kIgnoreUserScale = 1 << 12,
-    kNoResize        = 1 << 13,
-    kAutoResize      = 1 << 14
+    kPauseHard       = 1 << 0,  // Fully suspends the game engine
+    kPauseSoft       = 1 << 1,  // Freezes game time
+    kBlockVanity     = 1 << 2,  // Prevents idle vanity camera
+    kHideHUD         = 1 << 3,  // Hides the in-game HUD
+    kBlurBackground  = 1 << 4,  // Blurs the game world
+    kPassInputToGame = 1 << 5,  // Allows player control while open
+    kCloseOnEsc      = 1 << 6,  // Closes when Escape is pressed
+    kCloseOnGameMenu = 1 << 7,  // Hides when native game menus open
+    kNoDecoration    = 1 << 8,  // Removes title bar and controls
+    kNoBackground    = 1 << 9,  // Makes window background transparent
+    kExtendBorder    = 1 << 10, // Draws border outside window bounds
+    kNoResize        = 1 << 11, // Prevents manual resizing by the user
+    kNoMove          = 1 << 12, // Prevents manual dragging by the user
+    kAutoResize      = 1 << 13, // Sizes automatically to contents
+    kIgnoreUserScale = 1 << 14  // Ignores global UI scaling slider
 };
 
 enum class TableFlags
@@ -153,6 +152,14 @@ enum class ItemFlags
     kButtonRepeat = 1 << 1,
     kDisabled     = 1 << 2,
     kNoNav        = 1 << 3
+};
+
+enum class PopupFlags
+{
+    kNone          = 0,
+    kAnyPopupId    = 1 << 10,
+    kAnyPopupLevel = 1 << 11,
+    kAnyPopup      = kAnyPopupId | kAnyPopupLevel
 };
 
 inline WindowFlags operator|(WindowFlags a, WindowFlags b)
@@ -415,6 +422,7 @@ struct FUCK_Interface
     bool (*IsManagedHotkeyDown)(FUCK::ManagedHotkey*);
 
     // Interaction
+    bool (*IsPopupOpen)(const char*, int);
     bool (*IsItemHovered)(int);
     bool (*IsItemClicked)(int);
     bool (*IsItemActive)();
@@ -493,6 +501,7 @@ struct FUCK_Interface
     bool (*Combo)(const char*, int*, const char* const*, int);
     bool (*ComboWithFilter)(const char*, int*, const char* const*, int, int);
     bool (*ComboForm)(const char*, std::uint32_t*, std::uint8_t);
+    bool (*ComboFormStr)(const char*, char*, size_t, std::uint8_t);
     bool (*Selectable)(const char*, bool, int, const ImVec2&);
     ImGuiTableSortSpecs* (*GetTableSortSpecs)();
     void (*Header)(const char*);
@@ -1086,6 +1095,10 @@ inline BindResult GetInputBind(const void* inputEvent, std::uint32_t* outKey, st
 // Widgets & Interaction
 // --------------------------------------------------
 
+inline bool IsPopupOpen(const char* str_id = nullptr, PopupFlags flags = PopupFlags::kNone)
+{
+    return GetInterface() ? GetInterface()->IsPopupOpen(str_id, static_cast<int>(flags)) : false;
+}
 inline bool IsItemHovered(int flags = 0)
 {
     return GetInterface() ? GetInterface()->IsItemHovered(flags) : false;
@@ -1270,6 +1283,20 @@ inline bool ComboForm(const char* label, std::uint32_t* currentFormID, std::uint
 {
     return GetInterface() ? GetInterface()->ComboForm(label, currentFormID, formType) : false;
 }
+inline bool ComboForm(const char* label, std::string* currentEdid, std::uint8_t formType)
+{
+    if (!currentEdid || !GetInterface())
+        return false;
+    char buf[256];
+    strncpy_s(buf, sizeof(buf), currentEdid->c_str(), _TRUNCATE);
+    if (GetInterface()->ComboFormStr(label, buf, sizeof(buf), formType))
+    {
+        *currentEdid = buf;
+        return true;
+    }
+    return false;
+}
+
 inline bool Selectable(const char* label, bool selected = false, int flags = 0, const ImVec2& size = ImVec2(0, 0))
 {
     return GetInterface() ? GetInterface()->Selectable(label, selected, flags, size) : false;
@@ -1754,7 +1781,7 @@ inline void RemoveMenuListener(void* userdata)
 // [ SECTION 4 ] SMART WRAPPERS & UTILITIES
 // ==================================================
 
-/// @brief Safe Resource-Acquisition-Is-Initialization wrapper for custom Images.
+/// @brief RAII wrapper for custom images.
 class Image
 {
   public:
@@ -1902,7 +1929,7 @@ class PluginSettings
     const char* _pluginName;
 };
 
-/// @brief Safe string copy utility preventing buffer overruns.
+/// @brief String copy utility.
 template <size_t N>
 inline void StringCopy(char (&dest)[N], const char* source)
 {
@@ -1920,7 +1947,7 @@ inline void StringCopy(char (&dest)[N], const std::string& source)
     strncpy_s(dest, N, source.c_str(), _TRUNCATE);
 }
 
-/// @brief Helper functions for delta saving/loading INI values with automatic default value handling.
+/// @brief Delta save/load INI values.
 namespace INI
 {
 inline bool LoadBool(const CSimpleIniA& ini, const char* sec, const char* key, bool defVal)
@@ -1933,7 +1960,7 @@ inline float LoadFloat(const CSimpleIniA& ini, const char* sec, const char* key,
     return static_cast<float>(ini.GetDoubleValue(sec, key, static_cast<double>(defVal)));
 }
 
-/// Automatically handles mixed ints
+// Handles mixed ints
 template <typename T>
 inline T LoadInt(const CSimpleIniA& ini, const char* sec, const char* key, T defVal)
 {
@@ -1949,7 +1976,7 @@ inline void SaveBool(CSimpleIniA& ini, const char* sec, const char* key, bool va
         ini.SetBoolValue(sec, key, val);
 }
 
-/// Automatically handles mixed ints
+// Handles mixed ints
 template <typename T, typename U>
 inline void SaveInt(CSimpleIniA& ini, const char* sec, const char* key, T val, U defVal)
 {
@@ -2077,7 +2104,7 @@ inline void AbortManagedHotkey(ManagedHotkey& h)
 // Overloads & Templates
 // --------------------------------------------------
 
-/// @brief Standardized visual for UI widget editing. Handles both Screen-Space and Window-Space rendering.
+/// @brief Visual for UI widget editing. Handles Screen-Space and Window-Space.
 inline void DrawEditorBounds(const ImVec2& min, const ImVec2& max, EditorBoundsState state = EditorBoundsState::kNormal,
                              float thickness = 2.0f, bool screenSpace = false, const ImVec2* customAnchor = nullptr)
 {
@@ -2127,7 +2154,7 @@ inline void DrawEditorBounds(const ImVec2& min, const ImVec2& max, EditorBoundsS
     }
 }
 
-/// @brief Helper for handling WASD Key widget nudging. Returns true if movement occurred, outputting the delta.
+/// @brief WASD key widget nudging.
 inline bool WASDNudge(float& outDeltaX, float& outDeltaY, bool isActiveOrHovered, float step = 1.0f,
                       float sprintMult = 10.0f)
 {
@@ -2160,13 +2187,15 @@ inline bool Combo(const char* label, int* current_item, const std::vector<std::s
     return Combo(label, current_item, ptrs.data(), static_cast<int>(ptrs.size()));
 }
 
-inline bool ComboWithFilter(const char* label, int* current_item, const std::vector<std::string>& items,
+inline bool ComboWithFilter(const char* label, int* current_item, std::span<const std::string> items,
                             int popup_max_height_in_items = -1)
 {
     std::vector<const char*> ptrs(items.size());
     for (size_t i = 0; i < items.size(); ++i)
         ptrs[i] = items[i].c_str();
-    return ComboWithFilter(label, current_item, ptrs.data(), static_cast<int>(ptrs.size()), popup_max_height_in_items);
+    return GetInterface() ? GetInterface()->ComboWithFilter(label, current_item, ptrs.data(),
+                                                            static_cast<int>(ptrs.size()), popup_max_height_in_items)
+                          : false;
 }
 
 inline bool InputText(const char* label, std::string* str, int flags = 0)
@@ -2216,7 +2245,6 @@ bool EnumStepper(const char* label, T* current_val, const std::vector<std::strin
 // ==================================================
 // [ SECTION 5 ] GLOBAL LITERALS
 // ==================================================
-
 
 /// @brief String literal to automatically run FUCK::Translate
 inline const char* operator""_T(const char* str, std::size_t)
