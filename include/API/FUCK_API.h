@@ -1,7 +1,7 @@
 #pragma once
 #include <imgui.h>
 
-#define FUCK_API_VERSION 1
+#define FUCK_API_VERSION 2
 
 // ==================================================
 // [ SECTION 1 ] TYPES & INTERFACES
@@ -81,7 +81,8 @@ enum class WindowFlags
     kNoResize        = 1 << 11, // Prevents manual resizing by the user
     kNoMove          = 1 << 12, // Prevents manual dragging by the user
     kAutoResize      = 1 << 13, // Sizes automatically to contents
-    kIgnoreUserScale = 1 << 14  // Ignores global UI scaling slider
+    kIgnoreUserScale = 1 << 14, // Ignores global UI scaling slider
+    kCustomPosition  = 1 << 15  // Opts out of Host-managed pos saving/loading
 };
 
 enum class TableFlags
@@ -279,11 +280,6 @@ class IWindow
     virtual WindowFlags GetFlags() const { return WindowFlags::kNone; }
     virtual ImVec2 GetDefaultSize() const { return ImVec2(400.0f, 300.0f); }
     virtual ImVec2 GetDefaultPos() const { return ImVec2(0.0f, 0.0f); }
-
-    /// @brief Intercept the position resolution to enforce a strictly calculated anchor position.
-    /// @note Only implement this if you are actively overriding standard screen dragging (e.g. anchoring to a HUD
-    /// element).
-    virtual bool GetRequestedPos(ImVec2& /*outPos*/) { return false; }
 
     virtual bool OnAsyncInput(const void*) { return false; }
 };
@@ -547,6 +543,15 @@ struct FUCK_Interface
     void (*Text)(const char*);
     void (*TextWrapped)(const char*);
     void (*TextUnformatted)(const char*, const char*);
+
+    // Version 2
+    void (*SeparatorVertical)();
+    void (*PushItemWidth)(float);
+    void (*PopItemWidth)();
+    bool (*BeginTooltip)();
+    void (*EndTooltip)();
+    void (*SetScrollHereY)(float);
+    bool (*InputTextMultiline)(const char*, char*, size_t, const ImVec2&, int);
 };
 #pragma pack(pop)
 
@@ -2154,6 +2159,81 @@ inline void DrawEditorBounds(const ImVec2& min, const ImVec2& max, EditorBoundsS
     }
 }
 
+/// @brief Clamps a window or widget position to the screen bounds if it strays too far off-screen.
+inline bool ClampPosToScreen(ImVec2& pos, float outOfBoundsTolerance = 50.0f)
+{
+    ImVec2 displaySize = GetDisplaySize();
+    if (displaySize.x <= 0.0f || displaySize.y <= 0.0f)
+    {
+        return false;
+    }
+
+    bool changed    = false;
+    float tolerance = Scale(outOfBoundsTolerance);
+
+    // X Axis
+    if (pos.x > displaySize.x - tolerance)
+    {
+        pos.x   = std::max(0.0f, displaySize.x - tolerance);
+        changed = true;
+    }
+    else if (pos.x < 0.0f)
+    {
+        pos.x   = 0.0f;
+        changed = true;
+    }
+
+    // Y Axis
+    if (pos.y > displaySize.y - tolerance)
+    {
+        pos.y   = std::max(0.0f, displaySize.y - tolerance);
+        changed = true;
+    }
+    else if (pos.y < 0.0f)
+    {
+        pos.y   = 0.0f;
+        changed = true;
+    }
+
+    return changed;
+}
+
+enum class PosInitResult
+{
+    kNotReady,
+    kUnchanged,
+    kChanged
+};
+
+/// @brief Handles first-frame initialization, default loading, and screen clamping for custom-positioned windows.
+inline PosInitResult InitializeCustomPosition(ImVec2& pos, const ImVec2& defaultPos, bool& outHasClamped,
+                                              float tolerance = 50.0f)
+{
+    ImVec2 displaySize = GetDisplaySize();
+    if (displaySize.x <= 100.0f || displaySize.y <= 100.0f)
+    {
+        return PosInitResult::kNotReady;
+    }
+
+    bool changed = false;
+
+    if (pos.x < 0.0f || pos.y < 0.0f)
+    {
+        pos     = defaultPos;
+        changed = true;
+    }
+    else if (!outHasClamped)
+    {
+        if (ClampPosToScreen(pos, tolerance))
+        {
+            changed = true;
+        }
+        outHasClamped = true;
+    }
+
+    return changed ? PosInitResult::kChanged : PosInitResult::kUnchanged;
+}
+
 /// @brief WASD key widget nudging.
 inline bool WASDNudge(float& outDeltaX, float& outDeltaY, bool isActiveOrHovered, float step = 1.0f,
                       float sprintMult = 10.0f)
@@ -2240,6 +2320,69 @@ bool EnumStepper(const char* label, T* current_val, const std::vector<std::strin
     }
     return false;
 }
+
+// --------------------------------------------------
+// Version 2
+// --------------------------------------------------
+
+inline void SeparatorVertical()
+{
+    if (auto i = GetInterface(); i && i->version >= 2 && i->SeparatorVertical)
+        i->SeparatorVertical();
+}
+
+inline void PushItemWidth(float item_width)
+{
+    if (auto i = GetInterface(); i && i->version >= 2 && i->PushItemWidth)
+        i->PushItemWidth(item_width);
+}
+
+inline void PopItemWidth()
+{
+    if (auto i = GetInterface(); i && i->version >= 2 && i->PopItemWidth)
+        i->PopItemWidth();
+}
+
+inline bool BeginTooltip()
+{
+    if (auto i = GetInterface(); i && i->version >= 2 && i->BeginTooltip)
+        return i->BeginTooltip();
+    return false;
+}
+
+inline void EndTooltip()
+{
+    if (auto i = GetInterface(); i && i->version >= 2 && i->EndTooltip)
+        i->EndTooltip();
+}
+
+inline void SetScrollHereY(float center_y_ratio = 0.5f)
+{
+    if (auto i = GetInterface(); i && i->version >= 2 && i->SetScrollHereY)
+        i->SetScrollHereY(center_y_ratio);
+}
+
+inline bool InputTextMultiline(const char* label, char* buf, size_t buf_size, const ImVec2& size = ImVec2(0, 0),
+                               int flags = 0)
+{
+    if (auto i = GetInterface(); i && i->version >= 2 && i->InputTextMultiline)
+        return i->InputTextMultiline(label, buf, buf_size, size, flags);
+    return false;
+}
+
+inline bool InputTextMultiline(const char* label, std::string* str, const ImVec2& size = ImVec2(0, 0), int flags = 0)
+{
+    if (!str || !GetInterface() || GetInterface()->version < 2)
+        return false;
+
+    char buf[4096];
+    strncpy_s(buf, sizeof(buf), str->c_str(), _TRUNCATE);
+    const bool changed = InputTextMultiline(label, buf, sizeof(buf), size, flags);
+    if (changed)
+        *str = buf;
+    return changed;
+}
+
 } // namespace FUCK
 
 // ==================================================

@@ -14,20 +14,23 @@ struct FUCKUtil
 
     static void IndentTextColored(const ImVec4& color, const std::string& text, float indent = 120.f)
     {
-        FUCK::SetCursorPosX(FUCK::GetCursorPos().x + indent);
+        FUCK::Indent(indent);
         FUCK::TextColored(color, text.c_str());
+        FUCK::Unindent();
     }
 
     static void GreenTitleText(const std::string& text, float indent = 75.f)
     {
-        FUCK::SetCursorPosX(FUCK::GetCursorPos().x + indent);
+        FUCK::Indent(indent);
         FUCK::TextColored(GREEN, text.c_str());
+        FUCK::Unindent();
     }
 
     static void RedTitleText(const std::string& text, float indent = 75.f)
     {
-        FUCK::SetCursorPosX(FUCK::GetCursorPos().x + indent);
+        FUCK::Indent(indent);
         FUCK::TextColored(RED, text.c_str());
+        FUCK::Unindent();
     }
 
 
@@ -47,7 +50,7 @@ struct FUCKUtil
     }
 
     template <class T>
-    static bool SetSliderInt(const char* label, T& value, auto& configEntry, T min, T max, const char* help = nullptr)
+    static bool SliderInt(const char* label, T& value, auto& configEntry, T min, T max, const char* help = nullptr)
     {
         if (FUCK::SliderInt(label, reinterpret_cast<int*>(&value), min, max))
         {
@@ -63,31 +66,11 @@ struct FUCKUtil
     }
 
     template <class T>
-    static bool SetSliderFloat(const char* label, T& value, auto& configEntry, float min, float max,
-                               const char* help = nullptr, const char* a_fmt = "%.2f")
+    static bool SliderFloat(const char* label, T& value, auto& configEntry, float min, float max,
+                            const char* help = nullptr)
     {
-        if (FUCK::SliderFloat(label, &value, min, max, a_fmt))
+        if (FUCK::SliderFloat(label, reinterpret_cast<float*>(&value), min, max))
         {
-            configEntry.SetValue(value);
-            return true;
-        }
-        if (help)
-        {
-            FUCK::SetTooltip(help);
-        }
-        return false;
-    }
-
-    template <class T>
-    static bool SetSliderDouble(const char* label, T& value, auto& configEntry, double min, double max,
-                                const char* help = nullptr, const char* a_fmt = "%.2f")
-    {
-
-        float temp = static_cast<float>(value);
-
-        if (FUCK::SliderFloat(label, &temp, static_cast<float>(min), static_cast<float>(max), a_fmt))
-        {
-            value = static_cast<double>(temp);
             configEntry.SetValue(value);
             return true;
         }
