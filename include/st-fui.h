@@ -1,12 +1,9 @@
-//
-// Created by styyx on 24/03/2026.
-//
-
 #pragma once
 
 #include <functional>
 
 #include "API/FUCK_API.h"
+
 
 namespace StyyxUtil
 {

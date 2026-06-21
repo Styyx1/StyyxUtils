@@ -1,0 +1,17 @@
+<map id="StyyxUtil::RandomiserUtil::GetRNG" name="StyyxUtil::RandomiserUtil::GetRNG">
+<area shape="rect" id="Node000001" title=" " alt="" coords="495,144,685,189"/>
+<area shape="rect" id="Node000002" href="$structStyyxUtil_1_1RandomiserUtil.html#aec4f389e6ce89cbe2531f067ea71f568" title="Get random bool." alt="" coords="253,5,444,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="548,134,501,99,446,65,421,53,421,48,448,60,504,95,554,134"/>
+<area shape="rect" id="Node000003" href="$structStyyxUtil_1_1RandomiserUtil.html#a4b1df3000125872ebdd3a23c66bbced3" title="Get random double between 2 values." alt="" coords="253,75,444,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="493,140,429,123,429,117,498,139"/>
+<area shape="rect" id="Node000004" href="$structStyyxUtil_1_1RandomiserUtil.html#ac39fb41068a85cb96d3d7ad46210185a" title="Get random float between 2 values." alt="" coords="253,144,444,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="477,167,445,169,444,164,482,166"/>
+<area shape="rect" id="Node000007" href="$structStyyxUtil_1_1RandomiserUtil.html#a1a62939214133ae7eb33d6b15cc54273" title="Get random integer between 2 values." alt="" coords="253,213,444,258"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="498,193,430,215,428,210,493,194"/>
+<area shape="rect" id="Node000008" href="$structStyyxUtil_1_1RandomiserUtil.html#a50c92bf691684a60dc0a73e8be6a20ee" title="Get weighted random bool." alt="" coords="250,283,447,327"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="553,198,504,238,448,273,422,285,421,280,446,268,501,233,548,200"/>
+<area shape="rect" id="Node000005" href="$structStyyxUtil_1_1RandomiserUtil.html#ab1c8ba0055565d25d70e697d16720c9f" title="Get random float rounded to a set amount of decimals." alt="" coords="5,109,202,154"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="235,152,203,148,202,143,240,150"/>
+<area shape="rect" id="Node000006" href="$structStyyxUtil_1_1RandomiserUtil.html#a8df13d1c563754bc5009ffcf4307844b" title="Rolls a random chance check against a given percentage." alt="" coords="6,179,201,223"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="235,183,202,190,200,185,240,181"/>
+</map>

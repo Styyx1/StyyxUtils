@@ -1,0 +1,8 @@
+<map id="StyyxUtil::PerkUtil::GetAllWarriorPerks" name="StyyxUtil::PerkUtil::GetAllWarriorPerks">
+<area shape="rect" id="Node000001" title="Gets all perks belonging to warrior skills (One&#45;Handed, Two&#45;Handed, Archery, Block,..." alt="" coords="5,29,159,74"/>
+<area shape="rect" id="Node000002" href="$structStyyxUtil_1_1PerkUtil.html#a26d5f5b6b19d8fd50fbaadcb12720205" title=" " alt="" coords="207,29,350,74"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,49,194,51,188,52,159,54"/>
+<area shape="rect" id="Node000003" href="$structStyyxUtil_1_1PerkUtil.html#aba198456ab1dfb49b55d2d8409049ca3" title="recursively look through the perk tree nodes in an AVIF" alt="" coords="398,29,546,74"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,49,385,52,380,52,350,54"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="435,27,434,19,440,10,453,5,472,3,493,5,507,14,502,13,491,10,472,8,454,10,443,15,439,21,439,30"/>
+</map>

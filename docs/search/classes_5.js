@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['randomiserutil_0',['RandomiserUtil',['../struct_styyx_util_1_1_randomiser_util.html',1,'StyyxUtil']]],
-  ['refutil_1',['RefUtil',['../struct_styyx_util_1_1_ref_util.html',1,'StyyxUtil']]]
+  ['perkutil_0',['PerkUtil',['../structStyyxUtil_1_1PerkUtil.html',1,'StyyxUtil']]],
+  ['pluginsettings_1',['PluginSettings',['../classFUCK_1_1PluginSettings.html',1,'FUCK']]]
 ];
