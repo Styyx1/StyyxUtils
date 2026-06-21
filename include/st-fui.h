@@ -17,20 +17,23 @@ struct FUCKUtil
 
     static void IndentTextColored(const ImVec4& color, const std::string& text, float indent = 120.f)
     {
-        FUCK::SetCursorPosX(FUCK::GetCursorPos().x + indent);
+        FUCK::Indent(indent);
         FUCK::TextColored(color, text.c_str());
+        FUCK::Unindent();
     }
 
     static void GreenTitleText(const std::string& text, float indent = 75.f)
     {
-        FUCK::SetCursorPosX(FUCK::GetCursorPos().x + indent);
+        FUCK::Indent(indent);
         FUCK::TextColored(GREEN, text.c_str());
+        FUCK::Unindent();
     }
 
     static void RedTitleText(const std::string& text, float indent = 75.f)
     {
-        FUCK::SetCursorPosX(FUCK::GetCursorPos().x + indent);
+        FUCK::Indent(indent);
         FUCK::TextColored(RED, text.c_str());
+        FUCK::Unindent();
     }
 
 
@@ -44,8 +47,7 @@ struct FUCKUtil
         }
         if (help)
         {
-            FUCK::SameLine();
-            FUCK::HelpMarker(help);
+            FUCK::SetTooltip(help);
         }
         return false;
     }
@@ -60,8 +62,7 @@ struct FUCKUtil
         }
         if (help)
         {
-            FUCK::SameLine();
-            FUCK::HelpMarker(help);
+            FUCK::SetTooltip(help);
         }
 
         return false;
@@ -94,8 +95,7 @@ struct FUCKUtil
         }
         if (help)
         {
-            FUCK::SameLine();
-            FUCK::HelpMarker(help);
+            FUCK::SetTooltip(help);
         }
         return false;
     }
