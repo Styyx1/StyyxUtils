@@ -55,7 +55,8 @@ struct MagicUtil
     /// @brief Check if a magic item is permanent
     /// @param item The magic item. Also accepts SpellItem
     /// @return True if spell is Disease, Ability or Addiction
-    /// @note Credits: KernalsEgg for ApplySpell and IsPermanent \n [Blade and Blunt by
+    /// @note Credits: KernalsEgg for ApplySpell and IsPermanent \n [Blade and
+    /// Blunt by
     /// colinswrath](https://github.com/colinswrath/BladeAndBlunt/blob/2dac82ffa6cd310adc456419930dc3dfb2a372bd/include/Conditions.h#L102)
     static bool IsPermanent(RE::MagicItem* item)
     {
@@ -70,8 +71,8 @@ struct MagicUtil
         }
     }
 
-    /// @brief Casts Spell from caster to actor. If the spell is permanent (@ref MagicUtil::IsPermanent) it adds the
-    /// spell
+    /// @brief Casts Spell from caster to actor. If the spell is permanent (@ref
+    /// MagicUtil::IsPermanent) it adds the spell
     /// @param caster The Actor casting the spell
     /// @param target The Target for the spell
     /// @param spell The spell being cast

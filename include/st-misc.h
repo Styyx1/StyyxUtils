@@ -86,8 +86,8 @@ struct MiscUtil
     /// @brief Check if a mod is loaded by its full file name
     /// @param mod_name The full name of the mod including extension
     /// @return true if the mod is loaded
-    /// @note Pass the full filename including extension, e.g. "Skyrim.esm" not "Skyrim".\n Works with .esl, .esp and
-    /// .esm
+    /// @note Pass the full filename including extension, e.g. "Skyrim.esm" not
+    /// "Skyrim".\n Works with .esl, .esp and .esm
     /// @par Example
     /// @code
     /// if (MiscUtil::IsModLoaded("Skyrim.esm")) { ... }
@@ -103,6 +103,7 @@ struct MiscUtil
     }
 
     /// @brief Get the unarmed weapon pointer
+    /// @note only for the 1.6 version of the game
     /// @return The unarmed weapon the game uses
     static RE::TESObjectWEAP* GetUnarmedWeapon()
     {

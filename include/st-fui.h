@@ -4,7 +4,6 @@
 
 #include "API/FUCK_API.h"
 
-
 namespace StyyxUtil
 {
 struct FUCKUtil
@@ -32,7 +31,6 @@ struct FUCKUtil
         FUCK::TextColored(RED, text.c_str());
         FUCK::Unindent();
     }
-
 
     template <class T>
     static bool Checkbox(const char* label, T& value, auto& configEntry, const char* help = nullptr)

@@ -56,7 +56,8 @@ struct RandomiserUtil
     }
 
     ///@brief Get weighted random bool
-    ///@note p = value between 0 and 1 and the higher the value, the higher the chance for true
+    ///@note p = value between 0 and 1 and the higher the value, the higher the
+    /// chance for true
     ///@return the somewhat random bool
     static bool GetWeightedRandomBool(const float p = 0.5)
     {
@@ -64,9 +65,9 @@ struct RandomiserUtil
         return distrib(GetRNG());
     }
 
-
     /// @brief Rolls a random chance check against a given percentage
-    /// @param a_chancePercent The success threshold (0-100). A value of 30.0 means a 30% chance of returning true
+    /// @param a_chancePercent The success threshold (0-100). A value of 30.0
+    /// means a 30% chance of returning true
     /// @return true if the random roll succeeds, false otherwise
     static bool IsPercentageChanceFloat(const float a_chancePercent)
     {

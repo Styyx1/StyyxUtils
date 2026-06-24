@@ -1,0 +1,66 @@
+---
+BasedOnStyle: Microsoft
+ColumnLimit: 120
+
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+NamespaceIndentation: None
+IndentCaseLabels: true
+
+BreakBeforeBraces: Allman
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: Always
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: false
+  AfterStruct: true
+  BeforeElse: true
+  BeforeCatch: true
+
+PointerAlignment: Left
+ReferenceAlignment: Left
+
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpaceAfterCStyleCast: false
+SpacesInAngles: Never
+
+AlignConsecutiveAssignments:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: false
+AlignConsecutiveDeclarations:
+  Enabled: false
+AlignTrailingComments:
+  Kind: Always
+  OverEmptyLines: 1
+
+SortIncludes: CaseSensitive
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^"pch\.h"'
+    Priority: 1
+  - Regex: '^<RE/'
+    Priority: 2
+  - Regex: '^<SKSE/'
+    Priority: 3
+  - Regex: '^<'
+    Priority: 4
+  - Regex: '^"'
+    Priority: 5
+
+AlwaysBreakTemplateDeclarations: Yes
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: BeforeColon
+PackConstructorInitializers: Never
+
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: Inline
+AllowShortLoopsOnASingleLine: false
+
+Cpp11BracedListStyle: true
+FixNamespaceComments: true
+MaxEmptyLinesToKeep: 2

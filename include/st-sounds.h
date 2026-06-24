@@ -10,6 +10,11 @@ struct SoundUtil
     /// @param a_volume The volume to play the sound with
     static void PlayGameSound(const RE::Actor* a_actor, const RE::BGSSoundDescriptorForm* a_sound, const float a_volume)
     {
+        if (!a_actor || !a_sound)
+        {
+            return;
+        }
+
         RE::BSSoundHandle handle;
         const auto am = RE::BSAudioManager::GetSingleton();
         am->GetSoundHandle(handle, a_sound->soundDescriptor);

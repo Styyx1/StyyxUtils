@@ -9,8 +9,8 @@ namespace StyyxUtil
 struct MathUtil
 {
 
-    /// @brief Template function to add to a value without ever risking overflowing the maximum value that type can
-    /// have.
+    /// @brief Template function to add to a value without ever risking
+    /// overflowing the maximum value that type can have.
     /// @tparam T Has to be a number
     /// @param base The value to add to
     /// @param increment The value added to base
@@ -20,8 +20,8 @@ struct MathUtil
     /// const uint8_t result = MathUtil::SafelyAdd<uint8_t>(200, 100);
     /// // result will be 255 instead of overflowing
     /// @endcode
-    /// @deprecated Use MathUtil::SafelyAddWithCap instead. You can use it without passing a cap to cap it to numeric
-    /// limits
+    /// @deprecated Use MathUtil::SafelyAddWithCap instead. You can use it without
+    /// passing a cap to cap it to numeric limits
     template <typename T>
         requires std::is_arithmetic_v<T>
     [[deprecated("Use MathUtil::SafelyAddWithCap instead")]]
@@ -40,9 +40,11 @@ struct MathUtil
     /// @tparam T Has to be a number
     /// @param base The value to add to
     /// @param increment The value added to base
-    /// @param cap A cap for the result. If nothing is passed, the cap will be the numeric limit
+    /// @param cap A cap for the result. If nothing is passed, the cap will be the
+    /// numeric limit
     /// @return the result of the addition
-    /// @note If cap is less than base, the result will be capped to cap regardless of increment
+    /// @note If cap is less than base, the result will be capped to cap
+    /// regardless of increment
     template <typename T>
         requires std::is_arithmetic_v<T>
     static T SafelyAddWithCap(T base, T increment, T cap = std::numeric_limits<T>::max())

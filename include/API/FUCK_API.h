@@ -256,21 +256,24 @@ class ITool
     virtual bool ShowInSidebar() const { return true; }
 };
 
-/// @brief Implement this to add a floating, independent Window to the FUCK framework.
+/// @brief Implement this to add a floating, independent Window to the FUCK
+/// framework.
 class IWindow
 {
   public:
     virtual ~IWindow() = default;
 
     /// @brief Unique identifier for this specific window within your plugin.
-    /// @note Used implicitly by the Host to track and save screen coordinates. (e.g. "MainOverlay")
+    /// @note Used implicitly by the Host to track and save screen coordinates.
+    /// (e.g. "MainOverlay")
     virtual const char* Id() const = 0;
 
     /// @brief The exact name of your SKSE plugin.
     /// @note Defaults to the name passed into FUCK::Connect().
     virtual const char* PluginName() const { return FUCK::g_pluginName; }
 
-    /// @brief Display title shown on the Window chrome. Translates natively if a localized string key is passed.
+    /// @brief Display title shown on the Window chrome. Translates natively if a
+    /// localized string key is passed.
     virtual const char* Title() const = 0;
 
     virtual void Draw() = 0;
@@ -572,7 +575,8 @@ inline FUCK_Interface*& GetInterface()
 }
 
 /// @brief Connects to the FUCK Host Framework.
-/// @param pluginName The exact name of your SKSE plugin. Used automatically for translations and settings directories.
+/// @param pluginName The exact name of your SKSE plugin. Used automatically for
+/// translations and settings directories.
 inline bool Connect(const char* pluginName, unsigned int a_minVersion = FUCK_API_VERSION)
 {
     if (!pluginName || pluginName[0] == '\0')
@@ -630,7 +634,8 @@ inline float GetResolutionScale()
     return GetInterface() ? GetInterface()->GetResolutionScale() : 1.0f;
 }
 
-/// @brief Gets the overall screen resolution combined with the user's selected UI Size Slider multiplier.
+/// @brief Gets the overall screen resolution combined with the user's selected
+/// UI Size Slider multiplier.
 inline float GetGlobalScale()
 {
     return GetInterface() ? GetInterface()->GetGlobalScale() : 1.0f;
@@ -681,8 +686,8 @@ inline ImVec2 GetDisplaySize()
     return ImVec2(0, 0);
 }
 
-/// @brief Converts standard 1280x720 Flash Stage coordinates into physical screen pixels (accounting for Aspect Ratio
-/// borders).
+/// @brief Converts standard 1280x720 Flash Stage coordinates into physical
+/// screen pixels (accounting for Aspect Ratio borders).
 inline ImVec2 TranslateScaleformToScreen(float stageX, float stageY)
 {
     ImVec2 screenPos;
@@ -691,8 +696,8 @@ inline ImVec2 TranslateScaleformToScreen(float stageX, float stageY)
     return screenPos;
 }
 
-/// @brief Converts standard 1280x720 Flash Stage coordinates into physical screen pixels (accounting for Aspect Ratio
-/// borders).
+/// @brief Converts standard 1280x720 Flash Stage coordinates into physical
+/// screen pixels (accounting for Aspect Ratio borders).
 inline ImVec2 TranslateScaleformToScreen(const ImVec2& stagePos)
 {
     return TranslateScaleformToScreen(stagePos.x, stagePos.y);
@@ -1495,7 +1500,8 @@ inline void EndChild()
 }
 
 /// @brief Begins an inset child panel using an inside-out group margin.
-/// This prevents native ImGui window padding from shrinking the clipping rect and breaking scrollbars.
+/// This prevents native ImGui window padding from shrinking the clipping rect
+/// and breaking scrollbars.
 inline void BeginPanelFrame(const char* str_id, float padding = 8.0f)
 {
     float p = Scale(padding);
@@ -1582,8 +1588,9 @@ inline float GetColumnWidth(int column_index = -1)
     return GetInterface() ? GetInterface()->GetColumnWidth(column_index) : 0.0f;
 }
 
-/// @brief Utility to capture a Table Column's width ratio upon releasing the mouse.
-/// Returns true when the weight has meaningfully changed so you can selectively trigger a config save.
+/// @brief Utility to capture a Table Column's width ratio upon releasing the
+/// mouse. Returns true when the weight has meaningfully changed so you can
+/// selectively trigger a config save.
 inline bool UpdateProportionalWeight(float& inOutWeight, float totalWidth)
 {
     if (IsMouseReleased(0) && totalWidth > 100.0f)
@@ -1921,7 +1928,8 @@ class PluginSettings
                                           [](CSimpleIniA& ini, void* ud) { (*static_cast<INIFunc*>(ud))(ini); });
     }
 
-    /// @brief Returns the absolute path string pointing to this plugin's dedicated config folder.
+    /// @brief Returns the absolute path string pointing to this plugin's
+    /// dedicated config folder.
     std::string GetConfigDirectory() const
     {
         char buf[512] = {0};
@@ -2159,7 +2167,8 @@ inline void DrawEditorBounds(const ImVec2& min, const ImVec2& max, EditorBoundsS
     }
 }
 
-/// @brief Clamps a window or widget position to the screen bounds if it strays too far off-screen.
+/// @brief Clamps a window or widget position to the screen bounds if it strays
+/// too far off-screen.
 inline bool ClampPosToScreen(ImVec2& pos, float outOfBoundsTolerance = 50.0f)
 {
     ImVec2 displaySize = GetDisplaySize();
@@ -2205,7 +2214,8 @@ enum class PosInitResult
     kChanged
 };
 
-/// @brief Handles first-frame initialization, default loading, and screen clamping for custom-positioned windows.
+/// @brief Handles first-frame initialization, default loading, and screen
+/// clamping for custom-positioned windows.
 inline PosInitResult InitializeCustomPosition(ImVec2& pos, const ImVec2& defaultPos, bool& outHasClamped,
                                               float tolerance = 50.0f)
 {

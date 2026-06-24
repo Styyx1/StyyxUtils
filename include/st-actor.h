@@ -13,6 +13,10 @@ struct ActorUtil
     /// @param a_actor Actor to interrupt
     static void InterruptAttack(RE::Actor* a_actor)
     {
+
+        if (!a_actor)
+            return;
+
         a_actor->NotifyAnimationGraph("attackStop");
         a_actor->NotifyAnimationGraph("blockStop");
     }
@@ -33,7 +37,8 @@ struct ActorUtil
                 static_cast<bool>(a_actor->actorState1.movingRight));
     }
 
-    /// @brief convenience function to check if an actor is the player and whether god mode is enabled
+    /// @brief convenience function to check if an actor is the player and whether
+    /// god mode is enabled
     /// @param a_actor the actor to check
     /// @return true if actor is player and player has god mode active.
     [[nodiscard]] static bool IsGod(RE::Actor* a_actor)
@@ -61,7 +66,8 @@ struct ActorUtil
         }
     }
 
-    /// @brief Fills a vector<RE::BGSPerk*> reference with all the perks an actor inherits from the actor base
+    /// @brief Fills a vector<RE::BGSPerk*> reference with all the perks an actor
+    /// inherits from the actor base
     /// @param a_actor Actor which the perks are gotten from
     /// @param perks vector reference all the perks are added to
     static void GetPerksFromBaseActor(RE::Actor* a_actor, std::vector<RE::BGSPerk*>& perks)
@@ -83,8 +89,8 @@ struct ActorUtil
         }
     }
 
-    /// @brief Check if an actor has any heavy armor equipped. It returning false does not mean the actor has light
-    /// armor equipped
+    /// @brief Check if an actor has any heavy armor equipped. It returning false
+    /// does not mean the actor has light armor equipped
     /// @param actor Actor to check
     /// @return returns true if the actor has any heavy armor equipped
     static bool ActorHasEquippedHeavyArmor(RE::Actor* actor)
@@ -110,8 +116,8 @@ struct ActorUtil
         }
         return false;
     }
-    /// @brief Check if an actor has any light armor equipped. It returning false does not mean the actor has heavy
-    /// armor equipped
+    /// @brief Check if an actor has any light armor equipped. It returning false
+    /// does not mean the actor has heavy armor equipped
     /// @param actor Actor to check
     /// @return returns true if the actor has any light armor equipped
     static bool ActorHasEquippedLightArmor(const RE::Actor* actor)
@@ -138,12 +144,20 @@ struct ActorUtil
         return false;
     }
 
-    /// @brief Very specific function used to see if an Actor is in a state an attack of opportunity should be possible
+    /// @brief Very specific function used to see if an Actor is in a state an
+    /// attack of opportunity should be possible
     /// @param victim The actor being attacked
     /// @param attacker The attacking Actor
-    /// @return True if Actor is in a state an attack of opportunity should be possible
+    /// @return True if Actor is in a state an attack of opportunity should be
+    /// possible
     static bool IsInOpportunityState(RE::Actor* victim, const RE::Actor* attacker)
     {
+
+        if (!victim || !attacker)
+        {
+            return false;
+        }
+
         return IsPowerAttacking(victim) || victim->IsStaggering() ||
                victim->actorState1.sitSleepState == RE::SIT_SLEEP_STATE::kIsSitting ||
                victim->actorState1.sitSleepState == RE::SIT_SLEEP_STATE::kIsSleeping ||
@@ -184,6 +198,12 @@ struct ActorUtil
     /// @return True if actor has the default object keyword for vampires
     static bool IsVampire(RE::Actor* a_ref)
     {
+
+        if (!a_ref)
+        {
+            return false;
+        }
+
         if (a_ref->HasKeywordWithType(RE::DEFAULT_OBJECT::kKeywordVampire))
         {
             return true;
@@ -196,6 +216,12 @@ struct ActorUtil
     /// @return True if actor has the default object keyword for undead
     static bool IsUndead(RE::Actor* a_ref)
     {
+
+        if (!a_ref)
+        {
+            return false;
+        }
+
         if (a_ref->HasKeywordWithType(RE::DEFAULT_OBJECT::kKeywordUndead))
             return true;
         return false;
@@ -205,10 +231,17 @@ struct ActorUtil
     /// @param a_actor The actor to check
     /// @return True if actor has the Dragon keyword
     /// @note the Default Object in skyrim.esm is empty for that \n
-    /// [This](https://www.nexusmods.com/skyrimspecialedition/mods/163540) is a mod that fixes this \n
-    /// Here we do a manual lookup in case the default object is null
+    /// [This](https://www.nexusmods.com/skyrimspecialedition/mods/163540) is a
+    /// mod that fixes this \n Here we do a manual lookup in case the default
+    /// object is null
     static bool IsDragon(const RE::Actor* a_actor)
     {
+
+        if (!a_actor)
+        {
+            return false;
+        }
+
         if (a_actor->HasKeywordWithType(RE::DEFAULT_OBJECT::kKeywordDragon))
         {
             return true;
@@ -218,7 +251,6 @@ struct ActorUtil
             return false;
         return a_actor->HasKeyword(key);
     }
-
 
     /// @brief Get the current cell the player is in
     /// @return The current cell the player is in or nullptr if it can't be found
@@ -279,7 +311,6 @@ struct ActorUtil
         return actor && (actor->formFlags & RE::Actor::RecordFlags::kStartsDead);
     }
 
-
     /// @brief Get maximum Health of an actor
     /// @param a_actor The actor to check
     /// @return The maximum health including temporary modifiers
@@ -289,6 +320,12 @@ struct ActorUtil
 
     static float GetMaxHealth(RE::Actor* a_actor)
     {
+
+        if (!a_actor)
+        {
+            return 0.f;
+        }
+
         return a_actor->GetActorValueModifier(RE::ACTOR_VALUE_MODIFIER::kTemporary, RE::ActorValue::kHealth) +
                a_actor->GetPermanentActorValue(RE::ActorValue::kHealth);
     }
@@ -298,6 +335,12 @@ struct ActorUtil
     /// @return The maximum Stamina including temporary modifiers
     static float GetMaxStamina(RE::Actor* actor)
     {
+
+        if (!a_actor)
+        {
+            return 0.f;
+        }
+
         return actor->GetActorValueModifier(RE::ACTOR_VALUE_MODIFIER::kTemporary, RE::ActorValue::kStamina) +
                actor->GetPermanentActorValue(RE::ActorValue::kStamina);
     }
@@ -307,6 +350,12 @@ struct ActorUtil
     /// @return The maximum Magicka including temporary modifiers
     static float GetMaxMagicka(RE::Actor* actor)
     {
+
+        if (!a_actor)
+        {
+            return 0.f;
+        }
+
         return actor->GetActorValueModifier(RE::ACTOR_VALUE_MODIFIER::kTemporary, RE::ActorValue::kMagicka) +
                actor->GetPermanentActorValue(RE::ActorValue::kMagicka);
     }
@@ -315,6 +364,12 @@ struct ActorUtil
     /// @param a_actor The actor to heal
     static void FullyHealActor(RE::Actor* a_actor)
     {
+
+        if (!a_actor)
+        {
+            return;
+        }
+
         a_actor->RestoreActorValue(RE::ActorValue::kHealth, GetMaxHealth(a_actor));
         a_actor->RestoreActorValue(RE::ActorValue::kStamina, GetMaxStamina(a_actor));
         a_actor->RestoreActorValue(RE::ActorValue::kMagicka, GetMaxMagicka(a_actor));
@@ -377,7 +432,6 @@ struct ActorUtil
                                        return base && base->HasKeywordString(a_keyword);
                                    });
     }
-
 
     /// @brief Check if an actor has a specific effect active
     /// @param a_actor The actor to check
@@ -452,11 +506,18 @@ struct ActorUtil
 
     /// @brief Get the weapon a character is currently wielding
     /// @param a_actor The actor to check
-    /// @return The weapon the actor is currently wielding. If none, returns nullptr
+    /// @return The weapon the actor is currently wielding. If none, returns
+    /// nullptr
     /// @note Credits: [Valhalla Combat by
     /// D7ry](https://github.com/D7ry/valhallaCombat/blob/48fb4c3b9bb6bbaa691ce41dbd33f096b74c07e3/src/include/Utils.cpp#L10)
     static RE::TESObjectWEAP* GetWieldingWeapon(RE::Actor* a_actor)
     {
+
+        if (!a_actor)
+        {
+            return nullptr;
+        }
+
         if (const auto weapon = a_actor->GetAttackingWeapon())
         {
             const auto obj = weapon->object;
@@ -491,6 +552,10 @@ struct ActorUtil
     /// @return True if actor is power attacking
     static bool IsPowerAttacking(const RE::Actor* actor)
     {
+
+        if (!actor)
+            return false;
+
         const auto high = actor->GetHighProcess();
         if (!high)
             return false;
@@ -508,6 +573,9 @@ struct ActorUtil
     static bool IsBashing(const RE::Actor* actor)
     {
 
+        if (!actor)
+            return false;
+
         const auto high = actor->GetHighProcess();
 
         if (!high)
@@ -523,13 +591,13 @@ struct ActorUtil
         return attackData->data.flags.any(RE::AttackData::AttackFlag::kBashAttack);
     }
 
-
     /// @brief Get all nearby actors
     /// @param a_ref The reference to check nearby
     /// @param a_radius The radius to search for actors
     /// @param a_ignorePlayer Ignore the player as actor
     /// @return vector of all actors in a set radius around a reference
-    /// @note Credits: [Papyrus Extender by PO3](https://github.com/powerof3/PapyrusExtenderSSE/)
+    /// @note Credits: [Papyrus Extender by
+    /// PO3](https://github.com/powerof3/PapyrusExtenderSSE/)
     static std::vector<RE::Actor*> GetNearbyActors(const RE::TESObjectREFR* a_ref, const float a_radius,
                                                    const bool a_ignorePlayer)
     {
@@ -570,14 +638,14 @@ struct ActorUtil
     /// @brief Search all non-teammates within a certain radius
     /// @param a_ref The reference to search nearby actors for
     /// @param a_radius The radius within actors are searched for
-    /// @return A vector of all actors that are not PlayerTeammates within a certain radius
+    /// @return A vector of all actors that are not PlayerTeammates within a
+    /// certain radius
     static std::vector<RE::Actor*> GetNearbyNonPlayerTeammates(const RE::TESObjectREFR* a_ref, const float a_radius)
     {
         auto actors = GetNearbyActors(a_ref, a_radius, true);
         std::erase_if(actors, [](const RE::Actor* a) { return a->IsPlayerTeammate(); });
         return actors;
     }
-
 
     /// @brief Check if any actor within a certain radius is a guard
     /// @param a_ref The reference to check
@@ -609,10 +677,12 @@ struct ActorUtil
         return GetClosestFromVector(a_ref, nearby_actors);
     }
 
-    /// @brief Runs the console command SetLevel to set an actor's level to the amount
+    /// @brief Runs the console command SetLevel to set an actor's level to the
+    /// amount
     /// @param actor The actor to set the level of
     /// @param level The level the actor gets set to
-    /// @note The console command also updates the actor's stats which the standalone function does not do automatically
+    /// @note The console command also updates the actor's stats which the
+    /// standalone function does not do automatically
     static void SetNPCLevel(RE::Actor* actor, uint16_t level)
     {
         MiscUtil::RunConsoleCommandOnRef(actor, std::format("SetLevel {}", level));
@@ -626,7 +696,7 @@ struct ActorUtil
     static float GetActorValuePercentage(RE::Actor* a_actor, RE::ActorValue a_av)
     {
         using func_t = decltype(&GetActorValuePercentage);
-        static REL::Relocation<func_t> func{RELOCATION_ID(0, 37337)};
+        static REL::Relocation<func_t> func{RELOCATION_ID(36347, 37337)};
         return func(a_actor, a_av);
     }
 

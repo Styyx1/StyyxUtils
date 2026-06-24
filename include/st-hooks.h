@@ -14,7 +14,8 @@ namespace HookUtils
 /// @param a_relID Relocation ID for the function
 /// @param a_offset Offset for the function address
 /// @note needs SKSE::AllocTrampoline(14) per usage
-/// @note Hooked function needs to be called `Call` and the Relocation needs to be called func
+/// @note Hooked function needs to be called `Call` and the Relocation needs to
+/// be called func
 /// @par Example Usage:
 /// @code
 /// struct HasPerkHook
@@ -61,7 +62,8 @@ void hook_function_prologue(std::uintptr_t a_src)
     {
         Patch(std::uintptr_t a_originalFuncAddr, std::size_t a_originalByteLength)
         {
-            // Hook returns here. Execute the restored bytes and jump back to the original function.
+            // Hook returns here. Execute the restored bytes and jump back to the
+            // original function.
             for (size_t i = 0; i < a_originalByteLength; ++i)
             {
                 db(*reinterpret_cast<std::uint8_t*>(a_originalFuncAddr + i));
