@@ -11,5 +11,6 @@ var searchData=
   ['columns_8',['Columns',['../structFUCK__Interface.html#a583f18a515278155bb97ac9541049bda',1,'FUCK_Interface']]],
   ['combo_9',['Combo',['../structFUCK__Interface.html#ab9fcf5edd8a3474193ea00f452c1c0ff',1,'FUCK_Interface']]],
   ['comboform_10',['ComboForm',['../structFUCK__Interface.html#a5bde538bdb57600c70b0cf44dc2578c2',1,'FUCK_Interface']]],
-  ['combowithfilter_11',['ComboWithFilter',['../structFUCK__Interface.html#a3069d8fa7b88395c9242367611a79684',1,'FUCK_Interface']]]
+  ['comboformstr_11',['ComboFormStr',['../structFUCK__Interface.html#a6548d035475e20cb932f159acebe2859',1,'FUCK_Interface']]],
+  ['combowithfilter_12',['ComboWithFilter',['../structFUCK__Interface.html#a3069d8fa7b88395c9242367611a79684',1,'FUCK_Interface']]]
 ];

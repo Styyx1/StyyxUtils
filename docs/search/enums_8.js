@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['tablebgtarget_0',['TableBgTarget',['../namespaceFUCK.html#a14d8aa6baa76bb16c1a7a01c40b2d6b2',1,'FUCK']]],
-  ['tablecolumnflags_1',['TableColumnFlags',['../namespaceFUCK.html#a409fc876c57ca20f7cdbfc4a9e5ed6e9',1,'FUCK']]],
-  ['tableflags_2',['TableFlags',['../namespaceFUCK.html#ab5f50a85ffa6a1bb10e481328741758b',1,'FUCK']]]
+  ['popupflags_0',['PopupFlags',['../namespaceFUCK.html#ab7c78f7b74acba1ad1f755930d6a9ec5',1,'FUCK']]],
+  ['posinitresult_1',['PosInitResult',['../namespaceFUCK.html#a4431d48ae305bd59ad96988b2c6e7740',1,'FUCK']]]
 ];

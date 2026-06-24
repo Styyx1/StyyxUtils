@@ -12,10 +12,11 @@ var searchData=
   ['endtabbar_9',['EndTabBar',['../structFUCK__Interface.html#af1e8ce75d089533456dae8cfafacc8f9',1,'FUCK_Interface::EndTabBar'],['../namespaceFUCK.html#a074b19d959b6d5db99aa3392bf356dd0',1,'FUCK::EndTabBar()']]],
   ['endtabitem_10',['EndTabItem',['../structFUCK__Interface.html#aeeb8f594c995b92a145d895aa96622cd',1,'FUCK_Interface::EndTabItem'],['../namespaceFUCK.html#a38be085c6a7cbd64c3b2a2565fcd1fcc',1,'FUCK::EndTabItem()']]],
   ['endtable_11',['EndTable',['../structFUCK__Interface.html#ad79a0f667e28d1ff8482327a8c84ff71',1,'FUCK_Interface::EndTable'],['../namespaceFUCK.html#a75d139d636037048e506aaea3bc8bc1f',1,'FUCK::EndTable()']]],
-  ['endwindow_12',['EndWindow',['../structFUCK__Interface.html#a9740f1b1a08cc997b1f91606d5008a34',1,'FUCK_Interface::EndWindow'],['../namespaceFUCK.html#a84e75b606384552240189a2f49577248',1,'FUCK::EndWindow()']]],
-  ['entrypointtostring_13',['EntryPointToString',['../group__EnumToString.html#ga5f2b1b56547120859ce063fa18b77904',1,'StyyxUtil::MiscUtil']]],
-  ['enum_20to_20string_20helpers_14',['Enum to String helpers',['../group__EnumToString.html',1,'']]],
-  ['enumstepper_15',['EnumStepper',['../namespaceFUCK.html#a05562213c2227e2193adc9b2f7477271',1,'FUCK']]],
-  ['extendwindowpastborder_16',['ExtendWindowPastBorder',['../structFUCK__Interface.html#a08c9c9eada79b53541c1f6c165af2515',1,'FUCK_Interface::ExtendWindowPastBorder'],['../namespaceFUCK.html#acb822860e7f7e73479d394e6bf55b5ae',1,'FUCK::ExtendWindowPastBorder()']]],
-  ['extradatatypetostring_17',['ExtraDataTypeToString',['../group__EnumToString.html#ga3003fc148d1d7cdfc91a1a4de634e070',1,'StyyxUtil::MiscUtil']]]
+  ['endtooltip_12',['EndTooltip',['../structFUCK__Interface.html#a746a1303d57caacb92c91f34ad60a97f',1,'FUCK_Interface::EndTooltip'],['../namespaceFUCK.html#a66d1fee80da452422bf2f340b8dda2e4',1,'FUCK::EndTooltip()']]],
+  ['endwindow_13',['EndWindow',['../structFUCK__Interface.html#a9740f1b1a08cc997b1f91606d5008a34',1,'FUCK_Interface::EndWindow'],['../namespaceFUCK.html#a84e75b606384552240189a2f49577248',1,'FUCK::EndWindow()']]],
+  ['entrypointtostring_14',['EntryPointToString',['../group__EnumToString.html#ga5f2b1b56547120859ce063fa18b77904',1,'StyyxUtil::MiscUtil']]],
+  ['enum_20to_20string_20helpers_15',['Enum to String helpers',['../group__EnumToString.html',1,'']]],
+  ['enumstepper_16',['EnumStepper',['../namespaceFUCK.html#a05562213c2227e2193adc9b2f7477271',1,'FUCK']]],
+  ['extendwindowpastborder_17',['ExtendWindowPastBorder',['../structFUCK__Interface.html#a08c9c9eada79b53541c1f6c165af2515',1,'FUCK_Interface::ExtendWindowPastBorder'],['../namespaceFUCK.html#acb822860e7f7e73479d394e6bf55b5ae',1,'FUCK::ExtendWindowPastBorder()']]],
+  ['extradatatypetostring_18',['ExtraDataTypeToString',['../group__EnumToString.html#ga3003fc148d1d7cdfc91a1a4de634e070',1,'StyyxUtil::MiscUtil']]]
 ];

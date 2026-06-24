@@ -17,6 +17,5 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
     [ "st-refs.h", "st-refs_8h.html", "st-refs_8h" ],
     [ "st-sounds.h", "st-sounds_8h.html", "st-sounds_8h" ],
     [ "st-timer.h", "st-timer_8h.html", "st-timer_8h" ],
-    [ "st-ui.h", "st-ui_8h.html", "st-ui_8h" ],
     [ "styyx-utils.h", "styyx-utils_8h.html", "styyx-utils_8h" ]
 ];

@@ -141,46 +141,45 @@ $(function(){initNavTree('st-random_8h_source.html','',''); });
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
 </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
-<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structStyyxUtil_1_1RandomiserUtil.html#a50c92bf691684a60dc0a73e8be6a20ee">   61</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structStyyxUtil_1_1RandomiserUtil.html#a50c92bf691684a60dc0a73e8be6a20ee">GetWeightedRandomBool</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> p = 0.5)</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        std::bernoulli_distribution distrib(p);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">return</span> distrib(<a class="code hl_function" href="structStyyxUtil_1_1RandomiserUtil.html#a3b4fb98dba4d3210a1669e5991e2f89c">GetRNG</a>());</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structStyyxUtil_1_1RandomiserUtil.html#a50c92bf691684a60dc0a73e8be6a20ee">   62</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structStyyxUtil_1_1RandomiserUtil.html#a50c92bf691684a60dc0a73e8be6a20ee">GetWeightedRandomBool</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> p = 0.5)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        std::bernoulli_distribution distrib(p);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">return</span> distrib(<a class="code hl_function" href="structStyyxUtil_1_1RandomiserUtil.html#a3b4fb98dba4d3210a1669e5991e2f89c">GetRNG</a>());</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
 </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
-<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structStyyxUtil_1_1RandomiserUtil.html#a8df13d1c563754bc5009ffcf4307844b">   71</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structStyyxUtil_1_1RandomiserUtil.html#a8df13d1c563754bc5009ffcf4307844b">IsPercentageChanceFloat</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> a_chancePercent)</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keyword">const</span> <span class="keyword">auto</span> chance = std::clamp(a_chancePercent, 0.0f, 100.0f);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">if</span> (chance &lt;= 0.0f)</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">if</span> (chance &gt;= 100.0f)</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="structStyyxUtil_1_1RandomiserUtil.html#ac39fb41068a85cb96d3d7ad46210185a">GetRandomFloat</a>(0.0, 100.0) &lt;= a_chancePercent;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="structStyyxUtil_1_1RandomiserUtil.html#a8df13d1c563754bc5009ffcf4307844b">   72</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structStyyxUtil_1_1RandomiserUtil.html#a8df13d1c563754bc5009ffcf4307844b">IsPercentageChanceFloat</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> a_chancePercent)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">const</span> <span class="keyword">auto</span> chance = std::clamp(a_chancePercent, 0.0f, 100.0f);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">if</span> (chance &lt;= 0.0f)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">if</span> (chance &gt;= 100.0f)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="structStyyxUtil_1_1RandomiserUtil.html#ac39fb41068a85cb96d3d7ad46210185a">GetRandomFloat</a>(0.0, 100.0) &lt;= a_chancePercent;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
 </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keyword">private</span>:</div>
-<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="structStyyxUtil_1_1RandomiserUtil.html#a3b4fb98dba4d3210a1669e5991e2f89c">   83</a></span>    <span class="keyword">static</span> std::mt19937&amp; <a class="code hl_function" href="structStyyxUtil_1_1RandomiserUtil.html#a3b4fb98dba4d3210a1669e5991e2f89c">GetRNG</a>()</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keyword">static</span> std::mt19937 gen(std::random_device{}());</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">return</span> gen;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <span class="keyword">private</span>:</div>
+<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="structStyyxUtil_1_1RandomiserUtil.html#a3b4fb98dba4d3210a1669e5991e2f89c">   84</a></span>    <span class="keyword">static</span> std::mt19937&amp; <a class="code hl_function" href="structStyyxUtil_1_1RandomiserUtil.html#a3b4fb98dba4d3210a1669e5991e2f89c">GetRNG</a>()</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keyword">static</span> std::mt19937 gen(std::random_device{}());</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordflow">return</span> gen;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
 </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>};</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>};</div>
 </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>} <span class="comment">// namespace StyyxUtil</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>} <span class="comment">// namespace StyyxUtil</span></div>
 <div class="ttc" id="anamespaceStyyxUtil_html"><div class="ttname"><a href="namespaceStyyxUtil.html">StyyxUtil</a></div><div class="ttdef"><b>Definition</b> st-actor.h:7</div></div>
 <div class="ttc" id="astructStyyxUtil_1_1RandomiserUtil_html"><div class="ttname"><a href="structStyyxUtil_1_1RandomiserUtil.html">StyyxUtil::RandomiserUtil</a></div><div class="ttdef"><b>Definition</b> st-random.h:7</div></div>
 <div class="ttc" id="astructStyyxUtil_1_1RandomiserUtil_html_a1a62939214133ae7eb33d6b15cc54273"><div class="ttname"><a href="structStyyxUtil_1_1RandomiserUtil.html#a1a62939214133ae7eb33d6b15cc54273">StyyxUtil::RandomiserUtil::GetRandomInt</a></div><div class="ttdeci">static int GetRandomInt(const int a_min, const int a_max)</div><div class="ttdoc">Get random integer between 2 values.</div><div class="ttdef"><b>Definition</b> st-random.h:12</div></div>
-<div class="ttc" id="astructStyyxUtil_1_1RandomiserUtil_html_a3b4fb98dba4d3210a1669e5991e2f89c"><div class="ttname"><a href="structStyyxUtil_1_1RandomiserUtil.html#a3b4fb98dba4d3210a1669e5991e2f89c">StyyxUtil::RandomiserUtil::GetRNG</a></div><div class="ttdeci">static std::mt19937 &amp; GetRNG()</div><div class="ttdef"><b>Definition</b> st-random.h:83</div></div>
+<div class="ttc" id="astructStyyxUtil_1_1RandomiserUtil_html_a3b4fb98dba4d3210a1669e5991e2f89c"><div class="ttname"><a href="structStyyxUtil_1_1RandomiserUtil.html#a3b4fb98dba4d3210a1669e5991e2f89c">StyyxUtil::RandomiserUtil::GetRNG</a></div><div class="ttdeci">static std::mt19937 &amp; GetRNG()</div><div class="ttdef"><b>Definition</b> st-random.h:84</div></div>
 <div class="ttc" id="astructStyyxUtil_1_1RandomiserUtil_html_a4b1df3000125872ebdd3a23c66bbced3"><div class="ttname"><a href="structStyyxUtil_1_1RandomiserUtil.html#a4b1df3000125872ebdd3a23c66bbced3">StyyxUtil::RandomiserUtil::GetRandomDouble</a></div><div class="ttdeci">static double GetRandomDouble(const double a_min, const double a_max)</div><div class="ttdoc">Get random double between 2 values.</div><div class="ttdef"><b>Definition</b> st-random.h:44</div></div>
-<div class="ttc" id="astructStyyxUtil_1_1RandomiserUtil_html_a50c92bf691684a60dc0a73e8be6a20ee"><div class="ttname"><a href="structStyyxUtil_1_1RandomiserUtil.html#a50c92bf691684a60dc0a73e8be6a20ee">StyyxUtil::RandomiserUtil::GetWeightedRandomBool</a></div><div class="ttdeci">static bool GetWeightedRandomBool(const float p=0.5)</div><div class="ttdoc">Get weighted random bool.</div><div class="ttdef"><b>Definition</b> st-random.h:61</div></div>
-<div class="ttc" id="astructStyyxUtil_1_1RandomiserUtil_html_a8df13d1c563754bc5009ffcf4307844b"><div class="ttname"><a href="structStyyxUtil_1_1RandomiserUtil.html#a8df13d1c563754bc5009ffcf4307844b">StyyxUtil::RandomiserUtil::IsPercentageChanceFloat</a></div><div class="ttdeci">static bool IsPercentageChanceFloat(const float a_chancePercent)</div><div class="ttdoc">Rolls a random chance check against a given percentage.</div><div class="ttdef"><b>Definition</b> st-random.h:71</div></div>
+<div class="ttc" id="astructStyyxUtil_1_1RandomiserUtil_html_a50c92bf691684a60dc0a73e8be6a20ee"><div class="ttname"><a href="structStyyxUtil_1_1RandomiserUtil.html#a50c92bf691684a60dc0a73e8be6a20ee">StyyxUtil::RandomiserUtil::GetWeightedRandomBool</a></div><div class="ttdeci">static bool GetWeightedRandomBool(const float p=0.5)</div><div class="ttdoc">Get weighted random bool.</div><div class="ttdef"><b>Definition</b> st-random.h:62</div></div>
+<div class="ttc" id="astructStyyxUtil_1_1RandomiserUtil_html_a8df13d1c563754bc5009ffcf4307844b"><div class="ttname"><a href="structStyyxUtil_1_1RandomiserUtil.html#a8df13d1c563754bc5009ffcf4307844b">StyyxUtil::RandomiserUtil::IsPercentageChanceFloat</a></div><div class="ttdeci">static bool IsPercentageChanceFloat(const float a_chancePercent)</div><div class="ttdoc">Rolls a random chance check against a given percentage.</div><div class="ttdef"><b>Definition</b> st-random.h:72</div></div>
 <div class="ttc" id="astructStyyxUtil_1_1RandomiserUtil_html_ab1c8ba0055565d25d70e697d16720c9f"><div class="ttname"><a href="structStyyxUtil_1_1RandomiserUtil.html#ab1c8ba0055565d25d70e697d16720c9f">StyyxUtil::RandomiserUtil::GetRandomRoundedFloat</a></div><div class="ttdeci">static float GetRandomRoundedFloat(const float a_min, const float a_max, const int decimals=2)</div><div class="ttdoc">Get random float rounded to a set amount of decimals.</div><div class="ttdef"><b>Definition</b> st-random.h:33</div></div>
 <div class="ttc" id="astructStyyxUtil_1_1RandomiserUtil_html_ac39fb41068a85cb96d3d7ad46210185a"><div class="ttname"><a href="structStyyxUtil_1_1RandomiserUtil.html#ac39fb41068a85cb96d3d7ad46210185a">StyyxUtil::RandomiserUtil::GetRandomFloat</a></div><div class="ttdeci">static float GetRandomFloat(const float a_min, const float a_max)</div><div class="ttdoc">Get random float between 2 values.</div><div class="ttdef"><b>Definition</b> st-random.h:22</div></div>
 <div class="ttc" id="astructStyyxUtil_1_1RandomiserUtil_html_aec4f389e6ce89cbe2531f067ea71f568"><div class="ttname"><a href="structStyyxUtil_1_1RandomiserUtil.html#aec4f389e6ce89cbe2531f067ea71f568">StyyxUtil::RandomiserUtil::GetRandomBool</a></div><div class="ttdeci">static bool GetRandomBool()</div><div class="ttdoc">Get random bool.</div><div class="ttdef"><b>Definition</b> st-random.h:52</div></div>

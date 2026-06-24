@@ -9,7 +9,8 @@ var searchData=
   ['begintabbar_6',['BeginTabBar',['../structFUCK__Interface.html#ac8a9b1c2e2f0f5cb314f1c300a66b757',1,'FUCK_Interface']]],
   ['begintabitem_7',['BeginTabItem',['../structFUCK__Interface.html#af51a25b4d485b4c1b7db0426a8463341',1,'FUCK_Interface']]],
   ['begintable_8',['BeginTable',['../structFUCK__Interface.html#a676f420f933d1ae892f5f08d1cdba6ac',1,'FUCK_Interface']]],
-  ['beginwindow_9',['BeginWindow',['../structFUCK__Interface.html#a828e98f48366dbb39885e6a498b77cae',1,'FUCK_Interface']]],
-  ['button_10',['Button',['../structFUCK__Interface.html#a038573f6960d5293ecdb54500df966b3',1,'FUCK_Interface']]],
-  ['buttoniconwithlabel_11',['ButtonIconWithLabel',['../structFUCK__Interface.html#ab97616483c210fe25ce7bfd40037092a',1,'FUCK_Interface']]]
+  ['begintooltip_9',['BeginTooltip',['../structFUCK__Interface.html#a8587e15967fc137e213da464c55b9c61',1,'FUCK_Interface']]],
+  ['beginwindow_10',['BeginWindow',['../structFUCK__Interface.html#a828e98f48366dbb39885e6a498b77cae',1,'FUCK_Interface']]],
+  ['button_11',['Button',['../structFUCK__Interface.html#a038573f6960d5293ecdb54500df966b3',1,'FUCK_Interface']]],
+  ['buttoniconwithlabel_12',['ButtonIconWithLabel',['../structFUCK__Interface.html#ab97616483c210fe25ce7bfd40037092a',1,'FUCK_Interface']]]
 ];

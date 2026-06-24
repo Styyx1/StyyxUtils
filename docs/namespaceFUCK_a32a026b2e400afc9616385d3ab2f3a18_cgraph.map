@@ -1,5 +1,5 @@
 <map id="FUCK::DrawEditorBounds" name="FUCK::DrawEditorBounds">
-<area shape="rect" id="Node000001" title="Standardized visual for UI widget editing. Handles both Screen&#45;Space and Window&#45;Space rendering." alt="" coords="5,107,191,134"/>
+<area shape="rect" id="Node000001" title="Visual for UI widget editing. Handles Screen&#45;Space and Window&#45;Space." alt="" coords="5,107,191,134"/>
 <area shape="rect" id="Node000002" href="$namespaceFUCK.html#a6d852ec3e9aa44e696cd3cea22f5d3db" title=" " alt="" coords="492,5,618,33"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,104,181,84,238,66,363,40,479,26,474,28,364,45,239,71,183,89,133,109"/>
 <area shape="rect" id="Node000004" href="$namespaceFUCK.html#aa291e02f98d8a6c5654e249d96dfb7e6" title=" " alt="" coords="491,57,619,85"/>

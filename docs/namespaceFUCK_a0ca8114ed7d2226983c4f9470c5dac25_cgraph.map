@@ -1,5 +1,5 @@
 <map id="FUCK::WASDNudge" name="FUCK::WASDNudge">
-<area shape="rect" id="Node000001" title="Helper for handling WASD Key widget nudging. Returns true if movement occurred, outputting the delta." alt="" coords="5,84,153,112"/>
+<area shape="rect" id="Node000001" title="WASD key widget nudging." alt="" coords="5,84,153,112"/>
 <area shape="rect" id="Node000002" href="$namespaceFUCK.html#a3310fb15e008cdfe514d00206011863c" title="Gets the physical screen resolution scale multiplier (Base 1080p)." alt="" coords="201,5,393,33"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,81,200,43,227,37,222,39,202,48,112,86"/>
 <area shape="rect" id="Node000004" href="$namespaceFUCK.html#a9cd667f77120c630b34b87983c994f38" title=" " alt="" coords="228,57,366,85"/>

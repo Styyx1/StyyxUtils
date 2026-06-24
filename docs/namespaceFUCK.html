@@ -96,7 +96,7 @@ $(function(){initNavTree('namespaceFUCK.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:INI" id="r_INI"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="namespaceFUCK_1_1INI.html">INI</a></td></tr>
-<tr class="memdesc:namespaceFUCK_1_1INI"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper functions for delta saving/loading <a class="el" href="namespaceFUCK_1_1INI.html" title="Helper functions for delta saving/loading INI values with automatic default value handling.">INI</a> values with automatic default value handling. <br /></td></tr>
+<tr class="memdesc:namespaceFUCK_1_1INI"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delta save/load <a class="el" href="namespaceFUCK_1_1INI.html" title="Delta save/load INI values.">INI</a> values. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -106,9 +106,9 @@ Classes</h2></td></tr>
 <tr class="memitem:IWindow" id="r_IWindow"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classFUCK_1_1IWindow.html">IWindow</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implement this to add a floating, independent Window to the <a class="el" href="namespaceFUCK.html">FUCK</a> framework.  <a href="classFUCK_1_1IWindow.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Image" id="r_Image"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classFUCK_1_1Image.html">Image</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Safe Resource-Acquisition-Is-Initialization wrapper for custom Images.  <a href="classFUCK_1_1Image.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII wrapper for custom images.  <a href="classFUCK_1_1Image.html#details">More...</a><br /></td></tr>
 <tr class="memitem:PluginSettings" id="r_PluginSettings"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classFUCK_1_1PluginSettings.html">PluginSettings</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience wrapper for Plugin <a class="el" href="namespaceFUCK_1_1INI.html" title="Helper functions for delta saving/loading INI values with automatic default value handling.">INI</a> Loading/Saving.  <a href="classFUCK_1_1PluginSettings.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience wrapper for Plugin <a class="el" href="namespaceFUCK_1_1INI.html" title="Delta save/load INI values.">INI</a> Loading/Saving.  <a href="classFUCK_1_1PluginSettings.html#details">More...</a><br /></td></tr>
 <tr class="memitem:MenuEventListener" id="r_MenuEventListener"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="classFUCK_1_1MenuEventListener.html">MenuEventListener</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII Wrapper for listening to Skyrim UI Menu events.  <a href="classFUCK_1_1MenuEventListener.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
@@ -149,24 +149,26 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memitem:a5f2531d360836f386d74ba81e79ce4b9" id="r_a5f2531d360836f386d74ba81e79ce4b9"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9">WindowFlags</a> { <br />
 &#160;&#160;<a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a35c3ace1970663a16e5c65baa5941b13">kNone</a> = 0
-, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a4ea2c0a613593c66a419a66d1a7bd552">kBlurBackground</a> = 1 &lt;&lt; 0
-, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9ab5db59d7c814399ea6255ca05215091a">kHideHUD</a> = 1 &lt;&lt; 1
-, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a39bde2b6f5cb3d258f6bdb756f3fa961">kPauseHard</a> = 1 &lt;&lt; 2
+, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a39bde2b6f5cb3d258f6bdb756f3fa961">kPauseHard</a> = 1 &lt;&lt; 0
+, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a5bc8a796152f6c81297f731604822e8a">kPauseSoft</a> = 1 &lt;&lt; 1
+, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a9efaca0c2a084b4bf1286017a2898c30">kBlockVanity</a> = 1 &lt;&lt; 2
 , <br />
-&#160;&#160;<a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a20c04585cd77e7eb20d487358990f48b">kCloseOnEsc</a> = 1 &lt;&lt; 3
-, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9afc8210b85927f7f7eba51b382edbe72e">kCloseOnGameMenu</a> = 1 &lt;&lt; 4
+&#160;&#160;<a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9ab5db59d7c814399ea6255ca05215091a">kHideHUD</a> = 1 &lt;&lt; 3
+, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a4ea2c0a613593c66a419a66d1a7bd552">kBlurBackground</a> = 1 &lt;&lt; 4
 , <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a53b77045892dd4a87126967301d84ce4">kPassInputToGame</a> = 1 &lt;&lt; 5
-, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a5bc8a796152f6c81297f731604822e8a">kPauseSoft</a> = 1 &lt;&lt; 6
+, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a20c04585cd77e7eb20d487358990f48b">kCloseOnEsc</a> = 1 &lt;&lt; 6
 , <br />
-&#160;&#160;<a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a9efaca0c2a084b4bf1286017a2898c30">kBlockVanity</a> = 1 &lt;&lt; 7
-, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9ad04336b3ea25f429003ec5e1c611ec96">kNoBackground</a> = 1 &lt;&lt; 8
-, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a11be9dd0b188da02e61b993f614602cb">kNoDecoration</a> = 1 &lt;&lt; 9
-, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a4764f3b265f49eeab3ec2bdef9c842c9">kCustomRender</a> = 1 &lt;&lt; 10
+&#160;&#160;<a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9afc8210b85927f7f7eba51b382edbe72e">kCloseOnGameMenu</a> = 1 &lt;&lt; 7
+, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a11be9dd0b188da02e61b993f614602cb">kNoDecoration</a> = 1 &lt;&lt; 8
+, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9ad04336b3ea25f429003ec5e1c611ec96">kNoBackground</a> = 1 &lt;&lt; 9
+, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a36a29a90145ef225b43b90b432eb2d78">kExtendBorder</a> = 1 &lt;&lt; 10
 , <br />
-&#160;&#160;<a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a36a29a90145ef225b43b90b432eb2d78">kExtendBorder</a> = 1 &lt;&lt; 11
-, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9aeb064442493992fae47f139e452cc6ee">kIgnoreUserScale</a> = 1 &lt;&lt; 12
-, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9adf899cfb4d3793de7aef83f751fcc149">kNoResize</a> = 1 &lt;&lt; 13
-, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a12045d0d9c578cf20e41539b38032f91">kAutoResize</a> = 1 &lt;&lt; 14
+&#160;&#160;<a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9adf899cfb4d3793de7aef83f751fcc149">kNoResize</a> = 1 &lt;&lt; 11
+, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9ad588520b106d987fc9e4f9d67be5792d">kNoMove</a> = 1 &lt;&lt; 12
+, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a12045d0d9c578cf20e41539b38032f91">kAutoResize</a> = 1 &lt;&lt; 13
+, <a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9aeb064442493992fae47f139e452cc6ee">kIgnoreUserScale</a> = 1 &lt;&lt; 14
+, <br />
+&#160;&#160;<a class="el" href="#a5f2531d360836f386d74ba81e79ce4b9a172bc88b686c18c42cfd6f058f74b696">kCustomPosition</a> = 1 &lt;&lt; 15
 <br />
  }</td></tr>
 <tr class="memitem:ab5f50a85ffa6a1bb10e481328741758b" id="r_ab5f50a85ffa6a1bb10e481328741758b"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#ab5f50a85ffa6a1bb10e481328741758b">TableFlags</a> { <br />
@@ -246,6 +248,11 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="#aa34fc01fdd79ae068eb150392d6e58a9a9c1c2a1eb9f486ed2ce9337cc52c9acc">kNoNav</a> = 1 &lt;&lt; 3
 <br />
  }</td></tr>
+<tr class="memitem:ab7c78f7b74acba1ad1f755930d6a9ec5" id="r_ab7c78f7b74acba1ad1f755930d6a9ec5"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#ab7c78f7b74acba1ad1f755930d6a9ec5">PopupFlags</a> { <a class="el" href="#ab7c78f7b74acba1ad1f755930d6a9ec5a35c3ace1970663a16e5c65baa5941b13">kNone</a> = 0
+, <a class="el" href="#ab7c78f7b74acba1ad1f755930d6a9ec5a7b09e1cca31491c618d82b8fdfb69e33">kAnyPopupId</a> = 1 &lt;&lt; 10
+, <a class="el" href="#ab7c78f7b74acba1ad1f755930d6a9ec5ad2c6a5171de4864d8db3ceac47a66281">kAnyPopupLevel</a> = 1 &lt;&lt; 11
+, <a class="el" href="#ab7c78f7b74acba1ad1f755930d6a9ec5ac33fa8e3e8cf484f6d54f0f4ceb5d02b">kAnyPopup</a> = kAnyPopupId | kAnyPopupLevel
+ }</td></tr>
 <tr class="memitem:a4e84df73513199064814b5db2d12b72e" id="r_a4e84df73513199064814b5db2d12b72e"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a4e84df73513199064814b5db2d12b72e">HotkeyFlags</a> : int { <br />
 &#160;&#160;<a class="el" href="#a4e84df73513199064814b5db2d12b72ea35c3ace1970663a16e5c65baa5941b13">kNone</a> = 0
 , <a class="el" href="#a4e84df73513199064814b5db2d12b72eaccef1f666956d7171e7509fc5d3522c1">kAlignNear</a> = 1 &lt;&lt; 0
@@ -255,6 +262,10 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="#a4e84df73513199064814b5db2d12b72ea7e99495d10d9c1f312cda477a4664d0e">kAlwaysHighlight</a> = 1 &lt;&lt; 3
 , <a class="el" href="#a4e84df73513199064814b5db2d12b72eaa1e064519bf8fe18963079607284ef7f">kNoModifiers</a> = 1 &lt;&lt; 4
 <br />
+ }</td></tr>
+<tr class="memitem:a4431d48ae305bd59ad96988b2c6e7740" id="r_a4431d48ae305bd59ad96988b2c6e7740"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a4431d48ae305bd59ad96988b2c6e7740">PosInitResult</a> { <a class="el" href="#a4431d48ae305bd59ad96988b2c6e7740ab163982e1fe69b9bf0e76ebfcbf0d05a">kNotReady</a>
+, <a class="el" href="#a4431d48ae305bd59ad96988b2c6e7740a307dd509e9f59b62fcbf6ba8534b4c30">kUnchanged</a>
+, <a class="el" href="#a4431d48ae305bd59ad96988b2c6e7740a3ece808a5eec77326a9610ac33013018">kChanged</a>
  }</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
@@ -368,6 +379,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ad98d2f0cc873f4cb627391c2cdb1236c" id="r_ad98d2f0cc873f4cb627391c2cdb1236c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad98d2f0cc873f4cb627391c2cdb1236c">StartBinding</a> (std::uint32_t key, std::int32_t mod1, std::int32_t mod2, bool disallowModifiers=false)</td></tr>
 <tr class="memitem:ac634c4f0712e96bbb585ec4336860f61" id="r_ac634c4f0712e96bbb585ec4336860f61"><td class="memItemLeft"><a class="el" href="#aa936791e7a0916378d2f926b5b3d7319">BindResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac634c4f0712e96bbb585ec4336860f61">UpdateBinding</a> (const void *inputEvent, std::uint32_t *outKey, std::int32_t *outMod1, std::int32_t *outMod2)</td></tr>
 <tr class="memitem:aa322b303b587cfe93df7e66a17165488" id="r_aa322b303b587cfe93df7e66a17165488"><td class="memItemLeft"><a class="el" href="#aa936791e7a0916378d2f926b5b3d7319">BindResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa322b303b587cfe93df7e66a17165488">GetInputBind</a> (const void *inputEvent, std::uint32_t *outKey, std::int32_t *outMod1, std::int32_t *outMod2)</td></tr>
+<tr class="memitem:a090b77459152ae5e9a8cd3024682bb58" id="r_a090b77459152ae5e9a8cd3024682bb58"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a090b77459152ae5e9a8cd3024682bb58">IsPopupOpen</a> (const char *str_id=nullptr, <a class="el" href="#ab7c78f7b74acba1ad1f755930d6a9ec5">PopupFlags</a> flags=<a class="el" href="#ab7c78f7b74acba1ad1f755930d6a9ec5a35c3ace1970663a16e5c65baa5941b13">PopupFlags::kNone</a>)</td></tr>
 <tr class="memitem:ab86380965ae6922e4fad355a6325dc25" id="r_ab86380965ae6922e4fad355a6325dc25"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab86380965ae6922e4fad355a6325dc25">IsItemHovered</a> (int flags=0)</td></tr>
 <tr class="memitem:a9ec67f1a7111cc7f3247a80dadf3a2f6" id="r_a9ec67f1a7111cc7f3247a80dadf3a2f6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9ec67f1a7111cc7f3247a80dadf3a2f6">IsItemClicked</a> (int mouse_button=0)</td></tr>
 <tr class="memitem:ad89eb4fe378ff41a3ab6e8a4b84517c0" id="r_ad89eb4fe378ff41a3ab6e8a4b84517c0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad89eb4fe378ff41a3ab6e8a4b84517c0">IsItemActive</a> ()</td></tr>
@@ -410,6 +422,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a76780a860ce288e928c938bc9289003e" id="r_a76780a860ce288e928c938bc9289003e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a76780a860ce288e928c938bc9289003e">Combo</a> (const char *label, int *current_item, const char *const *items, int items_count)</td></tr>
 <tr class="memitem:ae37271fdafb7eb8497c6f6912a09fa12" id="r_ae37271fdafb7eb8497c6f6912a09fa12"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae37271fdafb7eb8497c6f6912a09fa12">ComboWithFilter</a> (const char *label, int *current_item, const char *const *items, int items_count, int popup_max_height_in_items=-1)</td></tr>
 <tr class="memitem:a3b9155bfea14ab09534b6207aac85796" id="r_a3b9155bfea14ab09534b6207aac85796"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3b9155bfea14ab09534b6207aac85796">ComboForm</a> (const char *label, std::uint32_t *currentFormID, std::uint8_t formType)</td></tr>
+<tr class="memitem:a9b0e64d7ade15d62eac0039528c33be1" id="r_a9b0e64d7ade15d62eac0039528c33be1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9b0e64d7ade15d62eac0039528c33be1">ComboForm</a> (const char *label, std::string *currentEdid, std::uint8_t formType)</td></tr>
 <tr class="memitem:af7e42f60c9f1cff6897dbcf9cb0b0cfe" id="r_af7e42f60c9f1cff6897dbcf9cb0b0cfe"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af7e42f60c9f1cff6897dbcf9cb0b0cfe">Selectable</a> (const char *label, bool selected=false, int flags=0, const ImVec2 &amp;size=ImVec2(0, 0))</td></tr>
 <tr class="memitem:a80fec18a605e6924ea414cee0b77a962" id="r_a80fec18a605e6924ea414cee0b77a962"><td class="memItemLeft">ImGuiTableSortSpecs *&#160;</td><td class="memItemRight"><a class="el" href="#a80fec18a605e6924ea414cee0b77a962">GetTableSortSpecs</a> ()</td></tr>
 <tr class="memitem:a24fdb9773f0ef793eaa389c00cc32b06" id="r_a24fdb9773f0ef793eaa389c00cc32b06"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a24fdb9773f0ef793eaa389c00cc32b06">Header</a> (const char *label)</td></tr>
@@ -490,7 +503,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a67f272242061f7dabc1633b7b47d0db3" id="r_a67f272242061f7dabc1633b7b47d0db3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a67f272242061f7dabc1633b7b47d0db3">RemoveMenuListener</a> (void *userdata)</td></tr>
 <tr class="memitem:a4422068509e9c770ae52ca0ed30d91bb" id="r_a4422068509e9c770ae52ca0ed30d91bb"><td class="memTemplParams" colspan="2">template&lt;size_t N&gt; </td></tr>
 <tr class="memitem:a4422068509e9c770ae52ca0ed30d91bb template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4422068509e9c770ae52ca0ed30d91bb">StringCopy</a> (char(&amp;dest)[N], const char *source)</td></tr>
-<tr class="memdesc:a4422068509e9c770ae52ca0ed30d91bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Safe string copy utility preventing buffer overruns.  <br /></td></tr>
+<tr class="memdesc:a4422068509e9c770ae52ca0ed30d91bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">String copy utility.  <br /></td></tr>
 <tr class="memitem:a7abc8c5d17796f153f8d20b05167be82" id="r_a7abc8c5d17796f153f8d20b05167be82"><td class="memTemplParams" colspan="2">template&lt;size_t N&gt; </td></tr>
 <tr class="memitem:a7abc8c5d17796f153f8d20b05167be82 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7abc8c5d17796f153f8d20b05167be82">StringCopy</a> (char(&amp;dest)[N], const std::string &amp;source)</td></tr>
 <tr class="memitem:a75c48fb16705fcf7602afffad6bb875c" id="r_a75c48fb16705fcf7602afffad6bb875c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a75c48fb16705fcf7602afffad6bb875c">DrawManagedHotkey</a> (const char *label, <a class="el" href="structFUCK_1_1ManagedHotkey.html">ManagedHotkey</a> &amp;h, <a class="el" href="#a4e84df73513199064814b5db2d12b72e">HotkeyFlags</a> flags=<a class="el" href="#a4e84df73513199064814b5db2d12b72ea35c3ace1970663a16e5c65baa5941b13">HotkeyFlags::kNone</a>, float iconScale=1.0f, float labelScale=1.0f)</td></tr>
@@ -500,14 +513,26 @@ Functions</h2></td></tr>
 <tr class="memitem:afbb6469aca91daaf968d3cc6af68954e" id="r_afbb6469aca91daaf968d3cc6af68954e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afbb6469aca91daaf968d3cc6af68954e">IsManagedHotkeyDown</a> (<a class="el" href="structFUCK_1_1ManagedHotkey.html">ManagedHotkey</a> &amp;h)</td></tr>
 <tr class="memitem:a6b9ec5a5d7e3134bb1b554352ee8f070" id="r_a6b9ec5a5d7e3134bb1b554352ee8f070"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6b9ec5a5d7e3134bb1b554352ee8f070">AbortManagedHotkey</a> (<a class="el" href="structFUCK_1_1ManagedHotkey.html">ManagedHotkey</a> &amp;h)</td></tr>
 <tr class="memitem:a32a026b2e400afc9616385d3ab2f3a18" id="r_a32a026b2e400afc9616385d3ab2f3a18"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a32a026b2e400afc9616385d3ab2f3a18">DrawEditorBounds</a> (const ImVec2 &amp;min, const ImVec2 &amp;max, <a class="el" href="#a3c42e9e652368c61b88843fe33160028">EditorBoundsState</a> state=<a class="el" href="#a3c42e9e652368c61b88843fe33160028a07fa7a19aa722c635a15e94cb7f50416">EditorBoundsState::kNormal</a>, float thickness=2.0f, bool screenSpace=false, const ImVec2 *customAnchor=nullptr)</td></tr>
-<tr class="memdesc:a32a026b2e400afc9616385d3ab2f3a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standardized visual for UI widget editing. Handles both Screen-Space and Window-Space rendering.  <br /></td></tr>
+<tr class="memdesc:a32a026b2e400afc9616385d3ab2f3a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visual for UI widget editing. Handles Screen-Space and Window-Space.  <br /></td></tr>
+<tr class="memitem:af17f557c7e6bc22d4d23bda2e4f6cf3d" id="r_af17f557c7e6bc22d4d23bda2e4f6cf3d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af17f557c7e6bc22d4d23bda2e4f6cf3d">ClampPosToScreen</a> (ImVec2 &amp;pos, float outOfBoundsTolerance=50.0f)</td></tr>
+<tr class="memdesc:af17f557c7e6bc22d4d23bda2e4f6cf3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clamps a window or widget position to the screen bounds if it strays too far off-screen.  <br /></td></tr>
+<tr class="memitem:a015639c7f82a3f1582d9825bac32498d" id="r_a015639c7f82a3f1582d9825bac32498d"><td class="memItemLeft"><a class="el" href="#a4431d48ae305bd59ad96988b2c6e7740">PosInitResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a015639c7f82a3f1582d9825bac32498d">InitializeCustomPosition</a> (ImVec2 &amp;pos, const ImVec2 &amp;defaultPos, bool &amp;outHasClamped, float tolerance=50.0f)</td></tr>
+<tr class="memdesc:a015639c7f82a3f1582d9825bac32498d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles first-frame initialization, default loading, and screen clamping for custom-positioned windows.  <br /></td></tr>
 <tr class="memitem:a0ca8114ed7d2226983c4f9470c5dac25" id="r_a0ca8114ed7d2226983c4f9470c5dac25"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0ca8114ed7d2226983c4f9470c5dac25">WASDNudge</a> (float &amp;outDeltaX, float &amp;outDeltaY, bool isActiveOrHovered, float step=1.0f, float sprintMult=10.0f)</td></tr>
-<tr class="memdesc:a0ca8114ed7d2226983c4f9470c5dac25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper for handling WASD Key widget nudging. Returns true if movement occurred, outputting the delta.  <br /></td></tr>
+<tr class="memdesc:a0ca8114ed7d2226983c4f9470c5dac25"><td class="mdescLeft">&#160;</td><td class="mdescRight">WASD key widget nudging.  <br /></td></tr>
 <tr class="memitem:ac9dafe91a4e76e83bda84d2573967f00" id="r_ac9dafe91a4e76e83bda84d2573967f00"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac9dafe91a4e76e83bda84d2573967f00">Combo</a> (const char *label, int *current_item, const std::vector&lt; std::string &gt; &amp;items)</td></tr>
-<tr class="memitem:ad8a3e171073f6a594f1f823de71447e1" id="r_ad8a3e171073f6a594f1f823de71447e1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad8a3e171073f6a594f1f823de71447e1">ComboWithFilter</a> (const char *label, int *current_item, const std::vector&lt; std::string &gt; &amp;items, int popup_max_height_in_items=-1)</td></tr>
+<tr class="memitem:a4cba2dfd1c6a0967d004e22a68b53f21" id="r_a4cba2dfd1c6a0967d004e22a68b53f21"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4cba2dfd1c6a0967d004e22a68b53f21">ComboWithFilter</a> (const char *label, int *current_item, std::span&lt; const std::string &gt; items, int popup_max_height_in_items=-1)</td></tr>
 <tr class="memitem:ab93222df3428a56d21e06035ec389ffb" id="r_ab93222df3428a56d21e06035ec389ffb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab93222df3428a56d21e06035ec389ffb">InputText</a> (const char *label, std::string *str, int flags=0)</td></tr>
 <tr class="memitem:a05562213c2227e2193adc9b2f7477271" id="r_a05562213c2227e2193adc9b2f7477271"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:a05562213c2227e2193adc9b2f7477271 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a05562213c2227e2193adc9b2f7477271">EnumStepper</a> (const char *label, T *current_val, const std::vector&lt; std::string &gt; &amp;items, bool a_translate=true)</td></tr>
+<tr class="memitem:a07f3ca6b38d70768f265e2e72c22d2da" id="r_a07f3ca6b38d70768f265e2e72c22d2da"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a07f3ca6b38d70768f265e2e72c22d2da">SeparatorVertical</a> ()</td></tr>
+<tr class="memitem:a7e3fb754cdf412e9caf73b317106d36f" id="r_a7e3fb754cdf412e9caf73b317106d36f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7e3fb754cdf412e9caf73b317106d36f">PushItemWidth</a> (float item_width)</td></tr>
+<tr class="memitem:a72337d8fd1fb6b1bfe187d44aa4c2525" id="r_a72337d8fd1fb6b1bfe187d44aa4c2525"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a72337d8fd1fb6b1bfe187d44aa4c2525">PopItemWidth</a> ()</td></tr>
+<tr class="memitem:a2c4bd6fe18387e003523204ca9ab0a57" id="r_a2c4bd6fe18387e003523204ca9ab0a57"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2c4bd6fe18387e003523204ca9ab0a57">BeginTooltip</a> ()</td></tr>
+<tr class="memitem:a66d1fee80da452422bf2f340b8dda2e4" id="r_a66d1fee80da452422bf2f340b8dda2e4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a66d1fee80da452422bf2f340b8dda2e4">EndTooltip</a> ()</td></tr>
+<tr class="memitem:a4e32c7f0d0382ce27d7661685f4d5b93" id="r_a4e32c7f0d0382ce27d7661685f4d5b93"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4e32c7f0d0382ce27d7661685f4d5b93">SetScrollHereY</a> (float center_y_ratio=0.5f)</td></tr>
+<tr class="memitem:a4e0661c896b1ad082e1059bca1da6840" id="r_a4e0661c896b1ad082e1059bca1da6840"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4e0661c896b1ad082e1059bca1da6840">InputTextMultiline</a> (const char *label, char *buf, size_t buf_size, const ImVec2 &amp;size=ImVec2(0, 0), int flags=0)</td></tr>
+<tr class="memitem:a68521a80804bd96a35656e6cd8e1e505" id="r_a68521a80804bd96a35656e6cd8e1e505"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a68521a80804bd96a35656e6cd8e1e505">InputTextMultiline</a> (const char *label, std::string *str, const ImVec2 &amp;size=ImVec2(0, 0), int flags=0)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -771,6 +796,61 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ab7c78f7b74acba1ad1f755930d6a9ec5" name="ab7c78f7b74acba1ad1f755930d6a9ec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7c78f7b74acba1ad1f755930d6a9ec5">&#9670;&#160;</a></span>PopupFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ab7c78f7b74acba1ad1f755930d6a9ec5">FUCK::PopupFlags</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab7c78f7b74acba1ad1f755930d6a9ec5a35c3ace1970663a16e5c65baa5941b13" name="ab7c78f7b74acba1ad1f755930d6a9ec5a35c3ace1970663a16e5c65baa5941b13"></a>kNone&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab7c78f7b74acba1ad1f755930d6a9ec5a7b09e1cca31491c618d82b8fdfb69e33" name="ab7c78f7b74acba1ad1f755930d6a9ec5a7b09e1cca31491c618d82b8fdfb69e33"></a>kAnyPopupId&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab7c78f7b74acba1ad1f755930d6a9ec5ad2c6a5171de4864d8db3ceac47a66281" name="ab7c78f7b74acba1ad1f755930d6a9ec5ad2c6a5171de4864d8db3ceac47a66281"></a>kAnyPopupLevel&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab7c78f7b74acba1ad1f755930d6a9ec5ac33fa8e3e8cf484f6d54f0f4ceb5d02b" name="ab7c78f7b74acba1ad1f755930d6a9ec5ac33fa8e3e8cf484f6d54f0f4ceb5d02b"></a>kAnyPopup&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a4431d48ae305bd59ad96988b2c6e7740" name="a4431d48ae305bd59ad96988b2c6e7740"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4431d48ae305bd59ad96988b2c6e7740">&#9670;&#160;</a></span>PosInitResult</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a4431d48ae305bd59ad96988b2c6e7740">FUCK::PosInitResult</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4431d48ae305bd59ad96988b2c6e7740ab163982e1fe69b9bf0e76ebfcbf0d05a" name="a4431d48ae305bd59ad96988b2c6e7740ab163982e1fe69b9bf0e76ebfcbf0d05a"></a>kNotReady&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4431d48ae305bd59ad96988b2c6e7740a307dd509e9f59b62fcbf6ba8534b4c30" name="a4431d48ae305bd59ad96988b2c6e7740a307dd509e9f59b62fcbf6ba8534b4c30"></a>kUnchanged&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a4431d48ae305bd59ad96988b2c6e7740a3ece808a5eec77326a9610ac33013018" name="a4431d48ae305bd59ad96988b2c6e7740a3ece808a5eec77326a9610ac33013018"></a>kChanged&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <a id="a14d8aa6baa76bb16c1a7a01c40b2d6b2" name="a14d8aa6baa76bb16c1a7a01c40b2d6b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14d8aa6baa76bb16c1a7a01c40b2d6b2">&#9670;&#160;</a></span>TableBgTarget</h2>
 
@@ -906,21 +986,22 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a35c3ace1970663a16e5c65baa5941b13" name="a5f2531d360836f386d74ba81e79ce4b9a35c3ace1970663a16e5c65baa5941b13"></a>kNone&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a4ea2c0a613593c66a419a66d1a7bd552" name="a5f2531d360836f386d74ba81e79ce4b9a4ea2c0a613593c66a419a66d1a7bd552"></a>kBlurBackground&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9ab5db59d7c814399ea6255ca05215091a" name="a5f2531d360836f386d74ba81e79ce4b9ab5db59d7c814399ea6255ca05215091a"></a>kHideHUD&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a39bde2b6f5cb3d258f6bdb756f3fa961" name="a5f2531d360836f386d74ba81e79ce4b9a39bde2b6f5cb3d258f6bdb756f3fa961"></a>kPauseHard&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a20c04585cd77e7eb20d487358990f48b" name="a5f2531d360836f386d74ba81e79ce4b9a20c04585cd77e7eb20d487358990f48b"></a>kCloseOnEsc&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9afc8210b85927f7f7eba51b382edbe72e" name="a5f2531d360836f386d74ba81e79ce4b9afc8210b85927f7f7eba51b382edbe72e"></a>kCloseOnGameMenu&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a53b77045892dd4a87126967301d84ce4" name="a5f2531d360836f386d74ba81e79ce4b9a53b77045892dd4a87126967301d84ce4"></a>kPassInputToGame&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a5bc8a796152f6c81297f731604822e8a" name="a5f2531d360836f386d74ba81e79ce4b9a5bc8a796152f6c81297f731604822e8a"></a>kPauseSoft&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a9efaca0c2a084b4bf1286017a2898c30" name="a5f2531d360836f386d74ba81e79ce4b9a9efaca0c2a084b4bf1286017a2898c30"></a>kBlockVanity&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9ad04336b3ea25f429003ec5e1c611ec96" name="a5f2531d360836f386d74ba81e79ce4b9ad04336b3ea25f429003ec5e1c611ec96"></a>kNoBackground&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9ab5db59d7c814399ea6255ca05215091a" name="a5f2531d360836f386d74ba81e79ce4b9ab5db59d7c814399ea6255ca05215091a"></a>kHideHUD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a4ea2c0a613593c66a419a66d1a7bd552" name="a5f2531d360836f386d74ba81e79ce4b9a4ea2c0a613593c66a419a66d1a7bd552"></a>kBlurBackground&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a53b77045892dd4a87126967301d84ce4" name="a5f2531d360836f386d74ba81e79ce4b9a53b77045892dd4a87126967301d84ce4"></a>kPassInputToGame&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a20c04585cd77e7eb20d487358990f48b" name="a5f2531d360836f386d74ba81e79ce4b9a20c04585cd77e7eb20d487358990f48b"></a>kCloseOnEsc&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9afc8210b85927f7f7eba51b382edbe72e" name="a5f2531d360836f386d74ba81e79ce4b9afc8210b85927f7f7eba51b382edbe72e"></a>kCloseOnGameMenu&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a11be9dd0b188da02e61b993f614602cb" name="a5f2531d360836f386d74ba81e79ce4b9a11be9dd0b188da02e61b993f614602cb"></a>kNoDecoration&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a4764f3b265f49eeab3ec2bdef9c842c9" name="a5f2531d360836f386d74ba81e79ce4b9a4764f3b265f49eeab3ec2bdef9c842c9"></a>kCustomRender&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9ad04336b3ea25f429003ec5e1c611ec96" name="a5f2531d360836f386d74ba81e79ce4b9ad04336b3ea25f429003ec5e1c611ec96"></a>kNoBackground&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a36a29a90145ef225b43b90b432eb2d78" name="a5f2531d360836f386d74ba81e79ce4b9a36a29a90145ef225b43b90b432eb2d78"></a>kExtendBorder&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9aeb064442493992fae47f139e452cc6ee" name="a5f2531d360836f386d74ba81e79ce4b9aeb064442493992fae47f139e452cc6ee"></a>kIgnoreUserScale&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9adf899cfb4d3793de7aef83f751fcc149" name="a5f2531d360836f386d74ba81e79ce4b9adf899cfb4d3793de7aef83f751fcc149"></a>kNoResize&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9ad588520b106d987fc9e4f9d67be5792d" name="a5f2531d360836f386d74ba81e79ce4b9ad588520b106d987fc9e4f9d67be5792d"></a>kNoMove&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a12045d0d9c578cf20e41539b38032f91" name="a5f2531d360836f386d74ba81e79ce4b9a12045d0d9c578cf20e41539b38032f91"></a>kAutoResize&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9aeb064442493992fae47f139e452cc6ee" name="a5f2531d360836f386d74ba81e79ce4b9aeb064442493992fae47f139e452cc6ee"></a>kIgnoreUserScale&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5f2531d360836f386d74ba81e79ce4b9a172bc88b686c18c42cfd6f058f74b696" name="a5f2531d360836f386d74ba81e79ce4b9a172bc88b686c18c42cfd6f058f74b696"></a>kCustomPosition&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -1632,6 +1713,41 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a2c4bd6fe18387e003523204ca9ab0a57" name="a2c4bd6fe18387e003523204ca9ab0a57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c4bd6fe18387e003523204ca9ab0a57">&#9670;&#160;</a></span>BeginTooltip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FUCK::BeginTooltip </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a2c4bd6fe18387e003523204ca9ab0a57_cgraph.png" border="0" usemap="#anamespaceFUCK_a2c4bd6fe18387e003523204ca9ab0a57_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a2c4bd6fe18387e003523204ca9ab0a57_cgraph" id="anamespaceFUCK_a2c4bd6fe18387e003523204ca9ab0a57_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,151,33"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="199,5,345,33"/>
+<area shape="poly" title=" " alt="" coords="151,17,186,19,181,19,151,22"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a1153574064a57913dce72d95490be6e8" name="a1153574064a57913dce72d95490be6e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1153574064a57913dce72d95490be6e8">&#9670;&#160;</a></span>BeginWindow()</h2>
 
@@ -1947,6 +2063,64 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="af17f557c7e6bc22d4d23bda2e4f6cf3d" name="af17f557c7e6bc22d4d23bda2e4f6cf3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af17f557c7e6bc22d4d23bda2e4f6cf3d">&#9670;&#160;</a></span>ClampPosToScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FUCK::ClampPosToScreen </td>
+          <td>(</td>
+          <td class="paramtype">ImVec2 &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>outOfBoundsTolerance</em></span><span class="paramdefsep"> = </span><span class="paramdefval">50.0f</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clamps a window or widget position to the screen bounds if it strays too far off-screen. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_af17f557c7e6bc22d4d23bda2e4f6cf3d_cgraph.png" border="0" usemap="#anamespaceFUCK_af17f557c7e6bc22d4d23bda2e4f6cf3d_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_af17f557c7e6bc22d4d23bda2e4f6cf3d_cgraph" id="anamespaceFUCK_af17f557c7e6bc22d4d23bda2e4f6cf3d_cgraph">
+<area shape="rect" title="Clamps a window or widget position to the screen bounds if it strays too far off&#45;screen." alt="" coords="5,32,194,60"/>
+<area shape="rect" href="namespaceFUCK.html#a7f8b504df35aa5f80cb4ec70a97f8bcb" title=" " alt="" coords="404,5,568,33"/>
+<area shape="poly" title=" " alt="" coords="194,37,390,24,387,28,195,42"/>
+<area shape="rect" href="namespaceFUCK.html#ab9ae1980799a7b7a5476f0f690bb7df6" title="Scales by the Monitor Resolution." alt="" coords="242,57,342,85"/>
+<area shape="poly" title=" " alt="" coords="194,56,229,62,223,63,194,61"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="630,32,777,60"/>
+<area shape="poly" title=" " alt="" coords="569,27,617,35,612,35,569,32"/>
+<area shape="rect" href="namespaceFUCK.html#a3310fb15e008cdfe514d00206011863c" title="Gets the physical screen resolution scale multiplier (Base 1080p)." alt="" coords="390,57,582,85"/>
+<area shape="poly" title=" " alt="" coords="342,69,377,71,372,71,343,74"/>
+<area shape="poly" title=" " alt="" coords="583,57,612,56,618,56,583,63"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_af17f557c7e6bc22d4d23bda2e4f6cf3d_icgraph.png" border="0" usemap="#anamespaceFUCK_af17f557c7e6bc22d4d23bda2e4f6cf3d_icgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_af17f557c7e6bc22d4d23bda2e4f6cf3d_icgraph" id="anamespaceFUCK_af17f557c7e6bc22d4d23bda2e4f6cf3d_icgraph">
+<area shape="rect" title="Clamps a window or widget position to the screen bounds if it strays too far off&#45;screen." alt="" coords="277,5,465,33"/>
+<area shape="rect" href="namespaceFUCK.html#a015639c7f82a3f1582d9825bac32498d" title="Handles first&#45;frame initialization, default loading, and screen clamping for custom&#45;positioned window..." alt="" coords="5,5,229,33"/>
+<area shape="poly" title=" " alt="" coords="258,19,229,22,229,17,264,19"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="aae75fc4e0d46642058627ef9e0509892" name="aae75fc4e0d46642058627ef9e0509892"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aae75fc4e0d46642058627ef9e0509892">&#9670;&#160;</a></span>CollapsingHeader()</h2>
 
@@ -2223,8 +2397,52 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a9b0e64d7ade15d62eac0039528c33be1" name="a9b0e64d7ade15d62eac0039528c33be1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b0e64d7ade15d62eac0039528c33be1">&#9670;&#160;</a></span>ComboForm() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FUCK::ComboForm </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>currentEdid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::uint8_t</td>          <td class="paramname"><span class="paramname"><em>formType</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a9b0e64d7ade15d62eac0039528c33be1_cgraph.png" border="0" usemap="#anamespaceFUCK_a9b0e64d7ade15d62eac0039528c33be1_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a9b0e64d7ade15d62eac0039528c33be1_cgraph" id="anamespaceFUCK_a9b0e64d7ade15d62eac0039528c33be1_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,150,33"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="198,5,344,33"/>
+<area shape="poly" title=" " alt="" coords="150,17,185,19,179,19,150,22"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a3b9155bfea14ab09534b6207aac85796" name="a3b9155bfea14ab09534b6207aac85796"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b9155bfea14ab09534b6207aac85796">&#9670;&#160;</a></span>ComboForm()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b9155bfea14ab09534b6207aac85796">&#9670;&#160;</a></span>ComboForm() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2318,21 +2536,11 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="179,17,214,19,208,19,179,22"/>
 </map>
 </div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespaceFUCK_ae37271fdafb7eb8497c6f6912a09fa12_icgraph.png" border="0" usemap="#anamespaceFUCK_ae37271fdafb7eb8497c6f6912a09fa12_icgraph" loading="lazy" alt=""/></div>
-<map name="anamespaceFUCK_ae37271fdafb7eb8497c6f6912a09fa12_icgraph" id="anamespaceFUCK_ae37271fdafb7eb8497c6f6912a09fa12_icgraph">
-<area shape="rect" title=" " alt="" coords="227,5,400,33"/>
-<area shape="rect" href="namespaceFUCK.html#ad8a3e171073f6a594f1f823de71447e1" title=" " alt="" coords="5,5,179,33"/>
-<area shape="poly" title=" " alt="" coords="209,19,179,22,179,17,214,19"/>
-</map>
-</div>
 
 </div>
 </div>
-<a id="ad8a3e171073f6a594f1f823de71447e1" name="ad8a3e171073f6a594f1f823de71447e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8a3e171073f6a594f1f823de71447e1">&#9670;&#160;</a></span>ComboWithFilter() <span class="overload">[2/2]</span></h2>
+<a id="a4cba2dfd1c6a0967d004e22a68b53f21" name="a4cba2dfd1c6a0967d004e22a68b53f21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cba2dfd1c6a0967d004e22a68b53f21">&#9670;&#160;</a></span>ComboWithFilter() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2353,7 +2561,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>items</em></span>, </td>
+          <td class="paramtype">std::span&lt; const std::string &gt;</td>          <td class="paramname"><span class="paramname"><em>items</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -2370,13 +2578,11 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespaceFUCK_ad8a3e171073f6a594f1f823de71447e1_cgraph.png" border="0" usemap="#anamespaceFUCK_ad8a3e171073f6a594f1f823de71447e1_cgraph" loading="lazy" alt=""/></div>
-<map name="anamespaceFUCK_ad8a3e171073f6a594f1f823de71447e1_cgraph" id="anamespaceFUCK_ad8a3e171073f6a594f1f823de71447e1_cgraph">
+<div class="center"><img src="namespaceFUCK_a4cba2dfd1c6a0967d004e22a68b53f21_cgraph.png" border="0" usemap="#anamespaceFUCK_a4cba2dfd1c6a0967d004e22a68b53f21_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a4cba2dfd1c6a0967d004e22a68b53f21_cgraph" id="anamespaceFUCK_a4cba2dfd1c6a0967d004e22a68b53f21_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,179,33"/>
-<area shape="rect" href="namespaceFUCK.html#ae37271fdafb7eb8497c6f6912a09fa12" title=" " alt="" coords="227,5,400,33"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="227,5,373,33"/>
 <area shape="poly" title=" " alt="" coords="179,17,214,19,208,19,179,22"/>
-<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="448,5,594,33"/>
-<area shape="poly" title=" " alt="" coords="400,17,435,19,430,19,401,22"/>
 </map>
 </div>
 
@@ -2959,13 +3165,13 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Standardized visual for UI widget editing. Handles both Screen-Space and Window-Space rendering. </p>
+<p>Visual for UI widget editing. Handles Screen-Space and Window-Space. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceFUCK_a32a026b2e400afc9616385d3ab2f3a18_cgraph.png" border="0" usemap="#anamespaceFUCK_a32a026b2e400afc9616385d3ab2f3a18_cgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_a32a026b2e400afc9616385d3ab2f3a18_cgraph" id="anamespaceFUCK_a32a026b2e400afc9616385d3ab2f3a18_cgraph">
-<area shape="rect" title="Standardized visual for UI widget editing. Handles both Screen&#45;Space and Window&#45;Space rendering." alt="" coords="5,107,191,134"/>
+<area shape="rect" title="Visual for UI widget editing. Handles Screen&#45;Space and Window&#45;Space." alt="" coords="5,107,191,134"/>
 <area shape="rect" href="namespaceFUCK.html#a6d852ec3e9aa44e696cd3cea22f5d3db" title=" " alt="" coords="492,5,618,33"/>
 <area shape="poly" title=" " alt="" coords="131,104,181,84,238,66,363,40,479,26,474,28,364,45,239,71,183,89,133,109"/>
 <area shape="rect" href="namespaceFUCK.html#aa291e02f98d8a6c5654e249d96dfb7e6" title=" " alt="" coords="491,57,619,85"/>
@@ -3342,7 +3548,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespaceFUCK_a6d852ec3e9aa44e696cd3cea22f5d3db_icgraph.png" border="0" usemap="#anamespaceFUCK_a6d852ec3e9aa44e696cd3cea22f5d3db_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_a6d852ec3e9aa44e696cd3cea22f5d3db_icgraph" id="anamespaceFUCK_a6d852ec3e9aa44e696cd3cea22f5d3db_icgraph">
 <area shape="rect" title=" " alt="" coords="239,5,365,33"/>
-<area shape="rect" href="namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Standardized visual for UI widget editing. Handles both Screen&#45;Space and Window&#45;Space rendering." alt="" coords="5,5,191,33"/>
+<area shape="rect" href="namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Visual for UI widget editing. Handles Screen&#45;Space and Window&#45;Space." alt="" coords="5,5,191,33"/>
 <area shape="poly" title=" " alt="" coords="221,19,191,22,191,17,226,19"/>
 </map>
 </div>
@@ -3544,7 +3750,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespaceFUCK_aa291e02f98d8a6c5654e249d96dfb7e6_icgraph.png" border="0" usemap="#anamespaceFUCK_aa291e02f98d8a6c5654e249d96dfb7e6_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_aa291e02f98d8a6c5654e249d96dfb7e6_icgraph" id="anamespaceFUCK_aa291e02f98d8a6c5654e249d96dfb7e6_icgraph">
 <area shape="rect" title=" " alt="" coords="239,5,367,33"/>
-<area shape="rect" href="namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Standardized visual for UI widget editing. Handles both Screen&#45;Space and Window&#45;Space rendering." alt="" coords="5,5,191,33"/>
+<area shape="rect" href="namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Visual for UI widget editing. Handles Screen&#45;Space and Window&#45;Space." alt="" coords="5,5,191,33"/>
 <area shape="poly" title=" " alt="" coords="220,19,191,22,191,17,226,19"/>
 </map>
 </div>
@@ -3652,7 +3858,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespaceFUCK_a684cbb224209ab18de2d6b3479a86805_icgraph.png" border="0" usemap="#anamespaceFUCK_a684cbb224209ab18de2d6b3479a86805_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_a684cbb224209ab18de2d6b3479a86805_icgraph" id="anamespaceFUCK_a684cbb224209ab18de2d6b3479a86805_icgraph">
 <area shape="rect" title=" " alt="" coords="239,5,409,33"/>
-<area shape="rect" href="namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Standardized visual for UI widget editing. Handles both Screen&#45;Space and Window&#45;Space rendering." alt="" coords="5,5,191,33"/>
+<area shape="rect" href="namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Visual for UI widget editing. Handles Screen&#45;Space and Window&#45;Space." alt="" coords="5,5,191,33"/>
 <area shape="poly" title=" " alt="" coords="220,19,191,22,191,17,226,19"/>
 </map>
 </div>
@@ -3716,7 +3922,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespaceFUCK_aab374913c263c6ec98e4dff560b5cbe8_icgraph.png" border="0" usemap="#anamespaceFUCK_aab374913c263c6ec98e4dff560b5cbe8_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_aab374913c263c6ec98e4dff560b5cbe8_icgraph" id="anamespaceFUCK_aab374913c263c6ec98e4dff560b5cbe8_icgraph">
 <area shape="rect" title=" " alt="" coords="239,5,411,33"/>
-<area shape="rect" href="namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Standardized visual for UI widget editing. Handles both Screen&#45;Space and Window&#45;Space rendering." alt="" coords="5,5,191,33"/>
+<area shape="rect" href="namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Visual for UI widget editing. Handles Screen&#45;Space and Window&#45;Space." alt="" coords="5,5,191,33"/>
 <area shape="poly" title=" " alt="" coords="220,19,191,22,191,17,225,19"/>
 </map>
 </div>
@@ -4256,6 +4462,41 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a66d1fee80da452422bf2f340b8dda2e4" name="a66d1fee80da452422bf2f340b8dda2e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66d1fee80da452422bf2f340b8dda2e4">&#9670;&#160;</a></span>EndTooltip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FUCK::EndTooltip </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a66d1fee80da452422bf2f340b8dda2e4_cgraph.png" border="0" usemap="#anamespaceFUCK_a66d1fee80da452422bf2f340b8dda2e4_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a66d1fee80da452422bf2f340b8dda2e4_cgraph" id="anamespaceFUCK_a66d1fee80da452422bf2f340b8dda2e4_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,138,33"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="186,5,332,33"/>
+<area shape="poly" title=" " alt="" coords="138,17,173,19,168,19,138,22"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a84e75b606384552240189a2f49577248" name="a84e75b606384552240189a2f49577248"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a84e75b606384552240189a2f49577248">&#9670;&#160;</a></span>EndWindow()</h2>
 
@@ -4546,20 +4787,6 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="159,17,194,19,189,19,159,22"/>
 </map>
 </div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespaceFUCK_acb98f7af3fa2b494b6ee4b1d8e191fa4_icgraph.png" border="0" usemap="#anamespaceFUCK_acb98f7af3fa2b494b6ee4b1d8e191fa4_icgraph" loading="lazy" alt=""/></div>
-<map name="anamespaceFUCK_acb98f7af3fa2b494b6ee4b1d8e191fa4_icgraph" id="anamespaceFUCK_acb98f7af3fa2b494b6ee4b1d8e191fa4_icgraph">
-<area shape="rect" title=" " alt="" coords="202,83,355,111"/>
-<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#adc21b9d491a63e17d2690272ba8d78f0" title=" " alt="" coords="5,5,154,50"/>
-<area shape="poly" title=" " alt="" coords="220,79,146,53,146,48,225,77"/>
-<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#a52d7399f1ae96d33d002c669448e599a" title=" " alt="" coords="5,75,154,119"/>
-<area shape="poly" title=" " alt="" coords="184,98,154,100,153,94,189,96"/>
-<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#a4f213a75fefb1a91bb02c848755eba54" title=" " alt="" coords="5,144,154,189"/>
-<area shape="poly" title=" " alt="" coords="225,116,147,146,145,141,220,117"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -4663,6 +4890,19 @@ Here is the call graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="5,5,170,33"/>
 <area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="218,5,364,33"/>
 <area shape="poly" title=" " alt="" coords="170,17,205,19,200,19,170,22"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a7f8b504df35aa5f80cb4ec70a97f8bcb_icgraph.png" border="0" usemap="#anamespaceFUCK_a7f8b504df35aa5f80cb4ec70a97f8bcb_icgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a7f8b504df35aa5f80cb4ec70a97f8bcb_icgraph" id="anamespaceFUCK_a7f8b504df35aa5f80cb4ec70a97f8bcb_icgraph">
+<area shape="rect" title=" " alt="" coords="513,31,677,58"/>
+<area shape="rect" href="namespaceFUCK.html#af17f557c7e6bc22d4d23bda2e4f6cf3d" title="Clamps a window or widget position to the screen bounds if it strays too far off&#45;screen." alt="" coords="277,5,465,33"/>
+<area shape="poly" title=" " alt="" coords="495,33,465,32,466,27,500,34"/>
+<area shape="rect" href="namespaceFUCK.html#a015639c7f82a3f1582d9825bac32498d" title="Handles first&#45;frame initialization, default loading, and screen clamping for custom&#45;positioned window..." alt="" coords="5,31,229,58"/>
+<area shape="poly" title=" " alt="" coords="497,47,229,47,229,42,498,42"/>
+<area shape="poly" title=" " alt="" coords="259,30,229,36,229,31,264,30"/>
 </map>
 </div>
 
@@ -5325,21 +5565,25 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceFUCK_a3310fb15e008cdfe514d00206011863c_icgraph.png" border="0" usemap="#anamespaceFUCK_a3310fb15e008cdfe514d00206011863c_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_a3310fb15e008cdfe514d00206011863c_icgraph" id="anamespaceFUCK_a3310fb15e008cdfe514d00206011863c_icgraph">
-<area shape="rect" title="Gets the physical screen resolution scale multiplier (Base 1080p)." alt="" coords="434,84,626,112"/>
-<area shape="rect" href="namespaceFUCK.html#a7f16b6582e882f4662297a06bf7048a9" title=" " alt="" coords="262,5,362,33"/>
-<area shape="poly" title=" " alt="" coords="472,79,353,36,354,31,478,78"/>
-<area shape="rect" href="namespaceFUCK.html#ab9ae1980799a7b7a5476f0f690bb7df6" title="Scales by the Monitor Resolution." alt="" coords="262,57,362,85"/>
-<area shape="poly" title=" " alt="" coords="416,85,363,80,363,75,421,84"/>
-<area shape="rect" href="namespaceFUCK.html#a2ca6dc586b15b3b4197126d9b729d2a7" title=" " alt="" coords="262,109,362,137"/>
-<area shape="poly" title=" " alt="" coords="416,111,363,120,362,115,421,110"/>
-<area shape="rect" href="namespaceFUCK.html#a0ca8114ed7d2226983c4f9470c5dac25" title="Helper for handling WASD Key widget nudging. Returns true if movement occurred, outputting the delta." alt="" coords="239,161,386,189"/>
-<area shape="poly" title=" " alt="" coords="477,117,354,163,353,158,472,118"/>
-<area shape="rect" href="namespaceFUCK.html#af307af39c3cff5636384ee3a167922a1" title="Begins an inset child panel using an inside&#45;out group margin. This prevents native ImGui window paddi..." alt="" coords="8,5,188,33"/>
-<area shape="poly" title=" " alt="" coords="245,57,158,36,158,31,250,54"/>
-<area shape="rect" href="namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Standardized visual for UI widget editing. Handles both Screen&#45;Space and Window&#45;Space rendering." alt="" coords="5,57,191,85"/>
-<area shape="poly" title=" " alt="" coords="244,72,191,74,190,69,249,70"/>
-<area shape="rect" href="namespaceFUCK.html#a073afb1f1cdcdbef3c244ea3bbd82292" title="Closes the panel opened by BeginPanelFrame." alt="" coords="15,109,181,137"/>
-<area shape="poly" title=" " alt="" coords="245,88,159,111,158,106,250,86"/>
+<area shape="rect" title="Gets the physical screen resolution scale multiplier (Base 1080p)." alt="" coords="708,109,901,137"/>
+<area shape="rect" href="namespaceFUCK.html#a7f16b6582e882f4662297a06bf7048a9" title=" " alt="" coords="536,31,637,58"/>
+<area shape="poly" title=" " alt="" coords="747,104,627,62,628,56,752,103"/>
+<area shape="rect" href="namespaceFUCK.html#ab9ae1980799a7b7a5476f0f690bb7df6" title="Scales by the Monitor Resolution." alt="" coords="536,83,637,110"/>
+<area shape="poly" title=" " alt="" coords="690,110,637,105,637,100,696,109"/>
+<area shape="rect" href="namespaceFUCK.html#a2ca6dc586b15b3b4197126d9b729d2a7" title=" " alt="" coords="536,135,637,162"/>
+<area shape="poly" title=" " alt="" coords="696,136,637,145,637,140,690,136"/>
+<area shape="rect" href="namespaceFUCK.html#a0ca8114ed7d2226983c4f9470c5dac25" title="WASD key widget nudging." alt="" coords="513,187,660,214"/>
+<area shape="poly" title=" " alt="" coords="752,142,629,189,627,183,746,143"/>
+<area shape="rect" href="namespaceFUCK.html#af307af39c3cff5636384ee3a167922a1" title="Begins an inset child panel using an inside&#45;out group margin. This prevents native ImGui window paddi..." alt="" coords="281,5,460,33"/>
+<area shape="poly" title=" " alt="" coords="527,77,512,72,464,48,429,36,429,31,466,43,514,67,532,77"/>
+<area shape="rect" href="namespaceFUCK.html#af17f557c7e6bc22d4d23bda2e4f6cf3d" title="Clamps a window or widget position to the screen bounds if it strays too far off&#45;screen." alt="" coords="277,57,465,85"/>
+<area shape="poly" title=" " alt="" coords="518,89,465,85,465,80,524,89"/>
+<area shape="rect" href="namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Visual for UI widget editing. Handles Screen&#45;Space and Window&#45;Space." alt="" coords="278,109,464,137"/>
+<area shape="poly" title=" " alt="" coords="518,105,464,114,464,109,523,104"/>
+<area shape="rect" href="namespaceFUCK.html#a073afb1f1cdcdbef3c244ea3bbd82292" title="Closes the panel opened by BeginPanelFrame." alt="" coords="288,161,454,189"/>
+<area shape="poly" title=" " alt="" coords="532,116,514,126,466,151,430,163,429,158,464,146,512,121,526,117"/>
+<area shape="rect" href="namespaceFUCK.html#a015639c7f82a3f1582d9825bac32498d" title="Handles first&#45;frame initialization, default loading, and screen clamping for custom&#45;positioned window..." alt="" coords="5,57,229,85"/>
+<area shape="poly" title=" " alt="" coords="258,72,230,74,229,69,264,70"/>
 </map>
 </div>
 
@@ -5927,9 +6171,76 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceFUCK_a1e440b3d309659493cef6199e8a4cbe0_icgraph.png" border="0" usemap="#anamespaceFUCK_a1e440b3d309659493cef6199e8a4cbe0_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_a1e440b3d309659493cef6199e8a4cbe0_icgraph" id="anamespaceFUCK_a1e440b3d309659493cef6199e8a4cbe0_icgraph">
-<area shape="rect" title=" " alt="" coords="233,5,339,33"/>
+<area shape="rect" title=" " alt="" coords="233,100,339,128"/>
 <area shape="rect" href="namespaceFUCK.html#af307af39c3cff5636384ee3a167922a1" title="Begins an inset child panel using an inside&#45;out group margin. This prevents native ImGui window paddi..." alt="" coords="5,5,185,33"/>
-<area shape="poly" title=" " alt="" coords="214,19,185,22,185,17,220,19"/>
+<area shape="poly" title=" " alt="" coords="253,91,221,69,184,47,157,36,156,31,186,42,224,64,259,90"/>
+<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#adc21b9d491a63e17d2690272ba8d78f0" title=" " alt="" coords="21,57,169,102"/>
+<area shape="poly" title=" " alt="" coords="215,102,170,95,169,90,220,100"/>
+<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#a52d7399f1ae96d33d002c669448e599a" title=" " alt="" coords="21,126,169,171"/>
+<area shape="poly" title=" " alt="" coords="215,127,170,138,169,132,220,125"/>
+<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#a4f213a75fefb1a91bb02c848755eba54" title=" " alt="" coords="21,196,169,240"/>
+<area shape="poly" title=" " alt="" coords="257,137,186,185,161,197,159,192,183,181,252,138"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a015639c7f82a3f1582d9825bac32498d" name="a015639c7f82a3f1582d9825bac32498d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a015639c7f82a3f1582d9825bac32498d">&#9670;&#160;</a></span>InitializeCustomPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a4431d48ae305bd59ad96988b2c6e7740">PosInitResult</a> FUCK::InitializeCustomPosition </td>
+          <td>(</td>
+          <td class="paramtype">ImVec2 &amp;</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ImVec2 &amp;</td>          <td class="paramname"><span class="paramname"><em>defaultPos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>outHasClamped</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tolerance</em></span><span class="paramdefsep"> = </span><span class="paramdefval">50.0f</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles first-frame initialization, default loading, and screen clamping for custom-positioned windows. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a015639c7f82a3f1582d9825bac32498d_cgraph.png" border="0" usemap="#anamespaceFUCK_a015639c7f82a3f1582d9825bac32498d_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a015639c7f82a3f1582d9825bac32498d_cgraph" id="anamespaceFUCK_a015639c7f82a3f1582d9825bac32498d_cgraph">
+<area shape="rect" title="Handles first&#45;frame initialization, default loading, and screen clamping for custom&#45;positioned window..." alt="" coords="5,31,229,58"/>
+<area shape="rect" href="namespaceFUCK.html#af17f557c7e6bc22d4d23bda2e4f6cf3d" title="Clamps a window or widget position to the screen bounds if it strays too far off&#45;screen." alt="" coords="277,56,465,84"/>
+<area shape="poly" title=" " alt="" coords="229,53,264,59,258,59,229,58"/>
+<area shape="rect" href="namespaceFUCK.html#a7f8b504df35aa5f80cb4ec70a97f8bcb" title=" " alt="" coords="513,5,677,33"/>
+<area shape="poly" title=" " alt="" coords="229,36,498,22,497,27,229,41"/>
+<area shape="poly" title=" " alt="" coords="435,53,513,37,519,37,436,58"/>
+<area shape="rect" href="namespaceFUCK.html#ab9ae1980799a7b7a5476f0f690bb7df6" title="Scales by the Monitor Resolution." alt="" coords="545,57,645,85"/>
+<area shape="poly" title=" " alt="" coords="466,68,533,71,527,71,466,73"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="966,32,1112,60"/>
+<area shape="poly" title=" " alt="" coords="678,21,953,40,948,41,678,27"/>
+<area shape="rect" href="namespaceFUCK.html#a3310fb15e008cdfe514d00206011863c" title="Gets the physical screen resolution scale multiplier (Base 1080p)." alt="" coords="725,57,918,85"/>
+<area shape="poly" title=" " alt="" coords="646,69,713,71,707,71,646,74"/>
+<area shape="poly" title=" " alt="" coords="918,57,948,56,953,56,918,63"/>
 </map>
 </div>
 
@@ -6037,6 +6348,122 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="131,17,166,19,161,19,131,22"/>
 <area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="352,5,498,33"/>
 <area shape="poly" title=" " alt="" coords="304,17,339,19,334,19,305,22"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4e0661c896b1ad082e1059bca1da6840" name="a4e0661c896b1ad082e1059bca1da6840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e0661c896b1ad082e1059bca1da6840">&#9670;&#160;</a></span>InputTextMultiline() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FUCK::InputTextMultiline </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>buf_size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ImVec2 &amp;</td>          <td class="paramname"><span class="paramname"><em>size</em></span><span class="paramdefsep"> = </span><span class="paramdefval">ImVec2(0,&#160;0)</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a4e0661c896b1ad082e1059bca1da6840_cgraph.png" border="0" usemap="#anamespaceFUCK_a4e0661c896b1ad082e1059bca1da6840_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a4e0661c896b1ad082e1059bca1da6840_cgraph" id="anamespaceFUCK_a4e0661c896b1ad082e1059bca1da6840_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,188,33"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="236,5,382,33"/>
+<area shape="poly" title=" " alt="" coords="188,17,223,19,217,19,188,22"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a4e0661c896b1ad082e1059bca1da6840_icgraph.png" border="0" usemap="#anamespaceFUCK_a4e0661c896b1ad082e1059bca1da6840_icgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a4e0661c896b1ad082e1059bca1da6840_icgraph" id="anamespaceFUCK_a4e0661c896b1ad082e1059bca1da6840_icgraph">
+<area shape="rect" title=" " alt="" coords="236,5,418,33"/>
+<area shape="rect" href="namespaceFUCK.html#a68521a80804bd96a35656e6cd8e1e505" title=" " alt="" coords="5,5,188,33"/>
+<area shape="poly" title=" " alt="" coords="218,19,188,22,188,17,223,19"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a68521a80804bd96a35656e6cd8e1e505" name="a68521a80804bd96a35656e6cd8e1e505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68521a80804bd96a35656e6cd8e1e505">&#9670;&#160;</a></span>InputTextMultiline() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FUCK::InputTextMultiline </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *</td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ImVec2 &amp;</td>          <td class="paramname"><span class="paramname"><em>size</em></span><span class="paramdefsep"> = </span><span class="paramdefval">ImVec2(0,&#160;0)</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a68521a80804bd96a35656e6cd8e1e505_cgraph.png" border="0" usemap="#anamespaceFUCK_a68521a80804bd96a35656e6cd8e1e505_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a68521a80804bd96a35656e6cd8e1e505_cgraph" id="anamespaceFUCK_a68521a80804bd96a35656e6cd8e1e505_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,188,33"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="466,5,612,33"/>
+<area shape="poly" title=" " alt="" coords="188,17,451,17,450,22,188,22"/>
+<area shape="rect" href="namespaceFUCK.html#a4e0661c896b1ad082e1059bca1da6840" title=" " alt="" coords="236,31,418,58"/>
+<area shape="poly" title=" " alt="" coords="188,27,223,33,217,33,188,32"/>
+<area shape="poly" title=" " alt="" coords="418,31,448,30,453,30,419,36"/>
 </map>
 </div>
 
@@ -6548,7 +6975,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespaceFUCK_a9cd667f77120c630b34b87983c994f38_icgraph.png" border="0" usemap="#anamespaceFUCK_a9cd667f77120c630b34b87983c994f38_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_a9cd667f77120c630b34b87983c994f38_icgraph" id="anamespaceFUCK_a9cd667f77120c630b34b87983c994f38_icgraph">
 <area shape="rect" title=" " alt="" coords="201,5,338,33"/>
-<area shape="rect" href="namespaceFUCK.html#a0ca8114ed7d2226983c4f9470c5dac25" title="Helper for handling WASD Key widget nudging. Returns true if movement occurred, outputting the delta." alt="" coords="5,5,153,33"/>
+<area shape="rect" href="namespaceFUCK.html#a0ca8114ed7d2226983c4f9470c5dac25" title="WASD key widget nudging." alt="" coords="5,5,153,33"/>
 <area shape="poly" title=" " alt="" coords="182,19,153,22,153,17,188,19"/>
 </map>
 </div>
@@ -6597,7 +7024,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespaceFUCK_a0909d847b7909940b4b2070bcaca59ec_icgraph.png" border="0" usemap="#anamespaceFUCK_a0909d847b7909940b4b2070bcaca59ec_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_a0909d847b7909940b4b2070bcaca59ec_icgraph" id="anamespaceFUCK_a0909d847b7909940b4b2070bcaca59ec_icgraph">
 <area shape="rect" title=" " alt="" coords="201,5,352,33"/>
-<area shape="rect" href="namespaceFUCK.html#a0ca8114ed7d2226983c4f9470c5dac25" title="Helper for handling WASD Key widget nudging. Returns true if movement occurred, outputting the delta." alt="" coords="5,5,153,33"/>
+<area shape="rect" href="namespaceFUCK.html#a0ca8114ed7d2226983c4f9470c5dac25" title="WASD key widget nudging." alt="" coords="5,5,153,33"/>
 <area shape="poly" title=" " alt="" coords="183,19,153,22,153,17,188,19"/>
 </map>
 </div>
@@ -6786,7 +7213,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespaceFUCK_aedfde54ff6928bd049e805ea36ebba87_icgraph.png" border="0" usemap="#anamespaceFUCK_aedfde54ff6928bd049e805ea36ebba87_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_aedfde54ff6928bd049e805ea36ebba87_icgraph" id="anamespaceFUCK_aedfde54ff6928bd049e805ea36ebba87_icgraph">
 <area shape="rect" title=" " alt="" coords="201,5,357,33"/>
-<area shape="rect" href="namespaceFUCK.html#a0ca8114ed7d2226983c4f9470c5dac25" title="Helper for handling WASD Key widget nudging. Returns true if movement occurred, outputting the delta." alt="" coords="5,5,153,33"/>
+<area shape="rect" href="namespaceFUCK.html#a0ca8114ed7d2226983c4f9470c5dac25" title="WASD key widget nudging." alt="" coords="5,5,153,33"/>
 <area shape="poly" title=" " alt="" coords="182,19,153,22,153,17,188,19"/>
 </map>
 </div>
@@ -6833,6 +7260,45 @@ Here is the caller graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="245,14,424,42"/>
 <area shape="rect" href="namespaceFUCK.html#a054403ca7b7821c2efed061a4942e046" title="Utility to capture a Table Column&#39;s width ratio upon releasing the mouse. Returns true when the weigh..." alt="" coords="5,5,197,50"/>
 <area shape="poly" title=" " alt="" coords="227,28,197,30,197,25,232,27"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a090b77459152ae5e9a8cd3024682bb58" name="a090b77459152ae5e9a8cd3024682bb58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a090b77459152ae5e9a8cd3024682bb58">&#9670;&#160;</a></span>IsPopupOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FUCK::IsPopupOpen </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>str_id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ab7c78f7b74acba1ad1f755930d6a9ec5">PopupFlags</a></td>          <td class="paramname"><span class="paramname"><em>flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ab7c78f7b74acba1ad1f755930d6a9ec5a35c3ace1970663a16e5c65baa5941b13">PopupFlags::kNone</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a090b77459152ae5e9a8cd3024682bb58_cgraph.png" border="0" usemap="#anamespaceFUCK_a090b77459152ae5e9a8cd3024682bb58_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a090b77459152ae5e9a8cd3024682bb58_cgraph" id="anamespaceFUCK_a090b77459152ae5e9a8cd3024682bb58_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,156,33"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="204,5,350,33"/>
+<area shape="poly" title=" " alt="" coords="156,17,191,19,186,19,156,22"/>
 </map>
 </div>
 
@@ -7443,6 +7909,41 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a72337d8fd1fb6b1bfe187d44aa4c2525" name="a72337d8fd1fb6b1bfe187d44aa4c2525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72337d8fd1fb6b1bfe187d44aa4c2525">&#9670;&#160;</a></span>PopItemWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FUCK::PopItemWidth </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a72337d8fd1fb6b1bfe187d44aa4c2525_cgraph.png" border="0" usemap="#anamespaceFUCK_a72337d8fd1fb6b1bfe187d44aa4c2525_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a72337d8fd1fb6b1bfe187d44aa4c2525_cgraph" id="anamespaceFUCK_a72337d8fd1fb6b1bfe187d44aa4c2525_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,163,33"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="211,5,357,33"/>
+<area shape="poly" title=" " alt="" coords="163,17,198,19,192,19,163,22"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a4f7e1d777dbcfbac0b0f37da22cd7dcd" name="a4f7e1d777dbcfbac0b0f37da22cd7dcd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f7e1d777dbcfbac0b0f37da22cd7dcd">&#9670;&#160;</a></span>PopStyleColor()</h2>
 
@@ -7740,6 +8241,41 @@ Here is the call graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="5,5,160,33"/>
 <area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="208,5,354,33"/>
 <area shape="poly" title=" " alt="" coords="160,17,194,19,189,19,160,22"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7e3fb754cdf412e9caf73b317106d36f" name="a7e3fb754cdf412e9caf73b317106d36f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e3fb754cdf412e9caf73b317106d36f">&#9670;&#160;</a></span>PushItemWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FUCK::PushItemWidth </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>item_width</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a7e3fb754cdf412e9caf73b317106d36f_cgraph.png" border="0" usemap="#anamespaceFUCK_a7e3fb754cdf412e9caf73b317106d36f_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a7e3fb754cdf412e9caf73b317106d36f_cgraph" id="anamespaceFUCK_a7e3fb754cdf412e9caf73b317106d36f_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,170,33"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="218,5,364,33"/>
+<area shape="poly" title=" " alt="" coords="170,17,205,19,200,19,170,22"/>
 </map>
 </div>
 
@@ -8150,13 +8686,17 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceFUCK_ab9ae1980799a7b7a5476f0f690bb7df6_icgraph.png" border="0" usemap="#anamespaceFUCK_ab9ae1980799a7b7a5476f0f690bb7df6_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_ab9ae1980799a7b7a5476f0f690bb7df6_icgraph" id="anamespaceFUCK_ab9ae1980799a7b7a5476f0f690bb7df6_icgraph">
-<area shape="rect" title="Scales by the Monitor Resolution." alt="" coords="239,57,339,85"/>
-<area shape="rect" href="namespaceFUCK.html#af307af39c3cff5636384ee3a167922a1" title="Begins an inset child panel using an inside&#45;out group margin. This prevents native ImGui window paddi..." alt="" coords="8,5,188,33"/>
-<area shape="poly" title=" " alt="" coords="221,55,152,36,152,31,226,53"/>
-<area shape="rect" href="namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Standardized visual for UI widget editing. Handles both Screen&#45;Space and Window&#45;Space rendering." alt="" coords="5,57,191,85"/>
-<area shape="poly" title=" " alt="" coords="220,72,191,74,191,69,226,71"/>
-<area shape="rect" href="namespaceFUCK.html#a073afb1f1cdcdbef3c244ea3bbd82292" title="Closes the panel opened by BeginPanelFrame." alt="" coords="15,109,181,137"/>
-<area shape="poly" title=" " alt="" coords="226,88,152,111,151,106,221,89"/>
+<area shape="rect" title="Scales by the Monitor Resolution." alt="" coords="513,84,613,112"/>
+<area shape="rect" href="namespaceFUCK.html#af307af39c3cff5636384ee3a167922a1" title="Begins an inset child panel using an inside&#45;out group margin. This prevents native ImGui window paddi..." alt="" coords="281,5,460,33"/>
+<area shape="poly" title=" " alt="" coords="523,76,464,48,430,36,430,31,466,43,528,76"/>
+<area shape="rect" href="namespaceFUCK.html#af17f557c7e6bc22d4d23bda2e4f6cf3d" title="Clamps a window or widget position to the screen bounds if it strays too far off&#45;screen." alt="" coords="277,57,465,85"/>
+<area shape="poly" title=" " alt="" coords="495,89,465,87,465,82,500,89"/>
+<area shape="rect" href="namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Visual for UI widget editing. Handles Screen&#45;Space and Window&#45;Space." alt="" coords="278,109,464,137"/>
+<area shape="poly" title=" " alt="" coords="495,107,464,114,464,108,500,106"/>
+<area shape="rect" href="namespaceFUCK.html#a073afb1f1cdcdbef3c244ea3bbd82292" title="Closes the panel opened by BeginPanelFrame." alt="" coords="288,161,454,189"/>
+<area shape="poly" title=" " alt="" coords="527,119,466,151,430,163,429,158,464,146,522,120"/>
+<area shape="rect" href="namespaceFUCK.html#a015639c7f82a3f1582d9825bac32498d" title="Handles first&#45;frame initialization, default loading, and screen clamping for custom&#45;positioned window..." alt="" coords="5,57,229,85"/>
+<area shape="poly" title=" " alt="" coords="258,72,230,74,229,69,264,70"/>
 </map>
 </div>
 
@@ -8357,6 +8897,41 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a07f3ca6b38d70768f265e2e72c22d2da" name="a07f3ca6b38d70768f265e2e72c22d2da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07f3ca6b38d70768f265e2e72c22d2da">&#9670;&#160;</a></span>SeparatorVertical()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FUCK::SeparatorVertical </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a07f3ca6b38d70768f265e2e72c22d2da_cgraph.png" border="0" usemap="#anamespaceFUCK_a07f3ca6b38d70768f265e2e72c22d2da_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a07f3ca6b38d70768f265e2e72c22d2da_cgraph" id="anamespaceFUCK_a07f3ca6b38d70768f265e2e72c22d2da_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,184,33"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="232,5,378,33"/>
+<area shape="poly" title=" " alt="" coords="184,17,219,19,214,19,184,22"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="acfe8c22b301a555fefe6138186278c5a" name="acfe8c22b301a555fefe6138186278c5a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acfe8c22b301a555fefe6138186278c5a">&#9670;&#160;</a></span>SetAutoVanityBlocked()</h2>
 
@@ -8457,20 +9032,6 @@ Here is the call graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="5,5,166,33"/>
 <area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="214,5,360,33"/>
 <area shape="poly" title=" " alt="" coords="166,17,200,19,195,19,166,22"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="namespaceFUCK_aefcabebb5a3331851681b34440590446_icgraph.png" border="0" usemap="#anamespaceFUCK_aefcabebb5a3331851681b34440590446_icgraph" loading="lazy" alt=""/></div>
-<map name="anamespaceFUCK_aefcabebb5a3331851681b34440590446_icgraph" id="anamespaceFUCK_aefcabebb5a3331851681b34440590446_icgraph">
-<area shape="rect" title=" " alt="" coords="202,83,362,111"/>
-<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#adc21b9d491a63e17d2690272ba8d78f0" title=" " alt="" coords="5,5,154,50"/>
-<area shape="poly" title=" " alt="" coords="222,79,147,53,147,48,227,77"/>
-<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#a52d7399f1ae96d33d002c669448e599a" title=" " alt="" coords="5,75,154,119"/>
-<area shape="poly" title=" " alt="" coords="183,98,155,100,154,94,189,96"/>
-<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#a4f213a75fefb1a91bb02c848755eba54" title=" " alt="" coords="5,144,154,189"/>
-<area shape="poly" title=" " alt="" coords="227,116,148,146,146,141,222,117"/>
 </map>
 </div>
 
@@ -8927,6 +9488,41 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a4e32c7f0d0382ce27d7661685f4d5b93" name="a4e32c7f0d0382ce27d7661685f4d5b93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e32c7f0d0382ce27d7661685f4d5b93">&#9670;&#160;</a></span>SetScrollHereY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FUCK::SetScrollHereY </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>center_y_ratio</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.5f</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceFUCK_a4e32c7f0d0382ce27d7661685f4d5b93_cgraph.png" border="0" usemap="#anamespaceFUCK_a4e32c7f0d0382ce27d7661685f4d5b93_cgraph" loading="lazy" alt=""/></div>
+<map name="anamespaceFUCK_a4e32c7f0d0382ce27d7661685f4d5b93_cgraph" id="anamespaceFUCK_a4e32c7f0d0382ce27d7661685f4d5b93_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,167,33"/>
+<area shape="rect" href="namespaceFUCK.html#a8dd7325b5fe560e5a59d17952ccf106f" title=" " alt="" coords="215,5,361,33"/>
+<area shape="poly" title=" " alt="" coords="167,17,202,19,196,19,167,22"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="ae2b7d8994f5510870adb04908c205b77" name="ae2b7d8994f5510870adb04908c205b77"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae2b7d8994f5510870adb04908c205b77">&#9670;&#160;</a></span>SetSoftPause()</h2>
 
@@ -8999,17 +9595,15 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceFUCK_a655814a701b516c9bb86f0a1c422f847_icgraph.png" border="0" usemap="#anamespaceFUCK_a655814a701b516c9bb86f0a1c422f847_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_a655814a701b516c9bb86f0a1c422f847_icgraph" id="anamespaceFUCK_a655814a701b516c9bb86f0a1c422f847_icgraph">
-<area shape="rect" title=" " alt="" coords="202,152,331,180"/>
+<area shape="rect" title=" " alt="" coords="202,118,331,146"/>
 <area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#a4270778b8cc55e1b5426767051730ff1" title=" " alt="" coords="5,5,154,50"/>
-<area shape="poly" title=" " alt="" coords="240,142,201,104,152,65,135,53,133,48,155,60,205,100,245,141"/>
+<area shape="poly" title=" " alt="" coords="229,110,152,65,131,53,131,48,155,60,234,108"/>
 <area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#a6e6c2846c3949d6b3126bfbd8e41b64b" title=" " alt="" coords="5,75,154,119"/>
-<area shape="poly" title=" " alt="" coords="211,148,142,123,142,117,215,146"/>
-<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#affdab56665d97305dde29ec05e69ad61" title=" " alt="" coords="5,144,154,189"/>
-<area shape="poly" title=" " alt="" coords="183,168,155,169,153,164,188,165"/>
-<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#a2b07c45c247d12b077a630c1e336bc0b" title=" " alt="" coords="5,213,154,258"/>
-<area shape="poly" title=" " alt="" coords="211,188,143,215,141,210,215,184"/>
-<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#ad2816ada65d7327159479f464a90d095" title=" " alt="" coords="5,283,154,327"/>
-<area shape="poly" title=" " alt="" coords="245,190,205,233,155,273,135,284,133,280,152,268,201,229,240,193"/>
+<area shape="poly" title=" " alt="" coords="184,118,155,113,154,108,189,116"/>
+<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#ad9c2bcc7829d91611411cc72359f831f" title=" " alt="" coords="5,144,154,189"/>
+<area shape="poly" title=" " alt="" coords="184,148,155,155,153,150,189,145"/>
+<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#ade218b8ce18f646e792954f9bb529776" title=" " alt="" coords="5,213,154,258"/>
+<area shape="poly" title=" " alt="" coords="234,153,155,203,132,215,130,210,152,199,229,155"/>
 </map>
 </div>
 
@@ -9184,11 +9778,9 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceFUCK_a3f337d8eb4c508eebcda849c51639436_icgraph.png" border="0" usemap="#anamespaceFUCK_a3f337d8eb4c508eebcda849c51639436_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_a3f337d8eb4c508eebcda849c51639436_icgraph" id="anamespaceFUCK_a3f337d8eb4c508eebcda849c51639436_icgraph">
-<area shape="rect" title=" " alt="" coords="202,48,337,76"/>
-<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#affdab56665d97305dde29ec05e69ad61" title=" " alt="" coords="5,5,154,50"/>
-<area shape="poly" title=" " alt="" coords="184,48,154,44,154,39,189,47"/>
-<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#a2b07c45c247d12b077a630c1e336bc0b" title=" " alt="" coords="5,75,154,119"/>
-<area shape="poly" title=" " alt="" coords="184,78,155,86,154,81,189,77"/>
+<area shape="rect" title=" " alt="" coords="202,14,337,42"/>
+<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#ad9c2bcc7829d91611411cc72359f831f" title=" " alt="" coords="5,5,154,50"/>
+<area shape="poly" title=" " alt="" coords="184,28,154,30,154,25,189,27"/>
 </map>
 </div>
 
@@ -9251,7 +9843,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespaceFUCK_a1d71f8b9d5f942ce74ed0d1645c0a468_icgraph.png" border="0" usemap="#anamespaceFUCK_a1d71f8b9d5f942ce74ed0d1645c0a468_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_a1d71f8b9d5f942ce74ed0d1645c0a468_icgraph" id="anamespaceFUCK_a1d71f8b9d5f942ce74ed0d1645c0a468_icgraph">
 <area shape="rect" title=" " alt="" coords="202,14,321,42"/>
-<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#ad2816ada65d7327159479f464a90d095" title=" " alt="" coords="5,5,154,50"/>
+<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#ade218b8ce18f646e792954f9bb529776" title=" " alt="" coords="5,5,154,50"/>
 <area shape="poly" title=" " alt="" coords="183,28,154,30,154,25,189,27"/>
 </map>
 </div>
@@ -9479,7 +10071,7 @@ template&lt;size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Safe string copy utility preventing buffer overruns. </p>
+<p>String copy utility. </p>
 
 </div>
 </div>
@@ -10419,9 +11011,15 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceFUCK_a2384c59bbc41534fe0b36bbd1a3232a3_icgraph.png" border="0" usemap="#anamespaceFUCK_a2384c59bbc41534fe0b36bbd1a3232a3_icgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_a2384c59bbc41534fe0b36bbd1a3232a3_icgraph" id="anamespaceFUCK_a2384c59bbc41534fe0b36bbd1a3232a3_icgraph">
-<area shape="rect" title=" " alt="" coords="220,5,344,33"/>
+<area shape="rect" title=" " alt="" coords="220,100,344,128"/>
 <area shape="rect" href="namespaceFUCK.html#a073afb1f1cdcdbef3c244ea3bbd82292" title="Closes the panel opened by BeginPanelFrame." alt="" coords="5,5,172,33"/>
-<area shape="poly" title=" " alt="" coords="201,19,172,22,172,17,207,19"/>
+<area shape="poly" title=" " alt="" coords="247,91,212,69,171,47,144,36,143,31,173,42,214,65,252,90"/>
+<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#adc21b9d491a63e17d2690272ba8d78f0" title=" " alt="" coords="14,57,163,102"/>
+<area shape="poly" title=" " alt="" coords="202,101,164,95,163,90,207,99"/>
+<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#a52d7399f1ae96d33d002c669448e599a" title=" " alt="" coords="14,126,163,171"/>
+<area shape="poly" title=" " alt="" coords="202,129,164,138,162,133,207,127"/>
+<area shape="rect" href="structStyyxUtil_1_1FUCKUtil.html#a4f213a75fefb1a91bb02c848755eba54" title=" " alt="" coords="14,196,163,240"/>
+<area shape="poly" title=" " alt="" coords="251,136,173,186,148,197,146,193,170,181,246,137"/>
 </map>
 </div>
 
@@ -10638,13 +11236,13 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Helper for handling WASD Key widget nudging. Returns true if movement occurred, outputting the delta. </p>
+<p>WASD key widget nudging. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespaceFUCK_a0ca8114ed7d2226983c4f9470c5dac25_cgraph.png" border="0" usemap="#anamespaceFUCK_a0ca8114ed7d2226983c4f9470c5dac25_cgraph" loading="lazy" alt=""/></div>
 <map name="anamespaceFUCK_a0ca8114ed7d2226983c4f9470c5dac25_cgraph" id="anamespaceFUCK_a0ca8114ed7d2226983c4f9470c5dac25_cgraph">
-<area shape="rect" title="Helper for handling WASD Key widget nudging. Returns true if movement occurred, outputting the delta." alt="" coords="5,84,153,112"/>
+<area shape="rect" title="WASD key widget nudging." alt="" coords="5,84,153,112"/>
 <area shape="rect" href="namespaceFUCK.html#a3310fb15e008cdfe514d00206011863c" title="Gets the physical screen resolution scale multiplier (Base 1080p)." alt="" coords="201,5,393,33"/>
 <area shape="poly" title=" " alt="" coords="109,81,200,43,227,37,222,39,202,48,112,86"/>
 <area shape="rect" href="namespaceFUCK.html#a9cd667f77120c630b34b87983c994f38" title=" " alt="" coords="228,57,366,85"/>

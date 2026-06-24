@@ -21,6 +21,5 @@ var namespaceStyyxUtil =
     [ "RefUtil", "structStyyxUtil_1_1RefUtil.html", "structStyyxUtil_1_1RefUtil" ],
     [ "SoundUtil", "structStyyxUtil_1_1SoundUtil.html", "structStyyxUtil_1_1SoundUtil" ],
     [ "TimerUtil", "structStyyxUtil_1_1TimerUtil.html", "structStyyxUtil_1_1TimerUtil" ],
-    [ "UIUtil", "structStyyxUtil_1_1UIUtil.html", "structStyyxUtil_1_1UIUtil" ],
     [ "FuncCall", "namespaceStyyxUtil.html#a6d4abac0c2057e29acb089186749ac71", null ]
 ];

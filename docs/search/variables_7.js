@@ -39,5 +39,5 @@ var searchData=
   ['gkey_36',['gKey',['../structFUCK_1_1ManagedHotkey.html#a9b9168942147f4d9d50e9cdbe341a266',1,'FUCK::ManagedHotkey']]],
   ['gmod1_37',['gMod1',['../structFUCK_1_1ManagedHotkey.html#afe54e341610522583e5e37e172c86344',1,'FUCK::ManagedHotkey']]],
   ['gmod2_38',['gMod2',['../structFUCK_1_1ManagedHotkey.html#a8b03756213269c670dc8b50e147f4706',1,'FUCK::ManagedHotkey']]],
-  ['green_39',['GREEN',['../structStyyxUtil_1_1FUCKUtil.html#ae1f70c74d8d1abd06012db85cf445363',1,'StyyxUtil::FUCKUtil::GREEN'],['../structStyyxUtil_1_1UIUtil.html#af4030e40a1a67011ee489f6acff2ce4f',1,'StyyxUtil::UIUtil::GREEN']]]
+  ['green_39',['GREEN',['../structStyyxUtil_1_1FUCKUtil.html#ae1f70c74d8d1abd06012db85cf445363',1,'StyyxUtil::FUCKUtil']]]
 ];

@@ -1,8 +1,8 @@
 var searchData=
 [
   ['randomiserutil_0',['RandomiserUtil',['../structStyyxUtil_1_1RandomiserUtil.html',1,'StyyxUtil']]],
-  ['red_1',['RED',['../structStyyxUtil_1_1FUCKUtil.html#a228771bd9b354a7cc0b4b6892e602eba',1,'StyyxUtil::FUCKUtil::RED'],['../structStyyxUtil_1_1UIUtil.html#a33a57dae5ca1eb83e80a59d6d468f6a5',1,'StyyxUtil::UIUtil::RED']]],
-  ['redtitletext_2',['RedTitleText',['../structStyyxUtil_1_1FUCKUtil.html#a4f213a75fefb1a91bb02c848755eba54',1,'StyyxUtil::FUCKUtil::RedTitleText()'],['../structStyyxUtil_1_1UIUtil.html#a203b507c43af7d150990ee39396a24a8',1,'StyyxUtil::UIUtil::RedTitleText()']]],
+  ['red_1',['RED',['../structStyyxUtil_1_1FUCKUtil.html#a228771bd9b354a7cc0b4b6892e602eba',1,'StyyxUtil::FUCKUtil']]],
+  ['redtitletext_2',['RedTitleText',['../structStyyxUtil_1_1FUCKUtil.html#a4f213a75fefb1a91bb02c848755eba54',1,'StyyxUtil::FUCKUtil']]],
   ['refutil_3',['RefUtil',['../structStyyxUtil_1_1RefUtil.html',1,'StyyxUtil']]],
   ['registertool_4',['RegisterTool',['../structFUCK__Interface.html#a2cd29a02e5380c7d97eb1c30261e243c',1,'FUCK_Interface::RegisterTool'],['../namespaceFUCK.html#a3502be31d4972909e86e476a63553f51',1,'FUCK::RegisterTool()']]],
   ['registerwindow_5',['RegisterWindow',['../structFUCK__Interface.html#ac2c5f269e8cab67c79c11d47f689f345',1,'FUCK_Interface::RegisterWindow'],['../namespaceFUCK.html#a3e82bc82f198c1e7940d2d4fb03c9d04',1,'FUCK::RegisterWindow()']]],

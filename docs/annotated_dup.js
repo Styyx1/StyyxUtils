@@ -26,8 +26,7 @@ var annotated_dup =
       [ "RandomiserUtil", "structStyyxUtil_1_1RandomiserUtil.html", "structStyyxUtil_1_1RandomiserUtil" ],
       [ "RefUtil", "structStyyxUtil_1_1RefUtil.html", "structStyyxUtil_1_1RefUtil" ],
       [ "SoundUtil", "structStyyxUtil_1_1SoundUtil.html", "structStyyxUtil_1_1SoundUtil" ],
-      [ "TimerUtil", "structStyyxUtil_1_1TimerUtil.html", "structStyyxUtil_1_1TimerUtil" ],
-      [ "UIUtil", "structStyyxUtil_1_1UIUtil.html", "structStyyxUtil_1_1UIUtil" ]
+      [ "TimerUtil", "structStyyxUtil_1_1TimerUtil.html", "structStyyxUtil_1_1TimerUtil" ]
     ] ],
     [ "FUCK_Interface", "structFUCK__Interface.html", "structFUCK__Interface" ]
 ];

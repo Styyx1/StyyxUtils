@@ -10,8 +10,9 @@ var searchData=
   ['begintabbar_7',['BeginTabBar',['../structFUCK__Interface.html#ac8a9b1c2e2f0f5cb314f1c300a66b757',1,'FUCK_Interface::BeginTabBar'],['../namespaceFUCK.html#ab67c4e48f0eccdbcc39d9c359bf6e1ba',1,'FUCK::BeginTabBar()']]],
   ['begintabitem_8',['BeginTabItem',['../structFUCK__Interface.html#af51a25b4d485b4c1b7db0426a8463341',1,'FUCK_Interface::BeginTabItem'],['../namespaceFUCK.html#a09c90efd159b3eaedc7163a8d15977a2',1,'FUCK::BeginTabItem()']]],
   ['begintable_9',['BeginTable',['../structFUCK__Interface.html#a676f420f933d1ae892f5f08d1cdba6ac',1,'FUCK_Interface::BeginTable'],['../namespaceFUCK.html#a2026cfa8e7ece4e453c841ed52879f23',1,'FUCK::BeginTable()']]],
-  ['beginwindow_10',['BeginWindow',['../structFUCK__Interface.html#a828e98f48366dbb39885e6a498b77cae',1,'FUCK_Interface::BeginWindow'],['../namespaceFUCK.html#a1153574064a57913dce72d95490be6e8',1,'FUCK::BeginWindow(const char *name, bool *p_open=nullptr, int flags=0)']]],
-  ['bindresult_11',['BindResult',['../namespaceFUCK.html#aa936791e7a0916378d2f926b5b3d7319',1,'FUCK']]],
-  ['button_12',['Button',['../structFUCK__Interface.html#a038573f6960d5293ecdb54500df966b3',1,'FUCK_Interface::Button'],['../namespaceFUCK.html#a7c7a53870d3885c30cbf48ad19ea22af',1,'FUCK::Button()']]],
-  ['buttoniconwithlabel_13',['ButtonIconWithLabel',['../structFUCK__Interface.html#ab97616483c210fe25ce7bfd40037092a',1,'FUCK_Interface::ButtonIconWithLabel'],['../namespaceFUCK.html#aef51ce47991156c9d9524274ced31d0c',1,'FUCK::ButtonIconWithLabel()']]]
+  ['begintooltip_10',['BeginTooltip',['../structFUCK__Interface.html#a8587e15967fc137e213da464c55b9c61',1,'FUCK_Interface::BeginTooltip'],['../namespaceFUCK.html#a2c4bd6fe18387e003523204ca9ab0a57',1,'FUCK::BeginTooltip()']]],
+  ['beginwindow_11',['BeginWindow',['../structFUCK__Interface.html#a828e98f48366dbb39885e6a498b77cae',1,'FUCK_Interface::BeginWindow'],['../namespaceFUCK.html#a1153574064a57913dce72d95490be6e8',1,'FUCK::BeginWindow(const char *name, bool *p_open=nullptr, int flags=0)']]],
+  ['bindresult_12',['BindResult',['../namespaceFUCK.html#aa936791e7a0916378d2f926b5b3d7319',1,'FUCK']]],
+  ['button_13',['Button',['../structFUCK__Interface.html#a038573f6960d5293ecdb54500df966b3',1,'FUCK_Interface::Button'],['../namespaceFUCK.html#a7c7a53870d3885c30cbf48ad19ea22af',1,'FUCK::Button()']]],
+  ['buttoniconwithlabel_14',['ButtonIconWithLabel',['../structFUCK__Interface.html#ab97616483c210fe25ce7bfd40037092a',1,'FUCK_Interface::ButtonIconWithLabel'],['../namespaceFUCK.html#aef51ce47991156c9d9524274ced31d0c',1,'FUCK::ButtonIconWithLabel()']]]
 ];

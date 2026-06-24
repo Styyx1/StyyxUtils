@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['redtitletext_0',['RedTitleText',['../structStyyxUtil_1_1FUCKUtil.html#a4f213a75fefb1a91bb02c848755eba54',1,'StyyxUtil::FUCKUtil::RedTitleText()'],['../structStyyxUtil_1_1UIUtil.html#a203b507c43af7d150990ee39396a24a8',1,'StyyxUtil::UIUtil::RedTitleText()']]],
+  ['redtitletext_0',['RedTitleText',['../structStyyxUtil_1_1FUCKUtil.html#a4f213a75fefb1a91bb02c848755eba54',1,'StyyxUtil::FUCKUtil']]],
   ['registertool_1',['RegisterTool',['../namespaceFUCK.html#a3502be31d4972909e86e476a63553f51',1,'FUCK']]],
   ['registerwindow_2',['RegisterWindow',['../namespaceFUCK.html#a3e82bc82f198c1e7940d2d4fb03c9d04',1,'FUCK']]],
   ['remainingseconds_3',['RemainingSeconds',['../structStyyxUtil_1_1TimerUtil.html#a20d73dbe1b1f3ddfb043aa05c590467e',1,'StyyxUtil::TimerUtil']]],

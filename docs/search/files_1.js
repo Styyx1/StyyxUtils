@@ -16,6 +16,5 @@ var searchData=
   ['st_2drefs_2eh_13',['st-refs.h',['../st-refs_8h.html',1,'']]],
   ['st_2dsounds_2eh_14',['st-sounds.h',['../st-sounds_8h.html',1,'']]],
   ['st_2dtimer_2eh_15',['st-timer.h',['../st-timer_8h.html',1,'']]],
-  ['st_2dui_2eh_16',['st-ui.h',['../st-ui_8h.html',1,'']]],
-  ['styyx_2dutils_2eh_17',['styyx-utils.h',['../styyx-utils_8h.html',1,'']]]
+  ['styyx_2dutils_2eh_16',['styyx-utils.h',['../styyx-utils_8h.html',1,'']]]
 ];

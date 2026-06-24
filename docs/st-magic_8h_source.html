@@ -145,44 +145,44 @@ $(function(){initNavTree('st-magic_8h_source.html','',''); });
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
 </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
-<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structStyyxUtil_1_1MagicUtil.html#a6e2f2ebf42af51722656648562d749c3">   60</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structStyyxUtil_1_1MagicUtil.html#a6e2f2ebf42af51722656648562d749c3">IsPermanent</a>(RE::MagicItem* item)</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">switch</span> (item-&gt;GetSpellType())</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        {</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">case</span> RE::MagicSystem::SpellType::kDisease:</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keywordflow">case</span> RE::MagicSystem::SpellType::kAbility:</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keywordflow">case</span> RE::MagicSystem::SpellType::kAddiction:</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structStyyxUtil_1_1MagicUtil.html#a6e2f2ebf42af51722656648562d749c3">   61</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="structStyyxUtil_1_1MagicUtil.html#a6e2f2ebf42af51722656648562d749c3">IsPermanent</a>(RE::MagicItem* item)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">switch</span> (item-&gt;GetSpellType())</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keywordflow">case</span> RE::MagicSystem::SpellType::kDisease:</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keywordflow">case</span> RE::MagicSystem::SpellType::kAbility:</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">case</span> RE::MagicSystem::SpellType::kAddiction:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
 </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
-<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="structStyyxUtil_1_1MagicUtil.html#af2988f01d5cb5334b89e8259ca95c30e">   78</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structStyyxUtil_1_1MagicUtil.html#af2988f01d5cb5334b89e8259ca95c30e">ApplySpell</a>(RE::Actor* caster, RE::Actor* target, RE::SpellItem* spell)</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="structStyyxUtil_1_1MagicUtil.html#a6e2f2ebf42af51722656648562d749c3">IsPermanent</a>(spell))</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            target-&gt;AddSpell(spell);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        }</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            caster-&gt;GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                -&gt;CastSpellImmediate(spell, <span class="keyword">false</span>, target, 1.0F, <span class="keyword">false</span>, 0.0F, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        }</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="structStyyxUtil_1_1MagicUtil.html#af2988f01d5cb5334b89e8259ca95c30e">   79</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structStyyxUtil_1_1MagicUtil.html#af2988f01d5cb5334b89e8259ca95c30e">ApplySpell</a>(RE::Actor* caster, RE::Actor* target, RE::SpellItem* spell)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="structStyyxUtil_1_1MagicUtil.html#a6e2f2ebf42af51722656648562d749c3">IsPermanent</a>(spell))</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            target-&gt;AddSpell(spell);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            caster-&gt;GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                -&gt;CastSpellImmediate(spell, <span class="keyword">false</span>, target, 1.0F, <span class="keyword">false</span>, 0.0F, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
 </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>};</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>};</div>
 </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>} <span class="comment">// namespace StyyxUtil</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>} <span class="comment">// namespace StyyxUtil</span></div>
 <div class="ttc" id="anamespaceStyyxUtil_html"><div class="ttname"><a href="namespaceStyyxUtil.html">StyyxUtil</a></div><div class="ttdef"><b>Definition</b> st-actor.h:7</div></div>
 <div class="ttc" id="astructStyyxUtil_1_1MagicUtil_html"><div class="ttname"><a href="structStyyxUtil_1_1MagicUtil.html">StyyxUtil::MagicUtil</a></div><div class="ttdef"><b>Definition</b> st-magic.h:6</div></div>
-<div class="ttc" id="astructStyyxUtil_1_1MagicUtil_html_a6e2f2ebf42af51722656648562d749c3"><div class="ttname"><a href="structStyyxUtil_1_1MagicUtil.html#a6e2f2ebf42af51722656648562d749c3">StyyxUtil::MagicUtil::IsPermanent</a></div><div class="ttdeci">static bool IsPermanent(RE::MagicItem *item)</div><div class="ttdoc">Check if a magic item is permanent.</div><div class="ttdef"><b>Definition</b> st-magic.h:60</div></div>
+<div class="ttc" id="astructStyyxUtil_1_1MagicUtil_html_a6e2f2ebf42af51722656648562d749c3"><div class="ttname"><a href="structStyyxUtil_1_1MagicUtil.html#a6e2f2ebf42af51722656648562d749c3">StyyxUtil::MagicUtil::IsPermanent</a></div><div class="ttdeci">static bool IsPermanent(RE::MagicItem *item)</div><div class="ttdoc">Check if a magic item is permanent.</div><div class="ttdef"><b>Definition</b> st-magic.h:61</div></div>
 <div class="ttc" id="astructStyyxUtil_1_1MagicUtil_html_a9905f2cc6f95fd529f535e1f0ede0419"><div class="ttname"><a href="structStyyxUtil_1_1MagicUtil.html#a9905f2cc6f95fd529f535e1f0ede0419">StyyxUtil::MagicUtil::IsSpellPlayable</a></div><div class="ttdeci">static bool IsSpellPlayable(const RE::MagicItem *spell)</div><div class="ttdoc">Check if a spell is playable, as in, able to be cast.</div><div class="ttdef"><b>Definition</b> st-magic.h:20</div></div>
 <div class="ttc" id="astructStyyxUtil_1_1MagicUtil_html_acb28ed1dfc570a392c60fe1822e33975"><div class="ttname"><a href="structStyyxUtil_1_1MagicUtil.html#acb28ed1dfc570a392c60fe1822e33975">StyyxUtil::MagicUtil::IsSelfTargetSpell</a></div><div class="ttdeci">static bool IsSelfTargetSpell(RE::MagicItem *a_spell)</div><div class="ttdoc">Check if spell is self targeting.</div><div class="ttdef"><b>Definition</b> st-magic.h:10</div></div>
-<div class="ttc" id="astructStyyxUtil_1_1MagicUtil_html_af2988f01d5cb5334b89e8259ca95c30e"><div class="ttname"><a href="structStyyxUtil_1_1MagicUtil.html#af2988f01d5cb5334b89e8259ca95c30e">StyyxUtil::MagicUtil::ApplySpell</a></div><div class="ttdeci">static void ApplySpell(RE::Actor *caster, RE::Actor *target, RE::SpellItem *spell)</div><div class="ttdoc">Casts Spell from caster to actor. If the spell is permanent (MagicUtil::IsPermanent) it adds the spel...</div><div class="ttdef"><b>Definition</b> st-magic.h:78</div></div>
+<div class="ttc" id="astructStyyxUtil_1_1MagicUtil_html_af2988f01d5cb5334b89e8259ca95c30e"><div class="ttname"><a href="structStyyxUtil_1_1MagicUtil.html#af2988f01d5cb5334b89e8259ca95c30e">StyyxUtil::MagicUtil::ApplySpell</a></div><div class="ttdeci">static void ApplySpell(RE::Actor *caster, RE::Actor *target, RE::SpellItem *spell)</div><div class="ttdoc">Casts Spell from caster to actor. If the spell is permanent (MagicUtil::IsPermanent) it adds the spel...</div><div class="ttdef"><b>Definition</b> st-magic.h:79</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

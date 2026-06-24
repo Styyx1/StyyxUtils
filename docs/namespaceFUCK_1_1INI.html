@@ -93,7 +93,7 @@ $(function(){initNavTree('namespaceFUCK_1_1INI.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Helper functions for delta saving/loading <a class="el" href="namespaceFUCK_1_1INI.html" title="Helper functions for delta saving/loading INI values with automatic default value handling.">INI</a> values with automatic default value handling.  
+<p>Delta save/load <a class="el" href="namespaceFUCK_1_1INI.html" title="Delta save/load INI values.">INI</a> values.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
@@ -102,18 +102,16 @@ Functions</h2></td></tr>
 <tr class="memitem:a32c97b8d3c87448d8f459ad6ea474792" id="r_a32c97b8d3c87448d8f459ad6ea474792"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a32c97b8d3c87448d8f459ad6ea474792">LoadFloat</a> (const CSimpleIniA &amp;ini, const char *sec, const char *key, float defVal)</td></tr>
 <tr class="memitem:acbfdf8e633e9c7777ef419bb29aab953" id="r_acbfdf8e633e9c7777ef419bb29aab953"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:acbfdf8e633e9c7777ef419bb29aab953 template"><td class="memItemLeft">T&#160;</td><td class="memItemRight"><a class="el" href="#acbfdf8e633e9c7777ef419bb29aab953">LoadInt</a> (const CSimpleIniA &amp;ini, const char *sec, const char *key, T defVal)</td></tr>
-<tr class="memdesc:acbfdf8e633e9c7777ef419bb29aab953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically handles mixed ints.  <br /></td></tr>
 <tr class="memitem:ae7455d25e7174cb0bf9adb25f5d723cc" id="r_ae7455d25e7174cb0bf9adb25f5d723cc"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae7455d25e7174cb0bf9adb25f5d723cc">SaveBool</a> (CSimpleIniA &amp;ini, const char *sec, const char *key, bool val, bool defVal)</td></tr>
 <tr class="memitem:a766d4036b9f4d26d82b20e8ec4886c70" id="r_a766d4036b9f4d26d82b20e8ec4886c70"><td class="memTemplParams" colspan="2">template&lt;typename T, typename U&gt; </td></tr>
 <tr class="memitem:a766d4036b9f4d26d82b20e8ec4886c70 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a766d4036b9f4d26d82b20e8ec4886c70">SaveInt</a> (CSimpleIniA &amp;ini, const char *sec, const char *key, T val, U defVal)</td></tr>
-<tr class="memdesc:a766d4036b9f4d26d82b20e8ec4886c70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically handles mixed ints.  <br /></td></tr>
 <tr class="memitem:a391cd6d3e5cd2df0760e729215ecbeb3" id="r_a391cd6d3e5cd2df0760e729215ecbeb3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a391cd6d3e5cd2df0760e729215ecbeb3">SaveDouble</a> (CSimpleIniA &amp;ini, const char *sec, const char *key, double val, double defVal, const char *fmt=&quot;%.2f&quot;)</td></tr>
 <tr class="memitem:a75f77c8f2051cb8819a0c6d99550913b" id="r_a75f77c8f2051cb8819a0c6d99550913b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a75f77c8f2051cb8819a0c6d99550913b">SaveString</a> (CSimpleIniA &amp;ini, const char *sec, const char *key, const char *val, const char *defVal)</td></tr>
 <tr class="memitem:a4dce430ea5b500ec5e8feac86cbe38c7" id="r_a4dce430ea5b500ec5e8feac86cbe38c7"><td class="memTemplParams" colspan="2">template&lt;size_t N&gt; </td></tr>
 <tr class="memitem:a4dce430ea5b500ec5e8feac86cbe38c7 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4dce430ea5b500ec5e8feac86cbe38c7">LoadString</a> (const CSimpleIniA &amp;ini, const char *sec, const char *key, char(&amp;dest)[N], const char *defVal)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Helper functions for delta saving/loading <a class="el" href="namespaceFUCK_1_1INI.html" title="Helper functions for delta saving/loading INI values with automatic default value handling.">INI</a> values with automatic default value handling. </p>
+<div class="textblock"><p>Delta save/load <a class="el" href="namespaceFUCK_1_1INI.html" title="Delta save/load INI values.">INI</a> values. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a75044d83065aaff8c411d39e9206103f" name="a75044d83065aaff8c411d39e9206103f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a75044d83065aaff8c411d39e9206103f">&#9670;&#160;</a></span>LoadBool()</h2>
@@ -231,8 +229,6 @@ template&lt;typename T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Automatically handles mixed ints. </p>
 
 </div>
 </div>
@@ -418,8 +414,6 @@ template&lt;typename T, typename U&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Automatically handles mixed ints. </p>
 
 </div>
 </div>

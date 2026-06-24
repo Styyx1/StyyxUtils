@@ -114,8 +114,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a44b9b0dea43d50bc6581faa56202089e" id="r_a44b9b0dea43d50bc6581faa56202089e"><td class="memItemLeft">virtual <a class="el" href="namespaceFUCK.html#a5f2531d360836f386d74ba81e79ce4b9">WindowFlags</a>&#160;</td><td class="memItemRight"><a class="el" href="#a44b9b0dea43d50bc6581faa56202089e">GetFlags</a> () const</td></tr>
 <tr class="memitem:a73cc5c0ab0d899d6bb57c698310e2f64" id="r_a73cc5c0ab0d899d6bb57c698310e2f64"><td class="memItemLeft">virtual ImVec2&#160;</td><td class="memItemRight"><a class="el" href="#a73cc5c0ab0d899d6bb57c698310e2f64">GetDefaultSize</a> () const</td></tr>
 <tr class="memitem:aa15854f42eb32fa6f067440f8cecb3ec" id="r_aa15854f42eb32fa6f067440f8cecb3ec"><td class="memItemLeft">virtual ImVec2&#160;</td><td class="memItemRight"><a class="el" href="#aa15854f42eb32fa6f067440f8cecb3ec">GetDefaultPos</a> () const</td></tr>
-<tr class="memitem:a749046e64a7efcf175128fb9fbd1b39d" id="r_a749046e64a7efcf175128fb9fbd1b39d"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a749046e64a7efcf175128fb9fbd1b39d">GetRequestedPos</a> (ImVec2 &amp;)</td></tr>
-<tr class="memdesc:a749046e64a7efcf175128fb9fbd1b39d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intercept the position resolution to enforce a strictly calculated anchor position.  <br /></td></tr>
 <tr class="memitem:a644728fb86e4e7f8e376446dbf6b9182" id="r_a644728fb86e4e7f8e376446dbf6b9182"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a644728fb86e4e7f8e376446dbf6b9182">OnAsyncInput</a> (const void *)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
@@ -244,34 +242,6 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a749046e64a7efcf175128fb9fbd1b39d" name="a749046e64a7efcf175128fb9fbd1b39d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a749046e64a7efcf175128fb9fbd1b39d">&#9670;&#160;</a></span>GetRequestedPos()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool FUCK::IWindow::GetRequestedPos </td>
-          <td>(</td>
-          <td class="paramtype">ImVec2 &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Intercept the position resolution to enforce a strictly calculated anchor position. </p>
-<dl class="section note"><dt>Note</dt><dd>Only implement this if you are actively overriding standard screen dragging (e.g. anchoring to a HUD element). </dd></dl>
 
 </div>
 </div>
