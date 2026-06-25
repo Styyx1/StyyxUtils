@@ -336,7 +336,7 @@ struct ActorUtil
     static float GetMaxStamina(RE::Actor* actor)
     {
 
-        if (!a_actor)
+        if (!actor)
         {
             return 0.f;
         }
@@ -351,7 +351,7 @@ struct ActorUtil
     static float GetMaxMagicka(RE::Actor* actor)
     {
 
-        if (!a_actor)
+        if (!actor)
         {
             return 0.f;
         }
