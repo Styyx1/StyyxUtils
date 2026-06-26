@@ -15,21 +15,21 @@ struct FUCKUtil
     {
         FUCK::Indent(indent);
         FUCK::TextColored(color, text.c_str());
-        FUCK::Unindent();
+        FUCK::Unindent(indent);
     }
 
     static void GreenTitleText(const std::string& text, float indent = 75.f)
     {
         FUCK::Indent(indent);
         FUCK::TextColored(GREEN, text.c_str());
-        FUCK::Unindent();
+        FUCK::Unindent(indent);
     }
 
     static void RedTitleText(const std::string& text, float indent = 75.f)
     {
         FUCK::Indent(indent);
         FUCK::TextColored(RED, text.c_str());
-        FUCK::Unindent();
+        FUCK::Unindent(indent);
     }
 
     template <class T>
