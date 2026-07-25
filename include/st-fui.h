@@ -35,6 +35,7 @@ struct FUCKUtil
     template <class T>
     static bool Checkbox(const char* label, T& value, auto& configEntry, const char* help = nullptr)
     {
+
         if (FUCK::Checkbox(label, &value))
         {
             configEntry.SetValue(value);
@@ -78,6 +79,46 @@ struct FUCKUtil
         }
         return false;
     }
+
+    template <typename T>
+    static bool FEnumStepper(const char* label, T* current_val, const std::vector<std::string>& items,
+                             auto& configEntry, const char* help = nullptr, int first = 0, bool a_translate = true)
+    {
+        if (items.empty())
+            return false;
+
+        int idx = static_cast<int>(*current_val);
+        if (idx < first)
+            idx = first;
+        if (idx >= static_cast<int>(items.size()))
+            idx = static_cast<int>(items.size()) - 1;
+
+        bool l = false, r = false;
+
+        const char* displayText = a_translate ? FUCK::Translate(items[idx].c_str()) : items[idx].c_str();
+
+        FUCK::Stepper(label, displayText, &l, &r);
+
+        if (l)
+        {
+            *current_val = static_cast<T>((idx - 1 + static_cast<int>(items.size())) % static_cast<int>(items.size()));
+            configEntry.SetValue(*current_val);
+            return true;
+        }
+        if (r)
+        {
+            *current_val = static_cast<T>((idx + 1) % static_cast<int>(items.size()));
+            configEntry.SetValue(*current_val);
+
+            return true;
+        }
+        if (help)
+        {
+            FUCK::SetTooltip(help);
+        }
+        return false;
+    }
+
 
     static bool InputText(const char* label, char* buffer, size_t size, std::string& value, auto& configEntry,
                           const char* help = nullptr)
