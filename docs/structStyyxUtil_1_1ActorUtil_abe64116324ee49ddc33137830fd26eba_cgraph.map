@@ -1,0 +1,9 @@
+<map id="StyyxUtil::ActorUtil::FullyHealActor" name="StyyxUtil::ActorUtil::FullyHealActor">
+<area shape="rect" id="Node000001" title="Fully heals all 3 attributes of an actor." alt="" coords="5,75,152,119"/>
+<area shape="rect" id="Node000002" href="$structStyyxUtil_1_1ActorUtil.html#a068c5c6a9327b7de6d5769fab36f983d" title="Get maximum Health of an actor." alt="" coords="200,5,346,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,72,196,54,192,57,144,77"/>
+<area shape="rect" id="Node000003" href="$structStyyxUtil_1_1ActorUtil.html#a7ee3de415e089aadeee3820f7b0d3eb2" title="Get maximum Magicka of an actor." alt="" coords="200,75,346,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,94,187,96,182,98,153,100"/>
+<area shape="rect" id="Node000004" href="$structStyyxUtil_1_1ActorUtil.html#ac3286625beced2411e0bfbef99ea9aad" title="Get maximum Stamina of an actor." alt="" coords="200,144,346,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="143,117,197,138,192,139,143,123"/>
+</map>

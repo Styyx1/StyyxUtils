@@ -1,34 +1,34 @@
 <map id="include/styyx&#45;utils.h" name="include/styyx&#45;utils.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="552,5,690,32"/>
-<area shape="rect" id="Node000002" href="$st-random_8h.html" title=" " alt="" coords="5,80,96,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="549,27,358,49,112,82,111,77,357,44,554,25"/>
-<area shape="rect" id="Node000003" href="$st-magic_8h.html" title=" " alt="" coords="120,80,202,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="550,29,403,52,218,82,217,77,402,47,555,28"/>
-<area shape="rect" id="Node000004" href="$st-actor_8h.html" title=" " alt="" coords="227,80,303,107"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="555,34,323,83,319,83,318,78,322,77,560,32"/>
-<area shape="rect" id="Node000006" href="$st-misc_8h.html" title=" " alt="" coords="304,155,379,181"/>
-<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="550,29,445,51,398,65,368,82,359,94,352,109,344,141,340,137,347,107,354,92,365,78,396,60,444,46,555,28"/>
-<area shape="rect" id="Node000007" href="$st-cells_8h.html" title=" " alt="" coords="379,80,453,107"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="588,32,467,77,465,72,583,33"/>
-<area shape="rect" id="Node000008" href="$st-menu_8h.html" title=" " alt="" coords="478,80,557,107"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="606,32,549,73,546,69,601,34"/>
-<area shape="rect" id="Node000009" href="$st-forms_8h.html" title=" " alt="" coords="581,80,661,107"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="623,31,623,66,619,63,619,35"/>
-<area shape="rect" id="Node000010" href="$st-timer_8h.html" title=" " alt="" coords="686,80,762,107"/>
-<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="640,30,696,71,691,70,638,35"/>
-<area shape="rect" id="Node000011" href="$st-refs_8h.html" title=" " alt="" coords="786,80,856,107"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="656,30,775,74,769,74,656,35"/>
-<area shape="rect" id="Node000012" href="$st-perks_8h.html" title=" " alt="" coords="880,80,960,107"/>
-<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="674,30,868,79,862,79,673,35"/>
-<area shape="rect" id="Node000014" href="$st-sounds_8h.html" title=" " alt="" coords="983,80,1072,107"/>
-<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="690,28,971,79,965,80,690,34"/>
-<area shape="rect" id="Node000015" href="$st-crimes_8h.html" title=" " alt="" coords="1097,80,1183,107"/>
-<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="690,24,864,45,1084,79,1079,80,863,50,690,30"/>
-<area shape="rect" id="Node000016" href="$st-math_8h.html" title=" " alt="" coords="1207,80,1283,107"/>
-<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="690,22,910,40,1049,56,1194,80,1189,80,1048,62,910,46,690,27"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="222,155,279,181"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="265,105,258,141,254,138,261,109"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="279,105,320,144,315,144,277,110"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="868,155,972,181"/>
-<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="922,105,922,141,918,137,918,109"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="586,5,740,33"/>
+<area shape="rect" id="Node000002" href="$st-actor_8h.html" title=" " alt="" coords="12,81,96,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="583,28,373,50,114,84,112,84,109,79,113,78,372,45,588,26"/>
+<area shape="rect" id="Node000004" href="$st-misc_8h.html" title=" " alt="" coords="92,157,173,184"/>
+<area shape="poly" id="edge10_Node000001_Node000004" title=" " alt="" coords="583,20,475,24,349,33,288,41,234,51,190,65,160,83,149,95,142,110,135,143,131,140,137,108,145,92,156,79,188,61,233,46,287,36,348,28,475,19,589,19"/>
+<area shape="rect" id="Node000005" href="$st-cells_8h.html" title=" " alt="" coords="170,81,250,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="584,31,442,53,266,83,265,78,441,48,589,30"/>
+<area shape="rect" id="Node000006" href="$st-crimes_8h.html" title=" " alt="" coords="275,81,369,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="599,34,385,83,384,77,604,33"/>
+<area shape="rect" id="Node000007" href="$st-forms_8h.html" title=" " alt="" coords="394,81,482,109"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="625,33,493,78,492,73,620,34"/>
+<area shape="rect" id="Node000008" href="$st-magic_8h.html" title=" " alt="" coords="506,81,596,109"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="646,33,585,75,582,70,641,34"/>
+<area shape="rect" id="Node000009" href="$st-math_8h.html" title=" " alt="" coords="621,81,705,109"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="665,32,665,67,661,64,661,36"/>
+<area shape="rect" id="Node000010" href="$st-menu_8h.html" title=" " alt="" coords="729,81,816,109"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="683,31,743,72,738,72,682,36"/>
+<area shape="rect" id="Node000011" href="$st-perks_8h.html" title=" " alt="" coords="840,81,926,109"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="703,31,832,76,827,76,702,36"/>
+<area shape="rect" id="Node000013" href="$st-random_8h.html" title=" " alt="" coords="950,81,1051,109"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="724,31,938,79,933,80,724,36"/>
+<area shape="rect" id="Node000014" href="$st-refs_8h.html" title=" " alt="" coords="1075,81,1150,109"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="740,27,885,47,1062,80,1057,81,884,53,740,33"/>
+<area shape="rect" id="Node000015" href="$st-sounds_8h.html" title=" " alt="" coords="1174,81,1270,109"/>
+<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="740,25,927,46,1161,80,1156,81,926,51,740,30"/>
+<area shape="rect" id="Node000016" href="$st-timer_8h.html" title=" " alt="" coords="1294,81,1379,109"/>
+<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="740,22,977,41,1126,57,1281,81,1276,81,1125,62,977,46,740,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,157,68,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="53,107,46,142,41,140,49,111"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="69,107,110,145,105,147,67,112"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="826,157,940,184"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="885,107,885,143,881,139,881,111"/>
 </map>

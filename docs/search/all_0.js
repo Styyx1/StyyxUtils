@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['actorhaseffectoftypeactive_0',['ActorHasEffectOfTypeActive',['../struct_styyx_util_1_1_actor_util.html#aceeefb586e8e188ac5c2b56c6eb09359',1,'StyyxUtil::ActorUtil']]],
-  ['actorhasequippedheavyarmor_1',['ActorHasEquippedHeavyArmor',['../struct_styyx_util_1_1_actor_util.html#a0845e8292ab809113e27f8e6aa246000',1,'StyyxUtil::ActorUtil']]],
-  ['actorhasequippedlightarmor_2',['ActorHasEquippedLightArmor',['../struct_styyx_util_1_1_actor_util.html#ab1186a437458b9fe1f65ab5e1ec7353c',1,'StyyxUtil::ActorUtil']]],
-  ['actorhasitem_3',['ActorHasItem',['../struct_styyx_util_1_1_actor_util.html#a6934388241afe34d403f729e81c93429',1,'StyyxUtil::ActorUtil']]],
-  ['actorhasquestobjectinhand_4',['ActorHasQuestObjectInHand',['../struct_styyx_util_1_1_actor_util.html#acc6140f767f37f1eedc79d342d94e077',1,'StyyxUtil::ActorUtil']]],
-  ['actorutil_5',['ActorUtil',['../struct_styyx_util_1_1_actor_util.html',1,'StyyxUtil']]],
-  ['additem_6',['AddItem',['../struct_styyx_util_1_1_actor_util.html#aa4cbf9d4b6c1dd3840661f82bf84d97c',1,'StyyxUtil::ActorUtil']]],
-  ['additemplayer_7',['AddItemPlayer',['../struct_styyx_util_1_1_actor_util.html#a00e132f83737004d96d9c0b4927c9015',1,'StyyxUtil::ActorUtil']]],
-  ['applyspell_8',['ApplySpell',['../struct_styyx_util_1_1_magic_util.html#af2988f01d5cb5334b89e8259ca95c30e',1,'StyyxUtil::MagicUtil']]],
-  ['attackstatetostring_9',['AttackStateToString',['../group___enum_to_string.html#gab707647cb0b9513241e15bc7fb4839d9',1,'StyyxUtil::MiscUtil']]]
+  ['_5fcallback_0',['_callback',['../classFUCK_1_1MenuEventListener.html#a3a0f563671cfd377c9803a7d56944573',1,'FUCK::MenuEventListener']]],
+  ['_5fhandle_1',['_handle',['../classFUCK_1_1Image.html#ac43c7b58a6fa436fb14907fbfa0da1cf',1,'FUCK::Image']]],
+  ['_5fheight_2',['_height',['../classFUCK_1_1Image.html#ac369a8e791037e24827e21b2760d0a97',1,'FUCK::Image']]],
+  ['_5fpluginname_3',['_pluginName',['../classFUCK_1_1PluginSettings.html#a14645a857af48fcbad299791b2e52516',1,'FUCK::PluginSettings']]],
+  ['_5fwidth_4',['_width',['../classFUCK_1_1Image.html#a5e0d802f5da772091b7064cf43da4df9',1,'FUCK::Image']]]
 ];

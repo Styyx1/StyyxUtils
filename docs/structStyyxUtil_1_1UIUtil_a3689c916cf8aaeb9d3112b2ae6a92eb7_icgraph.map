@@ -1,0 +1,15 @@
+<map id="StyyxUtil::UIUtil::HelpMarker" name="StyyxUtil::UIUtil::HelpMarker">
+<area shape="rect" id="Node000001" title="Draw a ? that pops up some help text in SKSE Menu Framework." alt="" coords="188,179,322,223"/>
+<area shape="rect" id="Node000002" href="$structStyyxUtil_1_1UIUtil.html#acd536669a9ee70d084683d4cb2870fa4" title=" " alt="" coords="5,5,140,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,166,189,116,138,64,123,53,122,48,141,60,193,112,233,166"/>
+<area shape="rect" id="Node000003" href="$structStyyxUtil_1_1UIUtil.html#aa4680e62e247deb40792f271b05c0c24" title=" " alt="" coords="5,75,140,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,172,138,134,119,123,118,117,141,129,207,169"/>
+<area shape="rect" id="Node000004" href="$structStyyxUtil_1_1UIUtil.html#a8d3da41c6d638fef3e4323b52e7e9c16" title=" " alt="" coords="5,144,140,189"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="170,187,141,182,139,177,174,184"/>
+<area shape="rect" id="Node000005" href="$structStyyxUtil_1_1UIUtil.html#aae0faa8a16a84ebb8d660ea913deec7c" title=" " alt="" coords="5,213,140,258"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="170,218,141,225,139,221,174,215"/>
+<area shape="rect" id="Node000006" href="$structStyyxUtil_1_1UIUtil.html#a222a0ae9c63c318d3bd135cd2b6473b8" title=" " alt="" coords="5,283,140,327"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="203,233,141,273,120,284,117,280,138,268,207,230"/>
+<area shape="rect" id="Node000007" href="$structStyyxUtil_1_1UIUtil.html#a980b2ef68f7f5c5cb85b802580e3403d" title="Template to easily set up a slider with help text and have it optionally run a function if the slider..." alt="" coords="5,352,140,397"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="233,234,193,290,141,342,124,354,121,349,138,338,189,286,229,238"/>
+</map>

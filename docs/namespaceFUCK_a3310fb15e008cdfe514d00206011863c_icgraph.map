@@ -1,0 +1,21 @@
+<map id="FUCK::GetResolutionScale" name="FUCK::GetResolutionScale">
+<area shape="rect" id="Node000001" title="Gets the physical screen resolution scale multiplier (Base 1080p)." alt="" coords="708,109,901,137"/>
+<area shape="rect" id="Node000002" href="$namespaceFUCK.html#a7f16b6582e882f4662297a06bf7048a9" title=" " alt="" coords="536,31,637,58"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="747,104,627,62,628,56,752,103"/>
+<area shape="rect" id="Node000003" href="$namespaceFUCK.html#ab9ae1980799a7b7a5476f0f690bb7df6" title="Scales by the Monitor Resolution." alt="" coords="536,83,637,110"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="690,110,637,105,637,100,696,109"/>
+<area shape="rect" id="Node000009" href="$namespaceFUCK.html#a2ca6dc586b15b3b4197126d9b729d2a7" title=" " alt="" coords="536,135,637,162"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="696,136,637,145,637,140,690,136"/>
+<area shape="rect" id="Node000010" href="$namespaceFUCK.html#a0ca8114ed7d2226983c4f9470c5dac25" title="WASD key widget nudging." alt="" coords="513,187,660,214"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="752,142,629,189,627,183,746,143"/>
+<area shape="rect" id="Node000004" href="$namespaceFUCK.html#af307af39c3cff5636384ee3a167922a1" title="Begins an inset child panel using an inside&#45;out group margin. This prevents native ImGui window paddi..." alt="" coords="281,5,460,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="527,77,512,72,464,48,429,36,429,31,466,43,514,67,532,77"/>
+<area shape="rect" id="Node000005" href="$namespaceFUCK.html#af17f557c7e6bc22d4d23bda2e4f6cf3d" title="Clamps a window or widget position to the screen bounds if it strays too far off&#45;screen." alt="" coords="277,57,465,85"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="518,89,465,85,465,80,524,89"/>
+<area shape="rect" id="Node000007" href="$namespaceFUCK.html#a32a026b2e400afc9616385d3ab2f3a18" title="Visual for UI widget editing. Handles Screen&#45;Space and Window&#45;Space." alt="" coords="278,109,464,137"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="518,105,464,114,464,109,523,104"/>
+<area shape="rect" id="Node000008" href="$namespaceFUCK.html#a073afb1f1cdcdbef3c244ea3bbd82292" title="Closes the panel opened by BeginPanelFrame." alt="" coords="288,161,454,189"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="532,116,514,126,466,151,430,163,429,158,464,146,512,121,526,117"/>
+<area shape="rect" id="Node000006" href="$namespaceFUCK.html#a015639c7f82a3f1582d9825bac32498d" title="Handles first&#45;frame initialization, default loading, and screen clamping for custom&#45;positioned window..." alt="" coords="5,57,229,85"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="258,72,230,74,229,69,264,70"/>
+</map>

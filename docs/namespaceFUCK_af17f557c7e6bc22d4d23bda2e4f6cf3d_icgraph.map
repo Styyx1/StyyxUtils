@@ -1,0 +1,5 @@
+<map id="FUCK::ClampPosToScreen" name="FUCK::ClampPosToScreen">
+<area shape="rect" id="Node000001" title="Clamps a window or widget position to the screen bounds if it strays too far off&#45;screen." alt="" coords="277,5,465,33"/>
+<area shape="rect" id="Node000002" href="$namespaceFUCK.html#a015639c7f82a3f1582d9825bac32498d" title="Handles first&#45;frame initialization, default loading, and screen clamping for custom&#45;positioned window..." alt="" coords="5,5,229,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="258,19,229,22,229,17,264,19"/>
+</map>

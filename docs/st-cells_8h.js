@@ -1,4 +1,4 @@
 var st_cells_8h =
 [
-    [ "StyyxUtil::CellUtil", "struct_styyx_util_1_1_cell_util.html", "struct_styyx_util_1_1_cell_util" ]
+    [ "StyyxUtil::CellUtil", "structStyyxUtil_1_1CellUtil.html", "structStyyxUtil_1_1CellUtil" ]
 ];

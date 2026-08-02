@@ -30,23 +30,27 @@ var NAVTREE =
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ]
+        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
+        [ "Functions", "namespacemembers_func.html", "namespacemembers_func" ],
+        [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "Variables", "functions_vars.html", "functions_vars" ],
+        [ "Typedefs", "functions_type.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -55,8 +59,11 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"struct_styyx_util_1_1_randomiser_util.html#a4b1df3000125872ebdd3a23c66bbced3"
+"FUCK__API_8h.html",
+"namespaceFUCK.html#a27ef46bb3019fa54b6cdf6ddeb4f10cc",
+"namespaceFUCK.html#abf42a73082fdc65026c92f3db9144e9a",
+"structFUCK__Interface.html#a5c9476d28f57fa9c16bde969a8cf5c9e",
+"structStyyxUtil_1_1DBGUtil_1_1ScopedSharedLock.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

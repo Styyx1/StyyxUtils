@@ -1,0 +1,7 @@
+<map id="StyyxUtil::TimerUtil::IsExpired" name="StyyxUtil::TimerUtil::IsExpired">
+<area shape="rect" id="Node000001" title="Check if a limited timer has ran out or not." alt="" coords="5,40,155,85"/>
+<area shape="rect" id="Node000002" href="$structStyyxUtil_1_1TimerUtil.html#a046151ed672756aa76b3a7640fd98775" title="Get the time the timer runs for." alt="" coords="203,5,352,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,47,190,43,185,44,156,52"/>
+<area shape="rect" id="Node000003" href="$structStyyxUtil_1_1TimerUtil.html#aaefea3e01ad797501a0520a2fe4fb976" title="Stop the timer." alt="" coords="203,75,352,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,73,190,81,185,81,155,78"/>
+</map>
