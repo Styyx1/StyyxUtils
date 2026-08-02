@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 
+#include "RE/P/PlayerCharacter.h"
 #include "st-misc.h"
 
 namespace StyyxUtil
@@ -89,8 +90,8 @@ struct ActorUtil
         }
     }
 
-    /// @brief Check if an actor has any heavy armor equipped. It returning false
-    /// does not mean the actor has light armor equipped
+    /// @brief Check if an actor has any heavy armor equipped. It returning false does not mean the actor has light
+    /// armor equipped
     /// @param actor Actor to check
     /// @return returns true if the actor has any heavy armor equipped
     static bool ActorHasEquippedHeavyArmor(RE::Actor* actor)
@@ -116,8 +117,8 @@ struct ActorUtil
         }
         return false;
     }
-    /// @brief Check if an actor has any light armor equipped. It returning false
-    /// does not mean the actor has heavy armor equipped
+    /// @brief Check if an actor has any light armor equipped. It returning false does not mean the actor has heavy
+    /// armor equipped
     /// @param actor Actor to check
     /// @return returns true if the actor has any light armor equipped
     static bool ActorHasEquippedLightArmor(const RE::Actor* actor)
@@ -148,8 +149,7 @@ struct ActorUtil
     /// attack of opportunity should be possible
     /// @param victim The actor being attacked
     /// @param attacker The attacking Actor
-    /// @return True if Actor is in a state an attack of opportunity should be
-    /// possible
+    /// @return True if Actor is in a state an attack of opportunity should be possible
     static bool IsInOpportunityState(RE::Actor* victim, const RE::Actor* attacker)
     {
 
@@ -231,9 +231,8 @@ struct ActorUtil
     /// @param a_actor The actor to check
     /// @return True if actor has the Dragon keyword
     /// @note the Default Object in skyrim.esm is empty for that \n
-    /// [This](https://www.nexusmods.com/skyrimspecialedition/mods/163540) is a
-    /// mod that fixes this \n Here we do a manual lookup in case the default
-    /// object is null
+    /// [This](https://www.nexusmods.com/skyrimspecialedition/mods/163540) is a mod that fixes this \n
+    /// Here we do a manual lookup in case the default object is null
     static bool IsDragon(const RE::Actor* a_actor)
     {
 
@@ -506,8 +505,7 @@ struct ActorUtil
 
     /// @brief Get the weapon a character is currently wielding
     /// @param a_actor The actor to check
-    /// @return The weapon the actor is currently wielding. If none, returns
-    /// nullptr
+    /// @return The weapon the actor is currently wielding. If none, returns nullptr
     /// @note Credits: [Valhalla Combat by
     /// D7ry](https://github.com/D7ry/valhallaCombat/blob/48fb4c3b9bb6bbaa691ce41dbd33f096b74c07e3/src/include/Utils.cpp#L10)
     static RE::TESObjectWEAP* GetWieldingWeapon(RE::Actor* a_actor)
@@ -596,8 +594,7 @@ struct ActorUtil
     /// @param a_radius The radius to search for actors
     /// @param a_ignorePlayer Ignore the player as actor
     /// @return vector of all actors in a set radius around a reference
-    /// @note Credits: [Papyrus Extender by
-    /// PO3](https://github.com/powerof3/PapyrusExtenderSSE/)
+    /// @note Credits: [Papyrus Extender by PO3](https://github.com/powerof3/PapyrusExtenderSSE/)
     static std::vector<RE::Actor*> GetNearbyActors(const RE::TESObjectREFR* a_ref, const float a_radius,
                                                    const bool a_ignorePlayer)
     {
@@ -677,12 +674,20 @@ struct ActorUtil
         return GetClosestFromVector(a_ref, nearby_actors);
     }
 
-    /// @brief Runs the console command SetLevel to set an actor's level to the
-    /// amount
+    static bool IsNearbyPlayer(RE::Actor* a_actor)
+    {
+
+        auto player = RE::PlayerCharacter::GetSingleton();
+
+        auto dist = a_actor->GetPosition().GetSquaredDistance(player->GetPosition());
+
+        return a_actor && a_actor->GetPosition().GetSquaredDistance(player->GetPosition()) <= 256 * 256;
+    }
+
+    /// @brief Runs the console command SetLevel to set an actor's level to the amount
     /// @param actor The actor to set the level of
     /// @param level The level the actor gets set to
-    /// @note The console command also updates the actor's stats which the
-    /// standalone function does not do automatically
+    /// @note The console command also updates the actor's stats which the standalone function does not do automatically
     static void SetNPCLevel(RE::Actor* actor, uint16_t level)
     {
         MiscUtil::RunConsoleCommandOnRef(actor, std::format("SetLevel {}", level));
