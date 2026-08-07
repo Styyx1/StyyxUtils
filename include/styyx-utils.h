@@ -9,6 +9,7 @@
 #include "st-menu.h"
 #include "st-misc.h"
 #include "st-perks.h"
+#include "st-player.h"
 #include "st-random.h"
 #include "st-refs.h"
 #include "st-sounds.h"
