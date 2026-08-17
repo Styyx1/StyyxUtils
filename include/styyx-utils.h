@@ -1,6 +1,7 @@
 #pragma once
 
 #include "st-actor.h"
+#include "st-calendar.h"
 #include "st-cells.h"
 #include "st-crimes.h"
 #include "st-forms.h"
