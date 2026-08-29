@@ -35,7 +35,7 @@ template <class T>
 void WriteCall5(const REL::ID a_relID, const uint32_t a_offset)
 {
     static REL::Relocation<uintptr_t> targ{a_relID, a_offset};
-    auto& trampoline = SKSE::GetTrampoline();
+    auto& trampoline = REL::GetTrampoline();
     T::func          = trampoline.write_call<5>(targ.address(), T::Call);
 }
 template <class O, uint32_t table, uint32_t index, class T>
@@ -76,8 +76,8 @@ void hook_function_prologue(std::uintptr_t a_src)
     Patch p(a_src, BYTES);
     p.ready();
 
-    auto& trampoline = SKSE::GetTrampoline();
-    trampoline.write_branch<5>(a_src, T::thunk);
+    auto& trampoline = REL::GetTrampoline();
+    trampoline.write_jmp<5>(a_src, T::thunk);
 
     auto alloc = trampoline.allocate(p.getSize());
     std::memcpy(alloc, p.getCode(), p.getSize());

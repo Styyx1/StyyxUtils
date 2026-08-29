@@ -581,7 +581,7 @@ inline bool Connect(const char* pluginName, unsigned int a_minVersion = FUCK_API
 {
     if (!pluginName || pluginName[0] == '\0')
     {
-        SKSE::log::error("FUCK API Connection failed: You must provide a valid pluginName.");
+        REX::ERROR("FUCK API Connection failed: You must provide a valid pluginName.");
         return false;
     }
 
@@ -594,7 +594,7 @@ inline bool Connect(const char* pluginName, unsigned int a_minVersion = FUCK_API
     auto* iface = static_cast<FUCK_Interface*>(fetcher());
     if (!iface || iface->version < a_minVersion)
     {
-        SKSE::log::error("FUCK API Version Mismatch: Expected {}, found {}", a_minVersion, iface ? iface->version : 0);
+        REX::ERROR("FUCK API Version Mismatch: Expected {}, found {}", a_minVersion, iface ? iface->version : 0);
         return false;
     }
 
@@ -604,7 +604,7 @@ inline bool Connect(const char* pluginName, unsigned int a_minVersion = FUCK_API
     g_pluginName = pluginName;
     GetInterface()->LoadTranslation(pluginName);
 
-    SKSE::log::info("Connected to FUCK API version {}", iface->version);
+    REX::INFO("Connected to FUCK API version {}", iface->version);
     return true;
 }
 

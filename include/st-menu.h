@@ -55,24 +55,24 @@ struct MenuUtil
                 switch (a_val.GetType())
                 {
                     case RE::GFxValue::ValueType::kNumber:
-                        SKSE::log::info("{} = {}", full_path, a_val.GetNumber());
+                        REX::INFO("{} = {}", full_path, a_val.GetNumber());
                         break;
                     case RE::GFxValue::ValueType::kBoolean:
-                        SKSE::log::info("{} = {}", full_path, a_val.GetBool());
+                        REX::INFO("{} = {}", full_path, a_val.GetBool());
                         break;
                     case RE::GFxValue::ValueType::kString:
-                        SKSE::log::info("{} = {}", full_path, a_val.GetString());
+                        REX::INFO("{} = {}", full_path, a_val.GetString());
                         break;
                     case RE::GFxValue::ValueType::kObject:
                     case RE::GFxValue::ValueType::kDisplayObject:
                     {
-                        SKSE::log::info("{} = [object]", full_path);
+                        REX::INFO("{} = [object]", full_path);
                         auto val_copy = const_cast<RE::GFxValue&>(a_val);
                         VisitMenuMembersRec(full_path.c_str(), val_copy, depth + 1, max_depth);
                         break;
                     }
                     default:
-                        SKSE::log::info("{} = [unknown]", full_path);
+                        REX::INFO("{} = [unknown]", full_path);
                         break;
                 }
             }
