@@ -60,8 +60,13 @@ struct FormUtil
     /// @ref GetFormFromString for usage details
     static RE::SpellItem* GetSpellFromString(const std::string& a_form_id_string)
     {
-        const auto form = GetFormFromString(a_form_id_string);
+        auto form = GetFormFromString(a_form_id_string);
         return form ? form->As<RE::SpellItem>() : nullptr;
+    }
+
+    static RE::TESObjectCELL* GetCellFromString(const std::string& a_form_id_string){
+        auto form = GetFormFromString(a_form_id_string);
+        return form ? form->As<RE::TESObjectCELL>() : nullptr;
     }
 
     /// @copybrief GetFormFromString
